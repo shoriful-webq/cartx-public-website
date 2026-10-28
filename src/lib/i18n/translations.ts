@@ -71,6 +71,21 @@ export const translations: Record<Locale, Translations> = {
     "home.trustLine": "Built for entrepreneurs, growing brands and online businesses.",
     "home.mockupAlt": "CartX merchant dashboard preview",
 
+    // Home Page — Brand Trust Strip (Section 02)
+    "trustStrip.badge": "ALL-IN-ONE COMMERCE PLATFORM",
+    "trustStrip.title": "Core capabilities built into every CartX store",
+    "trustStrip.pillar1.title": "Store Management",
+    "trustStrip.pillar1.desc": "Branded storefronts, custom domains, and mobile-first themes.",
+    "trustStrip.pillar2.title": "Order Management",
+    "trustStrip.pillar2.desc": "Centralized order processing, status tracking, and invoices.",
+    "trustStrip.pillar3.title": "Inventory Control",
+    "trustStrip.pillar3.desc": "Real-time stock alerts, SKU variants, and catalog management.",
+    "trustStrip.pillar4.title": "Payments & Delivery",
+    "trustStrip.pillar4.desc": "Seamless gateway connections and automated courier dispatch.",
+    "trustStrip.pillar5.title": "Business Insights",
+    "trustStrip.pillar5.desc": "Actionable sales summaries, visitor trends, and product data.",
+    "trustStrip.verifiedIntegrations": "Verified Ecosystem Integrations",
+
     // Footer Columns & Links
     "footer.brandDescription": "Next-generation e-commerce platform built for scale, localized checkouts, and automated courier fulfillment.",
     "footer.colProduct": "Product",
@@ -190,6 +205,21 @@ export const translations: Record<Locale, Translations> = {
     "home.heroDescription": "আপনার ব্র্যান্ডেড অনলাইন স্টোর তৈরি করুন এবং পণ্য, অর্ডার, ইনভেন্টরি, পেমেন্ট ও ডেলিভারি একটি সংযুক্ত প্ল্যাটফর্ম থেকে পরিচালনা করুন।",
     "home.trustLine": "উদ্যোক্তা, ক্রমবর্ধমান ব্র্যান্ড এবং অনলাইন ব্যবসার জন্য তৈরি।",
     "home.mockupAlt": "কার্টএক্স মার্চেন্ট ড্যাশবোর্ড প্রিভিউ",
+
+    // Home Page — Brand Trust Strip (Section 02)
+    "trustStrip.badge": "অল-ইন-ওয়ান কমার্স প্ল্যাটফর্ম",
+    "trustStrip.title": "প্রতিটি কার্টএক্স স্টোরের সাথে সংযুক্ত মূল সুবিধাসমূহ",
+    "trustStrip.pillar1.title": "স্টোর ম্যানেজমেন্ট",
+    "trustStrip.pillar1.desc": "ব্র্যান্ডেড স্টোরফ্রন্ট, কাস্টম ডোমেইন এবং মোবাইল-ফার্স্ট থিম।",
+    "trustStrip.pillar2.title": "অর্ডার ম্যানেজমেন্ট",
+    "trustStrip.pillar2.desc": "কেন্দ্রীভূত অর্ডার প্রসেসিং, স্ট্যাটাস ট্র্যাকিং এবং ইনভয়েস।",
+    "trustStrip.pillar3.title": "ইনভেন্টরি কন্ট্রোল",
+    "trustStrip.pillar3.desc": "রিয়েল-টাইম স্টক অ্যালার্ট, ভ্যারিয়েন্ট এবং ক্যাটালগ নিয়ন্ত্রণ।",
+    "trustStrip.pillar4.title": "পেমেন্ট ও ডেলিভারি",
+    "trustStrip.pillar4.desc": "স্থানীয় গেটওয়ে কানেকশন ও স্বয়ংক্রিয় কুরিয়ার বুকিং।",
+    "trustStrip.pillar5.title": "বিজনেস ইনসাইটস",
+    "trustStrip.pillar5.desc": "কার্যকর বিক্রয় পরিসংখ্যান, ভিজিটর ট্রেন্ড ও পারফরম্যান্স ডেটা।",
+    "trustStrip.verifiedIntegrations": "যাচাইকৃত ইকোসিস্টেম ইন্টিগ্রেশন",
 
     // Footer Columns & Links
     "footer.brandDescription": "স্কেলযোগ্য অনলাইন স্টোর, স্থানীয় চেকআউট এবং স্বয়ংক্রিয় কুরিয়ার ডেলিভারির জন্য আধুনিক ই-কমার্স প্ল্যাটফর্ম।",

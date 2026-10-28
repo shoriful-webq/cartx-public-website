@@ -47,6 +47,7 @@ export function HeroSection() {
           <div className="flex-1 max-w-2xl text-center lg:text-left">
             {/* Eyebrow pill */}
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.06] px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-primary mb-8">
+              <Sparkles className="size-3.5 text-secondary-accent" />
               <span>{t("home.eyebrow")}</span>
             </div>
 
