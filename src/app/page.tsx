@@ -4,6 +4,9 @@ import {
   ProblemSolutionSection,
   CreateStoreSection,
   FeatureOverviewSection,
+  HowItWorksSection,
+  ThemeTemplatesSection,
+  OrderInventorySection,
 } from "@/components/Home";
 
 export default function Home() {
@@ -24,8 +27,14 @@ export default function Home() {
       {/* Section 05 — Product Feature Overview */}
       <FeatureOverviewSection />
 
-      {/* Future sections will be added here, each using .section-padding
-          for consistent vertical rhythm controlled by --section-spacing-y. */}
+      {/* Section 06 — How CartX Works */}
+      <HowItWorksSection />
+
+      {/* Section 07 — Store Themes and Templates */}
+      <ThemeTemplatesSection />
+
+      {/* Section 08 — Manage Orders and Inventory */}
+      <OrderInventorySection />
     </div>
   );
 }

@@ -101,6 +101,30 @@ export const GLOBAL_CTAS: Record<string, CTAConfigItem> = {
     variant: "primary",
     external: false,
   },
+  getStarted: {
+    key: "cta.getStarted",
+    href: "/start",
+    labelEn: "Get Started",
+    labelBn: "শুরু করুন",
+    variant: "primary",
+    external: false,
+  },
+  exploreOrderManagement: {
+    key: "cta.exploreOrderManagement",
+    href: "/features/order-management",
+    labelEn: "Explore Order Management",
+    labelBn: "অর্ডার ম্যানেজমেন্ট দেখুন",
+    variant: "primary",
+    external: false,
+  },
+  previewTheme: {
+    key: "cta.previewTheme",
+    href: "/themes",
+    labelEn: "Preview Theme",
+    labelBn: "থিম প্রিভিউ দেখুন",
+    variant: "outline",
+    external: false,
+  },
 };
 
 export type CTAKey =
@@ -114,7 +138,10 @@ export type CTAKey =
   | "contactSales"
   | "talkToSupport"
   | "exploreStorefrontFeatures"
-  | "exploreAllFeatures";
+  | "exploreAllFeatures"
+  | "getStarted"
+  | "exploreOrderManagement"
+  | "previewTheme";
 
 interface CTAButtonProps {
   action: CTAKey;
