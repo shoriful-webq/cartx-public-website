@@ -133,6 +133,14 @@ export const GLOBAL_CTAS: Record<string, CTAConfigItem> = {
     variant: "primary",
     external: false,
   },
+  exploreReports: {
+    key: "cta.exploreReports",
+    href: "/features/analytics-and-reports",
+    labelEn: "Explore Reports",
+    labelBn: "রিপোর্টসমূহ দেখুন",
+    variant: "primary",
+    external: false,
+  },
 };
 
 export type CTAKey =
@@ -150,7 +158,8 @@ export type CTAKey =
   | "getStarted"
   | "exploreOrderManagement"
   | "previewTheme"
-  | "exploreMarketingFeatures";
+  | "exploreMarketingFeatures"
+  | "exploreReports";
 
 interface CTAButtonProps {
   action: CTAKey;

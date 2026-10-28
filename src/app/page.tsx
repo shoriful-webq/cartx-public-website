@@ -9,6 +9,7 @@ import {
   OrderInventorySection,
   PaymentsDeliverySection,
   MarketingGrowthSection,
+  BusinessInsightsSection,
 } from "@/components/Home";
 
 export default function Home() {
@@ -43,6 +44,9 @@ export default function Home() {
 
       {/* Section 10 — Marketing and Growth Tools */}
       <MarketingGrowthSection />
+
+      {/* Section 11 — Business Insights */}
+      <BusinessInsightsSection />
     </div>
   );
 }

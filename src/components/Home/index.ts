@@ -9,4 +9,5 @@ export { ThemeTemplatesSection, type ThemeTemplatesSectionProps } from "./theme-
 export { OrderInventorySection, type OrderInventorySectionProps } from "./order-inventory-section";
 export { PaymentsDeliverySection, type PaymentsDeliverySectionProps } from "./payments-delivery-section";
 export { MarketingGrowthSection, type MarketingGrowthSectionProps } from "./marketing-growth-section";
+export { BusinessInsightsSection, type BusinessInsightsSectionProps } from "./business-insights-section";
 export { SectionHeading, type SectionHeadingProps } from "./section-heading";
