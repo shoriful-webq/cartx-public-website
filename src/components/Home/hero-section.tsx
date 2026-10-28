@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, CheckCircle2 } from "lucide-react";
+import { Layers, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
 import { HeroDashboardMockup } from "./hero-dashboard-mockup";
@@ -46,8 +46,8 @@ export function HeroSection() {
           {/* ── Left column: Text + CTAs ── */}
           <div className="flex-1 max-w-xl text-center lg:text-left">
             {/* Eyebrow pill */}
-            <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/[0.06] px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary mb-3.5 sm:mb-4">
-             
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/[0.06] px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary mb-3.5 sm:mb-4">
+              <Layers className="size-3 text-secondary-accent" />
               <span>{t("home.eyebrow")}</span>
             </div>
 

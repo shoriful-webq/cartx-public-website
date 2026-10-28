@@ -1,4 +1,8 @@
-import { HeroSection, BrandTrustStrip } from "@/components/Home";
+import {
+  HeroSection,
+  BrandTrustStrip,
+  ProblemSolutionSection,
+} from "@/components/Home";
 
 export default function Home() {
   return (
@@ -8,6 +12,9 @@ export default function Home() {
 
       {/* Section 02 — Brand Trust Strip */}
       <BrandTrustStrip />
+
+      {/* Section 03 — Problem and Solution */}
+      <ProblemSolutionSection />
 
       {/* Future sections will be added here, each using .section-padding
           for consistent vertical rhythm controlled by --section-spacing-y. */}

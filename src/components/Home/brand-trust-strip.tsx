@@ -7,10 +7,12 @@ import {
   Boxes,
   CreditCard,
   BarChart3,
+  ShieldCheck,
   type LucideIcon,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { cn } from "@/lib/utils";
+import { SectionHeading } from "./section-heading";
 
 export interface VerifiedIntegrationLogo {
   name: string;
@@ -89,15 +91,15 @@ export function BrandTrustStrip({
       )}
     >
       <div className="container">
-        {/* Subtle section label */}
-        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-          <span className="inline-block text-[11px] font-bold uppercase tracking-widest text-primary mb-1.5">
-            {t("trustStrip.badge")}
-          </span>
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-foreground">
-            {t("trustStrip.title")}
-          </h2>
-        </div>
+        {/* ── Section Header (Standardized Hero-Aligned Lockup) ── */}
+        <SectionHeading
+          eyebrow={t("trustStrip.badge")}
+          eyebrowIcon={ShieldCheck}
+          title={t("trustStrip.title")}
+          titleGradient={true}
+          size="compact"
+          className="mb-8 sm:mb-10"
+        />
 
         {/* 5 Core Platform Pillars Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-4">

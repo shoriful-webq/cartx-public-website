@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { X, ArrowRight, Sparkles } from "lucide-react";
+import { X, ArrowRight, Zap } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 
 export interface AnnouncementProps {
@@ -47,7 +47,7 @@ export function AnnouncementBar({
         <div className="flex flex-1 items-center justify-center gap-2 text-center flex-wrap">
           {badge && (
             <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
-              <Sparkles className="size-3" />
+              <Zap className="size-3" />
               {badge}
             </span>
           )}

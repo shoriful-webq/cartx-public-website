@@ -86,6 +86,20 @@ export const translations: Record<Locale, Translations> = {
     "trustStrip.pillar5.desc": "Actionable sales summaries, visitor trends, and product data.",
     "trustStrip.verifiedIntegrations": "Verified Ecosystem Integrations",
 
+    // Home Page — Problem & Solution (Section 03)
+    "problemSolution.badge": "THE PROBLEM & THE SOLUTION",
+    "problemSolution.title": "Your Online Business, Without the Daily Chaos.",
+    "problemSolution.description": "Managing products, orders, stock, payments and delivery across disconnected tools can become difficult as your business grows. CartX brings supported workflows together in one place.",
+    "problemSolution.card1.title": "Scattered Operations",
+    "problemSolution.card1.desc": "Product, order, and inventory information kept across separate places.",
+    "problemSolution.card2.title": "Manual Work",
+    "problemSolution.card2.desc": "Repetitive order processing and manual status updates.",
+    "problemSolution.card3.title": "Limited Visibility",
+    "problemSolution.card3.desc": "Difficulty tracking sales and understanding overall business performance.",
+    "problemSolution.card4.title": "Growth Complexity",
+    "problemSolution.card4.desc": "Managing daily operations becomes harder as customer and order volume grows.",
+    "problemSolution.solutionBanner": "Manage your essential e-commerce workflows through one connected platform.",
+
     // Footer Columns & Links
     "footer.brandDescription": "Next-generation e-commerce platform built for scale, localized checkouts, and automated courier fulfillment.",
     "footer.colProduct": "Product",
@@ -220,6 +234,20 @@ export const translations: Record<Locale, Translations> = {
     "trustStrip.pillar5.title": "বিজনেস ইনসাইটস",
     "trustStrip.pillar5.desc": "কার্যকর বিক্রয় পরিসংখ্যান, ভিজিটর ট্রেন্ড ও পারফরম্যান্স ডেটা।",
     "trustStrip.verifiedIntegrations": "যাচাইকৃত ইকোসিস্টেম ইন্টিগ্রেশন",
+
+    // Home Page — Problem & Solution (Section 03)
+    "problemSolution.badge": "সমস্যা ও সমাধান",
+    "problemSolution.title": "আপনার অনলাইন ব্যবসা, প্রতিদিনের জটিলতা ছাড়াই।",
+    "problemSolution.description": "ব্যবসা বড় হওয়ার সাথে সাথে বিচ্ছিন্ন টুলে পণ্য, অর্ডার, স্টক, পেমেন্ট ও ডেলিভারি পরিচালনা করা কঠিন হয়ে পড়ে। কার্টএক্স এই সমস্ত ওয়ার্কফ্লোকে এক জায়গায় নিয়ে আসে।",
+    "problemSolution.card1.title": "Scattered Operations",
+    "problemSolution.card1.desc": "Product, order ও inventory তথ্য আলাদা জায়গায়।",
+    "problemSolution.card2.title": "Manual Work",
+    "problemSolution.card2.desc": "Repetitive order processing এবং status updates।",
+    "problemSolution.card3.title": "Limited Visibility",
+    "problemSolution.card3.desc": "Sales এবং business performance বুঝতে অসুবিধা।",
+    "problemSolution.card4.title": "Growth Complexity",
+    "problemSolution.card4.desc": "Customer ও order volume বাড়ার সঙ্গে operations পরিচালনা কঠিন হওয়া।",
+    "problemSolution.solutionBanner": "Manage your essential e-commerce workflows through one connected platform।",
 
     // Footer Columns & Links
     "footer.brandDescription": "স্কেলযোগ্য অনলাইন স্টোর, স্থানীয় চেকআউট এবং স্বয়ংক্রিয় কুরিয়ার ডেলিভারির জন্য আধুনিক ই-কমার্স প্ল্যাটফর্ম।",
