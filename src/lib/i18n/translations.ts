@@ -63,21 +63,12 @@ export const translations: Record<Locale, Translations> = {
     "btn.deployNow": "Deploy Now",
     "btn.viewAll": "View All",
 
-    // Home Page
-    "home.badge": "CartX Design System 1.0 Ready",
-    "home.heroTitle": "The modern commerce engine for hyper-growth brands",
-    "home.heroDescription": "Powering fast, localized, and ultra-scalable online storefronts across global and regional markets with effortless checkout.",
-    "home.tokenSectionTitle": "Built with CartX Global Design Tokens",
-    "home.tokenSectionSubtitle": "Consistent typography, exact brand colors, accessible contrast, and responsive spacing.",
-    "home.card1.title": "Primary & Secondary Colors",
-    "home.card1.desc": "Styled using #2563EB primary and #38BDF8 secondary accents with clean slate body text.",
-    "home.card1.badge": "High Contrast",
-    "home.card2.title": "State Indicators",
-    "home.card2.desc": "Semantic tokens for success (#16A34A), warning (#D97706), and error (#DC2626).",
-    "home.card2.badge": "WCAG Compliant",
-    "home.card3.title": "Bangla Typography Support",
-    "home.card3.desc": "Clean Bengali text rendering using Noto Sans Bengali font and responsive clamp headers.",
-    "home.card3.font": "Noto Sans Bengali + Inter",
+    // Home Page — Hero Section
+    "home.eyebrow": "YOUR BUSINESS. YOUR BRAND. YOUR ONLINE STORE.",
+    "home.heroTitle": "Build Your Online Store. Grow Your Business with CartX.",
+    "home.heroDescription": "Create your branded online store and manage products, orders, inventory, payments and delivery from one connected platform.",
+    "home.trustLine": "Built for entrepreneurs, growing brands and online businesses.",
+    "home.mockupAlt": "CartX merchant dashboard preview",
 
     // Footer Columns & Links
     "footer.brandDescription": "Next-generation e-commerce platform built for scale, localized checkouts, and automated courier fulfillment.",
@@ -191,21 +182,12 @@ export const translations: Record<Locale, Translations> = {
     "btn.deployNow": "এখনই চালু করুন",
     "btn.viewAll": "সব দেখুন",
 
-    // Home Page
-    "home.badge": "কার্টএক্স ডিজাইন সিস্টেম প্রস্তুত",
-    "home.heroTitle": "দ্রুত বর্ধনশীল ব্র্যান্ডের জন্য আধুনিক কমার্স ইঞ্জিন",
-    "home.heroDescription": "সহজ চেকআউট এবং নির্ভরযোগ্য পরিকাঠামোর মাধ্যমে দেশি ও বৈশ্বিক বাজারে দ্রুত ও স্কেলযোগ্য অনলাইন স্টোর পরিচালনা করুন।",
-    "home.tokenSectionTitle": "কার্টএক্স গ্লোবাল ডিজাইন টোকেনে নির্মিত",
-    "home.tokenSectionSubtitle": "সামঞ্জস্যপূর্ণ টাইপোগ্রাফি, সুনির্দিষ্ট ব্র্যান্ড রঙ, অ্যাক্সেসিবল বৈসাদৃশ্য এবং রেসপনসিভ স্পেসিং।",
-    "home.card1.title": "প্রাইমারি ও সেকেন্ডারি কালার",
-    "home.card1.desc": "#2563EB প্রাইমারি ব্লু এবং #38BDF8 স্কাই ব্লু অ্যাকসেন্টের সাথে মানানসই স্লেট টেক্সট।",
-    "home.card1.badge": "উচ্চ বৈসাদৃশ্য",
-    "home.card2.title": "স্ট্যাটাস নির্দেশক",
-    "home.card2.desc": "সাকসেস (#16A34A), ওয়ার্নিং (#D97706) এবং এরর (#DC2626) এর জন্য সেমান্টিক টোকেন।",
-    "home.card2.badge": "WCAG মানসম্মত",
-    "home.card3.title": "বাংলা টাইপোগ্রাফি সাপোর্ট",
-    "home.card3.desc": "নোটো সান্স বেঙ্গলি ফন্ট এবং ক্লাস্প-ভিত্তিক রেসপনসিভ হেডারের মাধ্যমে বাংলা টেক্সট মসৃণভাবে প্রদর্শিত হয়।",
-    "home.card3.font": "নোটো সান্স বেঙ্গলি + ইন্টার",
+    // Home Page — Hero Section
+    "home.eyebrow": "আপনার ব্যবসা। আপনার ব্র্যান্ড। আপনার অনলাইন স্টোর।",
+    "home.heroTitle": "আপনার অনলাইন স্টোর তৈরি করুন। কার্টএক্সের সাথে ব্যবসা বাড়ান।",
+    "home.heroDescription": "আপনার ব্র্যান্ডেড অনলাইন স্টোর তৈরি করুন এবং পণ্য, অর্ডার, ইনভেন্টরি, পেমেন্ট ও ডেলিভারি একটি সংযুক্ত প্ল্যাটফর্ম থেকে পরিচালনা করুন।",
+    "home.trustLine": "উদ্যোক্তা, ক্রমবর্ধমান ব্র্যান্ড এবং অনলাইন ব্যবসার জন্য তৈরি।",
+    "home.mockupAlt": "কার্টএক্স মার্চেন্ট ড্যাশবোর্ড প্রিভিউ",
 
     // Footer Columns & Links
     "footer.brandDescription": "স্কেলযোগ্য অনলাইন স্টোর, স্থানীয় চেকআউট এবং স্বয়ংক্রিয় কুরিয়ার ডেলিভারির জন্য আধুনিক ই-কমার্স প্ল্যাটফর্ম।",
