@@ -32,7 +32,7 @@ export function FinalCTASection({ className }: FinalCTASectionProps) {
       />
 
       <div className="container relative z-10">
-        <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
+        <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
           {/* Eyebrow Pill */}
           <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/15 px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-sky-300 mb-4 select-none">
             <Rocket className="size-3 text-secondary-accent shrink-0" />
@@ -46,7 +46,7 @@ export function FinalCTASection({ className }: FinalCTASectionProps) {
           </h2>
 
           {/* Supporting Copy */}
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl mx-auto mb-8">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto mb-8">
             {t("finalCta.description")}
           </p>
 

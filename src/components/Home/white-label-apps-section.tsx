@@ -115,14 +115,20 @@ export function WhiteLabelAppsSection({
               </div>
 
               {/* Product Browsing Experience Card */}
-              <div className="rounded-xl border border-border bg-card p-2.5">
-                <div className="aspect-4/3 rounded-lg bg-primary/5 border border-border/50 flex items-center justify-center mb-2">
-                  <ShoppingBag className="size-8 text-primary/40" />
+              <div className="rounded-xl border border-border bg-card p-2.5 shadow-2xs">
+                <div className="aspect-4/3 rounded-lg bg-gradient-to-br from-primary/10 via-sky-400/5 to-transparent border border-border/50 flex flex-col items-center justify-center relative p-2 mb-2 select-none overflow-hidden">
+                  <span className="absolute top-1 left-1 rounded bg-primary/15 border border-primary/20 px-1 py-0.2 text-[7.5px] font-bold text-primary">
+                    Top Rated
+                  </span>
+                  <ShoppingBag className="size-7 text-primary/70 mb-0.5" />
+                  <span className="text-[8.5px] font-semibold text-muted-foreground/80">
+                    Premium Cotton
+                  </span>
                 </div>
                 <p className="text-xs font-semibold text-foreground truncate">
                   {t("whiteLabelApps.customer.prodTitle")}
                 </p>
-                <div className="flex items-center justify-between mt-1">
+                <div className="flex items-center justify-between mt-1 pt-1 border-t border-border/40">
                   <span className="text-xs font-bold text-primary">
                     {t("whiteLabelApps.customer.prodPrice")}
                   </span>
@@ -147,6 +153,14 @@ export function WhiteLabelAppsSection({
                 <p className="text-[9px] text-muted-foreground">
                   {t("whiteLabelApps.customer.orderEta")}
                 </p>
+              </div>
+
+              {/* Mini Mobile Bottom Dock */}
+              <div className="pt-1.5 border-t border-border/60 flex items-center justify-around text-[8px] font-medium text-muted-foreground">
+                <span className="text-primary font-bold">Shop</span>
+                <span>Search</span>
+                <span>Cart (2)</span>
+                <span>Account</span>
               </div>
             </div>
           </div>
@@ -246,12 +260,20 @@ export function WhiteLabelAppsSection({
                   {t("whiteLabelApps.merchant.stockAlert")}
                 </p>
               </div>
+
+              {/* Mini Mobile Bottom Dock */}
+              <div className="pt-1.5 border-t border-border/60 flex items-center justify-around text-[8px] font-medium text-muted-foreground">
+                <span className="text-secondary-accent font-bold">Dashboard</span>
+                <span>Orders (3)</span>
+                <span>Stock</span>
+                <span>Settings</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* ── Package, Publishing & Platform Requirements Block ── */}
-        <div className="max-w-3xl mx-auto rounded-2xl border border-border bg-card p-5 sm:p-6 mb-8 shadow-xs">
+        <div className="max-w-4xl mx-auto rounded-2xl border border-border bg-card p-5 sm:p-6 mb-8 shadow-xs">
           <div className="flex items-center gap-2.5 mb-3.5">
             <ShieldCheck className="size-5 text-primary shrink-0" />
             <h4 className="text-sm sm:text-base font-bold text-foreground">

@@ -106,7 +106,7 @@ export function ProblemSolutionSection({
         </div>
 
         {/* ── 3. Solution Statement Banner / Footer Block ── */}
-        <div className="relative rounded-xl sm:rounded-2xl border border-primary/25 bg-primary/[0.04] p-5 sm:p-6 lg:p-7 shadow-xs max-w-3xl mx-auto text-center">
+        <div className="relative rounded-xl sm:rounded-2xl border border-primary/25 bg-primary/[0.04] p-5 sm:p-6 lg:p-7 shadow-xs max-w-4xl mx-auto text-center">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5">
             <div className="size-8 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
               <Layers className="size-4 text-secondary-accent" />

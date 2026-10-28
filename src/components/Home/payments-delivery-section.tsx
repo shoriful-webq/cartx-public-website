@@ -283,7 +283,7 @@ export function PaymentsDeliverySection({
         </div>
 
         {/* ── Centralized Factual Accuracy Notice ── */}
-        <div className="max-w-3xl mx-auto rounded-xl border border-border bg-card/60 p-3.5 sm:p-4 text-center mb-8">
+        <div className="max-w-4xl mx-auto rounded-xl border border-border bg-card/60 p-3.5 sm:p-4 text-center mb-8">
           <p className="text-xs text-muted-foreground leading-relaxed">
             {t("paymentsDelivery.accuracyNotice")}
           </p>

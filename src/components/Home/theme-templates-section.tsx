@@ -27,6 +27,9 @@ interface ThemeItem {
   badgeColor: string;
   accentGradient: string;
   tagline: string;
+  sampleItem: string;
+  samplePrice: string;
+  sampleTag: string;
   paletteDots: string[];
 }
 
@@ -41,6 +44,9 @@ const THEME_PREVIEWS: ThemeItem[] = [
     badgeColor: "text-primary",
     accentGradient: "from-blue-500/20 via-sky-400/10 to-transparent",
     tagline: "Editorial & Apparel",
+    sampleItem: "Linen Blazer",
+    samplePrice: "৳2,450",
+    sampleTag: "New Season",
     paletteDots: ["bg-slate-900", "bg-blue-600", "bg-amber-100"],
   },
   {
@@ -53,6 +59,9 @@ const THEME_PREVIEWS: ThemeItem[] = [
     badgeColor: "text-secondary-accent",
     accentGradient: "from-sky-500/20 via-cyan-400/10 to-transparent",
     tagline: "Tech & Specs",
+    sampleItem: "Pro ANC Pods",
+    samplePrice: "৳4,800",
+    sampleTag: "Hi-Res Audio",
     paletteDots: ["bg-slate-950", "bg-sky-500", "bg-emerald-400"],
   },
   {
@@ -65,6 +74,9 @@ const THEME_PREVIEWS: ThemeItem[] = [
     badgeColor: "text-rose-600 dark:text-rose-400",
     accentGradient: "from-rose-500/20 via-pink-400/10 to-transparent",
     tagline: "Beauty & Wellness",
+    sampleItem: "Botanical Serum",
+    samplePrice: "৳1,650",
+    sampleTag: "100% Organic",
     paletteDots: ["bg-rose-950", "bg-rose-400", "bg-pink-100"],
   },
   {
@@ -77,6 +89,9 @@ const THEME_PREVIEWS: ThemeItem[] = [
     badgeColor: "text-emerald-600 dark:text-emerald-400",
     accentGradient: "from-emerald-500/20 via-teal-400/10 to-transparent",
     tagline: "Organic & Pantry",
+    sampleItem: "Farm Fresh Box",
+    samplePrice: "৳650",
+    sampleTag: "Same-Day",
     paletteDots: ["bg-emerald-950", "bg-emerald-500", "bg-lime-200"],
   },
 ];
@@ -123,7 +138,7 @@ export function ThemeTemplatesSection({ className }: ThemeTemplatesSectionProps)
             return (
               <div
                 key={theme.id}
-                className="group relative rounded-xl border border-border bg-card p-4 sm:p-5 shadow-xs transition-all duration-200 hover:border-primary/40 hover:shadow-card flex flex-col justify-between"
+                className="group relative rounded-xl border border-border bg-card p-4 sm:p-5 shadow-xs transition-all duration-200 hover:border-primary/40 hover:shadow-card flex flex-col justify-between h-full"
               >
                 <div>
                   {/* Theme Thumbnail / Storefront Preview Mockup */}
@@ -176,27 +191,36 @@ export function ThemeTemplatesSection({ className }: ThemeTemplatesSectionProps)
                       </div>
 
                       {/* Visual Hero Mockup Banner */}
-                      <div className="relative rounded-md bg-card/90 border border-border/60 p-2 text-center my-1">
-                        <p className="text-[9px] font-extrabold text-foreground tracking-tight">
+                      <div className="relative rounded-md bg-card/90 border border-border/60 p-2 text-center my-1 shadow-2xs">
+                        <p className="text-[9.5px] font-extrabold text-foreground tracking-tight">
                           {theme.tagline}
                         </p>
-                        <div className="flex items-center justify-center gap-1 mt-1">
-                          <span className="h-1 w-8 rounded-full bg-primary/40" />
-                          <span className="h-1 w-4 rounded-full bg-border" />
+                        <div className="flex items-center justify-center gap-1.5 mt-0.5">
+                          <span className="text-[8px] font-semibold text-primary bg-primary/10 px-1 rounded">
+                            {theme.sampleTag}
+                          </span>
                         </div>
                       </div>
 
                       {/* Mini Product Cards Grid Simulation */}
                       <div className="relative grid grid-cols-2 gap-1.5">
-                        <div className="rounded border border-border/60 bg-card p-1 text-[8px]">
-                          <div className="h-4 rounded bg-muted/60 mb-1" />
-                          <div className="h-1.5 w-3/4 rounded bg-foreground/40 mb-0.5" />
-                          <div className="h-1.5 w-1/2 rounded bg-primary/50" />
+                        <div className="rounded border border-border/60 bg-card p-1 text-[8px] flex flex-col justify-between">
+                          <div className="h-5 rounded bg-primary/10 flex items-center justify-center text-[7.5px] font-bold text-primary mb-0.5">
+                            {theme.sampleItem}
+                          </div>
+                          <div className="flex items-center justify-between pt-0.5 border-t border-border/40">
+                            <span className="font-bold text-foreground text-[8px]">{theme.samplePrice}</span>
+                            <span className="text-[7px] text-success font-semibold">In Stock</span>
+                          </div>
                         </div>
-                        <div className="rounded border border-border/60 bg-card p-1 text-[8px]">
-                          <div className="h-4 rounded bg-muted/60 mb-1" />
-                          <div className="h-1.5 w-3/4 rounded bg-foreground/40 mb-0.5" />
-                          <div className="h-1.5 w-1/2 rounded bg-primary/50" />
+                        <div className="rounded border border-border/60 bg-card p-1 text-[8px] flex flex-col justify-between">
+                          <div className="h-5 rounded bg-muted/60 flex items-center justify-center text-[7.5px] font-medium text-muted-foreground mb-0.5">
+                            Featured
+                          </div>
+                          <div className="flex items-center justify-between pt-0.5 border-t border-border/40">
+                            <span className="font-bold text-foreground text-[8px]">New</span>
+                            <span className="text-[7px] text-primary font-semibold">Buy</span>
+                          </div>
                         </div>
                       </div>
                     </div>

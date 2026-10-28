@@ -24,6 +24,7 @@ interface DemoStoreCard {
   badgeBg: string;
   badgeColor: string;
   accentGradient: string;
+  samplePrices: string[];
 }
 
 const DEMO_STORES: DemoStoreCard[] = [
@@ -37,6 +38,7 @@ const DEMO_STORES: DemoStoreCard[] = [
     badgeBg: "bg-primary/10",
     badgeColor: "text-primary",
     accentGradient: "from-blue-600/15 via-sky-400/10 to-transparent",
+    samplePrices: ["৳1,850", "৳2,400", "৳980"],
   },
   {
     id: "volt-electronics",
@@ -48,6 +50,7 @@ const DEMO_STORES: DemoStoreCard[] = [
     badgeBg: "bg-secondary-accent/15",
     badgeColor: "text-secondary-accent",
     accentGradient: "from-sky-500/15 via-cyan-400/10 to-transparent",
+    samplePrices: ["৳3,500", "৳5,999", "৳1,450"],
   },
   {
     id: "lumina-beauty",
@@ -59,6 +62,7 @@ const DEMO_STORES: DemoStoreCard[] = [
     badgeBg: "bg-rose-500/10",
     badgeColor: "text-rose-600 dark:text-rose-400",
     accentGradient: "from-rose-500/15 via-pink-400/10 to-transparent",
+    samplePrices: ["৳1,650", "৳890", "৳2,250"],
   },
 ];
 
@@ -106,7 +110,7 @@ export function DemoStoreShowcaseSection({
             return (
               <div
                 key={store.id}
-                className="group relative rounded-xl border border-border bg-card p-4 sm:p-5 shadow-xs transition-all duration-200 hover:border-primary/40 hover:shadow-card flex flex-col justify-between"
+                className="group relative rounded-xl border border-border bg-card p-4 sm:p-5 shadow-xs transition-all duration-200 hover:border-primary/40 hover:shadow-card flex flex-col justify-between h-full"
               >
                 <div>
                   {/* Storefront Visual Preview Mockup */}
@@ -147,30 +151,27 @@ export function DemoStoreShowcaseSection({
                       </div>
 
                       {/* Mini Hero Banner */}
-                      <div className="relative rounded-md bg-card/90 border border-border/60 p-2 text-center my-1">
+                      <div className="relative rounded-md bg-card/90 border border-border/60 p-2 text-center my-1 shadow-2xs">
                         <p className="text-[9.5px] font-extrabold text-foreground tracking-tight">
                           {t(store.themeKey)}
                         </p>
-                        <div className="flex items-center justify-center gap-1 mt-1">
-                          <span className="h-1 w-6 rounded-full bg-primary/40" />
-                          <span className="h-1 w-3 rounded-full bg-border" />
+                        <div className="flex items-center justify-center gap-1 mt-0.5">
+                          <span className="text-[7.5px] font-semibold text-primary">Live Storefront</span>
                         </div>
                       </div>
 
-                      {/* Mini Cards Row */}
+                      {/* Mini Cards Row with Realistic Preview Items */}
                       <div className="relative grid grid-cols-3 gap-1">
-                        <div className="rounded border border-border/60 bg-card p-1">
-                          <div className="h-3 rounded bg-muted/60 mb-0.5" />
-                          <div className="h-1 w-2/3 rounded bg-foreground/40" />
-                        </div>
-                        <div className="rounded border border-border/60 bg-card p-1">
-                          <div className="h-3 rounded bg-muted/60 mb-0.5" />
-                          <div className="h-1 w-2/3 rounded bg-foreground/40" />
-                        </div>
-                        <div className="rounded border border-border/60 bg-card p-1">
-                          <div className="h-3 rounded bg-muted/60 mb-0.5" />
-                          <div className="h-1 w-2/3 rounded bg-foreground/40" />
-                        </div>
+                        {store.samplePrices.map((price, idx) => (
+                          <div key={idx} className="rounded border border-border/60 bg-card p-1 text-[7.5px] text-center">
+                            <div className="h-4 rounded bg-primary/10 flex items-center justify-center font-bold text-primary mb-0.5">
+                              {price}
+                            </div>
+                            <span className="text-[7px] text-muted-foreground block truncate">
+                              Item {idx + 1}
+                            </span>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>

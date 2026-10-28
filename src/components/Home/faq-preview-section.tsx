@@ -115,7 +115,7 @@ export function FAQPreviewSection({ className }: FAQPreviewSectionProps) {
         />
 
         {/* ── Accessible Accordion Layout ── */}
-        <div className="max-w-3xl mx-auto space-y-3 mb-10 sm:mb-12">
+        <div className="max-w-4xl mx-auto space-y-3 mb-10 sm:mb-12">
           {FAQ_ITEMS.map((faq, idx) => {
             const isOpen = openIndex === idx;
             const contentId = `faq-answer-${faq.id}`;

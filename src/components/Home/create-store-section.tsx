@@ -202,19 +202,26 @@ export function CreateStoreSection({ className }: CreateStoreSectionProps) {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {/* Product Card 1 */}
-                  <div className="rounded-lg border border-border bg-card p-2.5 flex flex-col justify-between">
-                    <div className="aspect-4/3 rounded-md bg-primary/5 border border-border/60 flex items-center justify-center mb-2">
-                      <ShoppingBag className="size-6 text-primary/40" />
+                  <div className="rounded-lg border border-border bg-card p-2.5 flex flex-col justify-between transition-all hover:border-primary/40 hover:shadow-xs">
+                    <div className="aspect-4/3 rounded-md bg-gradient-to-br from-blue-500/10 via-sky-400/5 to-transparent border border-border/60 flex flex-col items-center justify-center relative p-2 mb-2 select-none overflow-hidden">
+                      <span className="absolute top-1.5 left-1.5 rounded bg-primary/10 border border-primary/20 px-1.5 py-0.5 text-[8.5px] font-bold text-primary">
+                        Bestseller
+                      </span>
+                      <ShoppingBag className="size-7 text-primary/60 mb-0.5" />
+                      <span className="text-[9px] font-medium text-muted-foreground/80">
+                        100% Pure Linen
+                      </span>
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-foreground truncate">
+                      <p className="text-xs font-semibold text-foreground truncate">
                         Oxford Cotton Shirt
                       </p>
-                      <div className="flex items-center justify-between mt-1">
-                        <span className="text-xs font-bold text-foreground">
+                      <p className="text-[10px] text-muted-foreground">Apparel • Regular Fit</p>
+                      <div className="flex items-center justify-between mt-1.5 pt-1.5 border-t border-border/50">
+                        <span className="text-xs font-extrabold text-foreground">
                           ৳1,850
                         </span>
-                        <div className="flex items-center text-[9px] text-warning">
+                        <div className="flex items-center text-[9px] font-bold text-warning">
                           <Star className="size-2.5 fill-current mr-0.5" />
                           <span>4.9</span>
                         </div>
@@ -223,19 +230,26 @@ export function CreateStoreSection({ className }: CreateStoreSectionProps) {
                   </div>
 
                   {/* Product Card 2 */}
-                  <div className="rounded-lg border border-border bg-card p-2.5 flex flex-col justify-between">
-                    <div className="aspect-4/3 rounded-md bg-secondary-accent/5 border border-border/60 flex items-center justify-center mb-2">
-                      <Layers className="size-6 text-secondary-accent/50" />
+                  <div className="rounded-lg border border-border bg-card p-2.5 flex flex-col justify-between transition-all hover:border-primary/40 hover:shadow-xs">
+                    <div className="aspect-4/3 rounded-md bg-gradient-to-br from-secondary-accent/15 via-cyan-400/5 to-transparent border border-border/60 flex flex-col items-center justify-center relative p-2 mb-2 select-none overflow-hidden">
+                      <span className="absolute top-1.5 left-1.5 rounded bg-secondary-accent/20 border border-secondary-accent/30 px-1.5 py-0.5 text-[8.5px] font-bold text-secondary-accent">
+                        New Season
+                      </span>
+                      <Layers className="size-7 text-secondary-accent/70 mb-0.5" />
+                      <span className="text-[9px] font-medium text-muted-foreground/80">
+                        Stretch Cotton Twill
+                      </span>
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-foreground truncate">
+                      <p className="text-xs font-semibold text-foreground truncate">
                         Tailored Chino Pant
                       </p>
-                      <div className="flex items-center justify-between mt-1">
-                        <span className="text-xs font-bold text-foreground">
+                      <p className="text-[10px] text-muted-foreground">Bottoms • Slim Cut</p>
+                      <div className="flex items-center justify-between mt-1.5 pt-1.5 border-t border-border/50">
+                        <span className="text-xs font-extrabold text-foreground">
                           ৳2,250
                         </span>
-                        <div className="flex items-center text-[9px] text-warning">
+                        <div className="flex items-center text-[9px] font-bold text-warning">
                           <Star className="size-2.5 fill-current mr-0.5" />
                           <span>4.8</span>
                         </div>
@@ -244,19 +258,26 @@ export function CreateStoreSection({ className }: CreateStoreSectionProps) {
                   </div>
 
                   {/* Product Card 3 */}
-                  <div className="rounded-lg border border-border bg-card p-2.5 flex flex-col justify-between">
-                    <div className="aspect-4/3 rounded-md bg-success/5 border border-border/60 flex items-center justify-center mb-2">
-                      <Store className="size-6 text-success/40" />
+                  <div className="rounded-lg border border-border bg-card p-2.5 flex flex-col justify-between transition-all hover:border-primary/40 hover:shadow-xs">
+                    <div className="aspect-4/3 rounded-md bg-gradient-to-br from-emerald-500/10 via-teal-400/5 to-transparent border border-border/60 flex flex-col items-center justify-center relative p-2 mb-2 select-none overflow-hidden">
+                      <span className="absolute top-1.5 left-1.5 rounded bg-success/15 border border-success/25 px-1.5 py-0.5 text-[8.5px] font-bold text-success">
+                        Handcrafted
+                      </span>
+                      <Store className="size-7 text-success/60 mb-0.5" />
+                      <span className="text-[9px] font-medium text-muted-foreground/80">
+                        Reinforced Canvas
+                      </span>
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-foreground truncate">
-                        Canvas Tote Bag
+                      <p className="text-xs font-semibold text-foreground truncate">
+                        Minimal Canvas Tote
                       </p>
-                      <div className="flex items-center justify-between mt-1">
-                        <span className="text-xs font-bold text-foreground">
+                      <p className="text-[10px] text-muted-foreground">Bags • Daily Carry</p>
+                      <div className="flex items-center justify-between mt-1.5 pt-1.5 border-t border-border/50">
+                        <span className="text-xs font-extrabold text-foreground">
                           ৳980
                         </span>
-                        <div className="flex items-center text-[9px] text-warning">
+                        <div className="flex items-center text-[9px] font-bold text-warning">
                           <Star className="size-2.5 fill-current mr-0.5" />
                           <span>4.7</span>
                         </div>
@@ -335,11 +356,11 @@ export function CreateStoreSection({ className }: CreateStoreSectionProps) {
 
         {/* ── Feature Checklist & Central CTA ── */}
         <div className="flex flex-col items-center text-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3.5 max-w-3xl mb-8 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mb-8 w-full">
             {showcaseFeatures.map((feature, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-2 text-left p-2.5 rounded-lg bg-card border border-border/80 text-xs sm:text-sm font-medium text-foreground min-w-0"
+                className="flex items-center gap-2.5 text-left p-3 rounded-xl bg-card border border-border shadow-xs text-xs sm:text-sm font-medium text-foreground min-w-0 transition-all hover:border-primary/30"
               >
                 <CheckCircle2 className="size-4 text-success shrink-0" />
                 <span className="truncate min-w-0">{feature}</span>

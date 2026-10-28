@@ -20,6 +20,8 @@ interface OrderItem {
   statusKey: string;
   statusBadgeClass: string;
   timestamp: string;
+  paymentMethod: string;
+  courier: string;
   active?: boolean;
 }
 
@@ -32,6 +34,8 @@ const RECENT_ORDERS: OrderItem[] = [
     statusKey: "orderInventory.statusProcessing",
     statusBadgeClass: "bg-primary/10 text-primary border-primary/20",
     timestamp: "12 mins ago",
+    paymentMethod: "bKash",
+    courier: "Pathao",
     active: true,
   },
   {
@@ -42,6 +46,8 @@ const RECENT_ORDERS: OrderItem[] = [
     statusKey: "orderInventory.statusDispatched",
     statusBadgeClass: "bg-warning/10 text-warning border-warning/20",
     timestamp: "45 mins ago",
+    paymentMethod: "COD",
+    courier: "Steadfast",
   },
   {
     id: "#CX-1040",
@@ -51,6 +57,8 @@ const RECENT_ORDERS: OrderItem[] = [
     statusKey: "orderInventory.statusDelivered",
     statusBadgeClass: "bg-success/10 text-success border-success/20",
     timestamp: "2 hours ago",
+    paymentMethod: "Card",
+    courier: "RedX",
   },
 ];
 
@@ -82,7 +90,7 @@ export function OrderInventorySection({ className }: OrderInventorySectionProps)
         />
 
         {/* ── Product UI Mockup Frame ── */}
-        <div className="max-w-5xl mx-auto rounded-2xl border border-border bg-card shadow-card overflow-hidden mb-10 sm:mb-12">
+        <div className="w-full rounded-2xl border border-border bg-card shadow-card overflow-hidden mb-10 sm:mb-12">
           {/* Mockup Titlebar Header */}
           <div className="flex items-center justify-between border-b border-border px-4 py-3 bg-muted/30">
             <div className="flex items-center gap-2">
@@ -142,6 +150,14 @@ export function OrderInventorySection({ className }: OrderInventorySectionProps)
                         <p className="text-xs text-muted-foreground truncate mt-0.5">
                           {order.items}
                         </p>
+                        <div className="flex items-center gap-2 mt-1">
+                          <span className="text-[10px] font-medium text-muted-foreground bg-muted/60 px-1.5 py-0.5 rounded border border-border/60">
+                            {order.paymentMethod}
+                          </span>
+                          <span className="text-[10px] font-medium text-primary/80 bg-primary/10 px-1.5 py-0.5 rounded border border-primary/20">
+                            {order.courier}
+                          </span>
+                        </div>
                       </div>
                     </div>
 

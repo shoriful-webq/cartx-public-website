@@ -104,7 +104,7 @@ export function BusinessInsightsSection({
         </div>
 
         {/* ── Analytics Dashboard UI Preview Frame ── */}
-        <div className="max-w-5xl mx-auto rounded-2xl border border-border bg-card shadow-card overflow-hidden mb-10 sm:mb-12">
+        <div className="w-full rounded-2xl border border-border bg-card shadow-card overflow-hidden mb-10 sm:mb-12">
           {/* Top Browser / Window Bar */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-border px-4 py-3 bg-muted/30 gap-2">
             <div className="flex items-center gap-2">
@@ -156,9 +156,22 @@ export function BusinessInsightsSection({
                   </div>
                 </div>
 
-                {/* Simulated CSS/SVG Bar Chart */}
-                <div className="pt-4 border-t border-border/60">
-                  <div className="h-32 sm:h-36 flex items-end justify-between gap-2 sm:gap-3 px-2 pb-2">
+                {/* Simulated CSS/SVG Bar Chart with Horizontal Scale Lines */}
+                <div className="pt-4 border-t border-border/60 relative">
+                  {/* Subtle Grid Guidelines */}
+                  <div className="absolute inset-x-2 top-8 bottom-8 flex flex-col justify-between pointer-events-none opacity-40">
+                    <div className="border-b border-dashed border-border w-full flex justify-end">
+                      <span className="text-[8px] font-mono text-muted-foreground -mt-3">৳60k</span>
+                    </div>
+                    <div className="border-b border-dashed border-border w-full flex justify-end">
+                      <span className="text-[8px] font-mono text-muted-foreground -mt-3">৳30k</span>
+                    </div>
+                    <div className="border-b border-dashed border-border w-full flex justify-end">
+                      <span className="text-[8px] font-mono text-muted-foreground -mt-3">৳0</span>
+                    </div>
+                  </div>
+
+                  <div className="h-32 sm:h-36 flex items-end justify-between gap-2 sm:gap-4 px-2 pb-2 relative z-10">
                     {SALES_CHART_BARS.map((bar, idx) => (
                       <div
                         key={idx}
@@ -168,7 +181,7 @@ export function BusinessInsightsSection({
                           {bar.amount}
                         </span>
                         <div
-                          className="w-full rounded-t-md bg-gradient-to-t from-primary/70 to-secondary-accent transition-all duration-300 group-hover:from-primary group-hover:to-primary"
+                          className="w-full rounded-t-md bg-gradient-to-t from-primary/70 to-secondary-accent transition-all duration-300 group-hover:from-primary group-hover:to-primary shadow-xs"
                           style={{ height: `${bar.heightPercent}%` }}
                         />
                         <span className="text-[10px] font-semibold text-muted-foreground/80">
@@ -196,13 +209,22 @@ export function BusinessInsightsSection({
                     </span>
                   </div>
 
-                  <div className="my-2">
-                    <p className="text-xl sm:text-2xl font-bold text-foreground">
-                      {t("businessInsights.orders.total")}
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-0.5">
-                      {t("businessInsights.orders.avgValue")}
-                    </p>
+                  <div className="my-2 flex items-center justify-between">
+                    <div>
+                      <p className="text-xl sm:text-2xl font-bold text-foreground">
+                        {t("businessInsights.orders.total")}
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-0.5">
+                        {t("businessInsights.orders.avgValue")}
+                      </p>
+                    </div>
+
+                    {/* Sparkline curve */}
+                    <div className="w-24 h-10 select-none">
+                      <svg viewBox="0 0 100 40" className="w-full h-full text-secondary-accent fill-none stroke-current stroke-2">
+                        <path d="M0 32 Q 25 35, 40 22 T 75 14 T 100 6" />
+                      </svg>
+                    </div>
                   </div>
 
                   {/* Micro activity wave line */}
@@ -309,7 +331,7 @@ export function BusinessInsightsSection({
         </div>
 
         {/* ── Centralized Factual Accuracy Notice ── */}
-        <div className="max-w-3xl mx-auto rounded-xl border border-border bg-card/60 p-3.5 sm:p-4 text-center mb-8">
+        <div className="max-w-4xl mx-auto rounded-xl border border-border bg-card/60 p-3.5 sm:p-4 text-center mb-8">
           <p className="text-xs text-muted-foreground leading-relaxed">
             {t("businessInsights.accuracyDisclaimer")}
           </p>
