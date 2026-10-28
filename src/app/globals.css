@@ -187,13 +187,15 @@
   --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Hero Section Gradient — subtle light-blue wash that preserves text contrast */
+  /* Hero Section Gradient — refined multi-stop light-blue wash */
   --hero-bg: linear-gradient(
-    160deg,
+    165deg,
     #F8FAFC 0%,
-    #EFF6FF 35%,
-    #DBEAFE 65%,
-    #EFF6FF 100%
+    #F0F7FF 20%,
+    #E0EFFE 45%,
+    #DBEAFE 60%,
+    #EFF6FF 80%,
+    #F8FAFC 100%
   );
 }
 
