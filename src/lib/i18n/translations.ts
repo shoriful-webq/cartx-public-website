@@ -181,6 +181,7 @@ export const translations: Record<Locale, Translations> = {
     "themesSection.mobileReady": "Mobile Responsive",
     "themesSection.previewBtn": "Preview Theme",
     "themesSection.conceptBadge": "Concept Preview",
+    "themesSection.exploreAll": "Explore All Themes",
 
     // Home Page — Manage Orders & Inventory (Section 08)
     "orderInventory.badge": "ORDERS & INVENTORY",
@@ -631,6 +632,7 @@ export const translations: Record<Locale, Translations> = {
     "themesSection.mobileReady": "মোবাইল রেসপনসিভ",
     "themesSection.previewBtn": "থিম প্রিভিউ",
     "themesSection.conceptBadge": "কনসেপ্ট প্রিভিউ",
+    "themesSection.exploreAll": "সকল থিম দেখুন",
 
     // Home Page — Manage Orders & Inventory (Section 08)
     "orderInventory.badge": "অর্ডার ও ইনভেন্টরি",
