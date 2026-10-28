@@ -4,32 +4,6 @@ import { ArrowRight, CheckCircle2, ShieldCheck, Zap, Sparkles } from "lucide-rea
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
-      {/* Navigation / Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
-        <div className="container flex h-[var(--header-height)] items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex size-10 items-center justify-center rounded-lg brand-gradient text-white font-bold text-xl shadow-xs">
-              CX
-            </div>
-            <span className="text-xl font-bold tracking-tight text-foreground">
-              Cart<span className="text-primary">X</span>
-            </span>
-          </div>
-
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-            <a href="#features" className="hover:text-foreground transition-colors">Features</a>
-            <a href="#solutions" className="hover:text-foreground transition-colors">Solutions</a>
-            <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
-            <a href="#bangla" className="hover:text-foreground transition-colors">বাংলা ভার্সন</a>
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <Button variant="ghost" size="sm">Sign In</Button>
-            <Button size="sm">Get Started</Button>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="section-padding relative overflow-hidden">
         <div className="container flex flex-col items-center text-center">

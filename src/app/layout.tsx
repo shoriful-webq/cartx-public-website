@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { AnnouncementBar } from "@/components/layout/announcement-bar";
+import { Header } from "@/components/layout/header";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,7 +38,9 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        {children}
+        <AnnouncementBar />
+        <Header />
+        <main className="flex-1">{children}</main>
       </body>
     </html>
   );
