@@ -9,12 +9,12 @@ export function HeroSection() {
   const { t, locale } = useLanguage();
 
   return (
-    <section className="hero-bg relative overflow-hidden">
+    <section className="hero-bg relative py-10 sm:py-12 lg:py-14 transition-colors">
       {/* ── Decorative background shapes ── */}
 
       {/* Large soft radial in the top-right — anchors the mockup side */}
       <div
-        className="pointer-events-none absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full opacity-[0.045]"
+        className="pointer-events-none absolute -right-40 -top-40 h-[32rem] w-[32rem] rounded-full opacity-[0.045]"
         style={{
           background:
             "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
@@ -23,7 +23,7 @@ export function HeroSection() {
 
       {/* Small accent orb bottom-left for balance */}
       <div
-        className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full opacity-[0.035]"
+        className="pointer-events-none absolute -bottom-20 -left-20 h-60 w-60 rounded-full opacity-[0.035]"
         style={{
           background:
             "radial-gradient(circle, var(--secondary-accent) 0%, transparent 70%)",
@@ -32,7 +32,7 @@ export function HeroSection() {
 
       {/* Subtle grid-dot pattern overlay for depth */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        className="pointer-events-none absolute inset-0 opacity-[0.025]"
         style={{
           backgroundImage:
             "radial-gradient(circle, var(--foreground) 1px, transparent 1px)",
@@ -40,19 +40,19 @@ export function HeroSection() {
         }}
       />
 
-      {/* ── Main content ── */}
-      <div className="container relative py-16 sm:py-20 lg:py-28">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      {/* ── Main content (uses centralized .hero-padding token) ── */}
+      <div className="container relative hero-padding">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* ── Left column: Text + CTAs ── */}
-          <div className="flex-1 max-w-2xl text-center lg:text-left">
+          <div className="flex-1 max-w-xl text-center lg:text-left">
             {/* Eyebrow pill */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.06] px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-primary mb-8">
-              <Sparkles className="size-3.5 text-secondary-accent" />
+            <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/[0.06] px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary mb-3.5 sm:mb-4">
+             
               <span>{t("home.eyebrow")}</span>
             </div>
 
             {/* H1 */}
-            <h1 className="text-balance !mb-6">
+            <h1 className="text-balance !mb-3 sm:!mb-3.5">
               {t("home.heroTitlePlain")}{" "}
               <span className="brand-gradient-text">
                 {t("home.heroTitleHighlight")}
@@ -60,39 +60,39 @@ export function HeroSection() {
             </h1>
 
             {/* Supporting text */}
-            <p className="text-base sm:text-lg !leading-relaxed text-muted-foreground max-w-xl mx-auto lg:mx-0 !mb-8">
+            <p className="text-sm sm:text-base leading-relaxed text-muted-foreground max-w-lg mx-auto lg:mx-0 !mb-4 sm:!mb-5">
               {t("home.heroDescription")}
             </p>
 
-            {/* CTA buttons — generous sizing for hero prominence */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            {/* CTA buttons */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-3.5">
               <CTAButton
                 action="startStore"
                 locale={locale}
                 size="lg"
                 showArrow
-                className="px-7 py-3 text-sm rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                className="px-6 py-2.5 text-xs sm:text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
               />
               <CTAButton
                 action="exploreFeatures"
                 locale={locale}
                 size="lg"
                 variant="outline"
-                className="px-7 py-3 text-sm rounded-lg"
+                className="px-6 py-2.5 text-xs sm:text-sm rounded-lg"
               />
             </div>
 
             {/* Trust line */}
-            <p className="flex items-center justify-center lg:justify-start gap-2 text-[13px] text-muted-foreground mt-8 !mb-0">
-              <CheckCircle2 className="size-4 text-success shrink-0" />
+            <p className="flex items-center justify-center lg:justify-start gap-1.5 text-xs text-muted-foreground mt-3.5 sm:mt-4 !mb-0">
+              <CheckCircle2 className="size-3.5 text-success shrink-0" />
               <span>{t("home.trustLine")}</span>
             </p>
           </div>
 
           {/* ── Right column: Product visual ── */}
-          <div className="flex-1 w-full max-w-2xl lg:max-w-none relative">
+          <div className="flex-1 w-full max-w-xl lg:max-w-none relative">
             {/* Soft elevated glow behind the mockup */}
-            <div className="absolute -inset-6 rounded-3xl bg-primary/[0.04] blur-3xl" />
+            <div className="absolute -inset-4 rounded-3xl bg-primary/[0.04] blur-2xl" />
             <div className="relative">
               <HeroDashboardMockup />
             </div>

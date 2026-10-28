@@ -84,14 +84,14 @@ export function BrandTrustStrip({
     <section
       aria-label="Core Platform Pillars"
       className={cn(
-        "relative border-b border-border bg-card/60 py-10 sm:py-12 lg:py-14 transition-colors",
+        "relative border-b border-border bg-card/60 section-padding transition-colors",
         className
       )}
     >
       <div className="container">
         {/* Subtle section label */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <span className="inline-block text-[11px] font-bold uppercase tracking-widest text-primary mb-2">
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+          <span className="inline-block text-[11px] font-bold uppercase tracking-widest text-primary mb-1.5">
             {t("trustStrip.badge")}
           </span>
           <h2 className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-foreground">
