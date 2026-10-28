@@ -8,6 +8,7 @@ import {
   ThemeTemplatesSection,
   OrderInventorySection,
   PaymentsDeliverySection,
+  MarketingGrowthSection,
 } from "@/components/Home";
 
 export default function Home() {
@@ -39,6 +40,9 @@ export default function Home() {
 
       {/* Section 09 — Payments and Delivery */}
       <PaymentsDeliverySection />
+
+      {/* Section 10 — Marketing and Growth Tools */}
+      <MarketingGrowthSection />
     </div>
   );
 }

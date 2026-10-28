@@ -125,6 +125,14 @@ export const GLOBAL_CTAS: Record<string, CTAConfigItem> = {
     variant: "outline",
     external: false,
   },
+  exploreMarketingFeatures: {
+    key: "cta.exploreMarketingFeatures",
+    href: "/features/promotions",
+    labelEn: "Explore Marketing Features",
+    labelBn: "মার্কেটিং ফিচারসমূহ দেখুন",
+    variant: "primary",
+    external: false,
+  },
 };
 
 export type CTAKey =
@@ -141,7 +149,8 @@ export type CTAKey =
   | "exploreAllFeatures"
   | "getStarted"
   | "exploreOrderManagement"
-  | "previewTheme";
+  | "previewTheme"
+  | "exploreMarketingFeatures";
 
 interface CTAButtonProps {
   action: CTAKey;

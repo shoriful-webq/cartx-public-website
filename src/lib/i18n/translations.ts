@@ -232,6 +232,26 @@ export const translations: Record<Locale, Translations> = {
     "paymentsDelivery.delivery.couriersNote": "* Courier integrations require active merchant accounts with respective logistics providers.",
     "paymentsDelivery.accuracyNotice": "Integrations, gateway approvals, and courier services require third-party merchant accounts and API terms. Provider names shown as examples of supported and planned ecosystem workflows.",
 
+    // Home Page — Marketing & Growth Tools (Section 10)
+    "marketingGrowth.badge": "MARKETING & GROWTH",
+    "marketingGrowth.title": "Tools to Support Your Next Stage of Growth.",
+    "marketingGrowth.description": "Use your store data and supported marketing tools to make more informed business decisions.",
+    "marketingGrowth.statusSupported": "Supported Feature",
+    "marketingGrowth.statusPlanned": "Planned / In Development",
+    "marketingGrowth.card1.title": "Discount & Coupon Management",
+    "marketingGrowth.card1.desc": "Create and manage promotional discount codes with fixed amounts or percentage savings to reward your customers.",
+    "marketingGrowth.card2.title": "SEO Settings",
+    "marketingGrowth.card2.desc": "Configure page titles, meta descriptions, and clean URLs to help search engines discover and understand your store catalogue.",
+    "marketingGrowth.card3.title": "Product Discovery",
+    "marketingGrowth.card3.desc": "Help customers browse products easily through catalog search, structured categories, and featured storefront collections.",
+    "marketingGrowth.card4.title": "Promotional Landing Pages",
+    "marketingGrowth.card4.desc": "Dedicated standalone campaign landing page authoring is currently in development for upcoming releases.",
+    "marketingGrowth.card5.title": "Analytics Integrations",
+    "marketingGrowth.card5.desc": "Connect supported analytics services like Google Analytics to observe store traffic, visitor flow, and shopping behaviors.",
+    "marketingGrowth.card6.title": "Campaign Tracking Integrations",
+    "marketingGrowth.card6.desc": "Track marketing campaign performance and advertising attribution tags through supported integration hooks.",
+    "marketingGrowth.accuracyNotice": "Feature availability varies by plan tier. Third-party marketing and analytics integrations require merchant-managed provider accounts and adhere to provider terms.",
+
     // Footer Columns & Links
     "footer.brandDescription": "Next-generation e-commerce platform built for scale, localized checkouts, and automated courier fulfillment.",
     "footer.colProduct": "Product",
@@ -512,6 +532,26 @@ export const translations: Record<Locale, Translations> = {
     "paymentsDelivery.delivery.couriersTitle": "বাংলাদেশের শীর্ষস্থানীয় কুরিয়ার ইকোসিস্টেম (উদাহরণ)",
     "paymentsDelivery.delivery.couriersNote": "* কুরিয়ার ইন্টিগ্রেশনের জন্য স্ব-স্ব লজিস্টিক প্রোভাইডারে সক্রিয় মার্চেন্ট অ্যাকাউন্ট আবশ্যক।",
     "paymentsDelivery.accuracyNotice": "গেটওয়ে অনুমোদন ও কুরিয়ার সেবা তৃতীয় পক্ষের মার্চেন্ট পলিসির আওতাধীন। এখানে উল্লেখিত প্রোভাইডারদের নাম কেবল সমর্থিত ও সম্ভাব্য ইকোসিস্টেম উদাহরণ হিসেবে প্রদর্শিত।",
+
+    // Home Page — Marketing & Growth Tools (Section 10)
+    "marketingGrowth.badge": "মার্কেটিং ও গ্রোথ",
+    "marketingGrowth.title": "আপনার ব্যবসার পরবর্তী ধাপের প্রসারে সহায়ক টুলস।",
+    "marketingGrowth.description": "স্টোরের তথ্য এবং সমর্থিত মার্কেটিং টুলের সাহায্যে নিন সঠিক ও বাস্তবমুখী ব্যবসায়িক সিদ্ধান্ত।",
+    "marketingGrowth.statusSupported": "সমর্থিত ফিচার",
+    "marketingGrowth.statusPlanned": "পরিকল্পিত / নির্মীয়মান",
+    "marketingGrowth.card1.title": "ডিসকাউন্ট ও কুপন ম্যানেজমেন্ট",
+    "marketingGrowth.card1.desc": "নির্দিষ্ট বা শতকরা ছাড়ের ডিসকাউন্ট কোড তৈরি ও পরিচালনার মাধ্যমে গ্রাহকদের বিশেষ অফার প্রদান করুন।",
+    "marketingGrowth.card2.title": "এসইও সেটিংস",
+    "marketingGrowth.card2.desc": "সার্চ ইঞ্জিনে স্টোরের উপস্থিতি উন্নত করতে মেটা টাইটেল, ডেসক্রিপশন এবং সার্চ-বান্ধব ইউআরএল কনফিগার করুন।",
+    "marketingGrowth.card3.title": "প্রোডাক্ট ডিসকভারি",
+    "marketingGrowth.card3.desc": "সহজ সার্চ, ক্যাটাগরি ফিল্টার এবং ফিচারড কালেকশনের মাধ্যমে গ্রাহকদের পছন্দের পণ্য খুঁজে পেতে সহায়তা করুন।",
+    "marketingGrowth.card4.title": "ক্যাম্পেইন ল্যান্ডিং পেজ",
+    "marketingGrowth.card4.desc": "নির্দিষ্ট প্রচারণার জন্য স্বতন্ত্র ল্যান্ডিং পেজ তৈরির সুবিধাটি পরবর্তী আপডেটের জন্য নির্মীয়মান রয়েছে।",
+    "marketingGrowth.card5.title": "অ্যানালিটিক্স ইন্টিগ্রেশন",
+    "marketingGrowth.card5.desc": "গুগল অ্যানালিটিক্সের মতো সমর্থিত টুলস যুক্ত করে স্টোরের ভিজিটর এবং কেনাকাটার আচরণ পর্যবেক্ষণ করুন।",
+    "marketingGrowth.card6.title": "ক্যাম্পেইন ট্র্যাকিং ইন্টিগ্রেশন",
+    "marketingGrowth.card6.desc": "বিজ্ঞাপন ও ক্যাম্পেইনের কার্যকারিতা ট্র্যাকিং করতে সমর্থিত ট্র্যাকিং ট্যাগ ব্যবহার করুন।",
+    "marketingGrowth.accuracyNotice": "প্ল্যান অনুযায়ী ফিচারের প্রাপ্যতা পরিবর্তিত হতে পারে। থার্ড-পার্টি অ্যানালিটিক্স ও ট্র্যাকিং সেবার জন্য মার্চেন্টের নিজস্ব অ্যাকাউন্ট আবশ্যক।",
 
     // Footer Columns & Links
     "footer.brandDescription": "স্কেলযোগ্য অনলাইন স্টোর, স্থানীয় চেকআউট এবং স্বয়ংক্রিয় কুরিয়ার ডেলিভারির জন্য আধুনিক ই-কমার্স প্ল্যাটফর্ম।",
