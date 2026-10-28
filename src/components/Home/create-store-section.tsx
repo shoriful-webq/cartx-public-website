@@ -60,7 +60,7 @@ export function CreateStoreSection({ className }: CreateStoreSectionProps) {
     <section
       aria-label="Create Your Store"
       className={cn(
-        "relative section-padding border-b border-border bg-card/30 transition-colors",
+        "relative section-padding border-b border-border bg-card/30 transition-colors overflow-hidden",
         className
       )}
     >
@@ -335,14 +335,14 @@ export function CreateStoreSection({ className }: CreateStoreSectionProps) {
 
         {/* ── Feature Checklist & Central CTA ── */}
         <div className="flex flex-col items-center text-center">
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-4 max-w-3xl mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3.5 max-w-3xl mb-8 w-full">
             {showcaseFeatures.map((feature, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-2 text-left p-2 rounded-lg bg-card border border-border/80 text-xs sm:text-sm font-medium text-foreground"
+                className="flex items-center gap-2 text-left p-2.5 rounded-lg bg-card border border-border/80 text-xs sm:text-sm font-medium text-foreground min-w-0"
               >
                 <CheckCircle2 className="size-4 text-success shrink-0" />
-                <span className="truncate">{feature}</span>
+                <span className="truncate min-w-0">{feature}</span>
               </div>
             ))}
           </div>

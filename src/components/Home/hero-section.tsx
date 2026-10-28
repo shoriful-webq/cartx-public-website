@@ -9,7 +9,7 @@ export function HeroSection() {
   const { t, locale } = useLanguage();
 
   return (
-    <section className="hero-bg relative py-10 sm:py-12 lg:py-14 transition-colors">
+    <section className="hero-bg relative overflow-hidden transition-colors">
       {/* ── Decorative background shapes ── */}
 
       {/* Large soft radial in the top-right — anchors the mockup side */}
