@@ -364,6 +364,35 @@ export const translations: Record<Locale, Translations> = {
     "customerStories.title": "Built Around Real Business Needs.",
     "customerStories.description": "Verified merchant journeys and operational milestones from businesses running on CartX.",
 
+    // Home Page — FAQ Preview (Section 16)
+    "faqPreview.badge": "FREQUENTLY ASKED QUESTIONS",
+    "faqPreview.title": "Questions About CartX?",
+    "faqPreview.description": "Common questions about store setup, operational features, payment options, and platform capabilities.",
+    "faqPreview.q1": "What is CartX?",
+    "faqPreview.a1": "CartX is a modern e-commerce platform built to help entrepreneurs and growing brands launch branded online stores and manage products, orders, inventory, payments, and delivery from one connected system.",
+    "faqPreview.q2": "Who can use CartX?",
+    "faqPreview.a2": "CartX is built for retail brands, independent makers, emerging merchants, and established businesses seeking localized commerce tools, reliable order management, and multi-channel fulfillment.",
+    "faqPreview.q3": "Can I use my own domain?",
+    "faqPreview.a3": "Yes, custom domain mapping is supported on eligible subscription plans. You can connect your existing domain via standard DNS settings while CartX handles secure SSL encryption.",
+    "faqPreview.q4": "Can I manage products and orders?",
+    "faqPreview.a4": "Yes, CartX provides built-in product cataloging with variants, inventory tracking, and complete order lifecycle management from checkout to delivery handover.",
+    "faqPreview.q5": "Which payment methods are supported?",
+    "faqPreview.a5": "CartX supports Cash on Delivery (COD) workflows natively, as well as integration pathways for supported mobile financial services (MFS) and local digital gateways, subject to merchant account approval.",
+    "faqPreview.q6": "Which couriers are supported?",
+    "faqPreview.a6": "You can coordinate shipping methods, parcel consignments, and tracking updates with popular local logistics partners where integration agreements are active.",
+    "faqPreview.q7": "Does CartX offer mobile apps?",
+    "faqPreview.a7": "Yes, branded white-label iOS and Android customer and merchant apps are available on select packages or as optional add-ons, subject to merchant app store developer accounts.",
+    "faqPreview.q8": "Can I cancel my subscription?",
+    "faqPreview.a8": "Subscription terms, renewal cycles, and cancellation options depend on your active billing plan. You can review your account settings or contact our support team before your billing cycle renews.",
+    "faqPreview.q9": "How can I contact support?",
+    "faqPreview.a9": "You can reach the CartX team through our Help Center documentation at /help or by submitting a direct message via our contact page at /contact.",
+
+    // Home Page — Final CTA (Section 17)
+    "finalCta.badge": "GET STARTED WITH CARTX",
+    "finalCta.title": "Ready to Build Your Online Store?",
+    "finalCta.description": "Bring your products, orders and essential store operations together with CartX.",
+    "finalCta.trustNote": "Free setup consultation • No credit card required to explore",
+
     // Footer Columns & Links
     "footer.brandDescription": "Next-generation e-commerce platform built for scale, localized checkouts, and automated courier fulfillment.",
     "footer.colProduct": "Product",
@@ -776,6 +805,35 @@ export const translations: Record<Locale, Translations> = {
     "customerStories.badge": "কাস্টমার স্টোরিজ",
     "customerStories.title": "বাস্তব ব্যবসায়িক চাহিদার ভিত্তিতে প্রস্তুত।",
     "customerStories.description": "কার্টএক্সের সাথে পরিচালিত যাচাইকৃত মার্চেন্টদের ব্যবসায়িক অগ্রযাত্রার গল্প।",
+
+    // Home Page — FAQ Preview (Section 16)
+    "faqPreview.badge": "সাধারণ জিজ্ঞাসা",
+    "faqPreview.title": "কার্টএক্স সম্পর্কে প্রশ্ন আছে?",
+    "faqPreview.description": "স্টোর সেটআপ, ফিচার, পেমেন্ট মাধ্যম এবং প্ল্যাটফর্মের সক্ষমতা সম্পর্কিত সাধারণ প্রশ্ন ও উত্তর।",
+    "faqPreview.q1": "কার্টএক্স কী?",
+    "faqPreview.a1": "কার্টএক্স একটি আধুনিক ই-কমার্স প্ল্যাটফর্ম যার সাহায্যে যেকোনো উদ্যোক্তা ও ব্র্যান্ড সহজে অনলাইন স্টোর তৈরি করে পণ্য, অর্ডার, ইনভেন্টরি, পেমেন্ট ও ডেলিভারি এক স্থান থেকে পরিচালনা করতে পারেন।",
+    "faqPreview.q2": "কার্টএক্স কারা ব্যবহার করতে পারবেন?",
+    "faqPreview.a2": "খুচরা ব্যবসায়ী, অনলাইন শপ মালিক, নতুন উদ্যোক্তা এবং ব্র্যান্ড—যাদের স্থানীয় পেমেন্ট ও ডেলিভারিসহ নির্ভরযোগ্য ই-কমার্স সমাধান প্রয়োজন, তারা সবাই কার্টএক্স ব্যবহার করতে পারেন।",
+    "faqPreview.q3": "আমি কি নিজস্ব ডোমেইন ব্যবহার করতে পারব?",
+    "faqPreview.a3": "হ্যাঁ, সমর্থিত সাবস্ক্রিপশন প্ল্যানে কাস্টম ডোমেইন কানেক্ট করার সুবিধা রয়েছে। আপনি স্ট্যান্ডার্ড ডিএনএস সেটিংসের মাধ্যমে নিজস্ব ডোমেইন যুক্ত করতে পারবেন এবং কার্টএক্স স্বয়ংক্রিয়ভাবে এসএসএল নিরাপত্তা নিশ্চিত করবে।",
+    "faqPreview.q4": "আমি কি পণ্য ও অর্ডার পরিচালনা করতে পারব?",
+    "faqPreview.a4": "হ্যাঁ, কার্টএক্সে রয়েছে ভ্যারিয়েন্টসহ সুসংগঠিত প্রোডাক্ট ক্যাটালগ, ইনভেন্টরি ট্র্যাকিং এবং অর্ডার গ্রহণ থেকে ডেলিভারি পর্যন্ত সম্পূর্ণ ম্যানেজমেন্ট ব্যবস্থা।",
+    "faqPreview.q5": "কোন কোন পেমেন্ট মাধ্যম সমর্থিত?",
+    "faqPreview.a5": "কার্টএক্সে ক্যাশ অন ডেলিভারি (COD) সরাসরি অন্তর্ভুক্ত রয়েছে। পাশাপাশি বিকাশ, নগদ ইত্যাদি এমএফএস ও ডিজিটাল পেমেন্ট গেটওয়ে মার্চেন্টের অনুমোদিত অ্যাকাউন্ট সাপেক্ষে ইন্টিগ্রেশন করা যায়।",
+    "faqPreview.q6": "কোন কোন কুরিয়ার সার্ভিস ব্যবহার করা যাবে?",
+    "faqPreview.a6": "সক্রিয় মার্চেন্ট অ্যাকাউন্ট সাপেক্ষে পাঠাও, স্টিডফাস্ট ইত্যাদি শীর্ষস্থানীয় কুরিয়ার সার্ভিসের সাথে পার্সেল বুকিং ও ট্র্যাকিং সমন্বয় করা সম্ভব।",
+    "faqPreview.q7": "কার্টএক্সের কি নিজস্ব মোবাইল অ্যাপ সুবিধা আছে?",
+    "faqPreview.a7": "হ্যাঁ, নির্দিষ্ট প্যাকেজে বা অ্যাড-অন হিসেবে আপনার নিজস্ব ব্র্যান্ডের নামে কাস্টমার ও মার্চেন্ট মোবাইল অ্যাপ (আইওএস ও অ্যান্ড্রয়েড) তৈরির সুযোগ রয়েছে।",
+    "faqPreview.q8": "আমি কি সাবস্ক্রিপশন বাতিল করতে পারব?",
+    "faqPreview.a8": "সাবস্ক্রিপশনের শর্তাবলী ও নবায়ন পলিসি আপনার সক্রিয় প্ল্যানের ওপর নির্ভরশীল। পরবর্তী বিলিং সাইকেল শুরুর আগে ড্যাশবোর্ড থেকে বা সাপোর্ট টিমের সাথে কথা বলে প্রয়োজনীয় সিদ্ধান্ত নিতে পারবেন।",
+    "faqPreview.q9": "সাপোর্টের সাথে কীভাবে যোগাযোগ করব?",
+    "faqPreview.a9": "আমাদের হেল্প সেন্টার (/help) থেকে নির্দেশিকা দেখতে পারেন অথবা সরাসরি যোগাযোগ পেজে (/contact) মেসেজ পাঠিয়ে আমাদের বিশেষজ্ঞ টিমের সহায়তা নিতে পারেন।",
+
+    // Home Page — Final CTA (Section 17)
+    "finalCta.badge": "কার্টএক্সে যুক্ত হোন",
+    "finalCta.title": "অনলাইন স্টোর শুরু করতে প্রস্তুত?",
+    "finalCta.description": "আপনার পণ্য, অর্ডার এবং দৈনন্দিন ব্যবসায়িক কার্যক্রম এক জায়গায় পরিচালনা করুন কার্টএক্সের সাথে।",
+    "finalCta.trustNote": "বিনামূল্যে সেটআপ পরামর্শ • শুরু করতে কোনো ক্রেডিট কার্ডের প্রয়োজন নেই",
 
     // Footer Columns & Links
     "footer.brandDescription": "স্কেলযোগ্য অনলাইন স্টোর, স্থানীয় চেকআউট এবং স্বয়ংক্রিয় কুরিয়ার ডেলিভারির জন্য আধুনিক ই-কমার্স প্ল্যাটফর্ম।",

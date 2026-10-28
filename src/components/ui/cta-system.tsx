@@ -189,6 +189,22 @@ export const GLOBAL_CTAS: Record<string, CTAConfigItem> = {
     variant: "primary",
     external: false,
   },
+  visitHelpCenter: {
+    key: "cta.visitHelpCenter",
+    href: "/help",
+    labelEn: "Visit Help Center",
+    labelBn: "হেল্প সেন্টার দেখুন",
+    variant: "outline",
+    external: false,
+  },
+  contactUs: {
+    key: "cta.contactUs",
+    href: "/contact",
+    labelEn: "Contact Us",
+    labelBn: "যোগাযোগ করুন",
+    variant: "outline",
+    external: false,
+  },
 };
 
 export type CTAKey =
@@ -213,7 +229,9 @@ export type CTAKey =
   | "exploreDemoStores"
   | "visitDemoStore"
   | "viewPlanDetails"
-  | "compareAllPlans";
+  | "compareAllPlans"
+  | "visitHelpCenter"
+  | "contactUs";
 
 interface CTAButtonProps {
   action: CTAKey;

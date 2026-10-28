@@ -23,4 +23,6 @@ export {
   type CustomerStoriesSectionProps,
   type VerifiedCustomerStory,
 } from "./customer-stories-section";
+export { FAQPreviewSection, type FAQPreviewSectionProps } from "./faq-preview-section";
+export { FinalCTASection, type FinalCTASectionProps } from "./final-cta-section";
 export { SectionHeading, type SectionHeadingProps } from "./section-heading";

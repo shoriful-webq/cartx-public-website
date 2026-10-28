@@ -14,6 +14,8 @@ import {
   DemoStoreShowcaseSection,
   PricingPreviewSection,
   CustomerStoriesSection,
+  FAQPreviewSection,
+  FinalCTASection,
 } from "@/components/Home";
 
 export default function Home() {
@@ -63,6 +65,12 @@ export default function Home() {
 
       {/* Section 15 — Customer Stories / Testimonials (Configurable, hidden by default until verified testimonials are added) */}
       <CustomerStoriesSection />
+
+      {/* Section 16 — FAQ Preview */}
+      <FAQPreviewSection />
+
+      {/* Section 17 — Final CTA */}
+      <FinalCTASection />
     </div>
   );
 }
