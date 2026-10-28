@@ -10,4 +10,5 @@ export { OrderInventorySection, type OrderInventorySectionProps } from "./order-
 export { PaymentsDeliverySection, type PaymentsDeliverySectionProps } from "./payments-delivery-section";
 export { MarketingGrowthSection, type MarketingGrowthSectionProps } from "./marketing-growth-section";
 export { BusinessInsightsSection, type BusinessInsightsSectionProps } from "./business-insights-section";
+export { WhiteLabelAppsSection, type WhiteLabelAppsSectionProps } from "./white-label-apps-section";
 export { SectionHeading, type SectionHeadingProps } from "./section-heading";

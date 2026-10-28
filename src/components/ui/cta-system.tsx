@@ -141,6 +141,22 @@ export const GLOBAL_CTAS: Record<string, CTAConfigItem> = {
     variant: "primary",
     external: false,
   },
+  exploreWhiteLabelApps: {
+    key: "cta.exploreWhiteLabelApps",
+    href: "/white-label-apps",
+    labelEn: "Explore White-label Apps",
+    labelBn: "হোয়াইট-লেবেল অ্যাপস দেখুন",
+    variant: "primary",
+    external: false,
+  },
+  talkToOurTeam: {
+    key: "cta.talkToOurTeam",
+    href: "/contact",
+    labelEn: "Talk to Our Team",
+    labelBn: "আমাদের টিমের সাথে কথা বলুন",
+    variant: "outline",
+    external: false,
+  },
 };
 
 export type CTAKey =
@@ -159,7 +175,9 @@ export type CTAKey =
   | "exploreOrderManagement"
   | "previewTheme"
   | "exploreMarketingFeatures"
-  | "exploreReports";
+  | "exploreReports"
+  | "exploreWhiteLabelApps"
+  | "talkToOurTeam";
 
 interface CTAButtonProps {
   action: CTAKey;

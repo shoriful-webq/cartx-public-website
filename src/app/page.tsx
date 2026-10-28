@@ -10,6 +10,7 @@ import {
   PaymentsDeliverySection,
   MarketingGrowthSection,
   BusinessInsightsSection,
+  WhiteLabelAppsSection,
 } from "@/components/Home";
 
 export default function Home() {
@@ -47,6 +48,9 @@ export default function Home() {
 
       {/* Section 11 — Business Insights */}
       <BusinessInsightsSection />
+
+      {/* Section 12 — White-label Mobile Apps */}
+      <WhiteLabelAppsSection />
     </div>
   );
 }
