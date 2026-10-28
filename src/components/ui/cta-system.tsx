@@ -85,6 +85,14 @@ export const GLOBAL_CTAS: Record<string, CTAConfigItem> = {
     variant: "outline",
     external: Boolean(process.env.NEXT_PUBLIC_SUPPORT_URL),
   },
+  exploreStorefrontFeatures: {
+    key: "cta.exploreStorefrontFeatures",
+    href: "/features",
+    labelEn: "Explore Storefront Features",
+    labelBn: "স্টোরফ্রন্ট ফিচারসমূহ দেখুন",
+    variant: "primary",
+    external: false,
+  },
 };
 
 export type CTAKey =
@@ -96,7 +104,8 @@ export type CTAKey =
   | "exploreIntegrations"
   | "bookDemo"
   | "contactSales"
-  | "talkToSupport";
+  | "talkToSupport"
+  | "exploreStorefrontFeatures";
 
 interface CTAButtonProps {
   action: CTAKey;

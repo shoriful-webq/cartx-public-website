@@ -53,6 +53,7 @@ export const translations: Record<Locale, Translations> = {
     "cta.bookDemo": "Book a Demo",
     "cta.contactSales": "Contact Sales",
     "cta.talkToSupport": "Talk to Support",
+    "cta.exploreStorefrontFeatures": "Explore Storefront Features",
 
     // Common Buttons & Badges
     "btn.startTrial": "Start Free Trial",
@@ -99,6 +100,25 @@ export const translations: Record<Locale, Translations> = {
     "problemSolution.card4.title": "Growth Complexity",
     "problemSolution.card4.desc": "Managing daily operations becomes harder as customer and order volume grows.",
     "problemSolution.solutionBanner": "Manage your essential e-commerce workflows through one connected platform.",
+
+    // Home Page — Create Your Store (Section 04)
+    "createStore.badge": "STOREFRONT BUILDER",
+    "createStore.title": "Your Storefront, Your Brand.",
+    "createStore.description": "Set up your store identity, organize your products and create a shopping experience that reflects your brand.",
+    "createStore.step1.title": "1. Brand Identity",
+    "createStore.step1.desc": "Upload your logo, select brand colors, and configure typography.",
+    "createStore.step2.title": "2. Catalog & Sections",
+    "createStore.step2.desc": "Organize your product catalogue and customize homepage sections.",
+    "createStore.step3.title": "3. Publish & Launch",
+    "createStore.step3.desc": "Launch your mobile-responsive store with custom domain support.",
+    "createStore.featLogo": "Store logo and brand colors",
+    "createStore.featSections": "Homepage sections",
+    "createStore.featCatalogue": "Product catalogue",
+    "createStore.featDetails": "Product detail page",
+    "createStore.featResponsive": "Mobile-responsive storefront",
+    "createStore.featDomain": "Custom domain support (supported plans)",
+    "createStore.previewLive": "Live Storefront Preview",
+    "createStore.previewMobile": "Mobile-First Storefront",
 
     // Footer Columns & Links
     "footer.brandDescription": "Next-generation e-commerce platform built for scale, localized checkouts, and automated courier fulfillment.",
@@ -202,6 +222,7 @@ export const translations: Record<Locale, Translations> = {
     "cta.bookDemo": "ডেমো বুক করুন",
     "cta.contactSales": "সেলস টিমের সাথে যোগাযোগ",
     "cta.talkToSupport": "সাপোর্টের সাথে কথা বলুন",
+    "cta.exploreStorefrontFeatures": "স্টোরফ্রন্ট ফিচারসমূহ দেখুন",
 
     // Common Buttons & Badges
     "btn.startTrial": "ফ্রি ট্রায়াল শুরু করুন",
@@ -248,6 +269,25 @@ export const translations: Record<Locale, Translations> = {
     "problemSolution.card4.title": "Growth Complexity",
     "problemSolution.card4.desc": "Customer ও order volume বাড়ার সঙ্গে operations পরিচালনা কঠিন হওয়া।",
     "problemSolution.solutionBanner": "Manage your essential e-commerce workflows through one connected platform।",
+
+    // Home Page — Create Your Store (Section 04)
+    "createStore.badge": "স্টোরফ্রন্ট বিল্ডার",
+    "createStore.title": "আপনার স্টোরফ্রন্ট, আপনার ব্র্যান্ড।",
+    "createStore.description": "আপনার স্টোরের পরিচয় নির্ধারণ করুন, পণ্য গুছিয়ে রাখুন এবং আপনার ব্র্যান্ডকে তুলে ধরার মতো কেনাকাটার অভিজ্ঞতা তৈরি করুন।",
+    "createStore.step1.title": "১. ব্র্যান্ড আইডেন্টিটি",
+    "createStore.step1.desc": "লোগো আপলোড, ব্র্যান্ডের রঙ নির্বাচন এবং টাইপোগ্রাফি নির্ধারণ করুন।",
+    "createStore.step2.title": "২. ক্যাটালগ ও সেকশন",
+    "createStore.step2.desc": "পণ্য ক্যাটালগ সাজান এবং হোমপেজ সেকশন কাস্টমাইজ করুন।",
+    "createStore.step3.title": "৩. পাবলিশ ও লাইভ",
+    "createStore.step3.desc": "কাস্টম ডোমেইন সুবিধাসহ মোবাইল-রেসপনসিভ স্টোর চালু করুন।",
+    "createStore.featLogo": "স্টোর লোগো ও ব্র্যান্ডের কালার",
+    "createStore.featSections": "হোমপেজ সেকশনসমূহ",
+    "createStore.featCatalogue": "প্রোডাক্ট ক্যাটালগ",
+    "createStore.featDetails": "প্রোডাক্ট ডিটেইল পেজ",
+    "createStore.featResponsive": "মোবাইল-রেসপনসিভ স্টোরফ্রন্ট",
+    "createStore.featDomain": "কাস্টম ডোমেইন সাপোর্ট (নির্দিষ্ট প্ল্যানে)",
+    "createStore.previewLive": "লাইভ স্টোরফ্রন্ট প্রিভিউ",
+    "createStore.previewMobile": "মোবাইল-ফার্স্ট স্টোরফ্রন্ট",
 
     // Footer Columns & Links
     "footer.brandDescription": "স্কেলযোগ্য অনলাইন স্টোর, স্থানীয় চেকআউট এবং স্বয়ংক্রিয় কুরিয়ার ডেলিভারির জন্য আধুনিক ই-কমার্স প্ল্যাটফর্ম।",
