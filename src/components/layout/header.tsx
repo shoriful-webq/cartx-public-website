@@ -8,7 +8,6 @@ import {
   Menu,
   X,
   Globe,
-  ArrowRight,
   BookOpen,
   HelpCircle,
   Smartphone,
@@ -16,6 +15,7 @@ import {
   Layers,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { CTAButton } from "@/components/ui/cta-system";
 
 export function Header() {
   const pathname = usePathname();
@@ -245,12 +245,7 @@ export function Header() {
           </Link>
 
           {/* Primary CTA: Start Your Store */}
-          <Link
-            href="/start"
-            className="inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-3.5 py-2 text-xs font-semibold text-primary-foreground shadow-xs hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-ring transition-colors"
-          >
-            {t("nav.start")}
-          </Link>
+          <CTAButton action="startStore" locale={locale} size="sm" />
         </div>
 
         {/* Mobile: Hamburger & Quick Switch */}
@@ -351,12 +346,7 @@ export function Header() {
               >
                 {t("nav.login")}
               </Link>
-              <Link
-                href="/start"
-                className="w-full inline-flex items-center justify-center gap-1.5 rounded-md bg-primary py-2.5 text-xs font-semibold text-primary-foreground shadow-xs hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-ring transition-colors"
-              >
-                {t("nav.start")} <ArrowRight className="size-3.5" />
-              </Link>
+              <CTAButton action="startStore" locale={locale} showArrow className="w-full py-2.5" />
             </div>
           </div>
         </div>

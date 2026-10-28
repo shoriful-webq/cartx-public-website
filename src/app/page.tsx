@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowRight, CheckCircle2, ShieldCheck, Zap, Sparkles } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Zap, Sparkles } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { CTAButton } from "@/components/ui/cta-system";
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
   return (
     <div className="flex flex-col min-h-full flex-1 bg-background text-foreground">
@@ -26,18 +26,8 @@ export default function Home() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
-            <Link
-              href="/start"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-xs hover:bg-primary-hover transition-colors"
-            >
-              {t("btn.startTrial")} <ArrowRight className="size-4" />
-            </Link>
-            <Link
-              href="/features"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground hover:bg-muted transition-colors"
-            >
-              {t("btn.exploreDocs")}
-            </Link>
+            <CTAButton action="startStore" locale={locale} size="lg" showArrow />
+            <CTAButton action="exploreFeatures" locale={locale} size="lg" variant="outline" />
           </div>
         </div>
       </section>

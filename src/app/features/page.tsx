@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { CTAButton } from "@/components/ui/cta-system";
 
 export default function FeaturesPage() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
   return (
     <div className="section-padding">
@@ -19,12 +18,7 @@ export default function FeaturesPage() {
         </p>
 
         <div className="flex justify-center mt-6">
-          <Link
-            href="/start"
-            className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-xs font-semibold text-primary-foreground shadow-xs hover:bg-primary-hover transition-colors"
-          >
-            {t("btn.startTrial")} <ArrowRight className="size-3.5" />
-          </Link>
+          <CTAButton action="startStore" locale={locale} showArrow />
         </div>
       </div>
     </div>

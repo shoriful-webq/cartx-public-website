@@ -43,6 +43,17 @@ export const translations: Record<Locale, Translations> = {
     "lang.toggle": "বাংলা",
     "lang.aria": "Toggle language between English and Bangla",
 
+    // Global CTA System
+    "cta.startStore": "Start Your Store",
+    "cta.exploreFeatures": "Explore Features",
+    "cta.viewPricing": "View Pricing",
+    "cta.exploreThemes": "Explore Themes",
+    "cta.viewDemoStore": "View Demo Store",
+    "cta.exploreIntegrations": "Explore Integrations",
+    "cta.bookDemo": "Book a Demo",
+    "cta.contactSales": "Contact Sales",
+    "cta.talkToSupport": "Talk to Support",
+
     // Common Buttons & Badges
     "btn.startTrial": "Start Free Trial",
     "btn.exploreDocs": "Explore Documentation",
@@ -68,11 +79,47 @@ export const translations: Record<Locale, Translations> = {
     "home.card3.desc": "Clean Bengali text rendering using Noto Sans Bengali font and responsive clamp headers.",
     "home.card3.font": "Noto Sans Bengali + Inter",
 
-    // Footer
-    "footer.rights": "CartX Inc. All rights reserved.",
+    // Footer Columns & Links
+    "footer.brandDescription": "Next-generation e-commerce platform built for scale, localized checkouts, and automated courier fulfillment.",
+    "footer.colProduct": "Product",
+    "footer.colSolutions": "Solutions",
+    "footer.colResources": "Resources",
+    "footer.colCompany": "Company",
+    "footer.colLegal": "Legal",
+    "footer.colSupport": "Support",
+
+    "footer.features": "Features",
+    "footer.pricing": "Pricing",
+    "footer.themes": "Themes",
+    "footer.integrations": "Integrations",
+    "footer.whiteLabelApps": "White-label Apps",
+
+    "footer.solFashion": "Fashion & Apparel",
+    "footer.solElectronics": "Electronics",
+    "footer.solCosmetics": "Cosmetics & Beauty",
+    "footer.solGrocery": "Grocery & Organic Food",
+    "footer.solHome": "Home & Lifestyle",
+
+    "footer.blog": "Blog",
+    "footer.helpCenter": "Help Center",
+    "footer.documentation": "Documentation",
+    "footer.demoStores": "Demo Stores",
+
+    "footer.aboutUs": "About Us",
+    "footer.contactUs": "Contact Us",
+    "footer.bookDemo": "Book a Demo",
+
     "footer.privacy": "Privacy Policy",
-    "footer.terms": "Terms of Service",
-    "footer.security": "Security",
+    "footer.terms": "Terms & Conditions",
+    "footer.refund": "Refund Policy",
+    "footer.cookie": "Cookie Policy",
+    "footer.acceptableUse": "Acceptable Use Policy",
+
+    "footer.emailSupport": "Email Support",
+    "footer.businessPhone": "Phone",
+    "footer.businessAddress": "Corporate Headquarters",
+    "footer.status": "System Status",
+    "footer.rights": "CartX Inc. All rights reserved.",
 
     // Common Page Titles & Placeholders for routes
     "features.title": "Core Platform Features",
@@ -124,6 +171,17 @@ export const translations: Record<Locale, Translations> = {
     "lang.toggle": "English",
     "lang.aria": "ভাষা পরিবর্তন করে ইংরেজি বা বাংলায় রূপান্তর করুন",
 
+    // Global CTA System
+    "cta.startStore": "স্টোর শুরু করুন",
+    "cta.exploreFeatures": "ফিচারসমূহ দেখুন",
+    "cta.viewPricing": "প্রাইসিং দেখুন",
+    "cta.exploreThemes": "থিমসমূহ দেখুন",
+    "cta.viewDemoStore": "ডেমো স্টোর দেখুন",
+    "cta.exploreIntegrations": "ইন্টিগ্রেশন দেখুন",
+    "cta.bookDemo": "ডেমো বুক করুন",
+    "cta.contactSales": "সেলস টিমের সাথে যোগাযোগ",
+    "cta.talkToSupport": "সাপোর্টের সাথে কথা বলুন",
+
     // Common Buttons & Badges
     "btn.startTrial": "ফ্রি ট্রায়াল শুরু করুন",
     "btn.exploreDocs": "ডকুমেন্টেশন দেখুন",
@@ -149,11 +207,47 @@ export const translations: Record<Locale, Translations> = {
     "home.card3.desc": "নোটো সান্স বেঙ্গলি ফন্ট এবং ক্লাস্প-ভিত্তিক রেসপনসিভ হেডারের মাধ্যমে বাংলা টেক্সট মসৃণভাবে প্রদর্শিত হয়।",
     "home.card3.font": "নোটো সান্স বেঙ্গলি + ইন্টার",
 
-    // Footer
-    "footer.rights": "কার্টএক্স ইনকর্পোরেটেড। সর্বস্বত্ব সংরক্ষিত।",
+    // Footer Columns & Links
+    "footer.brandDescription": "স্কেলযোগ্য অনলাইন স্টোর, স্থানীয় চেকআউট এবং স্বয়ংক্রিয় কুরিয়ার ডেলিভারির জন্য আধুনিক ই-কমার্স প্ল্যাটফর্ম।",
+    "footer.colProduct": "প্রোডাক্ট",
+    "footer.colSolutions": "সলিউশনস",
+    "footer.colResources": "রিসোর্সেস",
+    "footer.colCompany": "কোম্পানি",
+    "footer.colLegal": "আইনি নীতিমালা",
+    "footer.colSupport": "সাপোর্ট",
+
+    "footer.features": "ফিচারস",
+    "footer.pricing": "প্রাইসিং",
+    "footer.themes": "থিমস",
+    "footer.integrations": "ইন্টিগ্রেশন",
+    "footer.whiteLabelApps": "হোয়াইট-লেবেল অ্যাপস",
+
+    "footer.solFashion": "ফ্যাশন ও পোশাক",
+    "footer.solElectronics": "ইলেকট্রনিক্স",
+    "footer.solCosmetics": "কসমেটিক্স ও বিউটি",
+    "footer.solGrocery": "মুদি ও অর্গানিক ফুড",
+    "footer.solHome": "হোম ও লাইফস্টাইল",
+
+    "footer.blog": "ব্লগ",
+    "footer.helpCenter": "হেল্প সেন্টার",
+    "footer.documentation": "ডকুমেন্টেশন",
+    "footer.demoStores": "ডেমো স্টোরস",
+
+    "footer.aboutUs": "আমাদের সম্পর্কে",
+    "footer.contactUs": "যোগাযোগ",
+    "footer.bookDemo": "ডেমো বুকিং",
+
     "footer.privacy": "প্রাইভেসি পলিসি",
-    "footer.terms": "টার্মস অব সার্ভিস",
-    "footer.security": "নিরাপত্তা",
+    "footer.terms": "টার্মস অ্যান্ড কন্ডিশনস",
+    "footer.refund": "রিফান্ড পলিসি",
+    "footer.cookie": "কুকি পলিসি",
+    "footer.acceptableUse": "অ্যাক্সেপ্টেবল ইউজ পলিসি",
+
+    "footer.emailSupport": "ইমেইল সাপোর্ট",
+    "footer.businessPhone": "ফোন",
+    "footer.businessAddress": "কর্পোরেট কার্যালয়",
+    "footer.status": "সিস্টেম স্ট্যাটাস",
+    "footer.rights": "কার্টএক্স ইনকর্পোরেটেড। সর্বস্বত্ব সংরক্ষিত।",
 
     // Common Page Titles & Placeholders for routes
     "features.title": "মূল প্ল্যাটফর্ম ফিচারসমূহ",
@@ -170,4 +264,3 @@ export const translations: Record<Locale, Translations> = {
     "contact.desc": "যেকোনো প্রয়োজনে আমাদের বিশেষজ্ঞ টিমের সাথে যোগাযোগ করুন।",
   },
 };
-
