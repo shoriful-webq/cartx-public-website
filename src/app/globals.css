@@ -269,7 +269,7 @@
   }
 
   html {
-    @apply font-sans scroll-smooth;
+    @apply font-sans;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

@@ -62,7 +62,8 @@ src/
 │   ├── layout/                 # Shared site-wide layout components
 │   │   ├── announcement-bar.tsx# Top dismissible announcement bar
 │   │   ├── header.tsx          # Responsive navigation header & language toggle
-│   │   └── footer.tsx          # Multi-column footer & verified business info
+│   │   ├── footer.tsx          # Multi-column footer & verified business info
+│   │   └── smooth-scroll-provider.tsx # Global Lenis smooth scrolling & route sync provider
 │   └── ui/                     # Reusable design system UI primitives
 │       ├── button.tsx          # Base shadcn button
 │       └── cta-system.tsx      # Centralized CTA registry & CTAButton component

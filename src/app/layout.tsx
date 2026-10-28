@@ -3,6 +3,7 @@ import { Inter, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { LanguageProvider } from "@/lib/i18n/language-context";
+import { SmoothScrollProvider } from "@/components/layout/smooth-scroll-provider";
 import { AnnouncementBar } from "@/components/layout/announcement-bar";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -40,12 +41,14 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <LanguageProvider>
-          <AnnouncementBar />
-          <Header />
-          <main className="flex-1 flex flex-col">{children}</main>
-          <Footer />
-        </LanguageProvider>
+        <SmoothScrollProvider>
+          <LanguageProvider>
+            <AnnouncementBar />
+            <Header />
+            <main className="flex-1 flex flex-col">{children}</main>
+            <Footer />
+          </LanguageProvider>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

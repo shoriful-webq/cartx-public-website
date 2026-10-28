@@ -168,6 +168,7 @@ export function Header() {
             {resourcesOpen && (
               <div
                 role="menu"
+                data-lenis-prevent
                 className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 rounded-xl border border-border bg-card p-1.5 shadow-dropdown animate-in fade-in-50 zoom-in-95 z-50"
               >
                 <div className="px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80 border-b border-border/50 mb-1">
@@ -279,6 +280,7 @@ export function Header() {
       {mobileMenuOpen && (
         <div
           id="mobile-navigation-menu"
+          data-lenis-prevent
           className="lg:hidden border-t border-border bg-card px-4 py-5 shadow-modal animate-in slide-in-from-top-2"
         >
           <div className="flex flex-col space-y-4">
