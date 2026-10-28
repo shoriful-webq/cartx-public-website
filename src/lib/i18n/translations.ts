@@ -65,7 +65,8 @@ export const translations: Record<Locale, Translations> = {
 
     // Home Page — Hero Section
     "home.eyebrow": "YOUR BUSINESS. YOUR BRAND. YOUR ONLINE STORE.",
-    "home.heroTitle": "Build Your Online Store. Grow Your Business with CartX.",
+    "home.heroTitlePlain": "Build Your Online Store.",
+    "home.heroTitleHighlight": "Grow Your Business with CartX.",
     "home.heroDescription": "Create your branded online store and manage products, orders, inventory, payments and delivery from one connected platform.",
     "home.trustLine": "Built for entrepreneurs, growing brands and online businesses.",
     "home.mockupAlt": "CartX merchant dashboard preview",
@@ -184,7 +185,8 @@ export const translations: Record<Locale, Translations> = {
 
     // Home Page — Hero Section
     "home.eyebrow": "আপনার ব্যবসা। আপনার ব্র্যান্ড। আপনার অনলাইন স্টোর।",
-    "home.heroTitle": "আপনার অনলাইন স্টোর তৈরি করুন। কার্টএক্সের সাথে ব্যবসা বাড়ান।",
+    "home.heroTitlePlain": "আপনার অনলাইন স্টোর তৈরি করুন।",
+    "home.heroTitleHighlight": "কার্টএক্সের সাথে ব্যবসা বাড়ান।",
     "home.heroDescription": "আপনার ব্র্যান্ডেড অনলাইন স্টোর তৈরি করুন এবং পণ্য, অর্ডার, ইনভেন্টরি, পেমেন্ট ও ডেলিভারি একটি সংযুক্ত প্ল্যাটফর্ম থেকে পরিচালনা করুন।",
     "home.trustLine": "উদ্যোক্তা, ক্রমবর্ধমান ব্র্যান্ড এবং অনলাইন ব্যবসার জন্য তৈরি।",
     "home.mockupAlt": "কার্টএক্স মার্চেন্ট ড্যাশবোর্ড প্রিভিউ",

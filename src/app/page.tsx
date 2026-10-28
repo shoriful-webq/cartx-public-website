@@ -32,8 +32,13 @@ export default function Home() {
                 <span>{t("home.eyebrow")}</span>
               </div>
 
-              {/* H1 */}
-              <h1 className="text-balance">{t("home.heroTitle")}</h1>
+              {/* H1 — plain heading color + gradient highlight phrase */}
+              <h1 className="text-balance">
+                {t("home.heroTitlePlain")}{" "}
+                <span className="brand-gradient-text">
+                  {t("home.heroTitleHighlight")}
+                </span>
+              </h1>
 
               {/* Supporting text */}
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-xl mx-auto lg:mx-0">
