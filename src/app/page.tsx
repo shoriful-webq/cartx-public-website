@@ -11,6 +11,9 @@ import {
   MarketingGrowthSection,
   BusinessInsightsSection,
   WhiteLabelAppsSection,
+  DemoStoreShowcaseSection,
+  PricingPreviewSection,
+  CustomerStoriesSection,
 } from "@/components/Home";
 
 export default function Home() {
@@ -51,6 +54,15 @@ export default function Home() {
 
       {/* Section 12 — White-label Mobile Apps */}
       <WhiteLabelAppsSection />
+
+      {/* Section 13 — Demo Store Showcase */}
+      <DemoStoreShowcaseSection />
+
+      {/* Section 14 — Pricing Preview */}
+      <PricingPreviewSection />
+
+      {/* Section 15 — Customer Stories / Testimonials (Configurable, hidden by default until verified testimonials are added) */}
+      <CustomerStoriesSection />
     </div>
   );
 }

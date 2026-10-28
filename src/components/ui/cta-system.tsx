@@ -157,6 +157,38 @@ export const GLOBAL_CTAS: Record<string, CTAConfigItem> = {
     variant: "outline",
     external: false,
   },
+  exploreDemoStores: {
+    key: "cta.exploreDemoStores",
+    href: "/demo-stores",
+    labelEn: "Explore Demo Stores",
+    labelBn: "ডেমো স্টোরসমূহ দেখুন",
+    variant: "primary",
+    external: false,
+  },
+  visitDemoStore: {
+    key: "cta.visitDemoStore",
+    href: "/demo-stores",
+    labelEn: "Visit Demo Store",
+    labelBn: "ডেমো স্টোর ভিজিট করুন",
+    variant: "outline",
+    external: false,
+  },
+  viewPlanDetails: {
+    key: "cta.viewPlanDetails",
+    href: "/pricing",
+    labelEn: "View Plan Details",
+    labelBn: "প্ল্যানের বিস্তারিত দেখুন",
+    variant: "outline",
+    external: false,
+  },
+  compareAllPlans: {
+    key: "cta.compareAllPlans",
+    href: "/pricing",
+    labelEn: "Compare All Plans",
+    labelBn: "সকল প্ল্যান তুলনা করুন",
+    variant: "primary",
+    external: false,
+  },
 };
 
 export type CTAKey =
@@ -177,7 +209,11 @@ export type CTAKey =
   | "exploreMarketingFeatures"
   | "exploreReports"
   | "exploreWhiteLabelApps"
-  | "talkToOurTeam";
+  | "talkToOurTeam"
+  | "exploreDemoStores"
+  | "visitDemoStore"
+  | "viewPlanDetails"
+  | "compareAllPlans";
 
 interface CTAButtonProps {
   action: CTAKey;

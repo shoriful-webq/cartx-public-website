@@ -11,4 +11,16 @@ export { PaymentsDeliverySection, type PaymentsDeliverySectionProps } from "./pa
 export { MarketingGrowthSection, type MarketingGrowthSectionProps } from "./marketing-growth-section";
 export { BusinessInsightsSection, type BusinessInsightsSectionProps } from "./business-insights-section";
 export { WhiteLabelAppsSection, type WhiteLabelAppsSectionProps } from "./white-label-apps-section";
+export { DemoStoreShowcaseSection, type DemoStoreShowcaseSectionProps } from "./demo-store-showcase-section";
+export {
+  PricingPreviewSection,
+  type PricingPreviewSectionProps,
+  CONFIGURED_PLANS,
+  type PlanConfigItem,
+} from "./pricing-preview-section";
+export {
+  CustomerStoriesSection,
+  type CustomerStoriesSectionProps,
+  type VerifiedCustomerStory,
+} from "./customer-stories-section";
 export { SectionHeading, type SectionHeadingProps } from "./section-heading";
