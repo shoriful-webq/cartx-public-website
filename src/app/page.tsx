@@ -3,6 +3,7 @@ import {
   BrandTrustStrip,
   ProblemSolutionSection,
   CreateStoreSection,
+  FeatureOverviewSection,
 } from "@/components/Home";
 
 export default function Home() {
@@ -19,6 +20,9 @@ export default function Home() {
 
       {/* Section 04 — Create Your Store */}
       <CreateStoreSection />
+
+      {/* Section 05 — Product Feature Overview */}
+      <FeatureOverviewSection />
 
       {/* Future sections will be added here, each using .section-padding
           for consistent vertical rhythm controlled by --section-spacing-y. */}

@@ -93,6 +93,14 @@ export const GLOBAL_CTAS: Record<string, CTAConfigItem> = {
     variant: "primary",
     external: false,
   },
+  exploreAllFeatures: {
+    key: "cta.exploreAllFeatures",
+    href: "/features",
+    labelEn: "Explore All Features",
+    labelBn: "সকল ফিচারসমূহ দেখুন",
+    variant: "primary",
+    external: false,
+  },
 };
 
 export type CTAKey =
@@ -105,7 +113,8 @@ export type CTAKey =
   | "bookDemo"
   | "contactSales"
   | "talkToSupport"
-  | "exploreStorefrontFeatures";
+  | "exploreStorefrontFeatures"
+  | "exploreAllFeatures";
 
 interface CTAButtonProps {
   action: CTAKey;

@@ -54,6 +54,7 @@ export const translations: Record<Locale, Translations> = {
     "cta.contactSales": "Contact Sales",
     "cta.talkToSupport": "Talk to Support",
     "cta.exploreStorefrontFeatures": "Explore Storefront Features",
+    "cta.exploreAllFeatures": "Explore All Features",
 
     // Common Buttons & Badges
     "btn.startTrial": "Start Free Trial",
@@ -119,6 +120,28 @@ export const translations: Record<Locale, Translations> = {
     "createStore.featDomain": "Custom domain support (supported plans)",
     "createStore.previewLive": "Live Storefront Preview",
     "createStore.previewMobile": "Mobile-First Storefront",
+
+    // Home Page — Product Feature Overview (Section 05)
+    "featureOverview.badge": "PRODUCT FEATURES",
+    "featureOverview.title": "Everything You Need to Manage Your Store.",
+    "featureOverview.description": "Core tools designed to help you organize products, fulfill orders, collect payments and monitor daily store performance.",
+    "featureOverview.card1.title": "Product Management",
+    "featureOverview.card1.desc": "Organize products, variants, categories, images, prices and stock information.",
+    "featureOverview.card2.title": "Order Management",
+    "featureOverview.card2.desc": "Track orders, update statuses and coordinate fulfillment workflows.",
+    "featureOverview.card3.title": "Inventory Management",
+    "featureOverview.card3.desc": "Monitor stock levels and maintain inventory movement records.",
+    "featureOverview.card4.title": "Customer Management",
+    "featureOverview.card4.desc": "Keep customer profiles, addresses and order history organized.",
+    "featureOverview.card5.title": "Payments",
+    "featureOverview.card5.desc": "Manage supported payment methods and transaction statuses.",
+    "featureOverview.card6.title": "Shipping & Courier",
+    "featureOverview.card6.desc": "Coordinate shipping methods, courier bookings and delivery updates where integrations are supported.",
+    "featureOverview.card7.title": "Promotions",
+    "featureOverview.card7.desc": "Create supported discount codes and promotional rules.",
+    "featureOverview.card8.title": "Analytics & Reports",
+    "featureOverview.card8.desc": "Review sales, orders, products and operational summaries.",
+    "featureOverview.viewFeature": "View feature details",
 
     // Footer Columns & Links
     "footer.brandDescription": "Next-generation e-commerce platform built for scale, localized checkouts, and automated courier fulfillment.",
@@ -223,6 +246,7 @@ export const translations: Record<Locale, Translations> = {
     "cta.contactSales": "সেলস টিমের সাথে যোগাযোগ",
     "cta.talkToSupport": "সাপোর্টের সাথে কথা বলুন",
     "cta.exploreStorefrontFeatures": "স্টোরফ্রন্ট ফিচারসমূহ দেখুন",
+    "cta.exploreAllFeatures": "সকল ফিচারসমূহ দেখুন",
 
     // Common Buttons & Badges
     "btn.startTrial": "ফ্রি ট্রায়াল শুরু করুন",
@@ -288,6 +312,28 @@ export const translations: Record<Locale, Translations> = {
     "createStore.featDomain": "কাস্টম ডোমেইন সাপোর্ট (নির্দিষ্ট প্ল্যানে)",
     "createStore.previewLive": "লাইভ স্টোরফ্রন্ট প্রিভিউ",
     "createStore.previewMobile": "মোবাইল-ফার্স্ট স্টোরফ্রন্ট",
+
+    // Home Page — Product Feature Overview (Section 05)
+    "featureOverview.badge": "ফিচার ওভারভিউ",
+    "featureOverview.title": "আপনার স্টোর পরিচালনার জন্য যা কিছু প্রয়োজন।",
+    "featureOverview.description": "পণ্য সাজানো, অর্ডার ডেলিভারি, পেমেন্ট সংগ্রহ এবং দৈনন্দিন ব্যবসায়িক পারফরম্যান্স ট্র্যাক করার সমন্বিত টুলস।",
+    "featureOverview.card1.title": "প্রোডাক্ট ম্যানেজমেন্ট",
+    "featureOverview.card1.desc": "পণ্য, ভ্যারিয়েন্ট, ক্যাটাগরি, ছবি, মূল্য এবং স্টক তথ্য সুশৃঙ্খলভাবে সাজান।",
+    "featureOverview.card2.title": "অর্ডার ম্যানেজমেন্ট",
+    "featureOverview.card2.desc": "অর্ডার ট্র্যাক করুন, স্ট্যাটাস আপডেট করুন এবং ফুলফিলমেন্ট পরিচালনা করুন।",
+    "featureOverview.card3.title": "ইনভেন্টরি ম্যানেজমেন্ট",
+    "featureOverview.card3.desc": "স্টকের পরিমাণ মনিটর করুন এবং ইনভেন্টরি মুভমেন্টের রেকর্ড রাখুন।",
+    "featureOverview.card4.title": "কাস্টমার ম্যানেজমেন্ট",
+    "featureOverview.card4.desc": "গ্রাহকের প্রোফাইল, ঠিকানা এবং পূর্ববর্তী অর্ডারের তথ্য গুছিয়ে রাখুন।",
+    "featureOverview.card5.title": "পেমেন্টস",
+    "featureOverview.card5.desc": "সমর্থিত পেমেন্ট মাধ্যমসমূহ এবং লেনদেনের স্ট্যাটাস পরিচালনা করুন।",
+    "featureOverview.card6.title": "শিপিং ও কুরিয়ার",
+    "featureOverview.card6.desc": "শিপিং মাধ্যম, কুরিয়ার বুকিং এবং ডেলিভারি আপডেট সমন্বয় করুন যেখানে ইন্টিগ্রেশন সমর্থিত।",
+    "featureOverview.card7.title": "প্রমোশনস",
+    "featureOverview.card7.desc": "সমর্থিত ডিসকাউন্ট কোড এবং প্রমোশনাল নিয়মাবলী তৈরি করুন।",
+    "featureOverview.card8.title": "অ্যানালিটিক্স ও রিপোর্টস",
+    "featureOverview.card8.desc": "বিক্রয়, অর্ডার, পণ্য এবং অপারেশনাল রিপোর্ট পর্যালোচনা করুন।",
+    "featureOverview.viewFeature": "ফিচার বিস্তারিত",
 
     // Footer Columns & Links
     "footer.brandDescription": "স্কেলযোগ্য অনলাইন স্টোর, স্থানীয় চেকআউট এবং স্বয়ংক্রিয় কুরিয়ার ডেলিভারির জন্য আধুনিক ই-কমার্স প্ল্যাটফর্ম।",
