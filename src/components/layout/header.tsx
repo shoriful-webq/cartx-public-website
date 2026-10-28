@@ -15,60 +15,56 @@ import {
   Store,
   Layers,
 } from "lucide-react";
-
-interface NavLinkItem {
-  name: string;
-  href: string;
-}
-
-const CENTER_NAV_LINKS: NavLinkItem[] = [
-  { name: "Home", href: "/" },
-  { name: "Features", href: "/features" },
-  { name: "Solutions", href: "/solutions" },
-  { name: "Themes", href: "/themes" },
-  { name: "Integrations", href: "/integrations" },
-  { name: "Pricing", href: "/pricing" },
-];
-
-const RESOURCE_LINKS = [
-  {
-    name: "Blog & Guides",
-    href: "/blog",
-    description: "E-commerce strategy, playbooks, and conversion optimization.",
-    icon: BookOpen,
-  },
-  {
-    name: "Help Center & FAQ",
-    href: "/help",
-    description: "Setup guides, gateway connections, and courier documentation.",
-    icon: HelpCircle,
-  },
-  {
-    name: "Demo Stores",
-    href: "/demo-stores",
-    description: "Explore interactive storefront samples across retail verticals.",
-    icon: Store,
-  },
-  {
-    name: "White-Label Mobile Apps",
-    href: "/white-label-apps",
-    description: "Dedicated iOS & Android shopping apps with push notifications.",
-    icon: Smartphone,
-  },
-  {
-    name: "How It Works",
-    href: "/how-it-works",
-    description: "A 4-step merchant guide from onboarding to delivery fulfillment.",
-    icon: Layers,
-  },
-];
+import { useLanguage } from "@/lib/i18n/language-context";
 
 export function Header() {
   const pathname = usePathname();
+  const { locale, toggleLocale, t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState<"en" | "bn">("en");
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const centerNavLinks = [
+    { name: t("nav.home"), href: "/" },
+    { name: t("nav.features"), href: "/features" },
+    { name: t("nav.solutions"), href: "/solutions" },
+    { name: t("nav.themes"), href: "/themes" },
+    { name: t("nav.integrations"), href: "/integrations" },
+    { name: t("nav.pricing"), href: "/pricing" },
+  ];
+
+  const resourceLinks = [
+    {
+      name: t("resources.blog.title"),
+      href: "/blog",
+      description: t("resources.blog.desc"),
+      icon: BookOpen,
+    },
+    {
+      name: t("resources.help.title"),
+      href: "/help",
+      description: t("resources.help.desc"),
+      icon: HelpCircle,
+    },
+    {
+      name: t("resources.demo.title"),
+      href: "/demo-stores",
+      description: t("resources.demo.desc"),
+      icon: Store,
+    },
+    {
+      name: t("resources.mobile.title"),
+      href: "/white-label-apps",
+      description: t("resources.mobile.desc"),
+      icon: Smartphone,
+    },
+    {
+      name: t("resources.howItWorks.title"),
+      href: "/how-it-works",
+      description: t("resources.howItWorks.desc"),
+      icon: Layers,
+    },
+  ];
 
   // Close dropdown on outside click or Esc
   useEffect(() => {
@@ -104,13 +100,7 @@ export function Header() {
     return pathname.startsWith(href);
   };
 
-  const isResourceActive = RESOURCE_LINKS.some((r) => pathname.startsWith(r.href));
-
-  const toggleLanguage = () => {
-    const nextLang = currentLang === "en" ? "bn" : "en";
-    setCurrentLang(nextLang);
-    document.documentElement.lang = nextLang;
-  };
+  const isResourceActive = resourceLinks.some((r) => pathname.startsWith(r.href));
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-card/95 backdrop-blur-md transition-colors">
@@ -136,7 +126,7 @@ export function Header() {
           className="hidden lg:flex items-center gap-1 xl:gap-1.5 text-[13px] font-medium tracking-normal"
           aria-label="Primary Navigation"
         >
-          {CENTER_NAV_LINKS.map((link) => {
+          {centerNavLinks.map((link) => {
             const active = isLinkActive(link.href);
             return (
               <Link
@@ -167,7 +157,7 @@ export function Header() {
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
               }`}
             >
-              <span>Resources</span>
+              <span>{t("nav.resources")}</span>
               <ChevronDown
                 className={`size-3.5 opacity-70 transition-transform duration-200 ${
                   resourcesOpen ? "rotate-180" : ""
@@ -181,9 +171,9 @@ export function Header() {
                 className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 rounded-xl border border-border bg-card p-1.5 shadow-dropdown animate-in fade-in-50 zoom-in-95 z-50"
               >
                 <div className="px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80 border-b border-border/50 mb-1">
-                  Resources & Solutions
+                  {t("resources.title")}
                 </div>
-                {RESOURCE_LINKS.map((res) => {
+                {resourceLinks.map((res) => {
                   const ResIcon = res.icon;
                   const resActive = pathname.startsWith(res.href);
                   return (
@@ -225,7 +215,7 @@ export function Header() {
             }`}
             aria-current={isLinkActive("/contact") ? "page" : undefined}
           >
-            Contact Us
+            {t("nav.contact")}
           </Link>
         </nav>
 
@@ -234,12 +224,14 @@ export function Header() {
           {/* Language Switcher */}
           <button
             type="button"
-            onClick={toggleLanguage}
-            className="flex items-center gap-1.5 text-xs font-medium px-2.5 py-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/60 focus-visible:outline-2 focus-visible:outline-ring transition-colors"
-            aria-label="Toggle language between English and Bangla"
+            onClick={toggleLocale}
+            className="flex items-center gap-1.5 text-xs font-medium px-2.5 py-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/60 focus-visible:outline-2 focus-visible:outline-ring transition-colors cursor-pointer select-none"
+            aria-label={t("lang.aria")}
           >
             <Globe className="size-3.5 opacity-70" />
-            <span>{currentLang === "en" ? "বাংলা" : "English"}</span>
+            <span className={locale === "en" ? "font-bengali font-semibold text-primary" : "font-semibold text-primary"}>
+              {locale === "en" ? "বাংলা" : "English"}
+            </span>
           </button>
 
           <div className="h-4 w-px bg-border/80" aria-hidden="true" />
@@ -249,7 +241,7 @@ export function Header() {
             href="/start"
             className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors px-2 py-1.5"
           >
-            Log In
+            {t("nav.login")}
           </Link>
 
           {/* Primary CTA: Start Your Store */}
@@ -257,7 +249,7 @@ export function Header() {
             href="/start"
             className="inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-3.5 py-2 text-xs font-semibold text-primary-foreground shadow-xs hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-ring transition-colors"
           >
-            Start Your Store
+            {t("nav.start")}
           </Link>
         </div>
 
@@ -265,12 +257,14 @@ export function Header() {
         <div className="flex items-center gap-2 lg:hidden">
           <button
             type="button"
-            onClick={toggleLanguage}
-            className="flex items-center gap-1 text-xs font-medium px-2 py-1.5 rounded-md border border-border bg-card text-foreground"
-            aria-label="Switch language"
+            onClick={toggleLocale}
+            className="flex items-center gap-1 text-xs font-medium px-2 py-1.5 rounded-md border border-border bg-card text-foreground cursor-pointer select-none"
+            aria-label={t("lang.aria")}
           >
             <Globe className="size-3 text-primary" />
-            <span>{currentLang === "en" ? "বাং" : "EN"}</span>
+            <span className={locale === "en" ? "font-bengali font-semibold" : "font-semibold"}>
+              {locale === "en" ? "বাং" : "EN"}
+            </span>
           </button>
 
           <button
@@ -294,7 +288,7 @@ export function Header() {
         >
           <div className="flex flex-col space-y-4">
             <nav className="flex flex-col space-y-0.5" aria-label="Mobile Navigation">
-              {CENTER_NAV_LINKS.map((link) => {
+              {centerNavLinks.map((link) => {
                 const active = isLinkActive(link.href);
                 return (
                   <Link
@@ -315,10 +309,10 @@ export function Header() {
               {/* Resources section on mobile */}
               <div className="pt-2 pb-1 border-t border-border/60 mt-2">
                 <span className="px-3 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">
-                  Resources & Solutions
+                  {t("resources.title")}
                 </span>
               </div>
-              {RESOURCE_LINKS.map((res) => {
+              {resourceLinks.map((res) => {
                 const ResIcon = res.icon;
                 const active = pathname.startsWith(res.href);
                 return (
@@ -345,7 +339,7 @@ export function Header() {
                     : "text-foreground hover:bg-muted"
                 }`}
               >
-                <span>Contact Us</span>
+                <span>{t("nav.contact")}</span>
               </Link>
             </nav>
 
@@ -355,13 +349,13 @@ export function Header() {
                 href="/start"
                 className="w-full text-center py-2 text-xs font-medium text-foreground hover:text-primary border border-border rounded-md bg-background transition-colors"
               >
-                Log In
+                {t("nav.login")}
               </Link>
               <Link
                 href="/start"
                 className="w-full inline-flex items-center justify-center gap-1.5 rounded-md bg-primary py-2.5 text-xs font-semibold text-primary-foreground shadow-xs hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-ring transition-colors"
               >
-                Start Your Store <ArrowRight className="size-3.5" />
+                {t("nav.start")} <ArrowRight className="size-3.5" />
               </Link>
             </div>
           </div>
