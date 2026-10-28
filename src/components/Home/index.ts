@@ -7,4 +7,5 @@ export { FeatureOverviewSection, type FeatureOverviewSectionProps } from "./feat
 export { HowItWorksSection, type HowItWorksSectionProps } from "./how-it-works-section";
 export { ThemeTemplatesSection, type ThemeTemplatesSectionProps } from "./theme-templates-section";
 export { OrderInventorySection, type OrderInventorySectionProps } from "./order-inventory-section";
+export { PaymentsDeliverySection, type PaymentsDeliverySectionProps } from "./payments-delivery-section";
 export { SectionHeading, type SectionHeadingProps } from "./section-heading";

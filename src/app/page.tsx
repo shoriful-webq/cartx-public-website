@@ -7,6 +7,7 @@ import {
   HowItWorksSection,
   ThemeTemplatesSection,
   OrderInventorySection,
+  PaymentsDeliverySection,
 } from "@/components/Home";
 
 export default function Home() {
@@ -35,6 +36,9 @@ export default function Home() {
 
       {/* Section 08 — Manage Orders and Inventory */}
       <OrderInventorySection />
+
+      {/* Section 09 — Payments and Delivery */}
+      <PaymentsDeliverySection />
     </div>
   );
 }
