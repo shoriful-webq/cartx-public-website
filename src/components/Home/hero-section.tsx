@@ -10,7 +10,7 @@ export function HeroSection() {
   const { t, locale } = useLanguage();
 
   return (
-    <section className="hero-bg relative overflow-hidden transition-colors">
+    <section className="hero-bg relative overflow-hidden transition-colors py-12">
       {/* ── Decorative background shapes ── */}
 
       {/* Large soft radial in the top-right — anchors the mockup side */}
@@ -108,6 +108,7 @@ export function HeroSection() {
           </ScrollReveal>
         </div>
       </div>
+      
     </section>
   );
 }
