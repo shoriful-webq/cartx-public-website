@@ -17,8 +17,8 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface FeatureRow {
-  name: string;
-  category: string;
+  nameKey: string;
+  categoryKey: string;
   starter: string | boolean;
   growth: string | boolean;
   scale: string | boolean;
@@ -26,95 +26,95 @@ interface FeatureRow {
 
 const COMPARISON_ROWS: FeatureRow[] = [
   {
-    name: "Product Catalog Limit",
-    category: "Catalog & Products",
-    starter: "Up to 100",
-    growth: "Up to 2,500",
-    scale: "Unlimited",
+    nameKey: "featuresPlan.row.products.name",
+    categoryKey: "featuresPlan.row.products.category",
+    starter: "featuresPlan.val.upTo100",
+    growth: "featuresPlan.val.upTo2500",
+    scale: "featuresPlan.val.unlimited",
   },
   {
-    name: "Staff Accounts",
-    category: "Store Administration",
-    starter: "1 Account",
-    growth: "5 Accounts",
-    scale: "Unlimited",
+    nameKey: "featuresPlan.row.staff.name",
+    categoryKey: "featuresPlan.row.staff.category",
+    starter: "featuresPlan.val.1account",
+    growth: "featuresPlan.val.5accounts",
+    scale: "featuresPlan.val.unlimited",
   },
   {
-    name: "Web Storefront Hosting & SSL",
-    category: "Storefront",
+    nameKey: "featuresPlan.row.hosting.name",
+    categoryKey: "featuresPlan.row.hosting.category",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    name: "Order Processing & Tracking",
-    category: "Orders",
+    nameKey: "featuresPlan.row.orders.name",
+    categoryKey: "featuresPlan.row.orders.category",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    name: "Cash on Delivery (COD) Workflow",
-    category: "Payments",
+    nameKey: "featuresPlan.row.cod.name",
+    categoryKey: "featuresPlan.row.cod.category",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    name: "bKash & Nagad Gateway APIs",
-    category: "Payments",
+    nameKey: "featuresPlan.row.gateways.name",
+    categoryKey: "featuresPlan.row.gateways.category",
     starter: true,
     growth: true,
     scale: true,
   },
   {
-    name: "Automated Invoices & Receipts",
-    category: "Orders",
-    starter: "Basic",
+    nameKey: "featuresPlan.row.invoices.name",
+    categoryKey: "featuresPlan.row.invoices.category",
+    starter: "featuresPlan.val.basic",
     growth: true,
     scale: true,
   },
   {
-    name: "Courier Booking (Pathao & Steadfast)",
-    category: "Shipping",
-    starter: "Manual",
-    growth: "Automated",
-    scale: "Priority API",
+    nameKey: "featuresPlan.row.courier.name",
+    categoryKey: "featuresPlan.row.courier.category",
+    starter: "featuresPlan.val.basic",
+    growth: "featuresPlan.val.automated",
+    scale: "featuresPlan.val.priorityApi",
   },
   {
-    name: "Discounts & Promotional Coupons",
-    category: "Marketing",
-    starter: "Basic",
-    growth: "Advanced Rules",
-    scale: "Full Suite",
+    nameKey: "featuresPlan.row.discounts.name",
+    categoryKey: "featuresPlan.row.discounts.category",
+    starter: "featuresPlan.val.basic",
+    growth: "featuresPlan.val.advancedRules",
+    scale: "featuresPlan.val.fullSuite",
   },
   {
-    name: "Store Performance Analytics",
-    category: "Analytics",
-    starter: "Basic Summaries",
-    growth: "Expanded Reports",
-    scale: "Multi-Channel Priority",
+    nameKey: "featuresPlan.row.analytics.name",
+    categoryKey: "featuresPlan.row.analytics.category",
+    starter: "featuresPlan.val.basicSummaries",
+    growth: "featuresPlan.val.expandedReports",
+    scale: "featuresPlan.val.multiChannel",
   },
   {
-    name: "Custom Domain Mapping",
-    category: "Storefront",
-    starter: "Add-on Setup",
-    growth: "Included",
-    scale: "Included",
+    nameKey: "featuresPlan.row.domain.name",
+    categoryKey: "featuresPlan.row.domain.category",
+    starter: "featuresPlan.val.addonSetup",
+    growth: "featuresPlan.val.included",
+    scale: "featuresPlan.val.included",
   },
   {
-    name: "White-label Mobile Apps",
-    category: "Mobile",
+    nameKey: "featuresPlan.row.apps.name",
+    categoryKey: "featuresPlan.row.apps.category",
     starter: false,
-    growth: "Add-on Compilation",
-    scale: "Custom Mobile Builds",
+    growth: "featuresPlan.val.addonCompilation",
+    scale: "featuresPlan.val.customMobileBuilds",
   },
   {
-    name: "Customer Support Channel",
-    category: "Support",
-    starter: "Standard",
-    growth: "Standard",
-    scale: "Priority Dedicated",
+    nameKey: "featuresPlan.row.support.name",
+    categoryKey: "featuresPlan.row.support.category",
+    starter: "featuresPlan.val.standard",
+    growth: "featuresPlan.val.standard",
+    scale: "featuresPlan.val.priorityDedicated",
   },
 ];
 
@@ -159,12 +159,13 @@ export function PlanAvailabilitySection({ className }: PlanAvailabilitySectionPr
             <div className="min-w-[620px] lg:min-w-0">
               {/* Table Header */}
               <div className="grid grid-cols-12 p-4 sm:p-5 bg-muted/40 border-b border-border text-xs sm:text-sm font-bold text-foreground">
-                <div className="col-span-5 sm:col-span-6">Core Capabilities</div>
-                <div className="col-span-2 text-center">Starter</div>
+                <div className="col-span-5 sm:col-span-6">{t("featuresPlan.coreCapabilities")}</div>
+                <div className="col-span-2 text-center">{t("featuresPlan.starter")}</div>
                 <div className="col-span-2 text-center text-primary">
-                  Growth <span className="hidden sm:inline text-[10px] font-medium">(Popular)</span>
+                  {t("featuresPlan.growth")}{" "}
+                  <span className="hidden sm:inline text-[10px] font-medium">({t("featuresPlan.popular")})</span>
                 </div>
-                <div className="col-span-3 sm:col-span-2 text-center">Scale</div>
+                <div className="col-span-3 sm:col-span-2 text-center">{t("featuresPlan.scale")}</div>
               </div>
 
               {/* Comparison Rows */}
@@ -175,8 +176,8 @@ export function PlanAvailabilitySection({ className }: PlanAvailabilitySectionPr
                     className="grid grid-cols-12 p-3.5 sm:p-4 text-xs sm:text-sm items-center hover:bg-primary/[0.02] transition-colors"
                   >
                     <div className="col-span-5 sm:col-span-6 pr-2">
-                      <p className="font-semibold text-foreground leading-snug">{row.name}</p>
-                      <p className="text-[10px] text-muted-foreground">{row.category}</p>
+                      <p className="font-semibold text-foreground leading-snug">{t(row.nameKey)}</p>
+                      <p className="text-[10px] text-muted-foreground">{t(row.categoryKey)}</p>
                     </div>
 
                     {/* Starter */}
@@ -189,7 +190,7 @@ export function PlanAvailabilitySection({ className }: PlanAvailabilitySectionPr
                         )
                       ) : (
                         <span className="font-medium text-muted-foreground text-[11px] sm:text-xs">
-                          {row.starter}
+                          {t(row.starter)}
                         </span>
                       )}
                     </div>
@@ -204,7 +205,7 @@ export function PlanAvailabilitySection({ className }: PlanAvailabilitySectionPr
                         )
                       ) : (
                         <span className="font-bold text-primary text-[11px] sm:text-xs">
-                          {row.growth}
+                          {t(row.growth)}
                         </span>
                       )}
                     </div>
@@ -219,7 +220,7 @@ export function PlanAvailabilitySection({ className }: PlanAvailabilitySectionPr
                         )
                       ) : (
                         <span className="font-semibold text-foreground text-[11px] sm:text-xs">
-                          {row.scale}
+                          {t(row.scale)}
                         </span>
                       )}
                     </div>
@@ -251,7 +252,7 @@ export function PlanAvailabilitySection({ className }: PlanAvailabilitySectionPr
                 href="/contact"
                 className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground px-4 py-2 transition-colors group"
               >
-                <span>Need custom requirements? Contact our team</span>
+                <span>{t("featuresPlan.contactCustom")}</span>
                 <ArrowRight className="size-3 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>

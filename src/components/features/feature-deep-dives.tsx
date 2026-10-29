@@ -34,10 +34,10 @@ import { cn } from "@/lib/utils";
 
 interface DeepDiveItem {
   id: string;
-  eyebrow: string;
-  title: string;
-  description: string;
-  bullets: string[];
+  eyebrowKey: string;
+  titleKey: string;
+  descKey: string;
+  bulletKeys: string[];
   icon: LucideIcon;
   iconBg: string;
   iconColor: string;
@@ -47,7 +47,7 @@ interface DeepDiveItem {
 /* ─────────────────────────────────────────────────────────────
  * 1. Storefront Mockup
  * ───────────────────────────────────────────────────────────── */
-function StorefrontMockup({ notice }: { notice: string }) {
+function StorefrontMockup({ notice, t = (k: string) => k }: { notice: string; t?: (k: string) => string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -68,31 +68,31 @@ function StorefrontMockup({ notice }: { notice: string }) {
             <div className="flex items-center gap-2">
               <Globe className="size-4 text-primary" />
               <div>
-                <p className="text-xs font-bold text-foreground">Custom Domain</p>
-                <p className="text-[9.5px] text-muted-foreground">Primary store web address</p>
+                <p className="text-xs font-bold text-foreground">{t("featuresMockup.customDomain")}</p>
+                <p className="text-[9.5px] text-muted-foreground">{t("featuresMockup.customDomainDesc")}</p>
               </div>
             </div>
             <span className="text-[8.5px] font-semibold text-success bg-success/10 px-2 py-0.5 rounded border border-success/20">
-              Active & Connected
+              {t("featuresMockup.activeConnected")}
             </span>
           </div>
           <div className="flex items-center justify-between bg-muted/30 rounded p-2 text-xs font-mono">
             <span className="font-semibold text-foreground">mystore.com.bd</span>
             <span className="text-[9px] text-muted-foreground flex items-center gap-1">
-              <Lock className="size-2.5 text-success" /> SSL Auto-Renewed
+              <Lock className="size-2.5 text-success" /> {t("featuresMockup.sslAutoRenewed")}
             </span>
           </div>
         </div>
 
         <div className="rounded-lg border border-border bg-card p-3 shadow-2xs space-y-2">
-          <p className="text-xs font-bold text-foreground">Brand Identity & Styling</p>
+          <p className="text-xs font-bold text-foreground">{t("featuresMockup.brandIdentity")}</p>
           <div className="grid grid-cols-2 gap-2 text-[10px]">
             <div className="bg-muted/30 p-2 rounded border border-border/50">
-              <span className="text-muted-foreground block text-[9px]">Store Display Name</span>
+              <span className="text-muted-foreground block text-[9px]">{t("featuresMockup.storeDisplayName")}</span>
               <span className="font-semibold text-foreground">Aura Boutique</span>
             </div>
             <div className="bg-muted/30 p-2 rounded border border-border/50">
-              <span className="text-muted-foreground block text-[9px]">Primary Accent Color</span>
+              <span className="text-muted-foreground block text-[9px]">{t("featuresMockup.primaryColor")}</span>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <span className="size-3 rounded-full bg-primary" />
                 <span className="font-semibold font-mono text-foreground">#2563EB</span>
@@ -104,10 +104,10 @@ function StorefrontMockup({ notice }: { notice: string }) {
         <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Store className="size-4 text-primary" />
-            <span className="text-xs font-medium text-foreground">Responsive Storefront Theme</span>
+            <span className="text-xs font-medium text-foreground">{t("featuresMockup.storefrontTheme")}</span>
           </div>
           <span className="text-[9px] font-semibold bg-primary/10 text-primary px-2 py-0.5 rounded">
-            Modern Editorial Live
+            {t("featuresMockup.themeLive")}
           </span>
         </div>
       </div>
@@ -118,7 +118,7 @@ function StorefrontMockup({ notice }: { notice: string }) {
 /* ─────────────────────────────────────────────────────────────
  * 2. Products Catalog Mockup
  * ───────────────────────────────────────────────────────────── */
-function ProductCatalogMockup({ notice }: { notice: string }) {
+function ProductCatalogMockup({ notice, t = (k: string) => k }: { notice: string; t?: (k: string) => string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -136,7 +136,7 @@ function ProductCatalogMockup({ notice }: { notice: string }) {
       <div className="p-4 sm:p-5 space-y-2.5 bg-background/50">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs font-bold text-foreground">Premium Linen Shirt</p>
+            <p className="text-xs font-bold text-foreground">{t("featuresMockup.prodTitle")}</p>
             <p className="text-[9px] font-mono text-muted-foreground">SKU: LNN-SHIRT-2026</p>
           </div>
           <div className="flex items-center gap-1.5">
@@ -149,10 +149,10 @@ function ProductCatalogMockup({ notice }: { notice: string }) {
 
         <div className="rounded-lg border border-border bg-card overflow-hidden divide-y divide-border/60 shadow-2xs">
           <div className="px-3 py-1.5 bg-muted/30 text-[9px] font-semibold text-muted-foreground grid grid-cols-4">
-            <span>Variant</span>
-            <span>SKU</span>
-            <span>Price</span>
-            <span className="text-right">Compare At</span>
+            <span>{t("featuresMockup.variant")}</span>
+            <span>{t("featuresMockup.sku")}</span>
+            <span>{t("featuresMockup.price")}</span>
+            <span className="text-right">{t("featuresMockup.compareAt")}</span>
           </div>
           <div className="px-3 py-2 text-[10px] grid grid-cols-4 items-center">
             <span className="font-semibold text-foreground">Blue / M</span>
@@ -189,7 +189,7 @@ function ProductCatalogMockup({ notice }: { notice: string }) {
 /* ─────────────────────────────────────────────────────────────
  * 3. Orders Mockup
  * ───────────────────────────────────────────────────────────── */
-function OrdersMockup({ notice }: { notice: string }) {
+function OrdersMockup({ notice, t = (k: string) => k }: { notice: string; t?: (k: string) => string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -232,25 +232,25 @@ function OrdersMockup({ notice }: { notice: string }) {
               <div className="size-4 rounded-full bg-success text-white flex items-center justify-center text-[8px] font-bold">
                 ✓
               </div>
-              <span className="font-semibold text-foreground mt-1">Placed</span>
+              <span className="font-semibold text-foreground mt-1">{t("featuresMockup.placed")}</span>
             </div>
             <div className="flex flex-col items-center">
               <div className="size-4 rounded-full bg-success text-white flex items-center justify-center text-[8px] font-bold">
                 ✓
               </div>
-              <span className="font-semibold text-foreground mt-1">Confirmed</span>
+              <span className="font-semibold text-foreground mt-1">{t("featuresMockup.confirmed")}</span>
             </div>
             <div className="flex flex-col items-center">
               <div className="size-4 rounded-full bg-primary text-white flex items-center justify-center text-[8px] font-bold animate-pulse">
                 •
               </div>
-              <span className="font-semibold text-primary mt-1">Dispatched</span>
+              <span className="font-semibold text-primary mt-1">{t("featuresMockup.dispatched")}</span>
             </div>
             <div className="flex flex-col items-center opacity-60">
               <div className="size-4 rounded-full bg-muted border border-border flex items-center justify-center text-[8px]">
                 4
               </div>
-              <span className="text-muted-foreground mt-1">Delivered</span>
+              <span className="text-muted-foreground mt-1">{t("featuresMockup.delivered")}</span>
             </div>
           </div>
         </div>
@@ -273,7 +273,7 @@ function OrdersMockup({ notice }: { notice: string }) {
 /* ─────────────────────────────────────────────────────────────
  * 4. Inventory Control Mockup
  * ───────────────────────────────────────────────────────────── */
-function InventoryControlMockup({ notice }: { notice: string }) {
+function InventoryControlMockup({ notice, t = (k: string) => k }: { notice: string; t?: (k: string) => string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -291,7 +291,7 @@ function InventoryControlMockup({ notice }: { notice: string }) {
       <div className="p-4 sm:p-5 space-y-2.5 bg-background/50">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs font-bold text-foreground">Live Stock Overview</p>
+            <p className="text-xs font-bold text-foreground">{t("featuresMockup.inventoryOverview")}</p>
             <p className="text-[9px] text-muted-foreground">Automated stock tracking enabled</p>
           </div>
           <span className="text-[9px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded">
@@ -302,9 +302,9 @@ function InventoryControlMockup({ notice }: { notice: string }) {
         <div className="rounded-lg border border-border bg-card overflow-hidden divide-y divide-border/60 shadow-2xs">
           <div className="px-3 py-1.5 bg-muted/30 text-[9px] font-semibold text-muted-foreground grid grid-cols-4">
             <span>Item / SKU</span>
-            <span>In Stock</span>
+            <span>{t("featuresMockup.inStock")}</span>
             <span>Threshold</span>
-            <span className="text-right">Status</span>
+            <span className="text-right">{t("featuresMockup.status")}</span>
           </div>
           <div className="px-3 py-2 text-[10px] grid grid-cols-4 items-center">
             <span className="font-semibold text-foreground">LNN-BLU-L</span>
@@ -316,7 +316,7 @@ function InventoryControlMockup({ notice }: { notice: string }) {
             <span className="font-semibold text-foreground">LNN-SND-M</span>
             <span className="font-bold text-amber-600 dark:text-amber-400">3 units</span>
             <span className="text-muted-foreground">10 units</span>
-            <span className="text-right font-bold text-amber-600 dark:text-amber-400">Low Stock</span>
+            <span className="text-right font-bold text-amber-600 dark:text-amber-400">{t("featuresMockup.lowStock")}</span>
           </div>
           <div className="px-3 py-2 text-[10px] grid grid-cols-4 items-center">
             <span className="font-semibold text-foreground">LNN-WHT-S</span>
@@ -341,7 +341,7 @@ function InventoryControlMockup({ notice }: { notice: string }) {
 /* ─────────────────────────────────────────────────────────────
  * 5. Customer Management Mockup
  * ───────────────────────────────────────────────────────────── */
-function CustomerManagementMockup({ notice }: { notice: string }) {
+function CustomerManagementMockup({ notice, t = (k: string) => k }: { notice: string; t?: (k: string) => string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -368,17 +368,17 @@ function CustomerManagementMockup({ notice }: { notice: string }) {
             </div>
           </div>
           <span className="text-[8.5px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">
-            Returning VIP
+            {t("featuresMockup.vipShopper")}
           </span>
         </div>
 
         <div className="grid grid-cols-3 gap-2 text-[10px]">
           <div className="bg-card p-2 rounded border border-border">
-            <span className="text-[9px] text-muted-foreground block">Total Orders</span>
+            <span className="text-[9px] text-muted-foreground block">{t("featuresMockup.lifetimeOrders")}</span>
             <span className="text-sm font-bold text-foreground">4 Orders</span>
           </div>
           <div className="bg-card p-2 rounded border border-border">
-            <span className="text-[9px] text-muted-foreground block">Lifetime Spend</span>
+            <span className="text-[9px] text-muted-foreground block">{t("featuresMockup.totalSpend")}</span>
             <span className="text-sm font-bold text-foreground">৳12,450</span>
           </div>
           <div className="bg-card p-2 rounded border border-border">
@@ -389,7 +389,7 @@ function CustomerManagementMockup({ notice }: { notice: string }) {
 
         <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs space-y-1">
           <div className="flex items-center justify-between text-[9.5px]">
-            <span className="font-semibold text-foreground">Default Delivery Address</span>
+            <span className="font-semibold text-foreground">{t("featuresMockup.savedAddress")}</span>
             <span className="text-muted-foreground font-mono">Verified</span>
           </div>
           <p className="text-[9px] text-muted-foreground leading-snug">
@@ -404,7 +404,7 @@ function CustomerManagementMockup({ notice }: { notice: string }) {
 /* ─────────────────────────────────────────────────────────────
  * 6. Payment Management Mockup
  * ───────────────────────────────────────────────────────────── */
-function PaymentManagementMockup({ notice }: { notice: string }) {
+function PaymentManagementMockup({ notice, t = (k: string) => k }: { notice: string; t?: (k: string) => string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -420,16 +420,16 @@ function PaymentManagementMockup({ notice }: { notice: string }) {
       </div>
 
       <div className="p-4 sm:p-5 space-y-2.5 bg-background/50">
-        <p className="text-xs font-bold text-foreground">Supported Payment Gateways</p>
+        <p className="text-xs font-bold text-foreground">{t("featuresMockup.mfsGateway")}</p>
         <div className="grid grid-cols-2 gap-2">
           <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
             <div className="flex items-center justify-between mb-1">
               <span className="font-bold text-pink-600 text-xs">bKash</span>
               <span className="size-1.5 rounded-full bg-success" />
             </div>
-            <p className="text-[9px] text-muted-foreground">Instant Direct Checkout</p>
+            <p className="text-[9px] text-muted-foreground">{t("featuresMockup.instantCallback")}</p>
             <span className="text-[8.5px] font-semibold text-success bg-success/10 px-1.5 py-0.2 rounded mt-1.5 inline-block">
-              Connected
+              {t("featuresMockup.activeConnected")}
             </span>
           </div>
 
@@ -438,9 +438,9 @@ function PaymentManagementMockup({ notice }: { notice: string }) {
               <span className="font-bold text-orange-600 text-xs">Nagad</span>
               <span className="size-1.5 rounded-full bg-success" />
             </div>
-            <p className="text-[9px] text-muted-foreground">Merchant Account API</p>
+            <p className="text-[9px] text-muted-foreground">{t("featuresMockup.verifiedActive")}</p>
             <span className="text-[8.5px] font-semibold text-success bg-success/10 px-1.5 py-0.2 rounded mt-1.5 inline-block">
-              Connected
+              {t("featuresMockup.activeConnected")}
             </span>
           </div>
         </div>
@@ -448,7 +448,7 @@ function PaymentManagementMockup({ notice }: { notice: string }) {
         <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
           <div className="flex items-center justify-between text-[9px] font-semibold text-muted-foreground pb-1.5 mb-1.5 border-b border-border/60">
             <span>Recent Settlement</span>
-            <span>Status</span>
+            <span>{t("featuresMockup.status")}</span>
           </div>
           <div className="flex items-center justify-between text-[10px]">
             <div>
@@ -468,7 +468,7 @@ function PaymentManagementMockup({ notice }: { notice: string }) {
 /* ─────────────────────────────────────────────────────────────
  * 7. Delivery Operations Mockup
  * ───────────────────────────────────────────────────────────── */
-function DeliveryOperationsMockup({ notice }: { notice: string }) {
+function DeliveryOperationsMockup({ notice, t = (k: string) => k }: { notice: string; t?: (k: string) => string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -487,12 +487,12 @@ function DeliveryOperationsMockup({ notice }: { notice: string }) {
         <p className="text-xs font-bold text-foreground">Shipping Rate Configurations</p>
         <div className="grid grid-cols-2 gap-2 text-[10px]">
           <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
-            <span className="text-[9px] text-muted-foreground block">Inside Dhaka</span>
+            <span className="text-[9px] text-muted-foreground block">{t("featuresMockup.insideDhaka")}</span>
             <span className="text-sm font-bold text-foreground">৳60</span>
             <span className="text-[8.5px] text-success block mt-0.5">24–48 Hours</span>
           </div>
           <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
-            <span className="text-[9px] text-muted-foreground block">Outside Dhaka</span>
+            <span className="text-[9px] text-muted-foreground block">{t("featuresMockup.outsideDhaka")}</span>
             <span className="text-sm font-bold text-foreground">৳120</span>
             <span className="text-[8.5px] text-primary block mt-0.5">48–72 Hours</span>
           </div>
@@ -503,7 +503,7 @@ function DeliveryOperationsMockup({ notice }: { notice: string }) {
           <div className="flex items-center justify-between text-[9.5px] bg-muted/30 p-2 rounded">
             <div className="flex items-center gap-2">
               <Truck className="size-3.5 text-primary" />
-              <span className="font-semibold text-foreground">Pathao & Steadfast APIs</span>
+              <span className="font-semibold text-foreground">{t("featuresMockup.pathaoSteadfast")}</span>
             </div>
             <span className="text-[8.5px] font-semibold bg-success/10 text-success px-1.5 py-0.2 rounded">
               Ready
@@ -518,7 +518,7 @@ function DeliveryOperationsMockup({ notice }: { notice: string }) {
 /* ─────────────────────────────────────────────────────────────
  * 8. Marketing Mockup
  * ───────────────────────────────────────────────────────────── */
-function MarketingMockup({ notice }: { notice: string }) {
+function MarketingMockup({ notice, t = (k: string) => k }: { notice: string; t?: (k: string) => string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -534,7 +534,7 @@ function MarketingMockup({ notice }: { notice: string }) {
       </div>
 
       <div className="p-4 sm:p-5 space-y-2.5 bg-background/50">
-        <p className="text-xs font-bold text-foreground">Active Promotion Codes</p>
+        <p className="text-xs font-bold text-foreground">{t("featuresMockup.campaignCoupons")}</p>
         <div className="rounded-lg border border-border bg-card overflow-hidden divide-y divide-border/60 shadow-2xs">
           <div className="p-2.5 flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -564,7 +564,7 @@ function MarketingMockup({ notice }: { notice: string }) {
         </div>
 
         <div className="rounded-md border border-border bg-card p-2 text-[9.5px] text-muted-foreground flex items-center justify-between">
-          <span>Total redemptions this month</span>
+          <span>{t("featuresMockup.usageLimit")}</span>
           <span className="font-bold text-foreground">428 Uses</span>
         </div>
       </div>
@@ -575,7 +575,7 @@ function MarketingMockup({ notice }: { notice: string }) {
 /* ─────────────────────────────────────────────────────────────
  * 9. Reports & Analytics Mockup
  * ───────────────────────────────────────────────────────────── */
-function ReportsAnalyticsMockup({ notice }: { notice: string }) {
+function ReportsAnalyticsMockup({ notice, t = (k: string) => k }: { notice: string; t?: (k: string) => string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -593,7 +593,7 @@ function ReportsAnalyticsMockup({ notice }: { notice: string }) {
       <div className="p-4 sm:p-5 space-y-3 bg-background/50">
         <div className="grid grid-cols-2 gap-2">
           <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
-            <span className="text-[9px] text-muted-foreground block">Gross Revenue (30d)</span>
+            <span className="text-[9px] text-muted-foreground block">{t("featuresMockup.monthlyGross")}</span>
             <span className="text-base font-bold text-foreground">৳1,84,200</span>
             <span className="text-[8.5px] text-success flex items-center gap-0.5 mt-0.5">
               <TrendingUp className="size-2.5" /> +14.2% vs prev
@@ -601,9 +601,9 @@ function ReportsAnalyticsMockup({ notice }: { notice: string }) {
           </div>
 
           <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
-            <span className="text-[9px] text-muted-foreground block">Total Orders</span>
+            <span className="text-[9px] text-muted-foreground block">{t("featuresMockup.lifetimeOrders")}</span>
             <span className="text-base font-bold text-foreground">218 Orders</span>
-            <span className="text-[8.5px] text-primary block mt-0.5">৳845 Avg Order</span>
+            <span className="text-[8.5px] text-primary block mt-0.5">{t("featuresMockup.avgOrderValue")}</span>
           </div>
         </div>
 
@@ -632,7 +632,7 @@ function ReportsAnalyticsMockup({ notice }: { notice: string }) {
 /* ─────────────────────────────────────────────────────────────
  * 10. Mobile Apps Mockup
  * ───────────────────────────────────────────────────────────── */
-function MobileAppsMockup({ notice }: { notice: string }) {
+function MobileAppsMockup({ notice, t = (k: string) => k }: { notice: string; t?: (k: string) => string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -659,7 +659,7 @@ function MobileAppsMockup({ notice }: { notice: string }) {
 
           <div className="rounded bg-gradient-to-r from-primary/15 to-secondary-accent/15 border border-primary/20 p-2">
             <span className="text-[7.5px] font-bold uppercase tracking-wider text-primary">Native App</span>
-            <p className="text-[11px] font-bold text-foreground leading-tight mt-0.5">Express Mobile Checkout</p>
+            <p className="text-[11px] font-bold text-foreground leading-tight mt-0.5">{t("featuresMockup.subSecond")}</p>
           </div>
 
           <div className="rounded border border-border bg-background p-2 shadow-2xs flex items-center gap-2">
@@ -684,17 +684,17 @@ function MobileAppsMockup({ notice }: { notice: string }) {
           <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
             <div className="flex items-center gap-1.5 text-primary mb-1">
               <Smartphone className="size-3.5" />
-              <span className="text-[10px] font-bold text-foreground">iOS & Android</span>
+              <span className="text-[10px] font-bold text-foreground">{t("featuresMockup.nativeApps")}</span>
             </div>
             <p className="text-[9px] text-muted-foreground leading-snug">
-              Published under your own brand name on App Store & Google Play.
+              {t("featuresMockup.customBranded")}
             </p>
           </div>
 
           <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
             <div className="flex items-center gap-1.5 text-secondary-accent mb-1">
               <Bell className="size-3.5" />
-              <span className="text-[10px] font-bold text-foreground">Push Notifications</span>
+              <span className="text-[10px] font-bold text-foreground">{t("featuresMockup.pushAlerts")}</span>
             </div>
             <p className="text-[9px] text-muted-foreground leading-snug">
               Direct automated customer alerts for orders, offers, and restocks.
@@ -709,7 +709,7 @@ function MobileAppsMockup({ notice }: { notice: string }) {
 /* ─────────────────────────────────────────────────────────────
  * 11. Ecosystem Integrations Mockup
  * ───────────────────────────────────────────────────────────── */
-function EcosystemIntegrationsMockup({ notice }: { notice: string }) {
+function EcosystemIntegrationsMockup({ notice, t = (k: string) => k }: { notice: string; t?: (k: string) => string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -725,7 +725,7 @@ function EcosystemIntegrationsMockup({ notice }: { notice: string }) {
       </div>
 
       <div className="p-4 sm:p-5 space-y-2.5 bg-background/50">
-        <p className="text-xs font-bold text-foreground">Connected Platform Integrations</p>
+        <p className="text-xs font-bold text-foreground">{t("featuresMockup.apiConnectors")}</p>
         <div className="grid grid-cols-2 gap-2 text-[10px]">
           <div className="bg-card p-2.5 rounded-lg border border-border shadow-2xs flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -789,7 +789,7 @@ function EcosystemIntegrationsMockup({ notice }: { notice: string }) {
 /* ─────────────────────────────────────────────────────────────
  * 12. Security Mockup
  * ───────────────────────────────────────────────────────────── */
-function SecurityMockup({ notice }: { notice: string }) {
+function SecurityMockup({ notice, t = (k: string) => k }: { notice: string; t?: (k: string) => string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -805,14 +805,14 @@ function SecurityMockup({ notice }: { notice: string }) {
       </div>
 
       <div className="p-4 sm:p-5 space-y-2.5 bg-background/50">
-        <p className="text-xs font-bold text-foreground">Store Security & Administrative Roles</p>
+        <p className="text-xs font-bold text-foreground">{t("featuresMockup.securityRoles")}</p>
         <div className="rounded-lg border border-border bg-card overflow-hidden divide-y divide-border/60 shadow-2xs text-[10px]">
           <div className="p-2 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Key className="size-3.5 text-primary" />
               <div>
-                <span className="font-semibold text-foreground">Store Owner</span>
-                <span className="text-[8.5px] text-muted-foreground block">Full billing, settings, and team controls</span>
+                <span className="font-semibold text-foreground">{t("featuresMockup.storeOwner")}</span>
+                <span className="text-[8.5px] text-muted-foreground block">{t("featuresMockup.storeOwnerDesc")}</span>
               </div>
             </div>
             <span className="text-[8.5px] font-semibold text-success bg-success/10 px-2 py-0.5 rounded">
@@ -824,8 +824,8 @@ function SecurityMockup({ notice }: { notice: string }) {
             <div className="flex items-center gap-2">
               <Users className="size-3.5 text-secondary-accent" />
               <div>
-                <span className="font-semibold text-foreground">Operations Staff</span>
-                <span className="text-[8.5px] text-muted-foreground block">Order fulfillment & inventory management only</span>
+                <span className="font-semibold text-foreground">{t("featuresMockup.operationsStaff")}</span>
+                <span className="text-[8.5px] text-muted-foreground block">{t("featuresMockup.operationsStaffDesc")}</span>
               </div>
             </div>
             <span className="text-[8.5px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded">
@@ -838,15 +838,15 @@ function SecurityMockup({ notice }: { notice: string }) {
           <div className="bg-card p-2 rounded border border-border flex items-center gap-2">
             <Lock className="size-3.5 text-success" />
             <div>
-              <span className="font-bold text-foreground block">TLS 256-bit</span>
-              <span className="text-[8px] text-muted-foreground">Checkout Encryption</span>
+              <span className="font-bold text-foreground block">{t("featuresMockup.tls256")}</span>
+              <span className="text-[8px] text-muted-foreground">{t("featuresMockup.checkoutEncryption")}</span>
             </div>
           </div>
           <div className="bg-card p-2 rounded border border-border flex items-center gap-2">
             <Database className="size-3.5 text-primary" />
             <div>
-              <span className="font-bold text-foreground block">Daily Backups</span>
-              <span className="text-[8px] text-muted-foreground">Automated & Encrypted</span>
+              <span className="font-bold text-foreground block">{t("featuresMockup.dailyBackups")}</span>
+              <span className="text-[8px] text-muted-foreground">{t("featuresMockup.autoEncrypted")}</span>
             </div>
           </div>
         </div>
@@ -861,207 +861,195 @@ function SecurityMockup({ notice }: { notice: string }) {
 const DEEP_DIVES: DeepDiveItem[] = [
   {
     id: "storefront",
-    eyebrow: "STORE MANAGEMENT",
-    title: "Store Management & Storefront Customization",
-    description:
-      "Build an expressive, branded online store tailored to your unique identity. Map custom domains with automated SSL renewal, customize typography and color palettes, and publish responsive storefront themes that convert shoppers.",
-    bullets: [
-      "Custom domain mapping with automated SSL certification and zero renewal fees",
-      "Upload brand logos, customize color schemes, and adjust responsive layout styles",
-      "Curate featured product collection banners, hero lookbooks, and category navigations",
-      "Bilingual storefront support with seamless English and Bangla language switching",
+    eyebrowKey: "featuresDeepDive.storefront.eyebrow",
+    titleKey: "featuresDeepDive.storefront.title",
+    descKey: "featuresDeepDive.storefront.desc",
+    bulletKeys: [
+      "featuresDeepDive.storefront.b1",
+      "featuresDeepDive.storefront.b2",
+      "featuresDeepDive.storefront.b3",
+      "featuresDeepDive.storefront.b4",
     ],
     icon: Store,
     iconBg: "bg-blue-500/10",
     iconColor: "text-blue-600 dark:text-blue-400",
-    renderVisual: (t) => <StorefrontMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <StorefrontMockup t={t} notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
     id: "products",
-    eyebrow: "CATALOG & VARIANTS",
-    title: "Product Catalog & Variant Management",
-    description:
-      "Manage comprehensive product catalogs with high-resolution image galleries, structured categories, SKU tracking, and flexible multi-dimensional variant matrices for size, color, and materials.",
-    bullets: [
-      "Multi-variant matrix configuration (size, color, material, weight) with independent SKUs",
-      "High-resolution product image galleries with touch zoom and thumbnail navigation",
-      "Structured product categories, customizable tags, and automated collection grouping",
-      "Special discounted pricing, compare-at retail rates, and bulk pricing rules",
+    eyebrowKey: "featuresDeepDive.products.eyebrow",
+    titleKey: "featuresDeepDive.products.title",
+    descKey: "featuresDeepDive.products.desc",
+    bulletKeys: [
+      "featuresDeepDive.products.b1",
+      "featuresDeepDive.products.b2",
+      "featuresDeepDive.products.b3",
+      "featuresDeepDive.products.b4",
     ],
     icon: Package,
     iconBg: "bg-primary/10",
     iconColor: "text-primary",
-    renderVisual: (t) => <ProductCatalogMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <ProductCatalogMockup t={t} notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
     id: "orders",
-    eyebrow: "ORDER FULFILLMENT",
-    title: "Order Processing & Fulfillment Lifecycle",
-    description:
-      "Maintain complete operational control over customer purchases from checkout through fulfillment and courier dispatch. Review customer shipping notes, generate formatted invoices, and track orders from placement to delivery.",
-    bullets: [
-      "Real-time order status timeline: Placed → Confirmed → Dispatched → Delivered",
-      "One-click professional printable invoices and packing slips with merchant branding",
-      "Customer contact phone numbers, delivery addresses, and shipping instructions",
-      "Consignment tracking integration with domestic courier fulfillment handoffs",
+    eyebrowKey: "featuresDeepDive.orders.eyebrow",
+    titleKey: "featuresDeepDive.orders.title",
+    descKey: "featuresDeepDive.orders.desc",
+    bulletKeys: [
+      "featuresDeepDive.orders.b1",
+      "featuresDeepDive.orders.b2",
+      "featuresDeepDive.orders.b3",
+      "featuresDeepDive.orders.b4",
     ],
     icon: ShoppingBag,
     iconBg: "bg-emerald-500/10",
     iconColor: "text-emerald-600 dark:text-emerald-400",
-    renderVisual: (t) => <OrdersMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <OrdersMockup t={t} notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
     id: "inventory",
-    eyebrow: "INVENTORY CONTROL",
-    title: "Real-Time Inventory Control & Stock Alerts",
-    description:
-      "Prevent stockouts and overselling with automated stock deductions upon confirmed customer checkout, variant-level quantity tracking, customizable low-inventory threshold notifications, and automated restocking indicators.",
-    bullets: [
-      "Automated real-time stock deductions upon verified customer order confirmation",
-      "Customizable low-stock threshold alerts per SKU to prompt timely vendor reorders",
-      "Variant-level quantity tracking across sizes, colors, and warehouse locations",
-      "Stock availability status toggles (In Stock, Low Stock, Pre-Order, Sold Out)",
+    eyebrowKey: "featuresDeepDive.inventory.eyebrow",
+    titleKey: "featuresDeepDive.inventory.title",
+    descKey: "featuresDeepDive.inventory.desc",
+    bulletKeys: [
+      "featuresDeepDive.inventory.b1",
+      "featuresDeepDive.inventory.b2",
+      "featuresDeepDive.inventory.b3",
+      "featuresDeepDive.inventory.b4",
     ],
     icon: Boxes,
     iconBg: "bg-sky-500/10",
     iconColor: "text-sky-600 dark:text-sky-400",
-    renderVisual: (t) => <InventoryControlMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <InventoryControlMockup t={t} notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
     id: "customers",
-    eyebrow: "CUSTOMER RELATIONSHIPS",
-    title: "Customer Profiles & Purchase History",
-    description:
-      "Build long-term customer relationships with centralized customer profiles, saved delivery addresses, verified phone numbers, lifetime order summaries, and personalized merchant notes for VIP and returning shoppers.",
-    bullets: [
-      "Comprehensive customer directory with full contact info, phone numbers, and delivery records",
-      "Lifetime purchase history, total spend, and repeat order frequency tracking",
-      "Saved delivery addresses and recipient shipping instructions for rapid checkout",
-      "Private merchant customer notes and VIP/returning shopper segment tags",
+    eyebrowKey: "featuresDeepDive.customers.eyebrow",
+    titleKey: "featuresDeepDive.customers.title",
+    descKey: "featuresDeepDive.customers.desc",
+    bulletKeys: [
+      "featuresDeepDive.customers.b1",
+      "featuresDeepDive.customers.b2",
+      "featuresDeepDive.customers.b3",
+      "featuresDeepDive.customers.b4",
     ],
     icon: Users,
     iconBg: "bg-indigo-500/10",
     iconColor: "text-indigo-600 dark:text-indigo-400",
-    renderVisual: (t) => <CustomerManagementMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <CustomerManagementMockup t={t} notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
     id: "payments",
-    eyebrow: "PAYMENT MANAGEMENT",
-    title: "Payment Management & Digital Wallets",
-    description:
-      "Accept customer payments effortlessly through native bKash and Nagad mobile financial services, Visa and Mastercard debit/credit cards, and Cash on Delivery with full settlement auditing records.",
-    bullets: [
-      "Instant bKash & Nagad merchant checkout integration with automated callback verification",
-      "Debit and credit card acceptance via verified domestic payment gateways",
-      "Cash on Delivery (COD) order management with phone verification workflows",
-      "Real-time transaction status logs, settlement records, and refund tracking",
+    eyebrowKey: "featuresDeepDive.payments.eyebrow",
+    titleKey: "featuresDeepDive.payments.title",
+    descKey: "featuresDeepDive.payments.desc",
+    bulletKeys: [
+      "featuresDeepDive.payments.b1",
+      "featuresDeepDive.payments.b2",
+      "featuresDeepDive.payments.b3",
+      "featuresDeepDive.payments.b4",
     ],
     icon: CreditCard,
     iconBg: "bg-amber-500/10",
     iconColor: "text-amber-600 dark:text-amber-400",
-    renderVisual: (t) => <PaymentManagementMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <PaymentManagementMockup t={t} notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
     id: "shipping",
-    eyebrow: "DELIVERY OPERATIONS",
-    title: "Delivery Operations & Courier Logistics",
-    description:
-      "Streamline domestic fulfillment with flexible shipping rate rules for Inside and Outside Dhaka, automated consignment tracking code creation, and direct API integration with leading domestic courier services.",
-    bullets: [
-      "Zonal delivery fee rules for Inside Dhaka, Dhaka Suburbs, and Outside Dhaka",
-      "Direct courier API integration with Pathao Express, Steadfast, and RedX logistics",
-      "Automated consignment tracking code generation upon parcel dispatch",
-      "Real-time parcel transit status monitoring and delivery return tracking",
+    eyebrowKey: "featuresDeepDive.shipping.eyebrow",
+    titleKey: "featuresDeepDive.shipping.title",
+    descKey: "featuresDeepDive.shipping.desc",
+    bulletKeys: [
+      "featuresDeepDive.shipping.b1",
+      "featuresDeepDive.shipping.b2",
+      "featuresDeepDive.shipping.b3",
+      "featuresDeepDive.shipping.b4",
     ],
     icon: Truck,
     iconBg: "bg-teal-500/10",
     iconColor: "text-teal-600 dark:text-teal-400",
-    renderVisual: (t) => <DeliveryOperationsMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <DeliveryOperationsMockup t={t} notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
     id: "marketing",
-    eyebrow: "GROWTH & CAMPAIGNS",
-    title: "Marketing Tools, Coupons & Promotions",
-    description:
-      "Boost customer conversion and average order values with versatile discount coupon codes, minimum order value thresholds, scheduled seasonal promotions, and usage caps to protect merchant margins.",
-    bullets: [
-      "Percentage (%) and fixed-amount (৳) discount promotional coupon codes",
-      "Minimum order value requirements to protect merchant unit profit margins",
-      "Campaign scheduling with start dates, expiry deadlines, and usage caps",
-      "Real-time coupon redemption analytics to measure campaign return on investment",
+    eyebrowKey: "featuresDeepDive.marketing.eyebrow",
+    titleKey: "featuresDeepDive.marketing.title",
+    descKey: "featuresDeepDive.marketing.desc",
+    bulletKeys: [
+      "featuresDeepDive.marketing.b1",
+      "featuresDeepDive.marketing.b2",
+      "featuresDeepDive.marketing.b3",
+      "featuresDeepDive.marketing.b4",
     ],
     icon: Percent,
     iconBg: "bg-rose-500/10",
     iconColor: "text-rose-600 dark:text-rose-400",
-    renderVisual: (t) => <MarketingMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <MarketingMockup t={t} notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
     id: "analytics",
-    eyebrow: "REPORTS & ANALYTICS",
-    title: "Reports and Analytics & Store Insights",
-    description:
-      "Gain clear visibility into your store's commercial health without complex setup. Review daily, weekly, and monthly sales summaries, order volume trends, top-selling product rankings, and payment breakdowns.",
-    bullets: [
-      "Daily, weekly, and monthly gross sales summaries and average basket sizes",
-      "Visual order volume trends and sales trajectory comparisons across time periods",
-      "Top-selling product rankings ranked by unit volume and total revenue generated",
-      "Payment method share reports comparing MFS, card payments, and COD",
+    eyebrowKey: "featuresDeepDive.analytics.eyebrow",
+    titleKey: "featuresDeepDive.analytics.title",
+    descKey: "featuresDeepDive.analytics.desc",
+    bulletKeys: [
+      "featuresDeepDive.analytics.b1",
+      "featuresDeepDive.analytics.b2",
+      "featuresDeepDive.analytics.b3",
+      "featuresDeepDive.analytics.b4",
     ],
     icon: BarChart3,
     iconBg: "bg-purple-500/10",
     iconColor: "text-purple-600 dark:text-purple-400",
-    renderVisual: (t) => <ReportsAnalyticsMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <ReportsAnalyticsMockup t={t} notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
     id: "mobile-apps",
-    eyebrow: "MOBILE COMMERCE",
-    title: "Mobile Commerce & White-Label Apps",
-    description:
-      "Meet shoppers on the devices they use most with an ultra-fast touch-optimized mobile browser storefront, alongside options for published branded white-label native apps on iOS and Android.",
-    bullets: [
-      "Sub-second touch-optimized mobile web experience for all smartphone browsers",
-      "Optional published native iOS and Android apps under your own store brand name",
-      "Automated push notifications for order dispatch, sales alerts, and restocks",
-      "Mobile merchant management tools for checking orders and sales on the go",
+    eyebrowKey: "featuresDeepDive.mobileApps.eyebrow",
+    titleKey: "featuresDeepDive.mobileApps.title",
+    descKey: "featuresDeepDive.mobileApps.desc",
+    bulletKeys: [
+      "featuresDeepDive.mobileApps.b1",
+      "featuresDeepDive.mobileApps.b2",
+      "featuresDeepDive.mobileApps.b3",
+      "featuresDeepDive.mobileApps.b4",
     ],
     icon: Smartphone,
     iconBg: "bg-cyan-500/10",
     iconColor: "text-cyan-600 dark:text-cyan-400",
-    renderVisual: (t) => <MobileAppsMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <MobileAppsMockup t={t} notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
     id: "integrations",
-    eyebrow: "CONNECTED ECOSYSTEM",
-    title: "API Connectors & Ecosystem Integrations",
-    description:
-      "Connect your online store directly to the services your business relies on — domestic couriers, payment gateways, Meta Pixel, Google Analytics, and custom developer REST webhooks.",
-    bullets: [
-      "Pre-built direct connectors for Pathao, Steadfast, and RedX logistics APIs",
-      "Seamless payment gateway API configurations for bKash, Nagad, and SSLCommerz",
-      "Meta Pixel (Facebook) and Google Analytics 4 tracking script integration",
-      "Clean, native integrations without third-party plugin conflicts or performance bloat",
+    eyebrowKey: "featuresDeepDive.integrations.eyebrow",
+    titleKey: "featuresDeepDive.integrations.title",
+    descKey: "featuresDeepDive.integrations.desc",
+    bulletKeys: [
+      "featuresDeepDive.integrations.b1",
+      "featuresDeepDive.integrations.b2",
+      "featuresDeepDive.integrations.b3",
+      "featuresDeepDive.integrations.b4",
     ],
     icon: Layers,
     iconBg: "bg-blue-600/10",
     iconColor: "text-blue-600 dark:text-blue-400",
-    renderVisual: (t) => <EcosystemIntegrationsMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <EcosystemIntegrationsMockup t={t} notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
     id: "security",
-    eyebrow: "SECURITY & COMPLIANCE",
-    title: "Security Infrastructure, Roles & Encryption",
-    description:
-      "Safeguard your e-commerce operations, customer data, and administrative credentials with role-based team permissions, standard TLS 256-bit encryption, automated daily backups, and administrative audit trails.",
-    bullets: [
-      "Granular team access permissions (Store Owner, Operations Staff, Support Agent)",
-      "Industry-standard TLS 256-bit encryption on all checkout and customer sessions",
-      "Automated daily database backups with encrypted cloud storage protection",
-      "Administrative audit trail logging to monitor staff actions and order modifications",
+    eyebrowKey: "featuresDeepDive.security.eyebrow",
+    titleKey: "featuresDeepDive.security.title",
+    descKey: "featuresDeepDive.security.desc",
+    bulletKeys: [
+      "featuresDeepDive.security.b1",
+      "featuresDeepDive.security.b2",
+      "featuresDeepDive.security.b3",
+      "featuresDeepDive.security.b4",
     ],
     icon: ShieldCheck,
     iconBg: "bg-slate-500/10",
     iconColor: "text-slate-700 dark:text-slate-300",
-    renderVisual: (t) => <SecurityMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <SecurityMockup t={t} notice={t("featuresDeepDive.demoNotice")} />,
   },
 ];
 
@@ -1116,25 +1104,25 @@ export function FeatureDeepDives({ className }: FeatureDeepDivesProps) {
                       {/* Eyebrow badge */}
                       <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/[0.06] px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest text-primary mb-3">
                         <Icon className="size-3 text-secondary-accent" />
-                        <span>{item.eyebrow}</span>
+                        <span>{t(item.eyebrowKey)}</span>
                       </div>
 
                       {/* Title */}
                       <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-foreground mb-3 leading-[1.2]">
-                        {item.title}
+                        {t(item.titleKey)}
                       </h3>
 
                       {/* Description */}
                       <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
-                        {item.description}
+                        {t(item.descKey)}
                       </p>
 
                       {/* Bullets */}
                       <ul className="space-y-2.5 mb-6" role="list">
-                        {item.bullets.map((bullet, bIdx) => (
+                        {item.bulletKeys.map((bulletKey, bIdx) => (
                           <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-muted-foreground">
                             <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
-                            <span className="leading-relaxed">{bullet}</span>
+                            <span className="leading-relaxed">{t(bulletKey)}</span>
                           </li>
                         ))}
                       </ul>
@@ -1145,7 +1133,7 @@ export function FeatureDeepDives({ className }: FeatureDeepDivesProps) {
                           href="#feature-categories"
                           className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-hover hover:underline transition-colors group"
                         >
-                          <span>Back to all feature categories</span>
+                          <span>{t("featuresDeepDive.backToCategories")}</span>
                           <ArrowRight className="size-3 transition-transform group-hover:translate-x-1" />
                         </a>
                       </div>

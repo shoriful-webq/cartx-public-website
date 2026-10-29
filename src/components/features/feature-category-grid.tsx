@@ -27,193 +27,193 @@ import { cn } from "@/lib/utils";
 
 interface CategoryCardItem {
   id: string;
-  name: string;
-  description: string;
+  nameKey: string;
+  descKey: string;
   icon: LucideIcon;
   iconBg: string;
   iconColor: string;
-  capabilities: string[];
+  capKeys: string[];
   href: string;
 }
 
 const CATEGORY_CARDS: CategoryCardItem[] = [
   {
     id: "storefront",
-    name: "Storefront",
-    description: "Build an expressive, branded online store tailored to your brand identity.",
+    nameKey: "featuresGrid.cat.storefront.name",
+    descKey: "featuresGrid.cat.storefront.desc",
     icon: Store,
     iconBg: "bg-blue-500/10",
     iconColor: "text-blue-600 dark:text-blue-400",
-    capabilities: [
-      "Custom domain & SSL configuration",
-      "Branded colors, logos & typography",
-      "Mobile-first responsive storefront layouts",
-      "Curated category & collection pages",
+    capKeys: [
+      "featuresGrid.cat.storefront.cap1",
+      "featuresGrid.cat.storefront.cap2",
+      "featuresGrid.cat.storefront.cap3",
+      "featuresGrid.cat.storefront.cap4",
     ],
     href: "#storefront",
   },
   {
     id: "products",
-    name: "Products",
-    description: "Manage product details, high-resolution media, variants, and structured pricing.",
+    nameKey: "featuresGrid.cat.products.name",
+    descKey: "featuresGrid.cat.products.desc",
     icon: Package,
     iconBg: "bg-primary/10",
     iconColor: "text-primary",
-    capabilities: [
-      "Multi-variant matrix (size, color, weight)",
-      "High-resolution media galleries",
-      "Structured product categories and tags",
-      "Discounted pricing & compare-at rates",
+    capKeys: [
+      "featuresGrid.cat.products.cap1",
+      "featuresGrid.cat.products.cap2",
+      "featuresGrid.cat.products.cap3",
+      "featuresGrid.cat.products.cap4",
     ],
     href: "#products",
   },
   {
     id: "orders",
-    name: "Orders",
-    description: "Track customer purchases from checkout through fulfillment and confirmation.",
+    nameKey: "featuresGrid.cat.orders.name",
+    descKey: "featuresGrid.cat.orders.desc",
     icon: ShoppingBag,
     iconBg: "bg-emerald-500/10",
     iconColor: "text-emerald-600 dark:text-emerald-400",
-    capabilities: [
-      "Real-time order timeline & status updates",
-      "Customer delivery details & notes",
-      "One-click printable invoices & receipts",
-      "Courier fulfillment handoff tracking",
+    capKeys: [
+      "featuresGrid.cat.orders.cap1",
+      "featuresGrid.cat.orders.cap2",
+      "featuresGrid.cat.orders.cap3",
+      "featuresGrid.cat.orders.cap4",
     ],
     href: "#orders",
   },
   {
     id: "inventory",
-    name: "Inventory",
-    description: "Maintain accurate stock levels with automated deductions and low-stock alerts.",
+    nameKey: "featuresGrid.cat.inventory.name",
+    descKey: "featuresGrid.cat.inventory.desc",
     icon: Boxes,
     iconBg: "bg-sky-500/10",
     iconColor: "text-sky-600 dark:text-sky-400",
-    capabilities: [
-      "Real-time stock deduction on confirmed orders",
-      "Custom low-inventory threshold alerts",
-      "Variant-level quantity tracking",
-      "Availability toggles and stock indicators",
+    capKeys: [
+      "featuresGrid.cat.inventory.cap1",
+      "featuresGrid.cat.inventory.cap2",
+      "featuresGrid.cat.inventory.cap3",
+      "featuresGrid.cat.inventory.cap4",
     ],
     href: "#inventory",
   },
   {
     id: "customers",
-    name: "Customers",
-    description: "Organize customer profiles, contact records, and lifetime order histories.",
+    nameKey: "featuresGrid.cat.customers.name",
+    descKey: "featuresGrid.cat.customers.desc",
     icon: Users,
     iconBg: "bg-indigo-500/10",
     iconColor: "text-indigo-600 dark:text-indigo-400",
-    capabilities: [
-      "Comprehensive customer profiles & contact info",
-      "Lifetime purchase and order history",
-      "Saved delivery addresses and phone records",
-      "Customer communication audit log",
+    capKeys: [
+      "featuresGrid.cat.customers.cap1",
+      "featuresGrid.cat.customers.cap2",
+      "featuresGrid.cat.customers.cap3",
+      "featuresGrid.cat.customers.cap4",
     ],
     href: "#customers",
   },
   {
     id: "payments",
-    name: "Payments",
-    description: "Collect payments seamlessly with local digital wallets, cards, and Cash on Delivery.",
+    nameKey: "featuresGrid.cat.payments.name",
+    descKey: "featuresGrid.cat.payments.desc",
     icon: CreditCard,
     iconBg: "bg-amber-500/10",
     iconColor: "text-amber-600 dark:text-amber-400",
-    capabilities: [
-      "Instant bKash & Nagad merchant checkout",
-      "Visa & Mastercard card acceptance",
-      "Cash on Delivery (COD) management",
-      "Real-time payment verification & records",
+    capKeys: [
+      "featuresGrid.cat.payments.cap1",
+      "featuresGrid.cat.payments.cap2",
+      "featuresGrid.cat.payments.cap3",
+      "featuresGrid.cat.payments.cap4",
     ],
     href: "#payments",
   },
   {
     id: "shipping",
-    name: "Shipping",
-    description: "Configure local delivery rules, shipping rates, and domestic courier dispatch.",
+    nameKey: "featuresGrid.cat.shipping.name",
+    descKey: "featuresGrid.cat.shipping.desc",
     icon: Truck,
     iconBg: "bg-teal-500/10",
     iconColor: "text-teal-600 dark:text-teal-400",
-    capabilities: [
-      "Domestic courier workflows (Pathao, Steadfast)",
-      "Zonal delivery fees (Inside & Outside Dhaka)",
-      "Automated consignment tracking codes",
-      "Shipment status visibility & transit notes",
+    capKeys: [
+      "featuresGrid.cat.shipping.cap1",
+      "featuresGrid.cat.shipping.cap2",
+      "featuresGrid.cat.shipping.cap3",
+      "featuresGrid.cat.shipping.cap4",
     ],
     href: "#shipping",
   },
   {
     id: "marketing",
-    name: "Marketing",
-    description: "Boost customer conversions with promotional discount coupons and seasonal offers.",
+    nameKey: "featuresGrid.cat.marketing.name",
+    descKey: "featuresGrid.cat.marketing.desc",
     icon: Percent,
     iconBg: "bg-rose-500/10",
     iconColor: "text-rose-600 dark:text-rose-400",
-    capabilities: [
-      "Percentage (%) & fixed-amount (৳) coupon codes",
-      "Minimum order value thresholds",
-      "Campaign scheduling with start & expiry dates",
-      "Usage limits per customer or promotion",
+    capKeys: [
+      "featuresGrid.cat.marketing.cap1",
+      "featuresGrid.cat.marketing.cap2",
+      "featuresGrid.cat.marketing.cap3",
+      "featuresGrid.cat.marketing.cap4",
     ],
     href: "#marketing",
   },
   {
     id: "analytics",
-    name: "Analytics",
-    description: "Understand store performance through clear sales summaries and order trend reports.",
+    nameKey: "featuresGrid.cat.analytics.name",
+    descKey: "featuresGrid.cat.analytics.desc",
     icon: BarChart3,
     iconBg: "bg-purple-500/10",
     iconColor: "text-purple-600 dark:text-purple-400",
-    capabilities: [
-      "Daily and monthly gross sales summaries",
-      "Order volume trends & average order values",
-      "Top-performing products leaderboard",
-      "Payment method breakdown reports",
+    capKeys: [
+      "featuresGrid.cat.analytics.cap1",
+      "featuresGrid.cat.analytics.cap2",
+      "featuresGrid.cat.analytics.cap3",
+      "featuresGrid.cat.analytics.cap4",
     ],
     href: "#analytics",
   },
   {
     id: "mobile-apps",
-    name: "Mobile Apps",
-    description: "Deliver a premium shopping experience across mobile web and native branded apps.",
+    nameKey: "featuresGrid.cat.mobileApps.name",
+    descKey: "featuresGrid.cat.mobileApps.desc",
     icon: Smartphone,
     iconBg: "bg-cyan-500/10",
     iconColor: "text-cyan-600 dark:text-cyan-400",
-    capabilities: [
-      "Touch-optimized mobile browsing & checkout",
-      "Branded iOS & Android native app options",
-      "Real-time push notifications for order updates",
-      "Merchant mobile management capabilities",
+    capKeys: [
+      "featuresGrid.cat.mobileApps.cap1",
+      "featuresGrid.cat.mobileApps.cap2",
+      "featuresGrid.cat.mobileApps.cap3",
+      "featuresGrid.cat.mobileApps.cap4",
     ],
     href: "#mobile-apps",
   },
   {
     id: "integrations",
-    name: "Integrations",
-    description: "Connect your store to essential logistics, payment gateways, and tracking services.",
+    nameKey: "featuresGrid.cat.integrations.name",
+    descKey: "featuresGrid.cat.integrations.desc",
     icon: Layers,
     iconBg: "bg-blue-600/10",
     iconColor: "text-blue-600 dark:text-blue-400",
-    capabilities: [
-      "Native courier connectors for rapid fulfillment",
-      "Direct payment gateway API configurations",
-      "Meta Pixel & Google analytics tracking scripts",
-      "Built directly without third-party plugin bloat",
+    capKeys: [
+      "featuresGrid.cat.integrations.cap1",
+      "featuresGrid.cat.integrations.cap2",
+      "featuresGrid.cat.integrations.cap3",
+      "featuresGrid.cat.integrations.cap4",
     ],
     href: "#integrations",
   },
   {
     id: "security",
-    name: "Security",
-    description: "Protect merchant operations and shopper data with robust security foundations.",
+    nameKey: "featuresGrid.cat.security.name",
+    descKey: "featuresGrid.cat.security.desc",
     icon: ShieldCheck,
     iconBg: "bg-slate-500/10",
     iconColor: "text-slate-700 dark:text-slate-300",
-    capabilities: [
-      "Encrypted merchant authentication & access",
-      "Role-based administrative permissions",
-      "Standard TLS 256-bit encryption on all checkouts",
-      "Daily automated database backups & audit logs",
+    capKeys: [
+      "featuresGrid.cat.security.cap1",
+      "featuresGrid.cat.security.cap2",
+      "featuresGrid.cat.security.cap3",
+      "featuresGrid.cat.security.cap4",
     ],
     href: "#security",
   },
@@ -267,22 +267,22 @@ export function FeatureCategoryGrid({ className }: FeatureCategoryGridProps) {
                       </div>
                       <div>
                         <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
-                          {card.name}
+                          {t(card.nameKey)}
                         </h3>
                       </div>
                     </div>
 
                     {/* Description */}
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4">
-                      {card.description}
+                      {t(card.descKey)}
                     </p>
 
                     {/* Capabilities List */}
                     <ul className="space-y-2 mb-6" role="list">
-                      {card.capabilities.map((cap, cIdx) => (
+                      {card.capKeys.map((capKey, cIdx) => (
                         <li key={cIdx} className="flex items-start gap-2 text-xs text-muted-foreground">
                           <CheckCircle2 className="size-3.5 text-primary shrink-0 mt-0.5" />
-                          <span className="leading-snug">{cap}</span>
+                          <span className="leading-snug">{t(capKey)}</span>
                         </li>
                       ))}
                     </ul>

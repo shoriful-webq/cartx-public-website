@@ -12,6 +12,7 @@ import {
   Lock,
   Activity,
 } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/language-context";
 
 /**
  * FeaturesHeroMockup — A polished SaaS console mockup showcasing the 5 core
@@ -19,6 +20,8 @@ import {
  * Matches the visual design tokens, radii, shadows, and frame of the Home Page Hero dashboard.
  */
 export function FeaturesHeroMockup() {
+  const { t } = useLanguage();
+
   return (
     <div
       className="relative w-full select-none"
@@ -43,7 +46,7 @@ export function FeaturesHeroMockup() {
 
           <div className="flex items-center gap-1 text-[9px] font-medium text-success">
             <span className="size-1.5 rounded-full bg-success animate-pulse" />
-            <span className="hidden xs:inline">Core Engine Active</span>
+            <span className="hidden xs:inline">{t("featuresHeroMockup.engineActive")}</span>
           </div>
         </div>
 
@@ -58,21 +61,21 @@ export function FeaturesHeroMockup() {
             <div>
               <div className="flex items-center gap-1.5">
                 <span className="text-xs sm:text-sm font-bold text-foreground">
-                  CartX Commerce Engine
+                  {t("featuresHeroMockup.engineTitle")}
                 </span>
                 <span className="text-[8.5px] font-semibold bg-primary/10 text-primary px-1.5 py-0.2 rounded border border-primary/20">
                   v2.4
                 </span>
               </div>
               <p className="text-[9.5px] text-muted-foreground leading-none mt-0.5">
-                Unified operations across storefront, catalog, and checkout
+                {t("featuresHeroMockup.engineSubtitle")}
               </p>
             </div>
           </div>
 
           <div className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-0.5 text-[10px] font-medium text-foreground shadow-2xs">
             <Activity className="size-3 text-secondary-accent" />
-            <span>5 Core Modules</span>
+            <span>{t("featuresHeroMockup.coreModulesBadge")}</span>
           </div>
         </div>
 
@@ -88,17 +91,17 @@ export function FeaturesHeroMockup() {
                     <Package className="size-3.5" />
                   </div>
                   <span className="text-[8px] font-bold uppercase tracking-wider text-success bg-success/10 px-1.5 py-0.5 rounded">
-                    Synced
+                    {t("featuresHeroMockup.productsBadge")}
                   </span>
                 </div>
-                <p className="text-xs font-bold text-foreground">Product Catalog</p>
+                <p className="text-xs font-bold text-foreground">{t("featuresHeroMockup.productsTitle")}</p>
                 <p className="text-[9px] text-muted-foreground leading-snug mt-0.5">
-                  Multi-variant matrix, media galleries & SKU control
+                  {t("featuresHeroMockup.productsDesc")}
                 </p>
               </div>
               <div className="pt-2 mt-2 border-t border-border/50 flex items-center justify-between text-[8.5px] text-muted-foreground">
-                <span>Variants</span>
-                <span className="font-semibold text-foreground">Unlimited</span>
+                <span>{t("featuresHeroMockup.productsLabel")}</span>
+                <span className="font-semibold text-foreground">{t("featuresHeroMockup.productsValue")}</span>
               </div>
             </div>
 
@@ -110,17 +113,17 @@ export function FeaturesHeroMockup() {
                     <ShoppingBag className="size-3.5" />
                   </div>
                   <span className="text-[8px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-1.5 py-0.5 rounded">
-                    Automated
+                    {t("featuresHeroMockup.ordersBadge")}
                   </span>
                 </div>
-                <p className="text-xs font-bold text-foreground">Order Management</p>
+                <p className="text-xs font-bold text-foreground">{t("featuresHeroMockup.ordersTitle")}</p>
                 <p className="text-[9px] text-muted-foreground leading-snug mt-0.5">
-                  Status timeline, invoice generation & courier dispatch
+                  {t("featuresHeroMockup.ordersDesc")}
                 </p>
               </div>
               <div className="pt-2 mt-2 border-t border-border/50 flex items-center justify-between text-[8.5px] text-muted-foreground">
-                <span>Fulfillment</span>
-                <span className="font-semibold text-foreground">1-Click</span>
+                <span>{t("featuresHeroMockup.ordersLabel")}</span>
+                <span className="font-semibold text-foreground">{t("featuresHeroMockup.ordersValue")}</span>
               </div>
             </div>
 
@@ -132,17 +135,17 @@ export function FeaturesHeroMockup() {
                     <Boxes className="size-3.5" />
                   </div>
                   <span className="text-[8px] font-bold uppercase tracking-wider text-secondary-accent bg-secondary-accent/10 px-1.5 py-0.5 rounded">
-                    Live Track
+                    {t("featuresHeroMockup.inventoryBadge")}
                   </span>
                 </div>
-                <p className="text-xs font-bold text-foreground">Real-Time Inventory</p>
+                <p className="text-xs font-bold text-foreground">{t("featuresHeroMockup.inventoryTitle")}</p>
                 <p className="text-[9px] text-muted-foreground leading-snug mt-0.5">
-                  Automated stock deductions & low inventory alerts
+                  {t("featuresHeroMockup.inventoryDesc")}
                 </p>
               </div>
               <div className="pt-2 mt-2 border-t border-border/50 flex items-center justify-between text-[8.5px] text-muted-foreground">
-                <span>Threshold</span>
-                <span className="font-semibold text-foreground">Auto-Alert</span>
+                <span>{t("featuresHeroMockup.inventoryLabel")}</span>
+                <span className="font-semibold text-foreground">{t("featuresHeroMockup.inventoryValue")}</span>
               </div>
             </div>
           </div>
@@ -157,27 +160,17 @@ export function FeaturesHeroMockup() {
                     <CreditCard className="size-3.5" />
                   </div>
                   <span className="text-[8px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded">
-                    Ready to Use
+                    {t("featuresHeroMockup.paymentsBadge")}
                   </span>
                 </div>
-                <p className="text-xs font-bold text-foreground">Payment Processing</p>
+                <p className="text-xs font-bold text-foreground">{t("featuresHeroMockup.paymentsTitle")}</p>
                 <p className="text-[9px] text-muted-foreground leading-snug mt-0.5">
-                  Native bKash, Nagad, Visa/Mastercard & Cash on Delivery
+                  {t("featuresHeroMockup.paymentsDesc")}
                 </p>
               </div>
-              <div className="pt-2 mt-2 border-t border-border/50 flex flex-wrap items-center gap-1.5">
-                <span className="text-[8px] font-medium bg-muted px-1.5 py-0.5 rounded border border-border/40 text-foreground">
-                  bKash
-                </span>
-                <span className="text-[8px] font-medium bg-muted px-1.5 py-0.5 rounded border border-border/40 text-foreground">
-                  Nagad
-                </span>
-                <span className="text-[8px] font-medium bg-muted px-1.5 py-0.5 rounded border border-border/40 text-foreground">
-                  Cards
-                </span>
-                <span className="text-[8px] font-medium bg-muted px-1.5 py-0.5 rounded border border-border/40 text-foreground">
-                  COD
-                </span>
+              <div className="pt-2 mt-2 border-t border-border/50 flex items-center justify-between text-[8.5px] text-muted-foreground">
+                <span>{t("featuresHeroMockup.paymentsLabel")}</span>
+                <span className="font-semibold text-foreground">{t("featuresHeroMockup.paymentsValue")}</span>
               </div>
             </div>
 
@@ -189,17 +182,17 @@ export function FeaturesHeroMockup() {
                     <Store className="size-3.5" />
                   </div>
                   <span className="text-[8px] font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 bg-sky-500/10 px-1.5 py-0.5 rounded">
-                    Mobile First
+                    {t("featuresHeroMockup.storefrontBadge")}
                   </span>
                 </div>
-                <p className="text-xs font-bold text-foreground">Storefront & Experience</p>
+                <p className="text-xs font-bold text-foreground">{t("featuresHeroMockup.storefrontTitle")}</p>
                 <p className="text-[9px] text-muted-foreground leading-snug mt-0.5">
-                  High-speed responsive themes, custom domains & 1-page checkout
+                  {t("featuresHeroMockup.storefrontDesc")}
                 </p>
               </div>
               <div className="pt-2 mt-2 border-t border-border/50 flex items-center justify-between text-[8.5px] text-muted-foreground">
-                <span>Checkout</span>
-                <span className="font-semibold text-foreground">Sub-Second Speed</span>
+                <span>{t("featuresHeroMockup.storefrontLabel")}</span>
+                <span className="font-semibold text-foreground">{t("featuresHeroMockup.storefrontValue")}</span>
               </div>
             </div>
           </div>

@@ -13,7 +13,7 @@ interface FAQItem {
   questionKey: string;
   answerKey: string;
   linkHref?: string;
-  linkText?: string;
+  linkTextKey?: string;
 }
 
 const FAQ_ITEMS: FAQItem[] = [
@@ -22,70 +22,70 @@ const FAQ_ITEMS: FAQItem[] = [
     questionKey: "featuresFaq.q1",
     answerKey: "featuresFaq.a1",
     linkHref: "#feature-categories",
-    linkText: "Explore all 12 feature categories",
+    linkTextKey: "featuresFaq.link1",
   },
   {
     id: "features-included-plans",
     questionKey: "featuresFaq.q2",
     answerKey: "featuresFaq.a2",
     linkHref: "#plan-availability",
-    linkText: "View feature availability comparison",
+    linkTextKey: "featuresFaq.link2",
   },
   {
     id: "upgrade-plan",
     questionKey: "featuresFaq.q3",
     answerKey: "featuresFaq.a3",
     linkHref: "/pricing",
-    linkText: "Check subscription details on Pricing",
+    linkTextKey: "featuresFaq.link3",
   },
   {
     id: "payment-methods",
     questionKey: "featuresFaq.q4",
     answerKey: "featuresFaq.a4",
-    linkHref: "#payment-management",
-    linkText: "Review payment management deep dive",
+    linkHref: "#payments",
+    linkTextKey: "featuresFaq.link4",
   },
   {
     id: "courier-integrations",
     questionKey: "featuresFaq.q5",
     answerKey: "featuresFaq.a5",
-    linkHref: "#delivery-operations",
-    linkText: "Review delivery operations deep dive",
+    linkHref: "#shipping",
+    linkTextKey: "featuresFaq.link5",
   },
   {
     id: "branded-mobile-apps",
     questionKey: "featuresFaq.q6",
     answerKey: "featuresFaq.a6",
     linkHref: "/white-label-apps",
-    linkText: "Learn more about white-label apps",
+    linkTextKey: "featuresFaq.link6",
   },
   {
     id: "country-availability",
     questionKey: "featuresFaq.q7",
     answerKey: "featuresFaq.a7",
     linkHref: "/contact",
-    linkText: "Talk to our product specialists",
+    linkTextKey: "featuresFaq.link7",
   },
   {
     id: "custom-domain",
     questionKey: "featuresFaq.q8",
     answerKey: "featuresFaq.a8",
-    linkHref: "#store-management",
-    linkText: "Review store management tools",
+    linkHref: "#storefront",
+    linkTextKey: "featuresFaq.link8",
   },
   {
     id: "feature-limits",
     questionKey: "featuresFaq.q9",
     answerKey: "featuresFaq.a9",
     linkHref: "/pricing",
-    linkText: "Inspect plan limits on Pricing",
+    linkTextKey: "featuresFaq.link9",
   },
   {
     id: "pricing-information",
     questionKey: "featuresFaq.q10",
     answerKey: "featuresFaq.a10",
     linkHref: "/pricing",
-    linkText: "Go to official Pricing Page",
+    linkTextKey: "featuresFaq.link10",
   },
 ];
 
@@ -170,13 +170,13 @@ export function FeaturesFAQSection({ className }: FeaturesFAQSectionProps) {
                     >
                       <p className="pt-3">{t(faq.answerKey)}</p>
 
-                      {faq.linkHref && (
+                      {faq.linkHref && faq.linkTextKey && (
                         <div className="mt-3 pt-2">
                           <Link
                             href={faq.linkHref}
                             className="inline-flex items-center gap-1 font-semibold text-primary hover:text-primary-hover hover:underline text-xs"
                           >
-                            <span>{faq.linkText}</span>
+                            <span>{t(faq.linkTextKey)}</span>
                             <ArrowUpRight className="size-3" />
                           </Link>
                         </div>

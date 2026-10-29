@@ -48,8 +48,8 @@ export function FeaturesFinalCTASection({ className }: FeaturesFinalCTASectionPr
 
             {/* Heading */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.15]">
-              Find the Right Tools for{" "}
-              <span className="brand-gradient-text">Your Business.</span>
+              {t("featuresCta.titlePlain")}{" "}
+              <span className="brand-gradient-text">{t("featuresCta.titleHighlight")}</span>
             </h2>
 
             {/* Supporting Copy */}
