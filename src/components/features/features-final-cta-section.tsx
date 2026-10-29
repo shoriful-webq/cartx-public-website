@@ -23,7 +23,7 @@ export function FeaturesFinalCTASection({ className }: FeaturesFinalCTASectionPr
     <section
       aria-label="Find the Right Tools for Your Business"
       className={cn(
-        "relative section-padding overflow-hidden bg-slate-950 text-slate-100 transition-colors border-t border-border",
+        "dark relative section-padding overflow-hidden bg-slate-950 text-slate-100 transition-colors border-t border-border",
         className
       )}
     >
@@ -47,9 +47,8 @@ export function FeaturesFinalCTASection({ className }: FeaturesFinalCTASectionPr
             </div>
 
             {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.15]">
-              {t("featuresCta.titlePlain")}{" "}
-              <span className="brand-gradient-text">{t("featuresCta.titleHighlight")}</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 leading-[1.25] sm:leading-[1.2] text-balance">
+              <span className="brand-gradient-text">{t("featuresCta.title")}</span>
             </h2>
 
             {/* Supporting Copy */}

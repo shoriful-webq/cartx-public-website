@@ -77,18 +77,20 @@ export function SectionHeading({
       {/* ── Title (Styled with Hero Section Brand Gradient Text) ── */}
       <Component
         className={cn(
-          "font-bold tracking-tight text-balance leading-[1.2]",
-          titleGradient ? "brand-gradient-text" : "text-foreground",
+          "font-bold tracking-tight text-balance leading-[1.25] sm:leading-[1.2]",
           sizeClasses,
           description ? "!mb-3 sm:!mb-3.5" : "!mb-0"
         )}
       >
-        {title}
-        {titleHighlight && (
+        {titleHighlight ? (
           <>
-            {" "}
+            <span className="text-foreground">{title}</span>{" "}
             <span className="brand-gradient-text">{titleHighlight}</span>
           </>
+        ) : titleGradient ? (
+          <span className="brand-gradient-text">{title}</span>
+        ) : (
+          <span className="text-foreground">{title}</span>
         )}
       </Component>
 

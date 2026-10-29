@@ -446,6 +446,19 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+  display: inline-block;
+  padding-top: 0.04em;
+  padding-bottom: 0.08em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+:lang(bn) .brand-gradient-text,
+[data-lang="bn"] .brand-gradient-text,
+.font-bengali .brand-gradient-text {
+  padding-top: 0.06em;
+  padding-bottom: 0.12em;
+  line-height: 1.35;
 }
 
 /* Hero section background using the centralized --hero-bg token */

@@ -264,6 +264,9 @@ export function FeatureNavigation({ className }: FeatureNavigationProps) {
       )}
     >
       <div className="container flex justify-center">
+        {/* Accessible screen-reader heading for semantic outline */}
+        <h2 className="sr-only">{t("featuresGrid.eyebrow")}</h2>
+
         {/* Centered pill-style navigation bar */}
         <nav
           ref={navRef}
