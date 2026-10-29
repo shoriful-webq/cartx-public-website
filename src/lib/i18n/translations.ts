@@ -445,6 +445,12 @@ export const translations: Record<Locale, Translations> = {
     "footer.rights": "CartX Inc. All rights reserved.",
 
     // Common Page Titles & Placeholders for routes
+    "featuresHero.eyebrow": "PLATFORM CAPABILITIES",
+    "featuresHero.titlePlain": "Explore the Features That",
+    "featuresHero.titleHighlight": "Power Your Online Store.",
+    "featuresHero.description": "Discover the tools available to manage products, orders, inventory, payments and your store experience.",
+    "featuresHero.mockupBadge": "Core Commerce Suite",
+    "featuresHero.mockupStatus": "Active Modules",
     "features.title": "Core Platform Features",
     "features.desc": "Everything your brand requires to catalog inventory, convert shoppers, collect payments, and automate courier dispatch.",
     "solutions.title": "Commerce Solutions for Growing Brands",
@@ -896,6 +902,12 @@ export const translations: Record<Locale, Translations> = {
     "footer.rights": "কার্টএক্স ইনকর্পোরেটেড। সর্বস্বত্ব সংরক্ষিত।",
 
     // Common Page Titles & Placeholders for routes
+    "featuresHero.eyebrow": "প্ল্যাটফর্ম ফিচারসমূহ",
+    "featuresHero.titlePlain": "আপনার অনলাইন স্টোর পরিচালনার",
+    "featuresHero.titleHighlight": "প্রয়োজনীয় সকল ফিচার।",
+    "featuresHero.description": "পণ্য, অর্ডার, ইনভেন্টরি, পেমেন্ট এবং কাস্টমার এক্সপেরিয়েন্স পরিচালনার জন্য প্রয়োজনীয় সব টুল সম্পর্কে জানুন।",
+    "featuresHero.mockupBadge": "কোর কমার্স স্যুট",
+    "featuresHero.mockupStatus": "সক্রিয় মডিউলসমূহ",
     "features.title": "মূল প্ল্যাটফর্ম ফিচারসমূহ",
     "features.desc": "ক্যাটালগ পরিচালনা, বিক্রয় রূপান্তর, পেমেন্ট সংগ্রহ এবং কুরিয়ার ডেলিভারি অটোমেশন।",
     "solutions.title": "ব্যবসায়িক কমার্স সলিউশন",
