@@ -22,6 +22,7 @@ import {
 import { useLanguage } from "@/lib/i18n/language-context";
 import { SectionHeading } from "./section-heading";
 import { cn } from "@/lib/utils";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 /* ─────────────────────────────────────────────────────────────
  * Theme Data & Category Definitions
@@ -605,148 +606,156 @@ export function ThemeTemplatesSection({ className }: ThemeTemplatesSectionProps)
     >
       <div className="container">
         {/* ── Section Heading (Hero-aligned title gradient & eyebrow pill) ── */}
-        <SectionHeading
-          eyebrow={t("themesSection.badge")}
-          eyebrowIcon={Palette}
-          title={t("themesSection.title")}
-          titleGradient={true}
-          description={t("themesSection.description")}
-          size="default"
-          className="mb-6 sm:mb-8"
-        />
+        <ScrollReveal direction="up" delay={0}>
+          <SectionHeading
+            eyebrow={t("themesSection.badge")}
+            eyebrowIcon={Palette}
+            title={t("themesSection.title")}
+            titleGradient={true}
+            description={t("themesSection.description")}
+            size="default"
+            className="mb-6 sm:mb-8"
+          />
 
-        {/* ── Transparent Concept Notice Banner ── */}
-        <div className="mb-8 sm:mb-10 flex justify-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3.5 py-1 text-[11px] font-medium text-muted-foreground shadow-2xs">
-            <span className="size-1.5 rounded-full bg-primary" />
-            <span>{t("themesSection.notice")}</span>
+          {/* ── Transparent Concept Notice Banner ── */}
+          <div className="mb-8 sm:mb-10 flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3.5 py-1 text-[11px] font-medium text-muted-foreground shadow-2xs">
+              <span className="size-1.5 rounded-full bg-primary" />
+              <span>{t("themesSection.notice")}</span>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* ── Premium 2×2 Theme Showcase Grid ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12 sm:mb-14">
-          {THEMES.map((theme) => {
+          {THEMES.map((theme, idx) => {
             const CategoryIcon = theme.categoryIcon;
             return (
-              <div
+              <ScrollReveal
                 key={theme.id}
-                className="group relative rounded-2xl border border-border bg-card p-5 sm:p-6 lg:p-7 shadow-xs hover:border-primary/40 hover:shadow-card transition-all duration-300 flex flex-col justify-between"
+                direction="up"
+                delay={idx * 80}
+                className="h-full"
               >
-                <div>
-                  {/* Top Header Row: Category Badge + Mobile Indicator */}
-                  <div className="flex items-center justify-between gap-2 mb-3">
-                    <span
-                      className={cn(
-                        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold shrink-0 border border-border/60",
-                        theme.badgeBg,
-                        theme.badgeColor
-                      )}
-                    >
-                      <CategoryIcon className="size-3.5" />
-                      <span>{t(theme.categoryKey)}</span>
-                    </span>
-
-                    {/* Mobile-Friendly Indicator */}
-                    <div className="inline-flex items-center gap-1 text-[11px] font-medium text-muted-foreground">
-                      <Smartphone className="size-3.5 text-primary shrink-0" />
-                      <span>{t("themesSection.mobileReady")}</span>
-                    </div>
-                  </div>
-
-                  {/* Theme Title & Description */}
-                  <div className="mb-4">
-                    <div className="flex items-center justify-between gap-2">
-                      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
-                        {t(theme.nameKey)}
-                      </h3>
-                      {/* Theme Palette Dots */}
-                      <div className="flex items-center gap-1.5" title="Theme Palette">
-                        {theme.palette.map((dot, idx) => (
-                          <span
-                            key={idx}
-                            className={cn(
-                              "size-2.5 rounded-full border border-border/80 shadow-2xs",
-                              dot.bg
-                            )}
-                            title={dot.label}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mt-1">
-                      {t(theme.descKey)}
-                    </p>
-                  </div>
-
-                  {/* Large, Realistic Storefront Preview Window */}
-                  <div className="relative rounded-xl border border-border/90 bg-muted/30 overflow-hidden shadow-xs group-hover:shadow-md transition-shadow">
-                    {/* Browser Chrome Bar */}
-                    <div className="flex items-center justify-between px-3 py-1.5 border-b border-border/70 bg-card/90">
-                      <div className="flex items-center gap-1.5">
-                        <span className="size-2 rounded-full bg-error/70" />
-                        <span className="size-2 rounded-full bg-warning/70" />
-                        <span className="size-2 rounded-full bg-success/70" />
-                      </div>
-
-                      {/* Browser Simulated URL Bar */}
-                      <div className="flex items-center gap-1.5 bg-muted/60 border border-border/50 rounded-md px-2.5 py-0.5 text-[10px] font-mono text-muted-foreground max-w-[220px] sm:max-w-xs truncate">
-                        <Lock className="size-2.5 text-success shrink-0" />
-                        <span className="truncate">{theme.subdomain}</span>
-                      </div>
-
-                      {/* Concept Label */}
-                      <span className="text-[9px] font-semibold text-primary uppercase tracking-wider hidden xs:inline">
-                        {t("themesSection.conceptBadge")}
-                      </span>
-                    </div>
-
-                    {/* Storefront Viewport Preview Canvas */}
-                    <div className="h-[260px] sm:h-[300px] md:h-[280px] lg:h-[310px] w-full overflow-hidden transition-transform duration-300 group-hover:scale-[1.005]">
-                      {theme.renderPreview(t)}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card Footer: Feature Badges & Preview CTA */}
-                <div className="mt-5 pt-4 border-t border-border/70 flex flex-wrap items-center justify-between gap-3">
-                  {/* Theme Feature Highlights */}
-                  <div className="flex flex-wrap items-center gap-2">
-                    {theme.features.map((feat, idx) => (
+                <div className="group relative h-full rounded-2xl border border-border bg-card p-5 sm:p-6 lg:p-7 shadow-xs hover:border-primary/40 hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    {/* Top Header Row: Category Badge + Mobile Indicator */}
+                    <div className="flex items-center justify-between gap-2 mb-3">
                       <span
-                        key={idx}
-                        className="inline-flex items-center gap-1 text-[11px] font-medium text-muted-foreground bg-muted/50 px-2 py-0.5 rounded-md border border-border/50"
+                        className={cn(
+                          "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold shrink-0 border border-border/60",
+                          theme.badgeBg,
+                          theme.badgeColor
+                        )}
                       >
-                        <CheckCircle2 className="size-3 text-primary shrink-0" />
-                        <span>{feat}</span>
+                        <CategoryIcon className="size-3.5" />
+                        <span>{t(theme.categoryKey)}</span>
                       </span>
-                    ))}
+
+                      {/* Mobile-Friendly Indicator */}
+                      <div className="inline-flex items-center gap-1 text-[11px] font-medium text-muted-foreground">
+                        <Smartphone className="size-3.5 text-primary shrink-0" />
+                        <span>{t("themesSection.mobileReady")}</span>
+                      </div>
+                    </div>
+
+                    {/* Theme Title & Description */}
+                    <div className="mb-4">
+                      <div className="flex items-center justify-between gap-2">
+                        <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                          {t(theme.nameKey)}
+                        </h3>
+                        {/* Theme Palette Dots */}
+                        <div className="flex items-center gap-1.5" title="Theme Palette">
+                          {theme.palette.map((dot, dotIdx) => (
+                            <span
+                              key={dotIdx}
+                              className={cn(
+                                "size-2.5 rounded-full border border-border/80 shadow-2xs",
+                                dot.bg
+                              )}
+                              title={dot.label}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mt-1">
+                        {t(theme.descKey)}
+                      </p>
+                    </div>
+
+                    {/* Large, Realistic Storefront Preview Window */}
+                    <div className="relative rounded-xl border border-border/90 bg-muted/30 overflow-hidden shadow-xs group-hover:shadow-md transition-shadow">
+                      {/* Browser Chrome Bar */}
+                      <div className="flex items-center justify-between px-3 py-1.5 border-b border-border/70 bg-card/90">
+                        <div className="flex items-center gap-1.5">
+                          <span className="size-2 rounded-full bg-error/70" />
+                          <span className="size-2 rounded-full bg-warning/70" />
+                          <span className="size-2 rounded-full bg-success/70" />
+                        </div>
+
+                        {/* Browser Simulated URL Bar */}
+                        <div className="flex items-center gap-1.5 bg-muted/60 border border-border/50 rounded-md px-2.5 py-0.5 text-[10px] font-mono text-muted-foreground max-w-[220px] sm:max-w-xs truncate">
+                          <Lock className="size-2.5 text-success shrink-0" />
+                          <span className="truncate">{theme.subdomain}</span>
+                        </div>
+
+                        {/* Concept Label */}
+                        <span className="text-[9px] font-semibold text-primary uppercase tracking-wider hidden xs:inline">
+                          {t("themesSection.conceptBadge")}
+                        </span>
+                      </div>
+
+                      {/* Storefront Viewport Preview Canvas */}
+                      <div className="h-[260px] sm:h-[300px] md:h-[280px] lg:h-[310px] w-full overflow-hidden transition-transform duration-300 group-hover:scale-[1.005]">
+                        {theme.renderPreview(t)}
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Interactive Preview Theme Link */}
-                  <Link
-                    href={`/themes?theme=${theme.id}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all duration-200 ml-auto"
-                    aria-label={`Preview theme ${t(theme.nameKey)}`}
-                  >
-                    <span>{t("themesSection.previewBtn")}</span>
-                    <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
-                  </Link>
+                  {/* Card Footer: Feature Badges & Preview CTA */}
+                  <div className="mt-5 pt-4 border-t border-border/70 flex flex-wrap items-center justify-between gap-3">
+                    {/* Theme Feature Highlights */}
+                    <div className="flex flex-wrap items-center gap-2">
+                      {theme.features.map((feat, featIdx) => (
+                        <span
+                          key={featIdx}
+                          className="inline-flex items-center gap-1 text-[11px] font-medium text-muted-foreground bg-muted/50 px-2 py-0.5 rounded-md border border-border/50"
+                        >
+                          <CheckCircle2 className="size-3 text-primary shrink-0" />
+                          <span>{feat}</span>
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Interactive Preview Theme Link */}
+                    <Link
+                      href={`/themes?theme=${theme.id}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white hover:-translate-y-0.5 transition-all duration-200 ml-auto"
+                      aria-label={`Preview theme ${t(theme.nameKey)}`}
+                    >
+                      <span>{t("themesSection.previewBtn")}</span>
+                      <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
 
         {/* ── Section CTA (Explore All Themes → /themes) ── */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
-          <Link
-            href="/themes"
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-sm font-semibold text-primary-foreground shadow-xs hover:bg-primary-hover hover:shadow-md transition-all focus-visible:outline-2 focus-visible:outline-ring"
-          >
-            <span>{t("themesSection.exploreAll")}</span>
-            <ArrowRight className="size-4" />
-          </Link>
-        </div>
+        <ScrollReveal direction="up" delay={200}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+            <Link
+              href="/themes"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-sm font-semibold text-primary-foreground shadow-xs hover:bg-primary-hover hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-ring"
+            >
+              <span>{t("themesSection.exploreAll")}</span>
+              <ArrowRight className="size-4" />
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

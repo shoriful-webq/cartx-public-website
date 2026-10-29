@@ -11,6 +11,7 @@ import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
 import { SectionHeading } from "./section-heading";
 import { cn } from "@/lib/utils";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 interface OrderItem {
   id: string;
@@ -79,32 +80,35 @@ export function OrderInventorySection({ className }: OrderInventorySectionProps)
     >
       <div className="container">
         {/* ── Section Heading (Hero-aligned title gradient & eyebrow pill) ── */}
-        <SectionHeading
-          eyebrow={t("orderInventory.badge")}
-          eyebrowIcon={ClipboardList}
-          title={t("orderInventory.title")}
-          titleGradient={true}
-          description={t("orderInventory.description")}
-          size="default"
-          className="mb-8 sm:mb-10 lg:mb-12"
-        />
+        <ScrollReveal direction="up" delay={0}>
+          <SectionHeading
+            eyebrow={t("orderInventory.badge")}
+            eyebrowIcon={ClipboardList}
+            title={t("orderInventory.title")}
+            titleGradient={true}
+            description={t("orderInventory.description")}
+            size="default"
+            className="mb-8 sm:mb-10 lg:mb-12"
+          />
+        </ScrollReveal>
 
         {/* ── Product UI Mockup Frame ── */}
-        <div className="w-full rounded-2xl border border-border bg-card shadow-card overflow-hidden mb-10 sm:mb-12">
-          {/* Mockup Titlebar Header */}
-          <div className="flex items-center justify-between border-b border-border px-4 py-3 bg-muted/30">
-            <div className="flex items-center gap-2">
-              <span className="size-2 rounded-full bg-error/70" />
-              <span className="size-2 rounded-full bg-warning/70" />
-              <span className="size-2 rounded-full bg-success/70" />
-              <span className="ml-2 text-xs font-semibold text-foreground">
-                merchant.cartx.app/orders
+        <ScrollReveal direction="up" delay={120}>
+          <div className="w-full rounded-2xl border border-border bg-card shadow-card overflow-hidden mb-10 sm:mb-12 transition-all duration-300 hover:border-primary/30">
+            {/* Mockup Titlebar Header */}
+            <div className="flex items-center justify-between border-b border-border px-4 py-3 bg-muted/30">
+              <div className="flex items-center gap-2">
+                <span className="size-2 rounded-full bg-error/70" />
+                <span className="size-2 rounded-full bg-warning/70" />
+                <span className="size-2 rounded-full bg-success/70" />
+                <span className="ml-2 text-xs font-semibold text-foreground">
+                  merchant.cartx.app/orders
+                </span>
+              </div>
+              <span className="text-[10px] sm:text-[11px] font-medium text-muted-foreground/80 rounded-md bg-muted px-2 py-0.5 border border-border/60">
+                {t("orderInventory.mockupNotice")}
               </span>
             </div>
-            <span className="text-[10px] sm:text-[11px] font-medium text-muted-foreground/80 rounded-md bg-muted px-2 py-0.5 border border-border/60">
-              {t("orderInventory.mockupNotice")}
-            </span>
-          </div>
 
           {/* Main Dashboard Layout Grid */}
           <div className="p-4 sm:p-6 lg:p-7 grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -303,18 +307,21 @@ export function OrderInventorySection({ className }: OrderInventorySectionProps)
             </div>
           </div>
         </div>
+      </ScrollReveal>
 
-        {/* ── Section CTA ── */}
+      {/* ── Section CTA ── */}
+      <ScrollReveal direction="up" delay={200}>
         <div className="flex justify-center">
           <CTAButton
             action="exploreOrderManagement"
             locale={locale}
             size="lg"
             showArrow
-            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
+            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
           />
         </div>
-      </div>
+      </ScrollReveal>
+    </div>
     </section>
   );
 }

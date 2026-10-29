@@ -4,6 +4,7 @@ import { Layers, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
 import { HeroDashboardMockup } from "./hero-dashboard-mockup";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function HeroSection() {
   const { t, locale } = useLanguage();
@@ -44,7 +45,11 @@ export function HeroSection() {
       <div className="container relative hero-padding">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* ── Left column: Text + CTAs ── */}
-          <div className="flex-1 max-w-xl text-center lg:text-left">
+          <ScrollReveal
+            direction="up"
+            delay={0}
+            className="flex-1 max-w-xl text-center lg:text-left"
+          >
             {/* Eyebrow pill */}
             <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/[0.06] px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary mb-3.5 sm:mb-4">
               <Layers className="size-3 text-secondary-accent" />
@@ -71,14 +76,14 @@ export function HeroSection() {
                 locale={locale}
                 size="lg"
                 showArrow
-                className="px-6 py-2.5 text-xs sm:text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
+                className="px-6 py-2.5 text-xs sm:text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               />
               <CTAButton
                 action="exploreFeatures"
                 locale={locale}
                 size="lg"
                 variant="outline"
-                className="px-6 py-2.5 text-xs sm:text-sm rounded-lg"
+                className="px-6 py-2.5 text-xs sm:text-sm rounded-lg hover:-translate-y-0.5 transition-all duration-200"
               />
             </div>
 
@@ -87,16 +92,20 @@ export function HeroSection() {
               <CheckCircle2 className="size-3.5 text-success shrink-0" />
               <span>{t("home.trustLine")}</span>
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* ── Right column: Product visual ── */}
-          <div className="flex-1 w-full max-w-xl lg:max-w-none relative">
+          <ScrollReveal
+            direction="up"
+            delay={150}
+            className="flex-1 w-full max-w-xl lg:max-w-none relative"
+          >
             {/* Soft elevated glow behind the mockup */}
             <div className="absolute -inset-4 rounded-3xl bg-primary/[0.04] blur-2xl" />
-            <div className="relative">
+            <div className="relative group transition-all duration-300 hover:-translate-y-1">
               <HeroDashboardMockup />
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

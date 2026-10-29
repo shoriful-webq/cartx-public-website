@@ -11,6 +11,7 @@ import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
 import { SectionHeading } from "./section-heading";
 import { cn } from "@/lib/utils";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 /**
  * Centralized, configurable subscription plans configuration.
@@ -83,154 +84,164 @@ export function PricingPreviewSection({
     >
       <div className="container">
         {/* ── Section Heading (Hero-aligned title gradient & eyebrow pill) ── */}
-        <SectionHeading
-          eyebrow={t("pricingSection.badge")}
-          eyebrowIcon={CreditCard}
-          title={t("pricingSection.title")}
-          titleGradient={true}
-          description={t("pricingSection.description")}
-          size="default"
-          className="mb-8 sm:mb-10 lg:mb-12"
-        />
+        <ScrollReveal direction="up" delay={0}>
+          <SectionHeading
+            eyebrow={t("pricingSection.badge")}
+            eyebrowIcon={CreditCard}
+            title={t("pricingSection.title")}
+            titleGradient={true}
+            description={t("pricingSection.description")}
+            size="default"
+            className="mb-8 sm:mb-10 lg:mb-12"
+          />
 
-        {/* ── Pricing Status / Commercial Transparency Pill ── */}
-        <div className="mb-8 flex justify-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3.5 py-1 text-[11px] font-medium text-muted-foreground shadow-xs text-center">
-            <Info className="size-3.5 text-primary shrink-0" />
-            <span>{t("pricingSection.statusPending")}</span>
+          {/* ── Pricing Status / Commercial Transparency Pill ── */}
+          <div className="mb-8 flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3.5 py-1 text-[11px] font-medium text-muted-foreground shadow-xs text-center">
+              <Info className="size-3.5 text-primary shrink-0" />
+              <span>{t("pricingSection.statusPending")}</span>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* ── 3 Subscription Plan Cards Grid ── */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-10 sm:mb-12 items-stretch">
-          {plans.map((plan) => {
+          {plans.map((plan, idx) => {
             const isHighlighted = Boolean(plan.highlighted);
             return (
-              <div
+              <ScrollReveal
                 key={plan.id}
-                className={cn(
-                  "rounded-2xl border p-6 sm:p-7 shadow-xs flex flex-col justify-between transition-all duration-200 h-full relative",
-                  isHighlighted
-                    ? "border-primary/50 shadow-md ring-1 ring-primary/25 bg-card"
-                    : "border-border bg-card hover:border-primary/40 hover:shadow-card"
-                )}
+                direction="up"
+                delay={idx * 70}
+                className="h-full"
               >
-                {isHighlighted && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="rounded-full bg-primary px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-xs">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
+                <div
+                  className={cn(
+                    "rounded-2xl border p-6 sm:p-7 shadow-xs flex flex-col justify-between transition-all duration-300 h-full relative hover:-translate-y-1",
+                    isHighlighted
+                      ? "border-primary/50 shadow-md ring-1 ring-primary/25 bg-card hover:shadow-dropdown"
+                      : "border-border bg-card hover:border-primary/40 hover:shadow-card"
+                  )}
+                >
+                  {isHighlighted && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <span className="rounded-full bg-primary px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-xs">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
 
-                <div>
-                  {/* Plan Header */}
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-bold text-foreground">
-                      {t(plan.nameKey)}
-                    </h3>
-                    <span
-                      className={cn(
-                        "text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded border",
-                        isHighlighted
-                          ? "bg-primary text-primary-foreground border-primary"
-                          : "text-primary bg-primary/10 border-primary/20"
-                      )}
-                    >
-                      Tier
-                    </span>
-                  </div>
+                  <div>
+                    {/* Plan Header */}
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold text-foreground">
+                        {t(plan.nameKey)}
+                      </h3>
+                      <span
+                        className={cn(
+                          "text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded border",
+                          isHighlighted
+                            ? "bg-primary text-primary-foreground border-primary"
+                            : "text-primary bg-primary/10 border-primary/20"
+                        )}
+                      >
+                        Tier
+                      </span>
+                    </div>
 
-                  <p className="text-xs text-muted-foreground leading-relaxed mb-5">
-                    {t(plan.taglineKey)}
-                  </p>
-
-                  {/* Price Display Block */}
-                  <div className="p-4 rounded-xl border border-border/80 bg-muted/20 mb-6">
-                    <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">
-                      {t(plan.priceKey)}
+                    <p className="text-xs text-muted-foreground leading-relaxed mb-5">
+                      {t(plan.taglineKey)}
                     </p>
-                    <p className="text-xs text-muted-foreground">
-                      {t(plan.billingKey)}
-                    </p>
+
+                    {/* Price Display Block */}
+                    <div className="p-4 rounded-xl border border-border/80 bg-muted/20 mb-6">
+                      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">
+                        {t(plan.priceKey)}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {t(plan.billingKey)}
+                      </p>
+                    </div>
+
+                    {/* Feature Limits & Included Services */}
+                    <div className="space-y-3.5 mb-6 text-xs">
+                      {/* Limits */}
+                      <div className="flex items-start gap-2.5">
+                        <CheckCircle2 className="size-4 text-success shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-semibold text-foreground">
+                            Feature Limits
+                          </p>
+                          <p className="text-muted-foreground mt-0.5 leading-relaxed">
+                            {t(plan.limitsKey)}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Included Services */}
+                      <div className="flex items-start gap-2.5">
+                        <CheckCircle2 className="size-4 text-success shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-semibold text-foreground">
+                            Included Services
+                          </p>
+                          <p className="text-muted-foreground mt-0.5 leading-relaxed">
+                            {t(plan.includedKey)}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Paid Add-ons */}
+                      <div className="flex items-start gap-2.5 pt-2 border-t border-border/60">
+                        <PlusCircle className="size-4 text-secondary-accent shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-semibold text-foreground">
+                            Optional Add-ons
+                          </p>
+                          <p className="text-[11px] text-muted-foreground mt-0.5 leading-relaxed">
+                            {t(plan.addonsKey)}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Feature Limits & Included Services */}
-                  <div className="space-y-3.5 mb-6 text-xs">
-                    {/* Limits */}
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="size-4 text-success shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-semibold text-foreground">
-                          Feature Limits
-                        </p>
-                        <p className="text-muted-foreground mt-0.5 leading-relaxed">
-                          {t(plan.limitsKey)}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Included Services */}
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="size-4 text-success shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-semibold text-foreground">
-                          Included Services
-                        </p>
-                        <p className="text-muted-foreground mt-0.5 leading-relaxed">
-                          {t(plan.includedKey)}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Paid Add-ons */}
-                    <div className="flex items-start gap-2.5 pt-2 border-t border-border/60">
-                      <PlusCircle className="size-4 text-secondary-accent shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-semibold text-foreground">
-                          Optional Add-ons
-                        </p>
-                        <p className="text-[11px] text-muted-foreground mt-0.5 leading-relaxed">
-                          {t(plan.addonsKey)}
-                        </p>
-                      </div>
-                    </div>
+                  {/* Card CTA: View Plan Details */}
+                  <div className="pt-4 border-t border-border/60">
+                    <CTAButton
+                      action="viewPlanDetails"
+                      variant={isHighlighted ? "primary" : "outline"}
+                      locale={locale}
+                      size="md"
+                      className="w-full hover:-translate-y-0.5 transition-all duration-200"
+                    />
                   </div>
                 </div>
-
-                {/* Card CTA: View Plan Details */}
-                <div className="pt-4 border-t border-border/60">
-                  <CTAButton
-                    action="viewPlanDetails"
-                    variant={isHighlighted ? "primary" : "outline"}
-                    locale={locale}
-                    size="md"
-                    className="w-full"
-                  />
-                </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
 
         {/* ── Centralized Terms & Add-ons Disclaimer ── */}
-        <div className="max-w-4xl mx-auto rounded-xl border border-border bg-card/60 p-3.5 sm:p-4 text-center mb-8">
-          <p className="text-xs text-muted-foreground leading-relaxed">
-            {t("pricingSection.disclaimer")}
-          </p>
-        </div>
+        <ScrollReveal direction="up" delay={180}>
+          <div className="max-w-4xl mx-auto rounded-xl border border-border bg-card/60 p-3.5 sm:p-4 text-center mb-8">
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              {t("pricingSection.disclaimer")}
+            </p>
+          </div>
 
-        {/* ── Section CTA: Compare All Plans ── */}
-        <div className="flex justify-center">
-          <CTAButton
-            action="compareAllPlans"
-            variant="primary"
-            locale={locale}
-            size="lg"
-            showArrow
-            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
-          />
-        </div>
+          {/* ── Section CTA: Compare All Plans ── */}
+          <div className="flex justify-center">
+            <CTAButton
+              action="compareAllPlans"
+              variant="primary"
+              locale={locale}
+              size="lg"
+              showArrow
+              className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+            />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

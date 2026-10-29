@@ -21,6 +21,7 @@ import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
 import { SectionHeading } from "./section-heading";
 import { cn } from "@/lib/utils";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 interface DemoProductItem {
   title: string;
@@ -235,81 +236,86 @@ export function DemoStoreShowcaseSection({
 
       <div className="container relative z-10">
         {/* ── Section Heading (Hero-aligned title gradient & eyebrow pill) ── */}
-        <SectionHeading
-          eyebrow={t("demoStoresSection.badge")}
-          eyebrowIcon={Store}
-          title={t("demoStoresSection.title")}
-          titleGradient={true}
-          description={t("demoStoresSection.description")}
-          size="default"
-          className="mb-7 sm:mb-8 lg:mb-10"
-        />
+        <ScrollReveal direction="up" delay={0}>
+          <SectionHeading
+            eyebrow={t("demoStoresSection.badge")}
+            eyebrowIcon={Store}
+            title={t("demoStoresSection.title")}
+            titleGradient={true}
+            description={t("demoStoresSection.description")}
+            size="default"
+            className="mb-7 sm:mb-8 lg:mb-10"
+          />
 
-        {/* ── Factual Conceptual Demo Notice ── */}
-        <div className="mb-8 flex justify-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3.5 py-1 text-[11px] font-medium text-muted-foreground shadow-xs text-center">
-            <ShieldCheck className="size-3.5 text-primary shrink-0" />
-            <span>{t("demoStoresSection.conceptNotice")}</span>
+          {/* ── Factual Conceptual Demo Notice ── */}
+          <div className="mb-8 flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3.5 py-1 text-[11px] font-medium text-muted-foreground shadow-xs text-center">
+              <ShieldCheck className="size-3.5 text-primary shrink-0" />
+              <span>{t("demoStoresSection.conceptNotice")}</span>
+            </div>
           </div>
-        </div>
 
-        {/* ── Category Filter Pills (Desktop & Mobile) ── */}
-        <div className="flex items-center justify-center gap-2 mb-8 sm:mb-10 flex-wrap">
-          <button
-            type="button"
-            onClick={() => setActiveTab("all")}
-            className={cn(
-              "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 select-none",
-              activeTab === "all"
-                ? "bg-primary text-primary-foreground shadow-xs"
-                : "border border-border bg-card text-muted-foreground hover:text-foreground hover:border-border/80"
-            )}
-          >
-            All Storefronts (3)
-          </button>
-          {DEMO_STORES.map((store) => (
+          {/* ── Category Filter Pills (Desktop & Mobile) ── */}
+          <div className="flex items-center justify-center gap-2 mb-8 sm:mb-10 flex-wrap">
             <button
-              key={store.id}
               type="button"
-              onClick={() => setActiveTab(store.id)}
+              onClick={() => setActiveTab("all")}
               className={cn(
-                "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 select-none flex items-center gap-1.5",
-                activeTab === store.id
+                "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 select-none",
+                activeTab === "all"
                   ? "bg-primary text-primary-foreground shadow-xs"
                   : "border border-border bg-card text-muted-foreground hover:text-foreground hover:border-border/80"
               )}
             >
-              <store.icon className="size-3" />
-              <span>{store.categoryLabel}</span>
+              All Storefronts (3)
             </button>
-          ))}
-        </div>
+            {DEMO_STORES.map((store) => (
+              <button
+                key={store.id}
+                type="button"
+                onClick={() => setActiveTab(store.id)}
+                className={cn(
+                  "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 select-none flex items-center gap-1.5",
+                  activeTab === store.id
+                    ? "bg-primary text-primary-foreground shadow-xs"
+                    : "border border-border bg-card text-muted-foreground hover:text-foreground hover:border-border/80"
+                )}
+              >
+                <store.icon className="size-3" />
+                <span>{store.categoryLabel}</span>
+              </button>
+            ))}
+          </div>
+        </ScrollReveal>
 
         {/* ── 3 Substantial Demo Store Cards Gallery ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-10 sm:mb-12 items-stretch">
-          {filteredStores.map((store) => {
+          {filteredStores.map((store, idx) => {
             const CategoryIcon = store.icon;
             return (
-              <div
+              <ScrollReveal
                 key={store.id}
-                className="group relative rounded-2xl border border-border bg-card shadow-xs hover:border-primary/40 hover:shadow-card transition-all duration-300 flex flex-col justify-between overflow-hidden h-full"
+                direction="up"
+                delay={idx * 70}
+                className="h-full"
               >
-                <div>
-                  {/* ────────────────────────────────────────────────────────────
-                      Realistic Desktop Browser Window Chrome & Storefront Preview
-                      ──────────────────────────────────────────────────────────── */}
-                  <div className="border-b border-border bg-muted/30 select-none">
-                    {/* Simulated Mini Browser Titlebar */}
-                    <div className="flex items-center justify-between px-3.5 py-2 border-b border-border/70 bg-card/80">
-                      <div className="flex items-center gap-1.5">
-                        <span className="size-2 rounded-full bg-error/70" />
-                        <span className="size-2 rounded-full bg-warning/70" />
-                        <span className="size-2 rounded-full bg-success/70" />
-                        <span className="ml-2 font-mono text-[10px] text-muted-foreground truncate max-w-[140px] sm:max-w-[180px]">
-                          {store.domain}
-                        </span>
-                      </div>
-                      <span className="text-[9px] font-bold text-primary uppercase tracking-wider bg-primary/10 px-2 py-0.5 rounded border border-primary/20">
+                <div className="group relative rounded-2xl border border-border bg-card shadow-xs hover:border-primary/40 hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden h-full">
+                  <div>
+                    {/* ────────────────────────────────────────────────────────────
+                        Realistic Desktop Browser Window Chrome & Storefront Preview
+                        ──────────────────────────────────────────────────────────── */}
+                    <div className="border-b border-border bg-muted/30 select-none">
+                      {/* Simulated Mini Browser Titlebar */}
+                      <div className="flex items-center justify-between px-3.5 py-2 border-b border-border/70 bg-card/80">
+                        <div className="flex items-center gap-1.5">
+                          <span className="size-2 rounded-full bg-error/70" />
+                          <span className="size-2 rounded-full bg-warning/70" />
+                          <span className="size-2 rounded-full bg-success/70" />
+                          <span className="ml-2 font-mono text-[10px] text-muted-foreground truncate max-w-[140px] sm:max-w-[180px]">
+                            {store.domain}
+                          </span>
+                        </div>
+                        <span className="text-[9px] font-bold text-primary uppercase tracking-wider bg-primary/10 px-2 py-0.5 rounded border border-primary/20">
                         Live Preview
                       </span>
                     </div>
@@ -478,11 +484,13 @@ export function DemoStoreShowcaseSection({
                   </div>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </ScrollReveal>
+          );
+        })}
+      </div>
 
-        {/* ── Section Bottom CTA (Explore All Demo Stores) ── */}
+      {/* ── Section Bottom CTA (Explore All Demo Stores) ── */}
+      <ScrollReveal direction="up" delay={180}>
         <div className="flex flex-col items-center text-center">
           <CTAButton
             action="exploreDemoStores"
@@ -490,12 +498,13 @@ export function DemoStoreShowcaseSection({
             locale={locale}
             size="lg"
             showArrow
-            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
+            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
           />
           <p className="text-xs text-muted-foreground mt-3">
             Browse our complete library of responsive demo storefront templates.
           </p>
         </div>
+      </ScrollReveal>
       </div>
     </section>
   );

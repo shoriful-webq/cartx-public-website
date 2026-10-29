@@ -7,6 +7,7 @@ import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
 import { SectionHeading } from "./section-heading";
 import { cn } from "@/lib/utils";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 interface FAQItem {
   id: string;
@@ -104,94 +105,100 @@ export function FAQPreviewSection({ className }: FAQPreviewSectionProps) {
     >
       <div className="container">
         {/* ── Section Heading (Hero-aligned title gradient & eyebrow pill) ── */}
-        <SectionHeading
-          eyebrow={t("faqPreview.badge")}
-          eyebrowIcon={HelpCircle}
-          title={t("faqPreview.title")}
-          titleGradient={true}
-          description={t("faqPreview.description")}
-          size="default"
-          className="mb-10 sm:mb-12 lg:mb-14"
-        />
+        <ScrollReveal direction="up" delay={0}>
+          <SectionHeading
+            eyebrow={t("faqPreview.badge")}
+            eyebrowIcon={HelpCircle}
+            title={t("faqPreview.title")}
+            titleGradient={true}
+            description={t("faqPreview.description")}
+            size="default"
+            className="mb-10 sm:mb-12 lg:mb-14"
+          />
+        </ScrollReveal>
 
         {/* ── Accessible Accordion Layout ── */}
-        <div className="max-w-4xl mx-auto space-y-3 mb-10 sm:mb-12">
-          {FAQ_ITEMS.map((faq, idx) => {
-            const isOpen = openIndex === idx;
-            const contentId = `faq-answer-${faq.id}`;
-            const headerId = `faq-header-${faq.id}`;
+        <ScrollReveal direction="up" delay={100}>
+          <div className="max-w-4xl mx-auto space-y-3 mb-10 sm:mb-12">
+            {FAQ_ITEMS.map((faq, idx) => {
+              const isOpen = openIndex === idx;
+              const contentId = `faq-answer-${faq.id}`;
+              const headerId = `faq-header-${faq.id}`;
 
-            return (
-              <div
-                key={faq.id}
-                className={cn(
-                  "rounded-xl border transition-all duration-200 overflow-hidden",
-                  isOpen
-                    ? "border-primary/40 bg-card shadow-xs"
-                    : "border-border bg-card/60 hover:border-border/90"
-                )}
-              >
-                <button
-                  type="button"
-                  id={headerId}
-                  aria-expanded={isOpen}
-                  aria-controls={contentId}
-                  onClick={() => toggleFAQ(idx)}
-                  className="flex w-full items-center justify-between p-4 sm:p-5 text-left focus-visible:outline-2 focus-visible:outline-ring transition-colors gap-3 select-none"
+              return (
+                <div
+                  key={faq.id}
+                  className={cn(
+                    "rounded-xl border transition-all duration-200 overflow-hidden",
+                    isOpen
+                      ? "border-primary/40 bg-card shadow-xs"
+                      : "border-border bg-card/60 hover:border-border/90"
+                  )}
                 >
-                  <span className="text-sm sm:text-base font-semibold text-foreground leading-snug">
-                    {t(faq.questionKey)}
-                  </span>
-                  <div
-                    className={cn(
-                      "size-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200",
-                      isOpen
-                        ? "bg-primary text-primary-foreground rotate-180"
-                        : "bg-muted text-muted-foreground"
-                    )}
+                  <button
+                    type="button"
+                    id={headerId}
+                    aria-expanded={isOpen}
+                    aria-controls={contentId}
+                    onClick={() => toggleFAQ(idx)}
+                    className="flex w-full items-center justify-between p-4 sm:p-5 text-left focus-visible:outline-2 focus-visible:outline-ring transition-colors gap-3 select-none"
                   >
-                    <ChevronDown className="size-4" />
-                  </div>
-                </button>
+                    <span className="text-sm sm:text-base font-semibold text-foreground leading-snug">
+                      {t(faq.questionKey)}
+                    </span>
+                    <div
+                      className={cn(
+                        "size-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200",
+                        isOpen
+                          ? "bg-primary text-primary-foreground rotate-180"
+                          : "bg-muted text-muted-foreground"
+                      )}
+                    >
+                      <ChevronDown className="size-4" />
+                    </div>
+                  </button>
 
-                {isOpen && (
-                  <div
-                    id={contentId}
-                    role="region"
-                    aria-labelledby={headerId}
-                    className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-sm text-muted-foreground leading-relaxed animate-in fade-in-50 duration-150 border-t border-border/40 mt-1"
-                  >
-                    <p className="pt-3">{t(faq.answerKey)}</p>
+                  {isOpen && (
+                    <div
+                      id={contentId}
+                      role="region"
+                      aria-labelledby={headerId}
+                      className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-sm text-muted-foreground leading-relaxed animate-in fade-in-50 duration-150 border-t border-border/40 mt-1"
+                    >
+                      <p className="pt-3">{t(faq.answerKey)}</p>
 
-                    {faq.linkHref && (
-                      <div className="mt-3 pt-2">
-                        <Link
-                          href={faq.linkHref}
-                          className="inline-flex items-center gap-1 font-semibold text-primary hover:text-primary-hover hover:underline text-xs"
-                        >
-                          <span>{faq.linkText}</span>
-                          <ArrowUpRight className="size-3" />
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+                      {faq.linkHref && (
+                        <div className="mt-3 pt-2">
+                          <Link
+                            href={faq.linkHref}
+                            className="inline-flex items-center gap-1 font-semibold text-primary hover:text-primary-hover hover:underline text-xs"
+                          >
+                            <span>{faq.linkText}</span>
+                            <ArrowUpRight className="size-3" />
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </ScrollReveal>
 
         {/* ── Section CTA: Visit Help Center ── */}
-        <div className="flex justify-center">
-          <CTAButton
-            action="visitHelpCenter"
-            variant="primary"
-            locale={locale}
-            size="lg"
-            showArrow
-            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
-          />
-        </div>
+        <ScrollReveal direction="up" delay={200}>
+          <div className="flex justify-center">
+            <CTAButton
+              action="visitHelpCenter"
+              variant="primary"
+              locale={locale}
+              size="lg"
+              showArrow
+              className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+            />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

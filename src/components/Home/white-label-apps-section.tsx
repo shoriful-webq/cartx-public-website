@@ -16,6 +16,7 @@ import {
 import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
 import { cn } from "@/lib/utils";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export interface WhiteLabelAppsSectionProps {
   className?: string;
@@ -78,7 +79,11 @@ export function WhiteLabelAppsSection({
           {/* ══════════════════════════════════════════════════════════════
               LEFT SIDE — Compelling Product Content & Benefit Points
               ══════════════════════════════════════════════════════════════ */}
-          <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left max-w-xl mx-auto lg:mx-0">
+          <ScrollReveal
+            direction="up"
+            delay={0}
+            className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left max-w-xl mx-auto lg:mx-0"
+          >
             {/* Eyebrow Badge (Hero-aligned) */}
             <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/[0.06] px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary mb-3.5 sm:mb-4 select-none">
               <Smartphone className="size-3 text-secondary-accent shrink-0" />
@@ -105,7 +110,7 @@ export function WhiteLabelAppsSection({
                 return (
                   <div
                     key={b.id}
-                    className="flex items-start gap-3.5 p-3 rounded-xl border border-border/70 bg-card/70 hover:border-primary/40 hover:bg-card transition-all duration-200 shadow-2xs"
+                    className="flex items-start gap-3.5 p-3 rounded-xl border border-border/70 bg-card/70 hover:border-primary/40 hover:bg-card hover:-translate-y-0.5 transition-all duration-200 shadow-2xs"
                   >
                     <div className="size-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 border border-primary/15 shadow-2xs">
                       <IconComponent className="size-4 shrink-0" />
@@ -131,14 +136,14 @@ export function WhiteLabelAppsSection({
                 locale={locale}
                 size="lg"
                 showArrow
-                className="px-6 py-2.5 text-xs sm:text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
+                className="px-6 py-2.5 text-xs sm:text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               />
               <CTAButton
                 action="talkToOurTeam"
                 variant="outline"
                 locale={locale}
                 size="lg"
-                className="px-6 py-2.5 text-xs sm:text-sm rounded-lg"
+                className="px-6 py-2.5 text-xs sm:text-sm rounded-lg hover:-translate-y-0.5 transition-all duration-200"
               />
             </div>
 
@@ -147,12 +152,16 @@ export function WhiteLabelAppsSection({
               <ShieldCheck className="size-3.5 text-secondary-accent shrink-0 mt-0.5" />
               <span>{t("whiteLabelApps.requirements.note")}</span>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* ══════════════════════════════════════════════════════════════
               RIGHT SIDE — Premium Overlapping Mobile App Showcase
               ══════════════════════════════════════════════════════════════ */}
-          <div className="lg:col-span-7 relative flex items-center justify-center py-4 lg:py-6 w-full">
+          <ScrollReveal
+            direction="up"
+            delay={150}
+            className="lg:col-span-7 relative flex items-center justify-center py-4 lg:py-6 w-full"
+          >
             {/* Ambient Radial Glow behind the mockups */}
             <div
               className="pointer-events-none absolute inset-0 rounded-3xl opacity-60 blur-3xl"
@@ -432,7 +441,7 @@ export function WhiteLabelAppsSection({
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

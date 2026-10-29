@@ -13,6 +13,7 @@ import {
 import { useLanguage } from "@/lib/i18n/language-context";
 import { cn } from "@/lib/utils";
 import { SectionHeading } from "./section-heading";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export interface VerifiedIntegrationLogo {
   name: string;
@@ -92,39 +93,45 @@ export function BrandTrustStrip({
     >
       <div className="container">
         {/* ── Section Header (Standardized Hero-Aligned Lockup) ── */}
-        <SectionHeading
-          eyebrow={t("trustStrip.badge")}
-          eyebrowIcon={ShieldCheck}
-          title={t("trustStrip.title")}
-          titleGradient={true}
-          size="compact"
-          className="mb-8 sm:mb-10"
-        />
+        <ScrollReveal direction="up" delay={0}>
+          <SectionHeading
+            eyebrow={t("trustStrip.badge")}
+            eyebrowIcon={ShieldCheck}
+            title={t("trustStrip.title")}
+            titleGradient={true}
+            size="compact"
+            className="mb-8 sm:mb-10"
+          />
+        </ScrollReveal>
 
         {/* 5 Core Platform Pillars Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-4">
-          {PILLARS.map((pillar) => {
+          {PILLARS.map((pillar, idx) => {
             const IconComponent = pillar.icon;
             return (
-              <div
+              <ScrollReveal
                 key={pillar.id}
-                className="group relative rounded-xl border border-border bg-card p-4 sm:p-5 shadow-xs transition-all duration-200 hover:border-primary/40 hover:shadow-card flex flex-col justify-between"
+                direction="up"
+                delay={idx * 60}
+                className="h-full"
               >
-                <div>
-                  <div className="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3.5 transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                    <IconComponent className="size-5 shrink-0" />
+                <div className="group relative h-full rounded-xl border border-border bg-card p-4 sm:p-5 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-card flex flex-col justify-between">
+                  <div>
+                    <div className="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3.5 transition-all duration-200 group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground">
+                      <IconComponent className="size-5 shrink-0" />
+                    </div>
+                    <h3 className="text-sm font-semibold text-foreground mb-1 leading-snug">
+                      {t(pillar.titleKey)}
+                    </h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {t(pillar.descKey)}
+                    </p>
                   </div>
-                  <h3 className="text-sm font-semibold text-foreground mb-1 leading-snug">
-                    {t(pillar.titleKey)}
-                  </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {t(pillar.descKey)}
-                  </p>
-                </div>
 
-                {/* Subtle indicator accent line on hover */}
-                <div className="mt-3.5 h-0.5 w-6 rounded-full bg-transparent group-hover:bg-secondary-accent transition-colors" />
-              </div>
+                  {/* Subtle indicator accent line on hover */}
+                  <div className="mt-3.5 h-0.5 w-6 rounded-full bg-transparent group-hover:bg-secondary-accent transition-colors" />
+                </div>
+              </ScrollReveal>
             );
           })}
         </div>

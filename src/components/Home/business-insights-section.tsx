@@ -14,6 +14,7 @@ import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
 import { SectionHeading } from "./section-heading";
 import { cn } from "@/lib/utils";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 interface ChartBarData {
   label: string;
@@ -85,47 +86,50 @@ export function BusinessInsightsSection({
     >
       <div className="container">
         {/* ── Section Heading (Hero-aligned title gradient & eyebrow pill) ── */}
-        <SectionHeading
-          eyebrow={t("businessInsights.badge")}
-          eyebrowIcon={BarChart3}
-          title={t("businessInsights.title")}
-          titleGradient={true}
-          description={t("businessInsights.description")}
-          size="default"
-          className="mb-8 sm:mb-10 lg:mb-12"
-        />
+        <ScrollReveal direction="up" delay={0}>
+          <SectionHeading
+            eyebrow={t("businessInsights.badge")}
+            eyebrowIcon={BarChart3}
+            title={t("businessInsights.title")}
+            titleGradient={true}
+            description={t("businessInsights.description")}
+            size="default"
+            className="mb-8 sm:mb-10 lg:mb-12"
+          />
 
-        {/* ── Prominent Demo Data Badge ── */}
-        <div className="mb-6 flex justify-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3.5 py-1 text-[11px] font-medium text-muted-foreground shadow-xs">
-            <span className="size-1.5 rounded-full bg-primary" />
-            <span>{t("businessInsights.demoDataNotice")}</span>
+          {/* ── Prominent Demo Data Badge ── */}
+          <div className="mb-6 flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3.5 py-1 text-[11px] font-medium text-muted-foreground shadow-xs">
+              <span className="size-1.5 rounded-full bg-primary" />
+              <span>{t("businessInsights.demoDataNotice")}</span>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* ── Analytics Dashboard UI Preview Frame ── */}
-        <div className="w-full rounded-2xl border border-border bg-card shadow-card overflow-hidden mb-10 sm:mb-12">
-          {/* Top Browser / Window Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-border px-4 py-3 bg-muted/30 gap-2">
-            <div className="flex items-center gap-2">
-              <span className="size-2 rounded-full bg-error/70" />
-              <span className="size-2 rounded-full bg-warning/70" />
-              <span className="size-2 rounded-full bg-success/70" />
-              <span className="ml-2 text-xs font-semibold text-foreground">
-                analytics.cartx.app/overview
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <div className="inline-flex items-center gap-1.5 rounded-md border border-border bg-card px-2.5 py-1 text-xs text-muted-foreground">
-                <Calendar className="size-3 text-primary" />
-                <span>{t("businessInsights.timeRange")}</span>
+        <ScrollReveal direction="up" delay={120}>
+          <div className="w-full rounded-2xl border border-border bg-card shadow-card overflow-hidden mb-10 sm:mb-12 transition-all duration-300 hover:border-primary/30">
+            {/* Top Browser / Window Bar */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-border px-4 py-3 bg-muted/30 gap-2">
+              <div className="flex items-center gap-2">
+                <span className="size-2 rounded-full bg-error/70" />
+                <span className="size-2 rounded-full bg-warning/70" />
+                <span className="size-2 rounded-full bg-success/70" />
+                <span className="ml-2 text-xs font-semibold text-foreground">
+                  analytics.cartx.app/overview
+                </span>
               </div>
-              <span className="text-[10px] font-semibold text-primary uppercase tracking-wider px-2 py-0.5 rounded bg-primary/10 border border-primary/20">
-                Live Overview
-              </span>
+
+              <div className="flex items-center gap-2">
+                <div className="inline-flex items-center gap-1.5 rounded-md border border-border bg-card px-2.5 py-1 text-xs text-muted-foreground">
+                  <Calendar className="size-3 text-primary" />
+                  <span>{t("businessInsights.timeRange")}</span>
+                </div>
+                <span className="text-[10px] font-semibold text-primary uppercase tracking-wider px-2 py-0.5 rounded bg-primary/10 border border-primary/20">
+                  Live Overview
+                </span>
+              </div>
             </div>
-          </div>
 
           {/* Main Analytics Canvas Grid */}
           <div className="p-4 sm:p-6 lg:p-7 space-y-6">
@@ -329,8 +333,10 @@ export function BusinessInsightsSection({
             </div>
           </div>
         </div>
+      </ScrollReveal>
 
-        {/* ── Centralized Factual Accuracy Notice ── */}
+      {/* ── Centralized Factual Accuracy Notice ── */}
+      <ScrollReveal direction="up" delay={180}>
         <div className="max-w-4xl mx-auto rounded-xl border border-border bg-card/60 p-3.5 sm:p-4 text-center mb-8">
           <p className="text-xs text-muted-foreground leading-relaxed">
             {t("businessInsights.accuracyDisclaimer")}
@@ -345,9 +351,10 @@ export function BusinessInsightsSection({
             locale={locale}
             size="lg"
             showArrow
-            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
+            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
           />
         </div>
+      </ScrollReveal>
       </div>
     </section>
   );

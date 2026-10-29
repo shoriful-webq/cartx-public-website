@@ -18,6 +18,7 @@ import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
 import { SectionHeading } from "./section-heading";
 import { cn } from "@/lib/utils";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 interface FeatureDetailItem {
   icon: LucideIcon;
@@ -105,39 +106,42 @@ export function PaymentsDeliverySection({
     >
       <div className="container">
         {/* ── Section Heading (Hero-aligned title gradient & eyebrow pill) ── */}
-        <SectionHeading
-          eyebrow={t("paymentsDelivery.badge")}
-          eyebrowIcon={Layers}
-          title={t("paymentsDelivery.title")}
-          titleGradient={true}
-          description={t("paymentsDelivery.description")}
-          size="default"
-          className="mb-10 sm:mb-12 lg:mb-14"
-        />
+        <ScrollReveal direction="up" delay={0}>
+          <SectionHeading
+            eyebrow={t("paymentsDelivery.badge")}
+            eyebrowIcon={Layers}
+            title={t("paymentsDelivery.title")}
+            titleGradient={true}
+            description={t("paymentsDelivery.description")}
+            size="default"
+            className="mb-10 sm:mb-12 lg:mb-14"
+          />
+        </ScrollReveal>
 
         {/* ── Two Visually Distinct Groups: Payments & Delivery ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-10 sm:mb-12">
           {/* ── Group 1: Payment Options ── */}
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs flex flex-col justify-between transition-all duration-200 hover:border-primary/40 hover:shadow-card">
-            <div>
-              {/* Group Header */}
-              <div className="flex items-center gap-3 mb-4">
-                <div className="size-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center shadow-xs">
-                  <CreditCard className="size-5.5 shrink-0" />
+          <ScrollReveal direction="up" delay={80} className="h-full">
+            <div className="h-full rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-card">
+              <div>
+                {/* Group Header */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="size-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center shadow-xs">
+                    <CreditCard className="size-5.5 shrink-0" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground">
+                      {t("paymentsDelivery.payments.groupTitle")}
+                    </h3>
+                    <span className="text-[11px] font-semibold text-primary uppercase tracking-wider">
+                      Checkout & Transactions
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground">
-                    {t("paymentsDelivery.payments.groupTitle")}
-                  </h3>
-                  <span className="text-[11px] font-semibold text-primary uppercase tracking-wider">
-                    Checkout & Transactions
-                  </span>
-                </div>
-              </div>
 
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6">
-                {t("paymentsDelivery.payments.groupDesc")}
-              </p>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6">
+                  {t("paymentsDelivery.payments.groupDesc")}
+                </p>
 
               {/* Core Feature Items */}
               <div className="space-y-4 mb-7">
@@ -198,9 +202,11 @@ export function PaymentsDeliverySection({
               </p>
             </div>
           </div>
+        </ScrollReveal>
 
-          {/* ── Group 2: Delivery Workflows ── */}
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs flex flex-col justify-between transition-all duration-200 hover:border-primary/40 hover:shadow-card">
+        {/* ── Group 2: Delivery Workflows ── */}
+        <ScrollReveal direction="up" delay={160} className="h-full">
+          <div className="h-full rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-card">
             <div>
               {/* Group Header */}
               <div className="flex items-center gap-3 mb-4">
@@ -280,9 +286,11 @@ export function PaymentsDeliverySection({
               </p>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
+      </div>
 
-        {/* ── Centralized Factual Accuracy Notice ── */}
+      {/* ── Centralized Factual Accuracy Notice ── */}
+      <ScrollReveal direction="up" delay={200}>
         <div className="max-w-4xl mx-auto rounded-xl border border-border bg-card/60 p-3.5 sm:p-4 text-center mb-8">
           <p className="text-xs text-muted-foreground leading-relaxed">
             {t("paymentsDelivery.accuracyNotice")}
@@ -297,9 +305,10 @@ export function PaymentsDeliverySection({
             locale={locale}
             size="lg"
             showArrow
-            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
+            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
           />
         </div>
+      </ScrollReveal>
       </div>
     </section>
   );

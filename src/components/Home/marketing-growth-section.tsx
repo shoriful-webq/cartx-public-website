@@ -15,6 +15,7 @@ import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
 import { SectionHeading } from "./section-heading";
 import { cn } from "@/lib/utils";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 interface MarketingFeatureCard {
   id: string;
@@ -83,83 +84,91 @@ export function MarketingGrowthSection({
     >
       <div className="container">
         {/* ── Section Heading (Hero-aligned title gradient & eyebrow pill) ── */}
-        <SectionHeading
-          eyebrow={t("marketingGrowth.badge")}
-          eyebrowIcon={TrendingUp}
-          title={t("marketingGrowth.title")}
-          titleGradient={true}
-          description={t("marketingGrowth.description")}
-          size="default"
-          className="mb-10 sm:mb-12 lg:mb-14"
-        />
+        <ScrollReveal direction="up" delay={0}>
+          <SectionHeading
+            eyebrow={t("marketingGrowth.badge")}
+            eyebrowIcon={TrendingUp}
+            title={t("marketingGrowth.title")}
+            titleGradient={true}
+            description={t("marketingGrowth.description")}
+            size="default"
+            className="mb-10 sm:mb-12 lg:mb-14"
+          />
+        </ScrollReveal>
 
         {/* ── 6 Feature Cards Grid (3-col desktop, 2-col tablet, 1-col mobile) ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 mb-10 sm:mb-12">
-          {MARKETING_CARDS.map((card) => {
+          {MARKETING_CARDS.map((card, idx) => {
             const Icon = card.icon;
             const isPlanned = Boolean(card.isPlanned);
             return (
-              <div
+              <ScrollReveal
                 key={card.id}
-                className="group relative rounded-xl border border-border bg-card p-5 sm:p-6 shadow-xs transition-all duration-200 hover:border-primary/40 hover:shadow-card flex flex-col justify-between"
+                direction="up"
+                delay={idx * 60}
+                className="h-full"
               >
-                <div>
-                  {/* Card Header: Icon & Status Pill */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="size-10 sm:size-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center transition-colors group-hover:bg-primary group-hover:text-primary-foreground shadow-xs">
-                      <Icon className="size-5 shrink-0" />
+                <div className="group relative h-full rounded-xl border border-border bg-card p-5 sm:p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-card flex flex-col justify-between">
+                  <div>
+                    {/* Card Header: Icon & Status Pill */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="size-10 sm:size-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center transition-all duration-200 group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground shadow-xs">
+                        <Icon className="size-5 shrink-0" />
+                      </div>
+
+                      <span
+                        className={cn(
+                          "rounded-full px-2.5 py-0.5 text-[10px] font-semibold border select-none",
+                          isPlanned
+                            ? "bg-muted text-muted-foreground border-border/80"
+                            : "bg-success/10 text-success border-success/25"
+                        )}
+                      >
+                        {isPlanned
+                          ? t("marketingGrowth.statusPlanned")
+                          : t("marketingGrowth.statusSupported")}
+                      </span>
                     </div>
 
-                    <span
-                      className={cn(
-                        "rounded-full px-2.5 py-0.5 text-[10px] font-semibold border select-none",
-                        isPlanned
-                          ? "bg-muted text-muted-foreground border-border/80"
-                          : "bg-success/10 text-success border-success/25"
-                      )}
-                    >
-                      {isPlanned
-                        ? t("marketingGrowth.statusPlanned")
-                        : t("marketingGrowth.statusSupported")}
-                    </span>
+                    <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2 leading-snug group-hover:text-primary transition-colors">
+                      {t(card.titleKey)}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      {t(card.descKey)}
+                    </p>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2 leading-snug group-hover:text-primary transition-colors">
-                    {t(card.titleKey)}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {t(card.descKey)}
-                  </p>
+                  {/* Subtle bottom indicator accent line on hover */}
+                  <div className="mt-5 pt-3.5 border-t border-border/60">
+                    <div className="h-0.5 w-6 rounded-full bg-transparent group-hover:bg-secondary-accent transition-colors" />
+                  </div>
                 </div>
-
-                {/* Subtle bottom indicator accent line on hover */}
-                <div className="mt-5 pt-3.5 border-t border-border/60">
-                  <div className="h-0.5 w-6 rounded-full bg-transparent group-hover:bg-secondary-accent transition-colors" />
-                </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
 
         {/* ── Centralized Factual Accuracy Notice ── */}
-        <div className="max-w-4xl mx-auto rounded-xl border border-border bg-card/60 p-3.5 sm:p-4 text-center mb-8">
-          <p className="text-xs text-muted-foreground leading-relaxed">
-            {t("marketingGrowth.accuracyNotice")}
-          </p>
-        </div>
+        <ScrollReveal direction="up" delay={180}>
+          <div className="max-w-4xl mx-auto rounded-xl border border-border bg-card/60 p-3.5 sm:p-4 text-center mb-8">
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              {t("marketingGrowth.accuracyNotice")}
+            </p>
+          </div>
 
-        {/* ── Section CTA ── */}
-        <div className="flex justify-center">
-          <CTAButton
-            action="exploreMarketingFeatures"
-            variant="primary"
-            locale={locale}
-            size="lg"
-            showArrow
-            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
-          />
-        </div>
+          {/* ── Section CTA ── */}
+          <div className="flex justify-center">
+            <CTAButton
+              action="exploreMarketingFeatures"
+              variant="primary"
+              locale={locale}
+              size="lg"
+              showArrow
+              className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+            />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

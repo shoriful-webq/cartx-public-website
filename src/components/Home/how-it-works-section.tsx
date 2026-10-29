@@ -14,6 +14,7 @@ import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
 import { SectionHeading } from "./section-heading";
 import { cn } from "@/lib/utils";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 interface StepItem {
   number: string;
@@ -71,15 +72,17 @@ export function HowItWorksSection({ className }: HowItWorksSectionProps) {
     >
       <div className="container">
         {/* ── Section Heading (Hero-aligned title gradient & eyebrow pill) ── */}
-        <SectionHeading
-          eyebrow={t("howItWorks.badge")}
-          eyebrowIcon={Workflow}
-          title={t("howItWorks.title")}
-          titleGradient={true}
-          description={t("howItWorks.description")}
-          size="default"
-          className="mb-10 sm:mb-12 lg:mb-14"
-        />
+        <ScrollReveal direction="up" delay={0}>
+          <SectionHeading
+            eyebrow={t("howItWorks.badge")}
+            eyebrowIcon={Workflow}
+            title={t("howItWorks.title")}
+            titleGradient={true}
+            description={t("howItWorks.description")}
+            size="default"
+            className="mb-10 sm:mb-12 lg:mb-14"
+          />
+        </ScrollReveal>
 
         {/* ── Step-by-Step Flow: Connected on Desktop, Stacked on Mobile ── */}
         <div className="relative mb-10 sm:mb-12">
@@ -93,58 +96,64 @@ export function HowItWorksSection({ className }: HowItWorksSectionProps) {
             {STEPS.map((step, idx) => {
               const Icon = step.icon;
               return (
-                <div
+                <ScrollReveal
                   key={step.number}
-                  className="group relative rounded-xl border border-border bg-card p-5 sm:p-6 shadow-xs transition-all duration-200 hover:border-primary/40 hover:shadow-card flex flex-col justify-between"
+                  direction="up"
+                  delay={idx * 70}
+                  className="h-full"
                 >
-                  <div>
-                    {/* Step badge & icon header */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="size-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center transition-colors group-hover:bg-primary group-hover:text-primary-foreground shadow-xs">
-                        <Icon className="size-5 shrink-0" />
+                  <div className="group relative h-full rounded-xl border border-border bg-card p-5 sm:p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-card flex flex-col justify-between">
+                    <div>
+                      {/* Step badge & icon header */}
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="size-11 rounded-lg bg-primary/10 text-primary flex items-center justify-center transition-all duration-200 group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground shadow-xs">
+                          <Icon className="size-5 shrink-0" />
+                        </div>
+                        <span className="font-mono text-xs font-bold text-primary/70 tracking-wider px-2 py-0.5 rounded bg-primary/[0.06] border border-primary/15">
+                          {t(step.numberKey)}
+                        </span>
                       </div>
-                      <span className="font-mono text-xs font-bold text-primary/70 tracking-wider px-2 py-0.5 rounded bg-primary/[0.06] border border-primary/15">
-                        {t(step.numberKey)}
-                      </span>
+
+                      <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2 leading-snug group-hover:text-primary transition-colors">
+                        {t(step.titleKey)}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                        {t(step.descKey)}
+                      </p>
                     </div>
 
-                    <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2 leading-snug group-hover:text-primary transition-colors">
-                      {t(step.titleKey)}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      {t(step.descKey)}
-                    </p>
+                    {/* Flow arrow indicator (visual step connector indicator) */}
+                    <div className="mt-5 pt-3.5 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground">
+                      <span className="text-[11px] font-medium tracking-wide text-muted-foreground/80">
+                        Step {step.number} of 04
+                      </span>
+                      {idx < STEPS.length - 1 && (
+                        <ArrowRight className="size-3.5 text-muted-foreground/50 transition-transform group-hover:translate-x-1 group-hover:text-primary" />
+                      )}
+                    </div>
                   </div>
-
-                  {/* Flow arrow indicator (visual step connector indicator) */}
-                  <div className="mt-5 pt-3.5 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground">
-                    <span className="text-[11px] font-medium tracking-wide text-muted-foreground/80">
-                      Step {step.number} of 04
-                    </span>
-                    {idx < STEPS.length - 1 && (
-                      <ArrowRight className="size-3.5 text-muted-foreground/50 transition-transform group-hover:translate-x-1 group-hover:text-primary" />
-                    )}
-                  </div>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>
         </div>
 
         {/* ── Central CTA & Verified Eligibility Disclaimer ── */}
-        <div className="flex flex-col items-center text-center">
-          <CTAButton
-            action="getStarted"
-            locale={locale}
-            size="lg"
-            showArrow
-            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
-          />
+        <ScrollReveal direction="up" delay={200}>
+          <div className="flex flex-col items-center text-center">
+            <CTAButton
+              action="getStarted"
+              locale={locale}
+              size="lg"
+              showArrow
+              className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+            />
 
-          <p className="mt-3.5 text-[11px] sm:text-xs text-muted-foreground/80 max-w-xl leading-relaxed">
-            {t("howItWorks.disclaimer")}
-          </p>
-        </div>
+            <p className="mt-3.5 text-[11px] sm:text-xs text-muted-foreground/80 max-w-xl leading-relaxed">
+              {t("howItWorks.disclaimer")}
+            </p>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

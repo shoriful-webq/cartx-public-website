@@ -18,6 +18,7 @@ import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
 import { SectionHeading } from "./section-heading";
 import { cn } from "@/lib/utils";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 interface CreateStoreSectionProps {
   className?: string;
@@ -66,15 +67,17 @@ export function CreateStoreSection({ className }: CreateStoreSectionProps) {
     >
       <div className="container">
         {/* ── Section Heading (Hero-aligned title gradient & eyebrow pill) ── */}
-        <SectionHeading
-          eyebrow={t("createStore.badge")}
-          eyebrowIcon={Store}
-          title={t("createStore.title")}
-          titleGradient={true}
-          description={t("createStore.description")}
-          size="default"
-          className="mb-10 sm:mb-12 lg:mb-14"
-        />
+        <ScrollReveal direction="up" delay={0}>
+          <SectionHeading
+            eyebrow={t("createStore.badge")}
+            eyebrowIcon={Store}
+            title={t("createStore.title")}
+            titleGradient={true}
+            description={t("createStore.description")}
+            size="default"
+            className="mb-10 sm:mb-12 lg:mb-14"
+          />
+        </ScrollReveal>
 
         {/* ── Visual Journey: Store Setup → Published Storefront ── */}
         <div className="relative mb-12 lg:mb-16">
@@ -82,45 +85,50 @@ export function CreateStoreSection({ className }: CreateStoreSectionProps) {
             {journeySteps.map((item, idx) => {
               const StepIcon = item.icon;
               return (
-                <div
+                <ScrollReveal
                   key={idx}
-                  className="relative rounded-xl border border-border bg-card p-5 shadow-xs transition-all duration-200 hover:border-primary/40 hover:shadow-card flex flex-col justify-between"
+                  direction="up"
+                  delay={idx * 80}
+                  className="h-full"
                 >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
-                        <StepIcon className="size-5 shrink-0" />
+                  <div className="group relative h-full rounded-xl border border-border bg-card p-5 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-card flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center transition-all duration-200 group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground">
+                          <StepIcon className="size-5 shrink-0" />
+                        </div>
+                        <span className="font-mono text-xs font-bold text-muted-foreground/60 tracking-wider">
+                          {item.step}
+                        </span>
                       </div>
-                      <span className="font-mono text-xs font-bold text-muted-foreground/60 tracking-wider">
-                        {item.step}
-                      </span>
+                      <h3 className="text-base font-semibold text-foreground mb-1.5">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                        {item.desc}
+                      </p>
                     </div>
-                    <h3 className="text-base font-semibold text-foreground mb-1.5">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
 
-                  {/* Visual connector indicator */}
-                  <div className="mt-4 pt-3.5 border-t border-border/50 flex items-center justify-between text-[11px] font-medium text-primary">
-                    <span className="inline-flex items-center gap-1">
-                      <CheckCircle2 className="size-3 text-success shrink-0" />
-                      <span>Configured</span>
-                    </span>
-                    {idx < journeySteps.length - 1 && (
-                      <ArrowRight className="size-3.5 text-muted-foreground/50 hidden md:block" />
-                    )}
+                    {/* Visual connector indicator */}
+                    <div className="mt-4 pt-3.5 border-t border-border/50 flex items-center justify-between text-[11px] font-medium text-primary">
+                      <span className="inline-flex items-center gap-1">
+                        <CheckCircle2 className="size-3 text-success shrink-0" />
+                        <span>Configured</span>
+                      </span>
+                      {idx < journeySteps.length - 1 && (
+                        <ArrowRight className="size-3.5 text-muted-foreground/50 hidden md:block" />
+                      )}
+                    </div>
                   </div>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>
         </div>
 
         {/* ── Storefront Interactive Preview (Desktop & Mobile Overlay) ── */}
-        <div className="relative rounded-2xl border border-border bg-card p-4 sm:p-6 lg:p-8 shadow-dropdown mb-10 sm:mb-12 overflow-hidden">
+        <ScrollReveal direction="up" delay={150}>
+          <div className="relative rounded-2xl border border-border bg-card p-4 sm:p-6 lg:p-8 shadow-dropdown mb-10 sm:mb-12 overflow-hidden transition-all duration-300 hover:border-primary/30">
           {/* Browser Top Bar */}
           <div className="flex items-center justify-between border-b border-border pb-3 mb-5">
             <div className="flex items-center gap-1.5">
@@ -353,14 +361,16 @@ export function CreateStoreSection({ className }: CreateStoreSectionProps) {
             </div>
           </div>
         </div>
+      </ScrollReveal>
 
-        {/* ── Feature Checklist & Central CTA ── */}
+      {/* ── Feature Checklist & Central CTA ── */}
+      <ScrollReveal direction="up" delay={150}>
         <div className="flex flex-col items-center text-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mb-8 w-full">
             {showcaseFeatures.map((feature, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-2.5 text-left p-3 rounded-xl bg-card border border-border shadow-xs text-xs sm:text-sm font-medium text-foreground min-w-0 transition-all hover:border-primary/30"
+                className="flex items-center gap-2.5 text-left p-3 rounded-xl bg-card border border-border shadow-xs text-xs sm:text-sm font-medium text-foreground min-w-0 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-card"
               >
                 <CheckCircle2 className="size-4 text-success shrink-0" />
                 <span className="truncate min-w-0">{feature}</span>
@@ -373,9 +383,10 @@ export function CreateStoreSection({ className }: CreateStoreSectionProps) {
             locale={locale}
             size="lg"
             showArrow
-            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
+            className="px-7 py-3 text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
           />
         </div>
+      </ScrollReveal>
       </div>
     </section>
   );
