@@ -30,16 +30,16 @@ export function DeepDiveRow({ item, isReversed, t }: DeepDiveRowProps) {
           )}
         >
           {/* Text Column */}
-          <div className="flex-1 w-full max-w-xl text-left">
+          <div className="flex-1 w-full max-w-xl text-left flex flex-col items-start">
             {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/[0.06] px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest text-primary mb-3">
-              <Icon className="size-3 text-secondary-accent" />
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/[0.06] px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest text-primary mb-3 select-none">
+              <Icon className="size-3 text-secondary-accent shrink-0" />
               <span>{t(item.eyebrowKey)}</span>
             </div>
 
             {/* Title */}
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-foreground mb-3 leading-[1.2] brand-gradient-text">
-              {t(item.titleKey)}
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight mb-3 leading-[1.25] sm:leading-[1.2] block">
+              <span className="brand-gradient-text">{t(item.titleKey)}</span>
             </h3>
 
             {/* Description */}
