@@ -6,20 +6,25 @@ import {
   Store,
   Package,
   ShoppingBag,
+  Boxes,
+  Users,
   CreditCard,
   Truck,
   Percent,
   BarChart3,
   Smartphone,
+  ShieldCheck,
   CheckCircle2,
   Lock,
   Globe,
   Tag,
-  ShieldCheck,
   TrendingUp,
   Clock,
   ArrowRight,
   Bell,
+  Database,
+  Key,
+  Code,
   type LucideIcon,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
@@ -29,7 +34,6 @@ import { cn } from "@/lib/utils";
 
 interface DeepDiveItem {
   id: string;
-  aliasIds: string[];
   eyebrow: string;
   title: string;
   description: string;
@@ -41,33 +45,31 @@ interface DeepDiveItem {
 }
 
 /* ─────────────────────────────────────────────────────────────
- * 1. Store Management Mockup
+ * 1. Storefront Mockup
  * ───────────────────────────────────────────────────────────── */
-function StoreManagementMockup({ notice }: { notice: string }) {
+function StorefrontMockup({ notice }: { notice: string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
-      {/* Title bar */}
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
         <div className="flex items-center gap-1.5">
           <span className="size-2 rounded-full bg-error/70" />
           <span className="size-2 rounded-full bg-warning/70" />
           <span className="size-2 rounded-full bg-success/70" />
         </div>
-        <span className="text-[9.5px] font-mono text-muted-foreground">admin.cartx.app/settings</span>
+        <span className="text-[9.5px] font-mono text-muted-foreground">admin.cartx.app/storefront</span>
         <span className="text-[8.5px] font-medium text-muted-foreground/80 bg-muted/60 px-1.5 py-0.2 rounded border border-border/50">
           {notice}
         </span>
       </div>
 
       <div className="p-4 sm:p-5 space-y-3 bg-background/50">
-        {/* Custom Domain Card */}
         <div className="rounded-lg border border-border bg-card p-3 shadow-2xs">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <Globe className="size-4 text-primary" />
               <div>
                 <p className="text-xs font-bold text-foreground">Custom Domain</p>
-                <p className="text-[9.5px] text-muted-foreground">Primary store address</p>
+                <p className="text-[9.5px] text-muted-foreground">Primary store web address</p>
               </div>
             </div>
             <span className="text-[8.5px] font-semibold text-success bg-success/10 px-2 py-0.5 rounded border border-success/20">
@@ -82,16 +84,15 @@ function StoreManagementMockup({ notice }: { notice: string }) {
           </div>
         </div>
 
-        {/* Store Brand Settings */}
         <div className="rounded-lg border border-border bg-card p-3 shadow-2xs space-y-2">
-          <p className="text-xs font-bold text-foreground">Brand Identity & Assets</p>
+          <p className="text-xs font-bold text-foreground">Brand Identity & Styling</p>
           <div className="grid grid-cols-2 gap-2 text-[10px]">
             <div className="bg-muted/30 p-2 rounded border border-border/50">
-              <span className="text-muted-foreground block text-[9px]">Store Name</span>
+              <span className="text-muted-foreground block text-[9px]">Store Display Name</span>
               <span className="font-semibold text-foreground">Aura Boutique</span>
             </div>
             <div className="bg-muted/30 p-2 rounded border border-border/50">
-              <span className="text-muted-foreground block text-[9px]">Primary Accent</span>
+              <span className="text-muted-foreground block text-[9px]">Primary Accent Color</span>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <span className="size-3 rounded-full bg-primary" />
                 <span className="font-semibold font-mono text-foreground">#2563EB</span>
@@ -100,14 +101,13 @@ function StoreManagementMockup({ notice }: { notice: string }) {
           </div>
         </div>
 
-        {/* Access Roles */}
         <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <ShieldCheck className="size-4 text-primary" />
-            <span className="text-xs font-medium text-foreground">Role-Based Admin Access</span>
+            <Store className="size-4 text-primary" />
+            <span className="text-xs font-medium text-foreground">Responsive Storefront Theme</span>
           </div>
           <span className="text-[9px] font-semibold bg-primary/10 text-primary px-2 py-0.5 rounded">
-            2 Admins Active
+            Modern Editorial Live
           </span>
         </div>
       </div>
@@ -116,9 +116,9 @@ function StoreManagementMockup({ notice }: { notice: string }) {
 }
 
 /* ─────────────────────────────────────────────────────────────
- * 2. Product & Inventory Mockup
+ * 2. Products Catalog Mockup
  * ───────────────────────────────────────────────────────────── */
-function ProductInventoryMockup({ notice }: { notice: string }) {
+function ProductCatalogMockup({ notice }: { notice: string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -127,61 +127,59 @@ function ProductInventoryMockup({ notice }: { notice: string }) {
           <span className="size-2 rounded-full bg-warning/70" />
           <span className="size-2 rounded-full bg-success/70" />
         </div>
-        <span className="text-[9.5px] font-mono text-muted-foreground">admin.cartx.app/inventory</span>
+        <span className="text-[9.5px] font-mono text-muted-foreground">admin.cartx.app/products</span>
         <span className="text-[8.5px] font-medium text-muted-foreground/80 bg-muted/60 px-1.5 py-0.2 rounded border border-border/50">
           {notice}
         </span>
       </div>
 
       <div className="p-4 sm:p-5 space-y-2.5 bg-background/50">
-        {/* Product header */}
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs font-bold text-foreground">Linen Relaxed Shirt</p>
-            <p className="text-[9px] font-mono text-muted-foreground">SKU: SHIRT-LINEN-26</p>
+            <p className="text-xs font-bold text-foreground">Premium Linen Shirt</p>
+            <p className="text-[9px] font-mono text-muted-foreground">SKU: LNN-SHIRT-2026</p>
           </div>
-          <span className="text-xs font-bold text-foreground bg-primary/10 text-primary px-2 py-0.5 rounded">
-            ৳1,850
-          </span>
+          <div className="flex items-center gap-1.5">
+            <span className="text-[9.5px] line-through text-muted-foreground">৳2,200</span>
+            <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded">
+              ৳1,850
+            </span>
+          </div>
         </div>
 
-        {/* Variants Matrix */}
         <div className="rounded-lg border border-border bg-card overflow-hidden divide-y divide-border/60 shadow-2xs">
           <div className="px-3 py-1.5 bg-muted/30 text-[9px] font-semibold text-muted-foreground grid grid-cols-4">
             <span>Variant</span>
             <span>SKU</span>
             <span>Price</span>
-            <span className="text-right">Stock Level</span>
+            <span className="text-right">Compare At</span>
           </div>
           <div className="px-3 py-2 text-[10px] grid grid-cols-4 items-center">
-            <span className="font-semibold text-foreground">Blue / L</span>
-            <span className="font-mono text-muted-foreground text-[9px]">LNN-BLU-L</span>
-            <span className="text-foreground">৳1,850</span>
-            <span className="text-right font-bold text-success">42 in stock</span>
+            <span className="font-semibold text-foreground">Blue / M</span>
+            <span className="font-mono text-muted-foreground text-[9px]">LNN-BLU-M</span>
+            <span className="text-foreground font-semibold">৳1,850</span>
+            <span className="text-right text-muted-foreground">৳2,200</span>
           </div>
           <div className="px-3 py-2 text-[10px] grid grid-cols-4 items-center">
-            <span className="font-semibold text-foreground">Sand / M</span>
-            <span className="font-mono text-muted-foreground text-[9px]">LNN-SND-M</span>
-            <span className="text-foreground">৳1,850</span>
-            <span className="text-right font-bold text-amber-600 dark:text-amber-400">
-              3 left (Alert)
-            </span>
+            <span className="font-semibold text-foreground">Sand / L</span>
+            <span className="font-mono text-muted-foreground text-[9px]">LNN-SND-L</span>
+            <span className="text-foreground font-semibold">৳1,850</span>
+            <span className="text-right text-muted-foreground">৳2,200</span>
           </div>
           <div className="px-3 py-2 text-[10px] grid grid-cols-4 items-center">
             <span className="font-semibold text-foreground">White / XL</span>
             <span className="font-mono text-muted-foreground text-[9px]">LNN-WHT-XL</span>
-            <span className="text-foreground">৳1,850</span>
-            <span className="text-right font-bold text-success">18 in stock</span>
+            <span className="text-foreground font-semibold">৳1,850</span>
+            <span className="text-right text-muted-foreground">৳2,200</span>
           </div>
         </div>
 
-        {/* Inventory Automation Pill */}
         <div className="rounded-md border border-border bg-card p-2 text-[9.5px] text-muted-foreground flex items-center justify-between">
           <span className="flex items-center gap-1.5">
-            <CheckCircle2 className="size-3 text-success" />
-            Automatic stock deduction upon confirmed order
+            <Package className="size-3 text-primary" />
+            High-res media gallery with 4 product angles
           </span>
-          <span className="font-semibold text-primary">Live Synced</span>
+          <span className="font-semibold text-success">Optimized</span>
         </div>
       </div>
     </div>
@@ -189,9 +187,9 @@ function ProductInventoryMockup({ notice }: { notice: string }) {
 }
 
 /* ─────────────────────────────────────────────────────────────
- * 3. Order Processing Mockup
+ * 3. Orders Mockup
  * ───────────────────────────────────────────────────────────── */
-function OrderProcessingMockup({ notice }: { notice: string }) {
+function OrdersMockup({ notice }: { notice: string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -207,7 +205,6 @@ function OrderProcessingMockup({ notice }: { notice: string }) {
       </div>
 
       <div className="p-4 sm:p-5 space-y-3 bg-background/50">
-        {/* Customer & Order Header */}
         <div className="flex items-center justify-between">
           <div>
             <div className="flex items-center gap-1.5">
@@ -226,7 +223,6 @@ function OrderProcessingMockup({ notice }: { notice: string }) {
           </div>
         </div>
 
-        {/* Status Timeline */}
         <div className="rounded-lg border border-border bg-card p-3 shadow-2xs space-y-2">
           <p className="text-[10px] font-semibold text-foreground uppercase tracking-wider">
             Order Fulfillment Timeline
@@ -242,7 +238,7 @@ function OrderProcessingMockup({ notice }: { notice: string }) {
               <div className="size-4 rounded-full bg-success text-white flex items-center justify-center text-[8px] font-bold">
                 ✓
               </div>
-              <span className="font-semibold text-foreground mt-1">Verified</span>
+              <span className="font-semibold text-foreground mt-1">Confirmed</span>
             </div>
             <div className="flex flex-col items-center">
               <div className="size-4 rounded-full bg-primary text-white flex items-center justify-center text-[8px] font-bold animate-pulse">
@@ -259,7 +255,6 @@ function OrderProcessingMockup({ notice }: { notice: string }) {
           </div>
         </div>
 
-        {/* Courier & Invoice Details */}
         <div className="grid grid-cols-2 gap-2 text-[9.5px]">
           <div className="bg-card p-2 rounded border border-border">
             <span className="text-muted-foreground block text-[8.5px]">Courier Partner</span>
@@ -276,7 +271,138 @@ function OrderProcessingMockup({ notice }: { notice: string }) {
 }
 
 /* ─────────────────────────────────────────────────────────────
- * 4. Payment Management Mockup
+ * 4. Inventory Control Mockup
+ * ───────────────────────────────────────────────────────────── */
+function InventoryControlMockup({ notice }: { notice: string }) {
+  return (
+    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
+      <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
+        <div className="flex items-center gap-1.5">
+          <span className="size-2 rounded-full bg-error/70" />
+          <span className="size-2 rounded-full bg-warning/70" />
+          <span className="size-2 rounded-full bg-success/70" />
+        </div>
+        <span className="text-[9.5px] font-mono text-muted-foreground">admin.cartx.app/inventory</span>
+        <span className="text-[8.5px] font-medium text-muted-foreground/80 bg-muted/60 px-1.5 py-0.2 rounded border border-border/50">
+          {notice}
+        </span>
+      </div>
+
+      <div className="p-4 sm:p-5 space-y-2.5 bg-background/50">
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-xs font-bold text-foreground">Live Stock Overview</p>
+            <p className="text-[9px] text-muted-foreground">Automated stock tracking enabled</p>
+          </div>
+          <span className="text-[9px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded">
+            Central Warehouse
+          </span>
+        </div>
+
+        <div className="rounded-lg border border-border bg-card overflow-hidden divide-y divide-border/60 shadow-2xs">
+          <div className="px-3 py-1.5 bg-muted/30 text-[9px] font-semibold text-muted-foreground grid grid-cols-4">
+            <span>Item / SKU</span>
+            <span>In Stock</span>
+            <span>Threshold</span>
+            <span className="text-right">Status</span>
+          </div>
+          <div className="px-3 py-2 text-[10px] grid grid-cols-4 items-center">
+            <span className="font-semibold text-foreground">LNN-BLU-L</span>
+            <span className="font-bold text-foreground">42 units</span>
+            <span className="text-muted-foreground">10 units</span>
+            <span className="text-right font-bold text-success">Healthy</span>
+          </div>
+          <div className="px-3 py-2 text-[10px] grid grid-cols-4 items-center">
+            <span className="font-semibold text-foreground">LNN-SND-M</span>
+            <span className="font-bold text-amber-600 dark:text-amber-400">3 units</span>
+            <span className="text-muted-foreground">10 units</span>
+            <span className="text-right font-bold text-amber-600 dark:text-amber-400">Low Stock</span>
+          </div>
+          <div className="px-3 py-2 text-[10px] grid grid-cols-4 items-center">
+            <span className="font-semibold text-foreground">LNN-WHT-S</span>
+            <span className="font-bold text-foreground">18 units</span>
+            <span className="text-muted-foreground">5 units</span>
+            <span className="text-right font-bold text-success">Healthy</span>
+          </div>
+        </div>
+
+        <div className="rounded-md border border-border bg-card p-2 text-[9.5px] text-muted-foreground flex items-center justify-between">
+          <span className="flex items-center gap-1.5">
+            <Boxes className="size-3 text-primary" />
+            Automatic stock deduction upon verified customer checkout
+          </span>
+          <span className="font-semibold text-primary font-mono text-[9px]">Active Sync</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+ * 5. Customer Management Mockup
+ * ───────────────────────────────────────────────────────────── */
+function CustomerManagementMockup({ notice }: { notice: string }) {
+  return (
+    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
+      <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
+        <div className="flex items-center gap-1.5">
+          <span className="size-2 rounded-full bg-error/70" />
+          <span className="size-2 rounded-full bg-warning/70" />
+          <span className="size-2 rounded-full bg-success/70" />
+        </div>
+        <span className="text-[9.5px] font-mono text-muted-foreground">admin.cartx.app/customers/302</span>
+        <span className="text-[8.5px] font-medium text-muted-foreground/80 bg-muted/60 px-1.5 py-0.2 rounded border border-border/50">
+          {notice}
+        </span>
+      </div>
+
+      <div className="p-4 sm:p-5 space-y-3 bg-background/50">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="size-9 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">
+              NJ
+            </div>
+            <div>
+              <p className="text-xs font-bold text-foreground">Nusrat Jahan</p>
+              <p className="text-[9.5px] text-muted-foreground">01712-345678 • nusrat@example.com</p>
+            </div>
+          </div>
+          <span className="text-[8.5px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">
+            Returning VIP
+          </span>
+        </div>
+
+        <div className="grid grid-cols-3 gap-2 text-[10px]">
+          <div className="bg-card p-2 rounded border border-border">
+            <span className="text-[9px] text-muted-foreground block">Total Orders</span>
+            <span className="text-sm font-bold text-foreground">4 Orders</span>
+          </div>
+          <div className="bg-card p-2 rounded border border-border">
+            <span className="text-[9px] text-muted-foreground block">Lifetime Spend</span>
+            <span className="text-sm font-bold text-foreground">৳12,450</span>
+          </div>
+          <div className="bg-card p-2 rounded border border-border">
+            <span className="text-[9px] text-muted-foreground block">Last Order</span>
+            <span className="text-sm font-bold text-foreground">2 days ago</span>
+          </div>
+        </div>
+
+        <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs space-y-1">
+          <div className="flex items-center justify-between text-[9.5px]">
+            <span className="font-semibold text-foreground">Default Delivery Address</span>
+            <span className="text-muted-foreground font-mono">Verified</span>
+          </div>
+          <p className="text-[9px] text-muted-foreground leading-snug">
+            House 42, Road 11, Block D, Banani, Dhaka 1213
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+ * 6. Payment Management Mockup
  * ───────────────────────────────────────────────────────────── */
 function PaymentManagementMockup({ notice }: { notice: string }) {
   return (
@@ -319,7 +445,6 @@ function PaymentManagementMockup({ notice }: { notice: string }) {
           </div>
         </div>
 
-        {/* Recent Transaction Log */}
         <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
           <div className="flex items-center justify-between text-[9px] font-semibold text-muted-foreground pb-1.5 mb-1.5 border-b border-border/60">
             <span>Recent Settlement</span>
@@ -341,7 +466,7 @@ function PaymentManagementMockup({ notice }: { notice: string }) {
 }
 
 /* ─────────────────────────────────────────────────────────────
- * 5. Delivery Operations Mockup
+ * 7. Delivery Operations Mockup
  * ───────────────────────────────────────────────────────────── */
 function DeliveryOperationsMockup({ notice }: { notice: string }) {
   return (
@@ -373,7 +498,6 @@ function DeliveryOperationsMockup({ notice }: { notice: string }) {
           </div>
         </div>
 
-        {/* Courier Integrations */}
         <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
           <p className="text-[10px] font-semibold text-foreground mb-1.5">Active Courier Integrations</p>
           <div className="flex items-center justify-between text-[9.5px] bg-muted/30 p-2 rounded">
@@ -392,7 +516,7 @@ function DeliveryOperationsMockup({ notice }: { notice: string }) {
 }
 
 /* ─────────────────────────────────────────────────────────────
- * 6. Marketing Mockup
+ * 8. Marketing Mockup
  * ───────────────────────────────────────────────────────────── */
 function MarketingMockup({ notice }: { notice: string }) {
   return (
@@ -449,7 +573,7 @@ function MarketingMockup({ notice }: { notice: string }) {
 }
 
 /* ─────────────────────────────────────────────────────────────
- * 7. Reports & Analytics Mockup
+ * 9. Reports & Analytics Mockup
  * ───────────────────────────────────────────────────────────── */
 function ReportsAnalyticsMockup({ notice }: { notice: string }) {
   return (
@@ -483,7 +607,6 @@ function ReportsAnalyticsMockup({ notice }: { notice: string }) {
           </div>
         </div>
 
-        {/* Visual Bar Summary */}
         <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
           <div className="flex items-center justify-between text-[9.5px] mb-2">
             <span className="font-semibold text-foreground">Weekly Sales Activity</span>
@@ -507,9 +630,9 @@ function ReportsAnalyticsMockup({ notice }: { notice: string }) {
 }
 
 /* ─────────────────────────────────────────────────────────────
- * 8. Mobile Commerce Mockup (Enhanced layout: phone + companion details)
+ * 10. Mobile Apps Mockup
  * ───────────────────────────────────────────────────────────── */
-function MobileCommerceMockup({ notice }: { notice: string }) {
+function MobileAppsMockup({ notice }: { notice: string }) {
   return (
     <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
@@ -518,14 +641,13 @@ function MobileCommerceMockup({ notice }: { notice: string }) {
           <span className="size-2 rounded-full bg-warning/70" />
           <span className="size-2 rounded-full bg-success/70" />
         </div>
-        <span className="text-[9.5px] font-mono text-muted-foreground">console.cartx.app/mobile-commerce</span>
+        <span className="text-[9.5px] font-mono text-muted-foreground">console.cartx.app/mobile-apps</span>
         <span className="text-[8.5px] font-medium text-muted-foreground/80 bg-muted/60 px-1.5 py-0.2 rounded border border-border/50">
           {notice}
         </span>
       </div>
 
       <div className="p-4 sm:p-5 bg-background/50 grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-        {/* Left: Smartphone Screen */}
         <div className="sm:col-span-7 bg-card border border-border rounded-xl p-3 shadow-2xs space-y-2.5">
           <div className="flex items-center justify-between pb-1.5 border-b border-border">
             <span className="font-serif font-extrabold text-xs text-foreground tracking-wider">AURA STUDIO</span>
@@ -536,8 +658,8 @@ function MobileCommerceMockup({ notice }: { notice: string }) {
           </div>
 
           <div className="rounded bg-gradient-to-r from-primary/15 to-secondary-accent/15 border border-primary/20 p-2">
-            <span className="text-[7.5px] font-bold uppercase tracking-wider text-primary">Mobile First</span>
-            <p className="text-[11px] font-bold text-foreground leading-tight mt-0.5">Express Touch Checkout</p>
+            <span className="text-[7.5px] font-bold uppercase tracking-wider text-primary">Native App</span>
+            <p className="text-[11px] font-bold text-foreground leading-tight mt-0.5">Express Mobile Checkout</p>
           </div>
 
           <div className="rounded border border-border bg-background p-2 shadow-2xs flex items-center gap-2">
@@ -546,27 +668,26 @@ function MobileCommerceMockup({ notice }: { notice: string }) {
             </div>
             <div>
               <p className="text-[9px] font-bold text-foreground leading-none">Order #1084 Out for Delivery</p>
-              <p className="text-[8px] text-muted-foreground mt-0.5">Courier arrives in ~2 hours</p>
+              <p className="text-[8px] text-muted-foreground mt-0.5">Pathao Express Courier arrives soon</p>
             </div>
           </div>
 
           <div className="grid grid-cols-4 gap-1 pt-1 border-t border-border text-center text-[7.5px] text-muted-foreground">
             <span className="font-bold text-primary">Shop</span>
             <span>Catalog</span>
-            <span>Bag</span>
-            <span>Account</span>
+            <span>Cart (2)</span>
+            <span>Profile</span>
           </div>
         </div>
 
-        {/* Right: Companion Specs Cards */}
         <div className="sm:col-span-5 space-y-2">
           <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
             <div className="flex items-center gap-1.5 text-primary mb-1">
               <Smartphone className="size-3.5" />
-              <span className="text-[10px] font-bold text-foreground">Mobile Web</span>
+              <span className="text-[10px] font-bold text-foreground">iOS & Android</span>
             </div>
             <p className="text-[9px] text-muted-foreground leading-snug">
-              Sub-second touch shopping on every mobile browser out of the box.
+              Published under your own brand name on App Store & Google Play.
             </p>
           </div>
 
@@ -576,7 +697,7 @@ function MobileCommerceMockup({ notice }: { notice: string }) {
               <span className="text-[10px] font-bold text-foreground">Push Notifications</span>
             </div>
             <p className="text-[9px] text-muted-foreground leading-snug">
-              Live automated customer order updates via native app notifications.
+              Direct automated customer alerts for orders, offers, and restocks.
             </p>
           </div>
         </div>
@@ -586,75 +707,254 @@ function MobileCommerceMockup({ notice }: { notice: string }) {
 }
 
 /* ─────────────────────────────────────────────────────────────
- * Deep Dives Registry (8 Features)
+ * 11. Ecosystem Integrations Mockup
+ * ───────────────────────────────────────────────────────────── */
+function EcosystemIntegrationsMockup({ notice }: { notice: string }) {
+  return (
+    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
+      <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
+        <div className="flex items-center gap-1.5">
+          <span className="size-2 rounded-full bg-error/70" />
+          <span className="size-2 rounded-full bg-warning/70" />
+          <span className="size-2 rounded-full bg-success/70" />
+        </div>
+        <span className="text-[9.5px] font-mono text-muted-foreground">admin.cartx.app/integrations</span>
+        <span className="text-[8.5px] font-medium text-muted-foreground/80 bg-muted/60 px-1.5 py-0.2 rounded border border-border/50">
+          {notice}
+        </span>
+      </div>
+
+      <div className="p-4 sm:p-5 space-y-2.5 bg-background/50">
+        <p className="text-xs font-bold text-foreground">Connected Platform Integrations</p>
+        <div className="grid grid-cols-2 gap-2 text-[10px]">
+          <div className="bg-card p-2.5 rounded-lg border border-border shadow-2xs flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Truck className="size-3.5 text-primary" />
+              <div>
+                <span className="font-semibold text-foreground block">Pathao Courier</span>
+                <span className="text-[8.5px] text-muted-foreground">Logistics Dispatch</span>
+              </div>
+            </div>
+            <span className="size-2 rounded-full bg-success" />
+          </div>
+
+          <div className="bg-card p-2.5 rounded-lg border border-border shadow-2xs flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <CreditCard className="size-3.5 text-pink-600" />
+              <div>
+                <span className="font-semibold text-foreground block">bKash MFS</span>
+                <span className="text-[8.5px] text-muted-foreground">Payment Gateway</span>
+              </div>
+            </div>
+            <span className="size-2 rounded-full bg-success" />
+          </div>
+
+          <div className="bg-card p-2.5 rounded-lg border border-border shadow-2xs flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Code className="size-3.5 text-blue-600" />
+              <div>
+                <span className="font-semibold text-foreground block">Meta Pixel</span>
+                <span className="text-[8.5px] text-muted-foreground">Event Tracking</span>
+              </div>
+            </div>
+            <span className="size-2 rounded-full bg-success" />
+          </div>
+
+          <div className="bg-card p-2.5 rounded-lg border border-border shadow-2xs flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <BarChart3 className="size-3.5 text-amber-600" />
+              <div>
+                <span className="font-semibold text-foreground block">Google Analytics</span>
+                <span className="text-[8.5px] text-muted-foreground">Traffic & Funnels</span>
+              </div>
+            </div>
+            <span className="size-2 rounded-full bg-success" />
+          </div>
+        </div>
+
+        <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs flex items-center justify-between text-[9.5px]">
+          <div className="flex items-center gap-2">
+            <Layers className="size-3.5 text-primary" />
+            <span className="font-medium text-foreground">Custom Webhooks & REST Endpoints</span>
+          </div>
+          <span className="text-[8.5px] font-semibold bg-primary/10 text-primary px-2 py-0.5 rounded">
+            TLS Secured
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+ * 12. Security Mockup
+ * ───────────────────────────────────────────────────────────── */
+function SecurityMockup({ notice }: { notice: string }) {
+  return (
+    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
+      <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
+        <div className="flex items-center gap-1.5">
+          <span className="size-2 rounded-full bg-error/70" />
+          <span className="size-2 rounded-full bg-warning/70" />
+          <span className="size-2 rounded-full bg-success/70" />
+        </div>
+        <span className="text-[9.5px] font-mono text-muted-foreground">admin.cartx.app/security</span>
+        <span className="text-[8.5px] font-medium text-muted-foreground/80 bg-muted/60 px-1.5 py-0.2 rounded border border-border/50">
+          {notice}
+        </span>
+      </div>
+
+      <div className="p-4 sm:p-5 space-y-2.5 bg-background/50">
+        <p className="text-xs font-bold text-foreground">Store Security & Administrative Roles</p>
+        <div className="rounded-lg border border-border bg-card overflow-hidden divide-y divide-border/60 shadow-2xs text-[10px]">
+          <div className="p-2 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Key className="size-3.5 text-primary" />
+              <div>
+                <span className="font-semibold text-foreground">Store Owner</span>
+                <span className="text-[8.5px] text-muted-foreground block">Full billing, settings, and team controls</span>
+              </div>
+            </div>
+            <span className="text-[8.5px] font-semibold text-success bg-success/10 px-2 py-0.5 rounded">
+              Active
+            </span>
+          </div>
+
+          <div className="p-2 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Users className="size-3.5 text-secondary-accent" />
+              <div>
+                <span className="font-semibold text-foreground">Operations Staff</span>
+                <span className="text-[8.5px] text-muted-foreground block">Order fulfillment & inventory management only</span>
+              </div>
+            </div>
+            <span className="text-[8.5px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded">
+              2 Accounts
+            </span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2 text-[9.5px]">
+          <div className="bg-card p-2 rounded border border-border flex items-center gap-2">
+            <Lock className="size-3.5 text-success" />
+            <div>
+              <span className="font-bold text-foreground block">TLS 256-bit</span>
+              <span className="text-[8px] text-muted-foreground">Checkout Encryption</span>
+            </div>
+          </div>
+          <div className="bg-card p-2 rounded border border-border flex items-center gap-2">
+            <Database className="size-3.5 text-primary" />
+            <div>
+              <span className="font-bold text-foreground block">Daily Backups</span>
+              <span className="text-[8px] text-muted-foreground">Automated & Encrypted</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+ * Complete 12 Feature Deep Dives Specification Registry
  * ───────────────────────────────────────────────────────────── */
 const DEEP_DIVES: DeepDiveItem[] = [
   {
-    id: "store-management",
-    aliasIds: ["storefront", "security"],
-    eyebrow: "STOREFRONT & SECURITY",
-    title: "Store Management & Security",
+    id: "storefront",
+    eyebrow: "STORE MANAGEMENT",
+    title: "Store Management & Storefront Customization",
     description:
-      "Organize your online storefront presence, brand identity, custom domain mapping, and secure administrative controls with verified encryption and daily automated backups.",
+      "Build an expressive, branded online store tailored to your unique identity. Map custom domains with automated SSL renewal, customize typography and color palettes, and publish responsive storefront themes that convert shoppers.",
     bullets: [
-      "Custom domain mapping with automated SSL renewal",
-      "Brand asset uploads, color schemes, and responsive layout controls",
-      "Multi-user admin access with role-based permissions",
-      "TLS 256-bit encryption for all checkout and session data",
+      "Custom domain mapping with automated SSL certification and zero renewal fees",
+      "Upload brand logos, customize color schemes, and adjust responsive layout styles",
+      "Curate featured product collection banners, hero lookbooks, and category navigations",
+      "Bilingual storefront support with seamless English and Bangla language switching",
     ],
     icon: Store,
     iconBg: "bg-blue-500/10",
     iconColor: "text-blue-600 dark:text-blue-400",
-    renderVisual: (t) => <StoreManagementMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <StorefrontMockup notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
-    id: "product-inventory",
-    aliasIds: ["products", "inventory"],
-    eyebrow: "CATALOG & STOCK",
-    title: "Product & Inventory Management",
+    id: "products",
+    eyebrow: "CATALOG & VARIANTS",
+    title: "Product Catalog & Variant Management",
     description:
-      "Manage comprehensive product information, high-resolution media galleries, variant matrices (size, color, weight), pricing, and real-time inventory tracking with low-stock alerts.",
+      "Manage comprehensive product catalogs with high-resolution image galleries, structured categories, SKU tracking, and flexible multi-dimensional variant matrices for size, color, and materials.",
     bullets: [
-      "Multi-variant matrix configuration per product line",
-      "Automated stock deduction upon order confirmation",
-      "Custom low-stock threshold alerts to prevent stockouts",
-      "SKU and category-level organization for fast navigation",
+      "Multi-variant matrix configuration (size, color, material, weight) with independent SKUs",
+      "High-resolution product image galleries with touch zoom and thumbnail navigation",
+      "Structured product categories, customizable tags, and automated collection grouping",
+      "Special discounted pricing, compare-at retail rates, and bulk pricing rules",
     ],
     icon: Package,
     iconBg: "bg-primary/10",
     iconColor: "text-primary",
-    renderVisual: (t) => <ProductInventoryMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <ProductCatalogMockup notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
-    id: "order-processing",
-    aliasIds: ["orders", "customers"],
-    eyebrow: "FULFILLMENT & CUSTOMERS",
-    title: "Order Processing & Customer Management",
+    id: "orders",
+    eyebrow: "ORDER FULFILLMENT",
+    title: "Order Processing & Fulfillment Lifecycle",
     description:
-      "Maintain complete operational control over customer purchases and fulfillment lifecycles. Review customer details, generate printable invoices, and track orders from placement to delivery.",
+      "Maintain complete operational control over customer purchases from checkout through fulfillment and courier dispatch. Review customer shipping notes, generate formatted invoices, and track orders from placement to delivery.",
     bullets: [
-      "Real-time order timeline: Received → Confirmed → Dispatched → Delivered",
-      "One-click printable invoices with formatted merchant details",
-      "Customer delivery phone numbers, shipping addresses, and lifetime notes",
-      "Fulfillment handoff tracking with domestic courier dispatch",
+      "Real-time order status timeline: Placed → Confirmed → Dispatched → Delivered",
+      "One-click professional printable invoices and packing slips with merchant branding",
+      "Customer contact phone numbers, delivery addresses, and shipping instructions",
+      "Consignment tracking integration with domestic courier fulfillment handoffs",
     ],
     icon: ShoppingBag,
     iconBg: "bg-emerald-500/10",
     iconColor: "text-emerald-600 dark:text-emerald-400",
-    renderVisual: (t) => <OrderProcessingMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <OrdersMockup notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
-    id: "payment-management",
-    aliasIds: ["payments"],
-    eyebrow: "DIGITAL PAYMENTS",
-    title: "Payment Gateway Management",
+    id: "inventory",
+    eyebrow: "INVENTORY CONTROL",
+    title: "Real-Time Inventory Control & Stock Alerts",
     description:
-      "Accept payments effortlessly through local digital wallets, cards, and Cash on Delivery. Monitor transaction records, gateway statuses, and settlement logs in real time.",
+      "Prevent stockouts and overselling with automated stock deductions upon confirmed customer checkout, variant-level quantity tracking, customizable low-inventory threshold notifications, and automated restocking indicators.",
     bullets: [
-      "Native bKash & Nagad checkout integration for local shoppers",
-      "Visa & Mastercard debit/credit card acceptance",
-      "Cash on Delivery (COD) order management and verification",
-      "Transaction status visibility and settlement auditing records",
+      "Automated real-time stock deductions upon verified customer order confirmation",
+      "Customizable low-stock threshold alerts per SKU to prompt timely vendor reorders",
+      "Variant-level quantity tracking across sizes, colors, and warehouse locations",
+      "Stock availability status toggles (In Stock, Low Stock, Pre-Order, Sold Out)",
+    ],
+    icon: Boxes,
+    iconBg: "bg-sky-500/10",
+    iconColor: "text-sky-600 dark:text-sky-400",
+    renderVisual: (t) => <InventoryControlMockup notice={t("featuresDeepDive.demoNotice")} />,
+  },
+  {
+    id: "customers",
+    eyebrow: "CUSTOMER RELATIONSHIPS",
+    title: "Customer Profiles & Purchase History",
+    description:
+      "Build long-term customer relationships with centralized customer profiles, saved delivery addresses, verified phone numbers, lifetime order summaries, and personalized merchant notes for VIP and returning shoppers.",
+    bullets: [
+      "Comprehensive customer directory with full contact info, phone numbers, and delivery records",
+      "Lifetime purchase history, total spend, and repeat order frequency tracking",
+      "Saved delivery addresses and recipient shipping instructions for rapid checkout",
+      "Private merchant customer notes and VIP/returning shopper segment tags",
+    ],
+    icon: Users,
+    iconBg: "bg-indigo-500/10",
+    iconColor: "text-indigo-600 dark:text-indigo-400",
+    renderVisual: (t) => <CustomerManagementMockup notice={t("featuresDeepDive.demoNotice")} />,
+  },
+  {
+    id: "payments",
+    eyebrow: "PAYMENT MANAGEMENT",
+    title: "Payment Management & Digital Wallets",
+    description:
+      "Accept customer payments effortlessly through native bKash and Nagad mobile financial services, Visa and Mastercard debit/credit cards, and Cash on Delivery with full settlement auditing records.",
+    bullets: [
+      "Instant bKash & Nagad merchant checkout integration with automated callback verification",
+      "Debit and credit card acceptance via verified domestic payment gateways",
+      "Cash on Delivery (COD) order management with phone verification workflows",
+      "Real-time transaction status logs, settlement records, and refund tracking",
     ],
     icon: CreditCard,
     iconBg: "bg-amber-500/10",
@@ -662,17 +962,16 @@ const DEEP_DIVES: DeepDiveItem[] = [
     renderVisual: (t) => <PaymentManagementMockup notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
-    id: "delivery-operations",
-    aliasIds: ["shipping"],
-    eyebrow: "LOGISTICS & COURIERS",
-    title: "Delivery Operations & Courier Integration",
+    id: "shipping",
+    eyebrow: "DELIVERY OPERATIONS",
+    title: "Delivery Operations & Courier Logistics",
     description:
-      "Simplify domestic shipping with structured delivery rules, zonal charges, and seamless parcel handoffs to established couriers like Pathao and Steadfast.",
+      "Streamline domestic fulfillment with flexible shipping rate rules for Inside and Outside Dhaka, automated consignment tracking code creation, and direct API integration with leading domestic courier services.",
     bullets: [
-      "Zonal delivery fee rules for Inside Dhaka and Outside Dhaka",
-      "Automated consignment tracking code generation for parcels",
-      "Real-time shipment status visibility across logistics hubs",
-      "Direct courier partner API workflows for fast dispatch",
+      "Zonal delivery fee rules for Inside Dhaka, Dhaka Suburbs, and Outside Dhaka",
+      "Direct courier API integration with Pathao Express, Steadfast, and RedX logistics",
+      "Automated consignment tracking code generation upon parcel dispatch",
+      "Real-time parcel transit status monitoring and delivery return tracking",
     ],
     icon: Truck,
     iconBg: "bg-teal-500/10",
@@ -681,16 +980,15 @@ const DEEP_DIVES: DeepDiveItem[] = [
   },
   {
     id: "marketing",
-    aliasIds: [],
-    eyebrow: "GROWTH & PROMOTIONS",
-    title: "Marketing & Promotional Campaigns",
+    eyebrow: "GROWTH & CAMPAIGNS",
+    title: "Marketing Tools, Coupons & Promotions",
     description:
-      "Drive customer conversion and repeat orders with flexible discount codes, minimum order value thresholds, and scheduled promotional campaigns.",
+      "Boost customer conversion and average order values with versatile discount coupon codes, minimum order value thresholds, scheduled seasonal promotions, and usage caps to protect merchant margins.",
     bullets: [
-      "Percentage (%) and fixed-amount (৳) discount coupons",
-      "Minimum order value requirements to protect merchant margins",
-      "Start and expiry date campaign scheduling with usage caps",
-      "Real-time redemption tracking for active promotions",
+      "Percentage (%) and fixed-amount (৳) discount promotional coupon codes",
+      "Minimum order value requirements to protect merchant unit profit margins",
+      "Campaign scheduling with start dates, expiry deadlines, and usage caps",
+      "Real-time coupon redemption analytics to measure campaign return on investment",
     ],
     icon: Percent,
     iconBg: "bg-rose-500/10",
@@ -698,17 +996,16 @@ const DEEP_DIVES: DeepDiveItem[] = [
     renderVisual: (t) => <MarketingMockup notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
-    id: "reports-analytics",
-    aliasIds: ["analytics"],
-    eyebrow: "BUSINESS INSIGHTS",
-    title: "Reports and Store Analytics",
+    id: "analytics",
+    eyebrow: "REPORTS & ANALYTICS",
+    title: "Reports and Analytics & Store Insights",
     description:
-      "Access transparent store performance summaries without complex setup. Review sales revenue, daily order volumes, top-performing products, and payment breakdowns.",
+      "Gain clear visibility into your store's commercial health without complex setup. Review daily, weekly, and monthly sales summaries, order volume trends, top-selling product rankings, and payment breakdowns.",
     bullets: [
-      "Daily, weekly, and monthly gross sales summaries",
-      "Order volume trend graphs and average basket values",
-      "Top-selling product rankings by units and revenue",
-      "Payment method distribution and settlement summaries",
+      "Daily, weekly, and monthly gross sales summaries and average basket sizes",
+      "Visual order volume trends and sales trajectory comparisons across time periods",
+      "Top-selling product rankings ranked by unit volume and total revenue generated",
+      "Payment method share reports comparing MFS, card payments, and COD",
     ],
     icon: BarChart3,
     iconBg: "bg-purple-500/10",
@@ -716,22 +1013,55 @@ const DEEP_DIVES: DeepDiveItem[] = [
     renderVisual: (t) => <ReportsAnalyticsMockup notice={t("featuresDeepDive.demoNotice")} />,
   },
   {
-    id: "mobile-commerce",
-    aliasIds: ["mobile-apps", "integrations"],
+    id: "mobile-apps",
     eyebrow: "MOBILE COMMERCE",
-    title: "Mobile Commerce & Branded Apps",
+    title: "Mobile Commerce & White-Label Apps",
     description:
-      "Give shoppers a mobile-first browsing experience with fast touch checkouts, alongside options for published branded white-label mobile apps on iOS and Android.",
+      "Meet shoppers on the devices they use most with an ultra-fast touch-optimized mobile browser storefront, alongside options for published branded white-label native apps on iOS and Android.",
     bullets: [
-      "Touch-optimized responsive storefront for mobile browsers",
-      "Optional branded native mobile apps for iOS and Android",
-      "Real-time push notifications for order updates and confirmations",
-      "Merchant mobile management tools for on-the-go tracking",
+      "Sub-second touch-optimized mobile web experience for all smartphone browsers",
+      "Optional published native iOS and Android apps under your own store brand name",
+      "Automated push notifications for order dispatch, sales alerts, and restocks",
+      "Mobile merchant management tools for checking orders and sales on the go",
     ],
     icon: Smartphone,
     iconBg: "bg-cyan-500/10",
     iconColor: "text-cyan-600 dark:text-cyan-400",
-    renderVisual: (t) => <MobileCommerceMockup notice={t("featuresDeepDive.demoNotice")} />,
+    renderVisual: (t) => <MobileAppsMockup notice={t("featuresDeepDive.demoNotice")} />,
+  },
+  {
+    id: "integrations",
+    eyebrow: "CONNECTED ECOSYSTEM",
+    title: "API Connectors & Ecosystem Integrations",
+    description:
+      "Connect your online store directly to the services your business relies on — domestic couriers, payment gateways, Meta Pixel, Google Analytics, and custom developer REST webhooks.",
+    bullets: [
+      "Pre-built direct connectors for Pathao, Steadfast, and RedX logistics APIs",
+      "Seamless payment gateway API configurations for bKash, Nagad, and SSLCommerz",
+      "Meta Pixel (Facebook) and Google Analytics 4 tracking script integration",
+      "Clean, native integrations without third-party plugin conflicts or performance bloat",
+    ],
+    icon: Layers,
+    iconBg: "bg-blue-600/10",
+    iconColor: "text-blue-600 dark:text-blue-400",
+    renderVisual: (t) => <EcosystemIntegrationsMockup notice={t("featuresDeepDive.demoNotice")} />,
+  },
+  {
+    id: "security",
+    eyebrow: "SECURITY & COMPLIANCE",
+    title: "Security Infrastructure, Roles & Encryption",
+    description:
+      "Safeguard your e-commerce operations, customer data, and administrative credentials with role-based team permissions, standard TLS 256-bit encryption, automated daily backups, and administrative audit trails.",
+    bullets: [
+      "Granular team access permissions (Store Owner, Operations Staff, Support Agent)",
+      "Industry-standard TLS 256-bit encryption on all checkout and customer sessions",
+      "Automated daily database backups with encrypted cloud storage protection",
+      "Administrative audit trail logging to monitor staff actions and order modifications",
+    ],
+    icon: ShieldCheck,
+    iconBg: "bg-slate-500/10",
+    iconColor: "text-slate-700 dark:text-slate-300",
+    renderVisual: (t) => <SecurityMockup notice={t("featuresDeepDive.demoNotice")} />,
   },
 ];
 
@@ -762,7 +1092,7 @@ export function FeatureDeepDives({ className }: FeatureDeepDivesProps) {
           />
         </ScrollReveal>
 
-        {/* ── 8 Alternating Deep Dive Rows ── */}
+        {/* ── Complete 12 Deep Dive Sections ── */}
         <div className="space-y-16 sm:space-y-20 lg:space-y-24">
           {DEEP_DIVES.map((item, idx) => {
             const isReversed = idx % 2 === 1;
@@ -771,14 +1101,9 @@ export function FeatureDeepDives({ className }: FeatureDeepDivesProps) {
             return (
               <div
                 key={item.id}
-                className="relative pt-6 first:pt-0"
+                id={item.id}
+                className="relative pt-6 first:pt-0 scroll-mt-28 lg:scroll-mt-36"
               >
-                {/* ── Anchor Points for Navigation & Deep Linking ── */}
-                <div id={item.id} className="scroll-mt-32" />
-                {item.aliasIds.map((alias) => (
-                  <div key={alias} id={alias} className="scroll-mt-32" />
-                ))}
-
                 <ScrollReveal delay={50}>
                   <div
                     className={cn(

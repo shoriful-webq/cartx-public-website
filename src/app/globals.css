@@ -478,3 +478,12 @@
   color: var(--primary-hover);
   text-decoration: underline;
 }
+
+/* Hide scrollbar utility for clean horizontal pill navigations */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

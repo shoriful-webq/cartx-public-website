@@ -43,10 +43,16 @@ function RouteScrollManager() {
       try {
         const targetElement = document.querySelector(hash);
         if (targetElement) {
+          // Check if a secondary sticky navigation exists (like on /features)
+          const hasSecondaryNav = Boolean(
+            document.querySelector(".sticky.top-16") || pathname === "/features"
+          );
+          const clearanceOffset = hasSecondaryNav ? -140 : -72;
+
           // Allow DOM to settle on route transition before scrolling
           const timer = setTimeout(() => {
             lenis.scrollTo(targetElement as HTMLElement, {
-              offset: -72, // Clearance for sticky header
+              offset: clearanceOffset,
               immediate: false,
             });
           }, 80);
@@ -66,6 +72,9 @@ function RouteScrollManager() {
     if (!lenis) return;
 
     const handleAnchorClick = (e: MouseEvent) => {
+      // Respect event prevention by specialized components
+      if (e.defaultPrevented) return;
+
       const targetLink = (e.target as HTMLElement).closest("a");
       if (!targetLink) return;
 
@@ -76,8 +85,13 @@ function RouteScrollManager() {
         const targetElement = document.querySelector(href);
         if (targetElement) {
           e.preventDefault();
+          const hasSecondaryNav = Boolean(
+            document.querySelector(".sticky.top-16") || pathname === "/features"
+          );
+          const clearanceOffset = hasSecondaryNav ? -140 : -72;
+
           lenis.scrollTo(targetElement as HTMLElement, {
-            offset: -72, // Clearance for sticky header
+            offset: clearanceOffset,
           });
           window.history.pushState(null, "", href);
         }
@@ -88,7 +102,7 @@ function RouteScrollManager() {
 
     document.addEventListener("click", handleAnchorClick);
     return () => document.removeEventListener("click", handleAnchorClick);
-  }, [lenis]);
+  }, [lenis, pathname]);
 
   return null;
 }

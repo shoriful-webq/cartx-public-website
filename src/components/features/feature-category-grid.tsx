@@ -185,7 +185,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "Real-time push notifications for order updates",
       "Merchant mobile management capabilities",
     ],
-    href: "/white-label-apps",
+    href: "#mobile-apps",
   },
   {
     id: "integrations",
@@ -200,7 +200,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "Meta Pixel & Google analytics tracking scripts",
       "Built directly without third-party plugin bloat",
     ],
-    href: "/integrations",
+    href: "#integrations",
   },
   {
     id: "security",
