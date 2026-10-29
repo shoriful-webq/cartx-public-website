@@ -13,6 +13,7 @@ import {
 import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
 import { SectionHeading } from "@/components/Home/section-heading";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface FeatureRow {
@@ -132,124 +133,131 @@ export function PlanAvailabilitySection({ className }: PlanAvailabilitySectionPr
     >
       <div className="container">
         {/* ── Section Heading ── */}
-        <SectionHeading
-          eyebrow={t("featuresPlan.eyebrow")}
-          eyebrowIcon={CreditCard}
-          title={t("featuresPlan.title")}
-          titleGradient={true}
-          description={t("featuresPlan.description")}
-          size="default"
-          className="mb-8 sm:mb-10 lg:mb-12"
-        />
+        <ScrollReveal delay={0}>
+          <SectionHeading
+            eyebrow={t("featuresPlan.eyebrow")}
+            eyebrowIcon={CreditCard}
+            title={t("featuresPlan.title")}
+            titleGradient={true}
+            description={t("featuresPlan.description")}
+            size="default"
+            className="mb-8 sm:mb-10 lg:mb-12"
+          />
 
-        {/* ── Launch Transparency Status Pill ── */}
-        <div className="mb-8 flex justify-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3.5 py-1 text-[11px] font-medium text-muted-foreground shadow-xs text-center">
-            <Info className="size-3.5 text-primary shrink-0" />
-            <span>{t("pricingSection.statusPending")}</span>
-          </div>
-        </div>
-
-        {/* ── Comparison Table (Desktop) / Cards (Mobile) ── */}
-        <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-xs mb-10">
-          {/* Table Header */}
-          <div className="grid grid-cols-12 p-4 sm:p-5 bg-muted/40 border-b border-border text-xs sm:text-sm font-bold text-foreground">
-            <div className="col-span-5 sm:col-span-6">Core Capabilities</div>
-            <div className="col-span-2 text-center">Starter</div>
-            <div className="col-span-2 text-center text-primary">
-              Growth <span className="hidden sm:inline text-[10px] font-medium">(Popular)</span>
+          {/* ── Launch Transparency Status Pill ── */}
+          <div className="mb-8 flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3.5 py-1 text-[11px] font-medium text-muted-foreground shadow-xs text-center">
+              <Info className="size-3.5 text-primary shrink-0" />
+              <span>{t("pricingSection.statusPending")}</span>
             </div>
-            <div className="col-span-3 sm:col-span-2 text-center">Scale</div>
           </div>
+        </ScrollReveal>
 
-          {/* Comparison Rows */}
-          <div className="divide-y divide-border/60">
-            {COMPARISON_ROWS.map((row, idx) => (
-              <div
-                key={idx}
-                className="grid grid-cols-12 p-3.5 sm:p-4 text-xs sm:text-sm items-center hover:bg-muted/20 transition-colors"
-              >
-                <div className="col-span-5 sm:col-span-6 pr-2">
-                  <p className="font-semibold text-foreground leading-snug">{row.name}</p>
-                  <p className="text-[10px] text-muted-foreground">{row.category}</p>
+        {/* ── Comparison Table (Desktop) / Contained Horizontal Scroll (Mobile) ── */}
+        <ScrollReveal delay={100}>
+          <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-xs mb-10 overflow-x-auto no-scrollbar">
+            <div className="min-w-[620px] lg:min-w-0">
+              {/* Table Header */}
+              <div className="grid grid-cols-12 p-4 sm:p-5 bg-muted/40 border-b border-border text-xs sm:text-sm font-bold text-foreground">
+                <div className="col-span-5 sm:col-span-6">Core Capabilities</div>
+                <div className="col-span-2 text-center">Starter</div>
+                <div className="col-span-2 text-center text-primary">
+                  Growth <span className="hidden sm:inline text-[10px] font-medium">(Popular)</span>
                 </div>
-
-                {/* Starter */}
-                <div className="col-span-2 text-center flex items-center justify-center text-xs">
-                  {typeof row.starter === "boolean" ? (
-                    row.starter ? (
-                      <CheckCircle2 className="size-4 text-success" />
-                    ) : (
-                      <Minus className="size-4 text-muted-foreground/40" />
-                    )
-                  ) : (
-                    <span className="font-medium text-muted-foreground text-[11px] sm:text-xs">
-                      {row.starter}
-                    </span>
-                  )}
-                </div>
-
-                {/* Growth */}
-                <div className="col-span-2 text-center flex items-center justify-center text-xs bg-primary/[0.02] py-1 rounded">
-                  {typeof row.growth === "boolean" ? (
-                    row.growth ? (
-                      <CheckCircle2 className="size-4 text-primary" />
-                    ) : (
-                      <Minus className="size-4 text-muted-foreground/40" />
-                    )
-                  ) : (
-                    <span className="font-bold text-primary text-[11px] sm:text-xs">
-                      {row.growth}
-                    </span>
-                  )}
-                </div>
-
-                {/* Scale */}
-                <div className="col-span-3 sm:col-span-2 text-center flex items-center justify-center text-xs">
-                  {typeof row.scale === "boolean" ? (
-                    row.scale ? (
-                      <CheckCircle2 className="size-4 text-foreground" />
-                    ) : (
-                      <Minus className="size-4 text-muted-foreground/40" />
-                    )
-                  ) : (
-                    <span className="font-semibold text-foreground text-[11px] sm:text-xs">
-                      {row.scale}
-                    </span>
-                  )}
-                </div>
+                <div className="col-span-3 sm:col-span-2 text-center">Scale</div>
               </div>
-            ))}
+
+              {/* Comparison Rows */}
+              <div className="divide-y divide-border/60">
+                {COMPARISON_ROWS.map((row, idx) => (
+                  <div
+                    key={idx}
+                    className="grid grid-cols-12 p-3.5 sm:p-4 text-xs sm:text-sm items-center hover:bg-primary/[0.02] transition-colors"
+                  >
+                    <div className="col-span-5 sm:col-span-6 pr-2">
+                      <p className="font-semibold text-foreground leading-snug">{row.name}</p>
+                      <p className="text-[10px] text-muted-foreground">{row.category}</p>
+                    </div>
+
+                    {/* Starter */}
+                    <div className="col-span-2 text-center flex items-center justify-center text-xs">
+                      {typeof row.starter === "boolean" ? (
+                        row.starter ? (
+                          <CheckCircle2 className="size-4 text-success" />
+                        ) : (
+                          <Minus className="size-4 text-muted-foreground/40" />
+                        )
+                      ) : (
+                        <span className="font-medium text-muted-foreground text-[11px] sm:text-xs">
+                          {row.starter}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Growth */}
+                    <div className="col-span-2 text-center flex items-center justify-center text-xs bg-primary/[0.03] py-1 rounded">
+                      {typeof row.growth === "boolean" ? (
+                        row.growth ? (
+                          <CheckCircle2 className="size-4 text-primary" />
+                        ) : (
+                          <Minus className="size-4 text-muted-foreground/40" />
+                        )
+                      ) : (
+                        <span className="font-bold text-primary text-[11px] sm:text-xs">
+                          {row.growth}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Scale */}
+                    <div className="col-span-3 sm:col-span-2 text-center flex items-center justify-center text-xs">
+                      {typeof row.scale === "boolean" ? (
+                        row.scale ? (
+                          <CheckCircle2 className="size-4 text-foreground" />
+                        ) : (
+                          <Minus className="size-4 text-muted-foreground/40" />
+                        )
+                      ) : (
+                        <span className="font-semibold text-foreground text-[11px] sm:text-xs">
+                          {row.scale}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* ── Disclaimers & CTAs ── */}
-        <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto space-y-5">
-          <p className="text-xs text-muted-foreground leading-relaxed flex items-center gap-1.5 text-center">
-            <ShieldCheck className="size-3.5 text-primary shrink-0" />
-            <span>{t("pricingSection.disclaimer")}</span>
-          </p>
+        <ScrollReveal delay={150}>
+          <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto space-y-5">
+            <p className="text-xs text-muted-foreground leading-relaxed flex items-center gap-1.5 text-center">
+              <ShieldCheck className="size-3.5 text-primary shrink-0" />
+              <span>{t("pricingSection.disclaimer")}</span>
+            </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3">
-            <CTAButton
-              action="viewPricing"
-              variant="primary"
-              locale={locale}
-              size="lg"
-              showArrow
-              className="px-8 py-3 text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
-            />
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground px-4 py-2 transition-colors"
-            >
-              <span>Need custom requirements? Contact our team</span>
-              <ArrowRight className="size-3" />
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <CTAButton
+                action="viewPricing"
+                variant="primary"
+                locale={locale}
+                size="lg"
+                showArrow
+                className="px-8 py-3 text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all"
+              />
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground px-4 py-2 transition-colors group"
+              >
+                <span>Need custom requirements? Contact our team</span>
+                <ArrowRight className="size-3 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
 }
-

@@ -27,7 +27,7 @@ export function FeaturesHeroMockup() {
       aria-label="CartX platform features console preview"
     >
       {/* Main dashboard frame */}
-      <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown">
+      <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown transition-all duration-300 hover:shadow-modal">
         {/* ── Title bar / Chrome ── */}
         <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
           <div className="flex items-center gap-1.5">
@@ -50,7 +50,7 @@ export function FeaturesHeroMockup() {
         {/* ── Console Header ── */}
         <div className="p-3 sm:p-4 border-b border-border/60 bg-muted/10 flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <div className="size-5 rounded bg-primary flex items-center justify-center shrink-0">
+            <div className="size-5 rounded bg-primary flex items-center justify-center shrink-0 shadow-2xs">
               <span className="text-[9px] font-black text-primary-foreground leading-none">
                 C
               </span>
@@ -81,7 +81,7 @@ export function FeaturesHeroMockup() {
           {/* Top Row: 3 Primary Operations Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             {/* 1. Products */}
-            <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs flex flex-col justify-between">
+            <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs flex flex-col justify-between transition-all duration-200 hover:border-primary/40 hover:-translate-y-0.5 hover:shadow-xs">
               <div>
                 <div className="flex items-center justify-between mb-1.5">
                   <div className="size-6 rounded-md bg-primary/10 flex items-center justify-center text-primary">
@@ -103,7 +103,7 @@ export function FeaturesHeroMockup() {
             </div>
 
             {/* 2. Orders */}
-            <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs flex flex-col justify-between">
+            <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs flex flex-col justify-between transition-all duration-200 hover:border-primary/40 hover:-translate-y-0.5 hover:shadow-xs">
               <div>
                 <div className="flex items-center justify-between mb-1.5">
                   <div className="size-6 rounded-md bg-success/10 flex items-center justify-center text-success">
@@ -125,7 +125,7 @@ export function FeaturesHeroMockup() {
             </div>
 
             {/* 3. Inventory */}
-            <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs flex flex-col justify-between">
+            <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs flex flex-col justify-between transition-all duration-200 hover:border-primary/40 hover:-translate-y-0.5 hover:shadow-xs">
               <div>
                 <div className="flex items-center justify-between mb-1.5">
                   <div className="size-6 rounded-md bg-secondary-accent/15 flex items-center justify-center text-secondary-accent">
@@ -150,7 +150,7 @@ export function FeaturesHeroMockup() {
           {/* Bottom Row: 2 Key Customer Experience Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {/* 4. Payments */}
-            <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs flex flex-col justify-between">
+            <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs flex flex-col justify-between transition-all duration-200 hover:border-primary/40 hover:-translate-y-0.5 hover:shadow-xs">
               <div>
                 <div className="flex items-center justify-between mb-1.5">
                   <div className="size-6 rounded-md bg-amber-500/10 flex items-center justify-center text-amber-600 dark:text-amber-400">
@@ -182,7 +182,7 @@ export function FeaturesHeroMockup() {
             </div>
 
             {/* 5. Store Experience */}
-            <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs flex flex-col justify-between">
+            <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs flex flex-col justify-between transition-all duration-200 hover:border-primary/40 hover:-translate-y-0.5 hover:shadow-xs">
               <div>
                 <div className="flex items-center justify-between mb-1.5">
                   <div className="size-6 rounded-md bg-sky-500/10 flex items-center justify-center text-sky-600 dark:text-sky-400">
@@ -220,4 +220,3 @@ export function FeaturesHeroMockup() {
     </div>
   );
 }
-

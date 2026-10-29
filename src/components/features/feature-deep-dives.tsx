@@ -19,10 +19,12 @@ import {
   TrendingUp,
   Clock,
   ArrowRight,
+  Bell,
   type LucideIcon,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { SectionHeading } from "@/components/Home/section-heading";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface DeepDiveItem {
@@ -43,7 +45,7 @@ interface DeepDiveItem {
  * ───────────────────────────────────────────────────────────── */
 function StoreManagementMockup({ notice }: { notice: string }) {
   return (
-    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown select-none">
+    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       {/* Title bar */}
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
         <div className="flex items-center gap-1.5">
@@ -118,7 +120,7 @@ function StoreManagementMockup({ notice }: { notice: string }) {
  * ───────────────────────────────────────────────────────────── */
 function ProductInventoryMockup({ notice }: { notice: string }) {
   return (
-    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown select-none">
+    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
         <div className="flex items-center gap-1.5">
           <span className="size-2 rounded-full bg-error/70" />
@@ -191,7 +193,7 @@ function ProductInventoryMockup({ notice }: { notice: string }) {
  * ───────────────────────────────────────────────────────────── */
 function OrderProcessingMockup({ notice }: { notice: string }) {
   return (
-    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown select-none">
+    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
         <div className="flex items-center gap-1.5">
           <span className="size-2 rounded-full bg-error/70" />
@@ -278,7 +280,7 @@ function OrderProcessingMockup({ notice }: { notice: string }) {
  * ───────────────────────────────────────────────────────────── */
 function PaymentManagementMockup({ notice }: { notice: string }) {
   return (
-    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown select-none">
+    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
         <div className="flex items-center gap-1.5">
           <span className="size-2 rounded-full bg-error/70" />
@@ -343,7 +345,7 @@ function PaymentManagementMockup({ notice }: { notice: string }) {
  * ───────────────────────────────────────────────────────────── */
 function DeliveryOperationsMockup({ notice }: { notice: string }) {
   return (
-    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown select-none">
+    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
         <div className="flex items-center gap-1.5">
           <span className="size-2 rounded-full bg-error/70" />
@@ -394,7 +396,7 @@ function DeliveryOperationsMockup({ notice }: { notice: string }) {
  * ───────────────────────────────────────────────────────────── */
 function MarketingMockup({ notice }: { notice: string }) {
   return (
-    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown select-none">
+    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
         <div className="flex items-center gap-1.5">
           <span className="size-2 rounded-full bg-error/70" />
@@ -451,7 +453,7 @@ function MarketingMockup({ notice }: { notice: string }) {
  * ───────────────────────────────────────────────────────────── */
 function ReportsAnalyticsMockup({ notice }: { notice: string }) {
   return (
-    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown select-none">
+    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
         <div className="flex items-center gap-1.5">
           <span className="size-2 rounded-full bg-error/70" />
@@ -505,56 +507,78 @@ function ReportsAnalyticsMockup({ notice }: { notice: string }) {
 }
 
 /* ─────────────────────────────────────────────────────────────
- * 8. Mobile Commerce Mockup
+ * 8. Mobile Commerce Mockup (Enhanced layout: phone + companion details)
  * ───────────────────────────────────────────────────────────── */
 function MobileCommerceMockup({ notice }: { notice: string }) {
   return (
-    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown select-none max-w-sm mx-auto">
+    <div className="relative rounded-xl sm:rounded-2xl border border-border/80 bg-card overflow-hidden shadow-dropdown hover:shadow-card transition-all duration-300 select-none">
       <div className="flex items-center justify-between border-b border-border px-3.5 py-2 bg-muted/30">
         <div className="flex items-center gap-1.5">
           <span className="size-2 rounded-full bg-error/70" />
           <span className="size-2 rounded-full bg-warning/70" />
           <span className="size-2 rounded-full bg-success/70" />
         </div>
-        <span className="text-[9.5px] font-mono text-muted-foreground">Mobile Client App</span>
+        <span className="text-[9.5px] font-mono text-muted-foreground">console.cartx.app/mobile-commerce</span>
         <span className="text-[8.5px] font-medium text-muted-foreground/80 bg-muted/60 px-1.5 py-0.2 rounded border border-border/50">
           {notice}
         </span>
       </div>
 
-      <div className="p-4 sm:p-5 space-y-3 bg-background/50">
-        {/* Mobile Header */}
-        <div className="flex items-center justify-between pb-2 border-b border-border">
-          <span className="font-serif font-extrabold text-sm text-foreground">AURA</span>
-          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-            <ShoppingBag className="size-3.5 text-primary" />
-            <span className="font-bold text-foreground">2</span>
+      <div className="p-4 sm:p-5 bg-background/50 grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+        {/* Left: Smartphone Screen */}
+        <div className="sm:col-span-7 bg-card border border-border rounded-xl p-3 shadow-2xs space-y-2.5">
+          <div className="flex items-center justify-between pb-1.5 border-b border-border">
+            <span className="font-serif font-extrabold text-xs text-foreground tracking-wider">AURA STUDIO</span>
+            <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+              <ShoppingBag className="size-3 text-primary" />
+              <span className="font-bold text-foreground">2</span>
+            </div>
+          </div>
+
+          <div className="rounded bg-gradient-to-r from-primary/15 to-secondary-accent/15 border border-primary/20 p-2">
+            <span className="text-[7.5px] font-bold uppercase tracking-wider text-primary">Mobile First</span>
+            <p className="text-[11px] font-bold text-foreground leading-tight mt-0.5">Express Touch Checkout</p>
+          </div>
+
+          <div className="rounded border border-border bg-background p-2 shadow-2xs flex items-center gap-2">
+            <div className="size-5 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+              <Clock className="size-2.5" />
+            </div>
+            <div>
+              <p className="text-[9px] font-bold text-foreground leading-none">Order #1084 Out for Delivery</p>
+              <p className="text-[8px] text-muted-foreground mt-0.5">Courier arrives in ~2 hours</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 gap-1 pt-1 border-t border-border text-center text-[7.5px] text-muted-foreground">
+            <span className="font-bold text-primary">Shop</span>
+            <span>Catalog</span>
+            <span>Bag</span>
+            <span>Account</span>
           </div>
         </div>
 
-        {/* Mobile Banner */}
-        <div className="rounded-lg bg-gradient-to-r from-primary/15 to-secondary-accent/15 border border-primary/20 p-2.5">
-          <span className="text-[8px] font-bold uppercase tracking-wider text-primary">Mobile Exclusive</span>
-          <p className="text-xs font-bold text-foreground leading-tight mt-0.5">Express Touch Checkout</p>
-        </div>
-
-        {/* Live Push Notification simulation */}
-        <div className="rounded-lg border border-border bg-card p-2 shadow-xs flex items-center gap-2">
-          <div className="size-6 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-            <Clock className="size-3" />
+        {/* Right: Companion Specs Cards */}
+        <div className="sm:col-span-5 space-y-2">
+          <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
+            <div className="flex items-center gap-1.5 text-primary mb-1">
+              <Smartphone className="size-3.5" />
+              <span className="text-[10px] font-bold text-foreground">Mobile Web</span>
+            </div>
+            <p className="text-[9px] text-muted-foreground leading-snug">
+              Sub-second touch shopping on every mobile browser out of the box.
+            </p>
           </div>
-          <div>
-            <p className="text-[10px] font-bold text-foreground leading-tight">Order #1084 Out for Delivery</p>
-            <p className="text-[8.5px] text-muted-foreground">Rider will arrive within 2 hours</p>
-          </div>
-        </div>
 
-        {/* Mobile Tab Bar */}
-        <div className="grid grid-cols-4 gap-1 pt-2 border-t border-border text-center text-[8px] text-muted-foreground">
-          <span className="font-bold text-primary">Store</span>
-          <span>Catalog</span>
-          <span>Bag</span>
-          <span>Account</span>
+          <div className="rounded-lg border border-border bg-card p-2.5 shadow-2xs">
+            <div className="flex items-center gap-1.5 text-secondary-accent mb-1">
+              <Bell className="size-3.5" />
+              <span className="text-[10px] font-bold text-foreground">Push Notifications</span>
+            </div>
+            <p className="text-[9px] text-muted-foreground leading-snug">
+              Live automated customer order updates via native app notifications.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -726,20 +750,22 @@ export function FeatureDeepDives({ className }: FeatureDeepDivesProps) {
     >
       <div className="container">
         {/* ── Section Heading ── */}
-        <SectionHeading
-          eyebrow={t("featuresDeepDive.eyebrow")}
-          eyebrowIcon={Layers}
-          title={t("featuresDeepDive.title")}
-          titleGradient={true}
-          description={t("featuresDeepDive.description")}
-          size="default"
-          className="mb-12 sm:mb-16 lg:mb-20"
-        />
+        <ScrollReveal delay={0}>
+          <SectionHeading
+            eyebrow={t("featuresDeepDive.eyebrow")}
+            eyebrowIcon={Layers}
+            title={t("featuresDeepDive.title")}
+            titleGradient={true}
+            description={t("featuresDeepDive.description")}
+            size="default"
+            className="mb-12 sm:mb-16 lg:mb-20"
+          />
+        </ScrollReveal>
 
         {/* ── 8 Alternating Deep Dive Rows ── */}
         <div className="space-y-16 sm:space-y-20 lg:space-y-24">
           {DEEP_DIVES.map((item, idx) => {
-            const isReversed = idx % 2 === 1; // Alternating layout
+            const isReversed = idx % 2 === 1;
             const Icon = item.icon;
 
             return (
@@ -753,57 +779,59 @@ export function FeatureDeepDives({ className }: FeatureDeepDivesProps) {
                   <div key={alias} id={alias} className="scroll-mt-32" />
                 ))}
 
-                <div
-                  className={cn(
-                    "flex flex-col items-center gap-8 lg:gap-14",
-                    isReversed ? "lg:flex-row-reverse" : "lg:flex-row"
-                  )}
-                >
-                  {/* Text Column */}
-                  <div className="flex-1 w-full max-w-xl text-left">
-                    {/* Eyebrow badge */}
-                    <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/[0.06] px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest text-primary mb-3">
-                      <Icon className="size-3 text-secondary-accent" />
-                      <span>{item.eyebrow}</span>
+                <ScrollReveal delay={50}>
+                  <div
+                    className={cn(
+                      "flex flex-col items-center gap-8 lg:gap-14",
+                      isReversed ? "lg:flex-row-reverse" : "lg:flex-row"
+                    )}
+                  >
+                    {/* Text Column */}
+                    <div className="flex-1 w-full max-w-xl text-left">
+                      {/* Eyebrow badge */}
+                      <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/[0.06] px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest text-primary mb-3">
+                        <Icon className="size-3 text-secondary-accent" />
+                        <span>{item.eyebrow}</span>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-foreground mb-3 leading-[1.2]">
+                        {item.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
+                        {item.description}
+                      </p>
+
+                      {/* Bullets */}
+                      <ul className="space-y-2.5 mb-6" role="list">
+                        {item.bullets.map((bullet, bIdx) => (
+                          <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-muted-foreground">
+                            <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
+                            <span className="leading-relaxed">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* Anchor jump button */}
+                      <div>
+                        <a
+                          href="#feature-categories"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-hover hover:underline transition-colors group"
+                        >
+                          <span>Back to all feature categories</span>
+                          <ArrowRight className="size-3 transition-transform group-hover:translate-x-1" />
+                        </a>
+                      </div>
                     </div>
 
-                    {/* Title */}
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-foreground mb-3">
-                      {item.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
-                      {item.description}
-                    </p>
-
-                    {/* Bullets */}
-                    <ul className="space-y-2.5 mb-6" role="list">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-muted-foreground">
-                          <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
-                          <span className="leading-relaxed">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Anchor jump button */}
-                    <div>
-                      <a
-                        href="#feature-categories"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-hover hover:underline transition-colors"
-                      >
-                        <span>Back to all feature categories</span>
-                        <ArrowRight className="size-3" />
-                      </a>
+                    {/* Visual Column */}
+                    <div className="flex-1 w-full max-w-xl lg:max-w-none">
+                      {item.renderVisual(t)}
                     </div>
                   </div>
-
-                  {/* Visual Column */}
-                  <div className="flex-1 w-full max-w-xl lg:max-w-none">
-                    {item.renderVisual(t)}
-                  </div>
-                </div>
+                </ScrollReveal>
               </div>
             );
           })}
@@ -812,4 +840,3 @@ export function FeatureDeepDives({ className }: FeatureDeepDivesProps) {
     </section>
   );
 }
-

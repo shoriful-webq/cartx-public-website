@@ -5,6 +5,7 @@ import Link from "next/link";
 import { HelpCircle, ChevronDown, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { SectionHeading } from "@/components/Home/section-heading";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface FAQItem {
@@ -108,15 +109,17 @@ export function FeaturesFAQSection({ className }: FeaturesFAQSectionProps) {
     >
       <div className="container">
         {/* ── Section Heading ── */}
-        <SectionHeading
-          eyebrow={t("featuresFaq.eyebrow")}
-          eyebrowIcon={HelpCircle}
-          title={t("featuresFaq.title")}
-          titleGradient={true}
-          description={t("featuresFaq.description")}
-          size="default"
-          className="mb-10 sm:mb-12 lg:mb-14"
-        />
+        <ScrollReveal delay={0}>
+          <SectionHeading
+            eyebrow={t("featuresFaq.eyebrow")}
+            eyebrowIcon={HelpCircle}
+            title={t("featuresFaq.title")}
+            titleGradient={true}
+            description={t("featuresFaq.description")}
+            size="default"
+            className="mb-10 sm:mb-12 lg:mb-14"
+          />
+        </ScrollReveal>
 
         {/* ── 10 Accordion Items ── */}
         <div className="max-w-4xl mx-auto space-y-3">
@@ -126,61 +129,62 @@ export function FeaturesFAQSection({ className }: FeaturesFAQSectionProps) {
             const headerId = `faq-header-${faq.id}`;
 
             return (
-              <div
-                key={faq.id}
-                className={cn(
-                  "rounded-xl border transition-all duration-200 overflow-hidden",
-                  isOpen
-                    ? "border-primary/40 bg-card shadow-xs"
-                    : "border-border bg-card/60 hover:border-border/90"
-                )}
-              >
-                <button
-                  type="button"
-                  id={headerId}
-                  aria-expanded={isOpen}
-                  aria-controls={contentId}
-                  onClick={() => toggleFAQ(idx)}
-                  className="flex w-full items-center justify-between p-4 sm:p-5 text-left focus-visible:outline-2 focus-visible:outline-ring transition-colors gap-3 select-none"
+              <ScrollReveal key={faq.id} delay={Math.min(idx * 30, 250)}>
+                <div
+                  className={cn(
+                    "rounded-xl border transition-all duration-200 overflow-hidden",
+                    isOpen
+                      ? "border-primary/40 bg-card shadow-xs"
+                      : "border-border bg-card/60 hover:border-border/90 hover:bg-card"
+                  )}
                 >
-                  <span className="text-sm sm:text-base font-semibold text-foreground leading-snug">
-                    {t(faq.questionKey)}
-                  </span>
-                  <div
-                    className={cn(
-                      "size-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200",
-                      isOpen
-                        ? "bg-primary text-primary-foreground rotate-180"
-                        : "bg-muted text-muted-foreground"
-                    )}
+                  <button
+                    type="button"
+                    id={headerId}
+                    aria-expanded={isOpen}
+                    aria-controls={contentId}
+                    onClick={() => toggleFAQ(idx)}
+                    className="flex w-full items-center justify-between p-4 sm:p-5 text-left focus-visible:outline-2 focus-visible:outline-ring transition-colors gap-3 select-none"
                   >
-                    <ChevronDown className="size-4" />
-                  </div>
-                </button>
+                    <span className="text-sm sm:text-base font-semibold text-foreground leading-snug">
+                      {t(faq.questionKey)}
+                    </span>
+                    <div
+                      className={cn(
+                        "size-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200",
+                        isOpen
+                          ? "bg-primary text-primary-foreground rotate-180"
+                          : "bg-muted text-muted-foreground"
+                      )}
+                    >
+                      <ChevronDown className="size-4" />
+                    </div>
+                  </button>
 
-                {isOpen && (
-                  <div
-                    id={contentId}
-                    role="region"
-                    aria-labelledby={headerId}
-                    className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-sm text-muted-foreground leading-relaxed border-t border-border/40 mt-1"
-                  >
-                    <p className="pt-3">{t(faq.answerKey)}</p>
+                  {isOpen && (
+                    <div
+                      id={contentId}
+                      role="region"
+                      aria-labelledby={headerId}
+                      className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-sm text-muted-foreground leading-relaxed border-t border-border/40 mt-1"
+                    >
+                      <p className="pt-3">{t(faq.answerKey)}</p>
 
-                    {faq.linkHref && (
-                      <div className="mt-3 pt-2">
-                        <Link
-                          href={faq.linkHref}
-                          className="inline-flex items-center gap-1 font-semibold text-primary hover:text-primary-hover hover:underline text-xs"
-                        >
-                          <span>{faq.linkText}</span>
-                          <ArrowUpRight className="size-3" />
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
+                      {faq.linkHref && (
+                        <div className="mt-3 pt-2">
+                          <Link
+                            href={faq.linkHref}
+                            className="inline-flex items-center gap-1 font-semibold text-primary hover:text-primary-hover hover:underline text-xs"
+                          >
+                            <span>{faq.linkText}</span>
+                            <ArrowUpRight className="size-3" />
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </ScrollReveal>
             );
           })}
         </div>
@@ -188,4 +192,3 @@ export function FeaturesFAQSection({ className }: FeaturesFAQSectionProps) {
     </section>
   );
 }
-

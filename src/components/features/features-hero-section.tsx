@@ -4,6 +4,7 @@ import React from "react";
 import { Layers, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { CTAButton } from "@/components/ui/cta-system";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { FeaturesHeroMockup } from "./features-hero-mockup";
 import { cn } from "@/lib/utils";
 
@@ -13,8 +14,8 @@ export interface FeaturesHeroSectionProps {
 
 /**
  * Section 01 — Hero for the CartX Features Overview Page (/features).
- * Strictly mirrors the visual language, typography, brand text gradient,
- * eyebrow badge, CTA styling, and container structure of the Home Page Hero.
+ * Polished layout matching the Home Page Hero's container, brand text gradient,
+ * eyebrow badge, CTA styling, and responsive spacing with subtle entrance motion.
  */
 export function FeaturesHeroSection({ className }: FeaturesHeroSectionProps) {
   const { t, locale } = useLanguage();
@@ -62,54 +63,57 @@ export function FeaturesHeroSection({ className }: FeaturesHeroSectionProps) {
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* ── Left column: Text + CTAs ── */}
           <div className="flex-1 max-w-xl text-center lg:text-left">
-            {/* Eyebrow pill */}
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/[0.06] px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary mb-3.5 sm:mb-4">
-              <Layers className="size-3 text-secondary-accent" />
-              <span>{t("featuresHero.eyebrow")}</span>
-            </div>
+            <ScrollReveal delay={0}>
+              {/* Eyebrow pill */}
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/[0.06] px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary mb-3.5 sm:mb-4">
+                <Layers className="size-3 text-secondary-accent" />
+                <span>{t("featuresHero.eyebrow")}</span>
+              </div>
 
-            {/* H1 */}
-            <h1 className="text-balance !mb-3 sm:!mb-3.5">
-              {t("featuresHero.titlePlain")}{" "}
-              <span className="brand-gradient-text">
-                {t("featuresHero.titleHighlight")}
-              </span>
-            </h1>
+              {/* H1 */}
+              <h1 className="text-balance !mb-3 sm:!mb-3.5 leading-[1.15]">
+                {t("featuresHero.titlePlain")}{" "}
+                <span className="brand-gradient-text">
+                  {t("featuresHero.titleHighlight")}
+                </span>
+              </h1>
 
-            {/* Supporting text */}
-            <p className="text-sm sm:text-base leading-relaxed text-muted-foreground max-w-lg mx-auto lg:mx-0 !mb-4 sm:!mb-5">
-              {t("featuresHero.description")}
-            </p>
+              {/* Supporting text */}
+              <p className="text-sm sm:text-base leading-relaxed text-muted-foreground max-w-lg mx-auto lg:mx-0 !mb-5 sm:!mb-6">
+                {t("featuresHero.description")}
+              </p>
 
-            {/* CTA buttons */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-3.5">
-              <CTAButton
-                action="startStore"
-                locale={locale}
-                size="lg"
-                showArrow
-                className="px-6 py-2.5 text-xs sm:text-sm rounded-lg shadow-xs hover:shadow-md transition-shadow"
-              />
-            </div>
+              {/* CTA buttons */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-3.5">
+                <CTAButton
+                  action="startStore"
+                  locale={locale}
+                  size="lg"
+                  showArrow
+                  className="px-6 py-2.5 text-xs sm:text-sm rounded-lg shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all"
+                />
+              </div>
 
-            {/* Trust line */}
-            <p className="flex items-center justify-center lg:justify-start gap-1.5 text-xs text-muted-foreground mt-3.5 sm:mt-4 !mb-0">
-              <CheckCircle2 className="size-3.5 text-success shrink-0" />
-              <span>{t("home.trustLine")}</span>
-            </p>
+              {/* Trust line */}
+              <p className="flex items-center justify-center lg:justify-start gap-1.5 text-xs text-muted-foreground mt-3.5 sm:mt-4 !mb-0">
+                <CheckCircle2 className="size-3.5 text-success shrink-0" />
+                <span>{t("home.trustLine")}</span>
+              </p>
+            </ScrollReveal>
           </div>
 
           {/* ── Right column: Features Product Visual ── */}
           <div className="flex-1 w-full max-w-xl lg:max-w-none relative">
-            {/* Soft elevated glow behind the mockup */}
-            <div className="absolute -inset-4 rounded-3xl bg-primary/[0.04] blur-2xl" />
-            <div className="relative">
-              <FeaturesHeroMockup />
-            </div>
+            <ScrollReveal delay={150}>
+              {/* Soft elevated glow behind the mockup */}
+              <div className="absolute -inset-4 rounded-3xl bg-primary/[0.04] blur-2xl" />
+              <div className="relative">
+                <FeaturesHeroMockup />
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>
     </section>
   );
 }
-

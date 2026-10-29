@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { SectionHeading } from "@/components/Home/section-heading";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface CategoryCardItem {
@@ -233,71 +234,72 @@ export function FeatureCategoryGrid({ className }: FeatureCategoryGridProps) {
     >
       <div className="container">
         {/* ── Section Heading (Hero-aligned title gradient & eyebrow pill) ── */}
-        <SectionHeading
-          eyebrow={t("featuresGrid.eyebrow")}
-          eyebrowIcon={LayoutGrid}
-          title={t("featuresGrid.title")}
-          titleGradient={true}
-          description={t("featuresGrid.description")}
-          size="default"
-          className="mb-10 sm:mb-12 lg:mb-14"
-        />
+        <ScrollReveal delay={0}>
+          <SectionHeading
+            eyebrow={t("featuresGrid.eyebrow")}
+            eyebrowIcon={LayoutGrid}
+            title={t("featuresGrid.title")}
+            titleGradient={true}
+            description={t("featuresGrid.description")}
+            size="default"
+            className="mb-10 sm:mb-12 lg:mb-14"
+          />
+        </ScrollReveal>
 
         {/* ── 12 Category Cards Grid ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {CATEGORY_CARDS.map((card) => {
+          {CATEGORY_CARDS.map((card, idx) => {
             const Icon = card.icon;
             return (
-              <div
-                key={card.id}
-                className="group relative rounded-2xl border border-border bg-card p-6 shadow-xs hover:border-primary/40 hover:shadow-card transition-all duration-200 flex flex-col justify-between"
-              >
-                <div>
-                  {/* Top: Icon + Name */}
-                  <div className="flex items-center gap-3 mb-3">
-                    <div
-                      className={cn(
-                        "size-10 rounded-xl flex items-center justify-center shrink-0 border border-border/60",
-                        card.iconBg,
-                        card.iconColor
-                      )}
-                    >
-                      <Icon className="size-5" />
+              <ScrollReveal key={card.id} delay={(idx % 3) * 60}>
+                <div className="group relative rounded-2xl border border-border bg-card p-6 shadow-xs hover:border-primary/40 hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full">
+                  <div>
+                    {/* Top: Icon + Name */}
+                    <div className="flex items-center gap-3 mb-3.5">
+                      <div
+                        className={cn(
+                          "size-10 rounded-xl flex items-center justify-center shrink-0 border border-border/60 transition-transform duration-200 group-hover:scale-105",
+                          card.iconBg,
+                          card.iconColor
+                        )}
+                      >
+                        <Icon className="size-5" />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
+                          {card.name}
+                        </h3>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
-                        {card.name}
-                      </h3>
-                    </div>
+
+                    {/* Description */}
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4">
+                      {card.description}
+                    </p>
+
+                    {/* Capabilities List */}
+                    <ul className="space-y-2 mb-6" role="list">
+                      {card.capabilities.map((cap, cIdx) => (
+                        <li key={cIdx} className="flex items-start gap-2 text-xs text-muted-foreground">
+                          <CheckCircle2 className="size-3.5 text-primary shrink-0 mt-0.5" />
+                          <span className="leading-snug">{cap}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4">
-                    {card.description}
-                  </p>
-
-                  {/* Capabilities List */}
-                  <ul className="space-y-2 mb-6" role="list">
-                    {card.capabilities.map((cap, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
-                        <CheckCircle2 className="size-3.5 text-primary shrink-0 mt-0.5" />
-                        <span className="leading-snug">{cap}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Bottom: Learn More Link */}
+                  <div className="pt-3 border-t border-border/60">
+                    <Link
+                      href={card.href}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-hover hover:underline transition-colors"
+                    >
+                      <span>{t("featuresGrid.learnMore")}</span>
+                      <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-1" />
+                    </Link>
+                  </div>
                 </div>
-
-                {/* Bottom: Learn More Link */}
-                <div className="pt-3 border-t border-border/60">
-                  <Link
-                    href={card.href}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-hover hover:underline transition-colors"
-                  >
-                    <span>{t("featuresGrid.learnMore")}</span>
-                    <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
-                  </Link>
-                </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
@@ -305,4 +307,3 @@ export function FeatureCategoryGrid({ className }: FeatureCategoryGridProps) {
     </section>
   );
 }
-
