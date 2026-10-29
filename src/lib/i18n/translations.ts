@@ -451,6 +451,32 @@ export const translations: Record<Locale, Translations> = {
     "featuresHero.description": "Discover the tools available to manage products, orders, inventory, payments and your store experience.",
     "featuresHero.mockupBadge": "Core Commerce Suite",
     "featuresHero.mockupStatus": "Active Modules",
+
+    // Features Page — Section 02: Sticky Navigation
+    "featuresNav.storefront": "Storefront",
+    "featuresNav.products": "Products",
+    "featuresNav.orders": "Orders",
+    "featuresNav.inventory": "Inventory",
+    "featuresNav.customers": "Customers",
+    "featuresNav.payments": "Payments",
+    "featuresNav.shipping": "Shipping",
+    "featuresNav.marketing": "Marketing",
+    "featuresNav.analytics": "Analytics",
+    "featuresNav.mobileApps": "Mobile Apps",
+    "featuresNav.integrations": "Integrations",
+    "featuresNav.security": "Security",
+
+    // Features Page — Section 03: Feature Category Grid
+    "featuresGrid.eyebrow": "FEATURE CATEGORIES",
+    "featuresGrid.title": "Explore Everything You Need to Run Your Store",
+    "featuresGrid.description": "Discover the tools available to manage your storefront, products, orders, customers and day-to-day store operations.",
+    "featuresGrid.learnMore": "Learn More",
+
+    // Features Page — Section 04: Feature Deep Dives
+    "featuresDeepDive.eyebrow": "FEATURE DEEP DIVES",
+    "featuresDeepDive.title": "A Closer Look at CartX Features",
+    "featuresDeepDive.description": "Explore how CartX's available tools support the everyday tasks involved in managing an online store.",
+    "featuresDeepDive.demoNotice": "Illustrative demo data",
     "features.title": "Core Platform Features",
     "features.desc": "Everything your brand requires to catalog inventory, convert shoppers, collect payments, and automate courier dispatch.",
     "solutions.title": "Commerce Solutions for Growing Brands",
@@ -908,6 +934,32 @@ export const translations: Record<Locale, Translations> = {
     "featuresHero.description": "পণ্য, অর্ডার, ইনভেন্টরি, পেমেন্ট এবং কাস্টমার এক্সপেরিয়েন্স পরিচালনার জন্য প্রয়োজনীয় সব টুল সম্পর্কে জানুন।",
     "featuresHero.mockupBadge": "কোর কমার্স স্যুট",
     "featuresHero.mockupStatus": "সক্রিয় মডিউলসমূহ",
+
+    // Features Page — Section 02: Sticky Navigation
+    "featuresNav.storefront": "স্টোরফ্রন্ট",
+    "featuresNav.products": "পণ্য",
+    "featuresNav.orders": "অর্ডার",
+    "featuresNav.inventory": "ইনভেন্টরি",
+    "featuresNav.customers": "কাস্টমার",
+    "featuresNav.payments": "পেমেন্ট",
+    "featuresNav.shipping": "শিপিং",
+    "featuresNav.marketing": "মার্কেটিং",
+    "featuresNav.analytics": "অ্যানালিটিক্স",
+    "featuresNav.mobileApps": "মোবাইল অ্যাপস",
+    "featuresNav.integrations": "ইন্টিগ্রেশন",
+    "featuresNav.security": "সিকিউরিটি",
+
+    // Features Page — Section 03: Feature Category Grid
+    "featuresGrid.eyebrow": "ফিচার ক্যাটাগরিসমূহ",
+    "featuresGrid.title": "স্টোর পরিচালনার সকল প্রয়োজনীয় ফিচার",
+    "featuresGrid.description": "স্টোরফ্রন্ট, পণ্য, অর্ডার, কাস্টমার এবং দৈনন্দিন ব্যবসায়িক কার্যক্রম পরিচালনার সমস্ত টুল সম্পর্কে জানুন।",
+    "featuresGrid.learnMore": "বিস্তারিত দেখুন",
+
+    // Features Page — Section 04: Feature Deep Dives
+    "featuresDeepDive.eyebrow": "ফিচার পর্যালোচনা",
+    "featuresDeepDive.title": "কার্টএক্স ফিচারের বিস্তারিত বিবরণ",
+    "featuresDeepDive.description": "অনলাইন স্টোরের প্রতিটি ধাপকে সহজ ও স্বয়ংক্রিয় করতে কার্টএক্সের নির্ভরযোগ্য টুলসমূহ পর্যালোচনা করুন।",
+    "featuresDeepDive.demoNotice": "প্রদর্শনীমূলক ডেমো ডেটা",
     "features.title": "মূল প্ল্যাটফর্ম ফিচারসমূহ",
     "features.desc": "ক্যাটালগ পরিচালনা, বিক্রয় রূপান্তর, পেমেন্ট সংগ্রহ এবং কুরিয়ার ডেলিভারি অটোমেশন।",
     "solutions.title": "ব্যবসায়িক কমার্স সলিউশন",
