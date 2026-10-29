@@ -44,16 +44,8 @@ export function FeatureNavigation({ className }: FeatureNavigationProps) {
   const { t } = useLanguage();
   const lenis = useLenis();
 
-  // Sensible default state: initialized from hash if present, or empty string when at the top of the page
-  const [activeId, setActiveId] = useState<string>(() => {
-    if (typeof window !== "undefined") {
-      const hash = window.location.hash.replace("#", "");
-      if (hash && CATEGORIES.some((c) => c.id === hash)) {
-        return hash;
-      }
-    }
-    return "";
-  });
+  // Deterministic initial state for flawless SSR & hydration match (no browser APIs during render)
+  const [activeId, setActiveId] = useState<string>("");
 
   const containerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
@@ -194,7 +186,8 @@ export function FeatureNavigation({ className }: FeatureNavigationProps) {
   }, [handleScroll]);
 
   /**
-   * Handle direct hash loading or page refresh with hash present.
+   * Handle direct hash loading or page refresh with hash present after mount.
+   * Runs asynchronously on client lifecycle, completely preventing hydration mismatch.
    */
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -202,8 +195,9 @@ export function FeatureNavigation({ className }: FeatureNavigationProps) {
     const hash = window.location.hash.replace("#", "");
     if (hash && CATEGORIES.some((c) => c.id === hash)) {
       const timer = setTimeout(() => {
+        setActiveId(hash);
         scrollToCategory(hash, false);
-      }, 120);
+      }, 80);
       return () => clearTimeout(timer);
     }
   }, [scrollToCategory]);
@@ -293,7 +287,7 @@ export function FeatureNavigation({ className }: FeatureNavigationProps) {
                     ? "bg-primary text-primary-foreground font-semibold shadow-xs"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/70 font-medium border border-transparent"
                 )}
-                aria-current={isActive ? "true" : undefined}
+                aria-current={isActive ? "location" : undefined}
               >
                 <span>{t(cat.nameKey)}</span>
               </a>
