@@ -153,13 +153,13 @@ export function IndustrySolutionsGrid({ className }: IndustrySolutionsGridProps)
                         <span>{t("solutionsGrid.comingSoonBadge")}</span>
                       </span>
                     ) : (
-                      <a
-                        href="#workflow-showcase"
+                      <Link
+                        href={industry.detailHref || `/solutions/${industry.id}`}
                         className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-hover hover:underline transition-colors"
                       >
                         <span>{t("solutionsGrid.viewDetails")}</span>
                         <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-1" />
-                      </a>
+                      </Link>
                     )}
                   </div>
                 </div>

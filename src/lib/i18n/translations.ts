@@ -422,6 +422,7 @@ export const translations: Record<Locale, Translations> = {
     "footer.solCosmetics": "Cosmetics & Beauty",
     "footer.solGrocery": "Grocery & Organic Food",
     "footer.solHome": "Home & Lifestyle",
+    "footer.solBooks": "Books & Stationery",
 
     "footer.blog": "Blog",
     "footer.helpCenter": "Help Center",
@@ -1429,6 +1430,7 @@ export const translations: Record<Locale, Translations> = {
     "footer.solCosmetics": "কসমেটিক্স ও বিউটি",
     "footer.solGrocery": "মুদি ও অর্গানিক ফুড",
     "footer.solHome": "হোম ও লাইফস্টাইল",
+    "footer.solBooks": "বই ও স্টেশনারি",
 
     "footer.blog": "ব্লগ",
     "footer.helpCenter": "হেল্প সেন্টার",

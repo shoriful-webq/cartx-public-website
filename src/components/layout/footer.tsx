@@ -101,18 +101,23 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/solutions/beauty-cosmetics" className="hover:text-foreground transition-colors">
+                <Link href="/solutions/cosmetics-beauty" className="hover:text-foreground transition-colors">
                   {t("footer.solCosmetics")}
                 </Link>
               </li>
               <li>
-                <Link href="/solutions/grocery-food" className="hover:text-foreground transition-colors">
+                <Link href="/solutions/grocery-organic-food" className="hover:text-foreground transition-colors">
                   {t("footer.solGrocery")}
                 </Link>
               </li>
               <li>
                 <Link href="/solutions/home-lifestyle" className="hover:text-foreground transition-colors">
                   {t("footer.solHome")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/solutions/books-stationery" className="hover:text-foreground transition-colors">
+                  {t("footer.solBooks") || "Books & Stationery"}
                 </Link>
               </li>
             </ul>

@@ -51,7 +51,7 @@ export const INDUSTRY_SOLUTIONS: IndustrySolutionItem[] = [
       { slug: "inventory-management", nameKey: "featuresGrid.cat.inventory.name", icon: Boxes },
     ],
     status: "available",
-    detailHref: "#industry-solutions",
+    detailHref: "/solutions/fashion-apparel",
   },
   {
     id: "electronics-gadgets",
@@ -73,7 +73,7 @@ export const INDUSTRY_SOLUTIONS: IndustrySolutionItem[] = [
       { slug: "payment-management", nameKey: "featuresGrid.cat.payments.name", icon: CreditCard },
     ],
     status: "available",
-    detailHref: "#industry-solutions",
+    detailHref: "/solutions/electronics-gadgets",
   },
   {
     id: "cosmetics-beauty",
@@ -95,10 +95,10 @@ export const INDUSTRY_SOLUTIONS: IndustrySolutionItem[] = [
       { slug: "store-builder", nameKey: "featuresGrid.cat.storefront.name", icon: Store },
     ],
     status: "available",
-    detailHref: "#industry-solutions",
+    detailHref: "/solutions/cosmetics-beauty",
   },
   {
-    id: "grocery-food",
+    id: "grocery-organic-food",
     nameKey: "solutionsGrid.grocery.name",
     taglineKey: "solutionsGrid.grocery.tagline",
     descKey: "solutionsGrid.grocery.desc",
@@ -117,7 +117,7 @@ export const INDUSTRY_SOLUTIONS: IndustrySolutionItem[] = [
       { slug: "shipping", nameKey: "featuresGrid.cat.shipping.name", icon: Truck },
     ],
     status: "available",
-    detailHref: "#industry-solutions",
+    detailHref: "/solutions/grocery-organic-food",
   },
   {
     id: "home-lifestyle",
@@ -139,7 +139,7 @@ export const INDUSTRY_SOLUTIONS: IndustrySolutionItem[] = [
       { slug: "product-management", nameKey: "featuresGrid.cat.products.name", icon: Package },
     ],
     status: "available",
-    detailHref: "#industry-solutions",
+    detailHref: "/solutions/home-lifestyle",
   },
   {
     id: "books-stationery",
@@ -161,7 +161,7 @@ export const INDUSTRY_SOLUTIONS: IndustrySolutionItem[] = [
       { slug: "shipping", nameKey: "featuresGrid.cat.shipping.name", icon: Truck },
     ],
     status: "available",
-    detailHref: "#industry-solutions",
+    detailHref: "/solutions/books-stationery",
   },
   {
     id: "wholesale-b2b",
