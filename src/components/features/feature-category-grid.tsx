@@ -50,7 +50,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "featuresGrid.cat.storefront.cap3",
       "featuresGrid.cat.storefront.cap4",
     ],
-    href: "#storefront",
+    href: "/features/store-builder",
   },
   {
     id: "products",
@@ -65,7 +65,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "featuresGrid.cat.products.cap3",
       "featuresGrid.cat.products.cap4",
     ],
-    href: "#products",
+    href: "/features/product-management",
   },
   {
     id: "orders",
@@ -80,7 +80,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "featuresGrid.cat.orders.cap3",
       "featuresGrid.cat.orders.cap4",
     ],
-    href: "#orders",
+    href: "/features/order-management",
   },
   {
     id: "inventory",
@@ -95,7 +95,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "featuresGrid.cat.inventory.cap3",
       "featuresGrid.cat.inventory.cap4",
     ],
-    href: "#inventory",
+    href: "/features/inventory-management",
   },
   {
     id: "customers",
@@ -110,7 +110,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "featuresGrid.cat.customers.cap3",
       "featuresGrid.cat.customers.cap4",
     ],
-    href: "#customers",
+    href: "/features/customer-management",
   },
   {
     id: "payments",
@@ -125,7 +125,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "featuresGrid.cat.payments.cap3",
       "featuresGrid.cat.payments.cap4",
     ],
-    href: "#payments",
+    href: "/features/payment-management",
   },
   {
     id: "shipping",
@@ -140,7 +140,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "featuresGrid.cat.shipping.cap3",
       "featuresGrid.cat.shipping.cap4",
     ],
-    href: "#shipping",
+    href: "/features/shipping",
   },
   {
     id: "marketing",
@@ -170,7 +170,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "featuresGrid.cat.analytics.cap3",
       "featuresGrid.cat.analytics.cap4",
     ],
-    href: "#analytics",
+    href: "/features/analytics",
   },
   {
     id: "mobile-apps",
@@ -267,7 +267,9 @@ export function FeatureCategoryGrid({ className }: FeatureCategoryGridProps) {
                       </div>
                       <div>
                         <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
-                          {t(card.nameKey)}
+                          <Link href={card.href} className="hover:underline">
+                            {t(card.nameKey)}
+                          </Link>
                         </h3>
                       </div>
                     </div>
