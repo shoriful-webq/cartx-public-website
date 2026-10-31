@@ -1,13 +1,18 @@
 export * from "./types";
 export * from "./themes-data";
 export * from "./gallery/themes-hero";
+export * from "./gallery/theme-filter-select";
+export * from "./gallery/theme-search-filters";
 export * from "./gallery/themes-filter-bar";
 export * from "./gallery/theme-card";
+export * from "./gallery/theme-empty-state";
 export * from "./gallery/themes-grid";
+export * from "./gallery/theme-feature-card";
 export * from "./gallery/themes-features";
 export * from "./gallery/themes-customization";
 export * from "./gallery/themes-faq";
 export * from "./gallery/themes-cta";
+export * from "./gallery/use-theme-filters";
 export * from "./gallery/themes-gallery-view";
 export * from "./details/theme-detail-header";
 export * from "./details/theme-preview-toolbar";
@@ -18,4 +23,3 @@ export * from "./details/theme-plan-eligibility";
 export * from "./details/theme-related-themes";
 export * from "./details/theme-detail-cta";
 export * from "./details/theme-detail-view";
-
