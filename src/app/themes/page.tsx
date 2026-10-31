@@ -1,32 +1,18 @@
-"use client";
+import { Metadata } from "next";
+import { ThemesGalleryView } from "@/components/themes";
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { useLanguage } from "@/lib/i18n/language-context";
+export const metadata: Metadata = {
+  title: "Storefront Themes & Templates | CartX",
+  description:
+    "Explore high-converting, mobile-first e-commerce storefront themes and templates for fashion, electronics, cosmetics, grocery, and home lifestyle brands on CartX.",
+  openGraph: {
+    title: "Storefront Themes & Templates | CartX",
+    description:
+      "Explore high-converting, mobile-first e-commerce storefront themes and templates for fashion, electronics, cosmetics, grocery, and home lifestyle brands on CartX.",
+    type: "website",
+  },
+};
 
 export default function ThemesPage() {
-  const { t } = useLanguage();
-
-  return (
-    <div className="section-padding">
-      <div className="container max-w-4xl text-center">
-        <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-          {t("nav.themes")}
-        </span>
-        <h1 className="mt-3 mb-4 tracking-tight">{t("themes.title")}</h1>
-        <p className="section-description">
-          {t("themes.desc")}
-        </p>
-
-        <div className="flex justify-center mt-6">
-          <Link
-            href="/start"
-            className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-xs font-semibold text-primary-foreground shadow-xs hover:bg-primary-hover transition-colors"
-          >
-            {t("btn.startTrial")} <ArrowRight className="size-3.5" />
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
+  return <ThemesGalleryView />;
 }

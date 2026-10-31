@@ -730,7 +730,7 @@ export function ThemeTemplatesSection({ className }: ThemeTemplatesSectionProps)
 
                     {/* Interactive Preview Theme Link */}
                     <Link
-                      href={`/themes?theme=${theme.id}`}
+                      href={`/themes/${theme.id}`}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white hover:-translate-y-0.5 transition-all duration-200 ml-auto"
                       aria-label={`Preview theme ${t(theme.nameKey)}`}
                     >
