@@ -1,32 +1,57 @@
-"use client";
+import { Metadata } from "next";
+import {
+  SolutionsHero,
+  IndustrySolutionsGrid,
+  BusinessChallengesSection,
+  RelevantFeaturesSection,
+  ExampleWorkflowSection,
+  DemoStorePreviewSection,
+  RelatedIntegrationsSection,
+  SolutionsFAQSection,
+  SolutionsFinalCTASection,
+} from "@/components/solutions";
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { useLanguage } from "@/lib/i18n/language-context";
+export const metadata: Metadata = {
+  title: "E-commerce Solutions by Industry | CartX Platform",
+  description:
+    "Explore how CartX supports fashion, electronics, cosmetics, grocery, home decor, and books with multi-attribute variants, inventory control, and localized checkout in Bangladesh.",
+  openGraph: {
+    title: "E-commerce Solutions by Industry | CartX Platform",
+    description:
+      "Explore how CartX supports fashion, electronics, cosmetics, grocery, home decor, and books with multi-attribute variants, inventory control, and localized checkout in Bangladesh.",
+    type: "website",
+  },
+};
 
 export default function SolutionsPage() {
-  const { t } = useLanguage();
-
   return (
-    <div className="section-padding">
-      <div className="container max-w-4xl text-center">
-        <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-          {t("nav.solutions")}
-        </span>
-        <h1 className="mt-3 mb-4 tracking-tight">{t("solutions.title")}</h1>
-        <p className="section-description">
-          {t("solutions.desc")}
-        </p>
+    <main>
+      {/* ── Section 01: Hero ── */}
+      <SolutionsHero />
 
-        <div className="flex justify-center mt-6">
-          <Link
-            href="/start"
-            className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-xs font-semibold text-primary-foreground shadow-xs hover:bg-primary-hover transition-colors"
-          >
-            {t("btn.startTrial")} <ArrowRight className="size-3.5" />
-          </Link>
-        </div>
-      </div>
-    </div>
+      {/* ── Section 02: Industry Solution Cards ── */}
+      <IndustrySolutionsGrid />
+
+      {/* ── Section 03: Business Challenges ── */}
+      <BusinessChallengesSection />
+
+      {/* ── Section 04: Relevant CartX Features ── */}
+      <RelevantFeaturesSection />
+
+      {/* ── Section 05: Example Workflow ── */}
+      <ExampleWorkflowSection />
+
+      {/* ── Section 06: Demo Store Preview ── */}
+      <DemoStorePreviewSection />
+
+      {/* ── Section 07: Related Integrations ── */}
+      <RelatedIntegrationsSection />
+
+      {/* ── Section 08: FAQ ── */}
+      <SolutionsFAQSection />
+
+      {/* ── Section 09: Final CTA ── */}
+      <SolutionsFinalCTASection />
+    </main>
   );
 }
