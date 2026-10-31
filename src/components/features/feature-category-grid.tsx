@@ -17,9 +17,11 @@ import {
   ShieldCheck,
   CheckCircle2,
   ArrowRight,
+  ArrowDown,
   LayoutGrid,
   type LucideIcon,
 } from "lucide-react";
+import { useLenis } from "lenis/react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { SectionHeading } from "@/components/Home/section-heading";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -34,6 +36,7 @@ interface CategoryCardItem {
   iconColor: string;
   capKeys: string[];
   href: string;
+  isOverviewOnly?: boolean;
 }
 
 const CATEGORY_CARDS: CategoryCardItem[] = [
@@ -156,6 +159,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "featuresGrid.cat.marketing.cap4",
     ],
     href: "#marketing",
+    isOverviewOnly: true,
   },
   {
     id: "analytics",
@@ -185,7 +189,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "featuresGrid.cat.mobileApps.cap3",
       "featuresGrid.cat.mobileApps.cap4",
     ],
-    href: "#mobile-apps",
+    href: "/white-label-apps",
   },
   {
     id: "integrations",
@@ -200,7 +204,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "featuresGrid.cat.integrations.cap3",
       "featuresGrid.cat.integrations.cap4",
     ],
-    href: "#integrations",
+    href: "/integrations",
   },
   {
     id: "security",
@@ -216,6 +220,7 @@ const CATEGORY_CARDS: CategoryCardItem[] = [
       "featuresGrid.cat.security.cap4",
     ],
     href: "#security",
+    isOverviewOnly: true,
   },
 ];
 
@@ -225,12 +230,39 @@ export interface FeatureCategoryGridProps {
 
 export function FeatureCategoryGrid({ className }: FeatureCategoryGridProps) {
   const { t } = useLanguage();
+  const lenis = useLenis();
+
+  const handleAnchorClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const id = href.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 140;
+        if (lenis) {
+          lenis.scrollTo(top, {
+            duration: 1.0,
+            easing: (val) => Math.min(1, 1.001 - Math.pow(2, -10 * val)),
+          });
+        } else {
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+        history.replaceState(null, "", href);
+      }
+    }
+  };
 
   return (
     <section
       id="feature-categories"
       aria-label="Feature Category Discovery"
-      className={cn("section-padding bg-background border-b border-border transition-colors", className)}
+      className={cn(
+        "section-padding bg-background border-b border-border transition-colors",
+        className
+      )}
     >
       <div className="container">
         {/* ── Section Heading (Hero-aligned title gradient & eyebrow pill) ── */}
@@ -254,24 +286,34 @@ export function FeatureCategoryGrid({ className }: FeatureCategoryGridProps) {
               <ScrollReveal key={card.id} delay={(idx % 3) * 60}>
                 <div className="group relative rounded-2xl border border-border bg-card p-6 shadow-xs hover:border-primary/40 hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full">
                   <div>
-                    {/* Top: Icon + Name */}
-                    <div className="flex items-center gap-3 mb-3.5">
-                      <div
-                        className={cn(
-                          "size-10 rounded-xl flex items-center justify-center shrink-0 border border-border/60 transition-transform duration-200 group-hover:scale-105",
-                          card.iconBg,
-                          card.iconColor
-                        )}
-                      >
-                        <Icon className="size-5" />
-                      </div>
-                      <div>
+                    {/* Top: Icon + Name + Optional Overview Badge */}
+                    <div className="flex items-center justify-between gap-2 mb-3.5">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={cn(
+                            "size-10 rounded-xl flex items-center justify-center shrink-0 border border-border/60 transition-transform duration-200 group-hover:scale-105",
+                            card.iconBg,
+                            card.iconColor
+                          )}
+                        >
+                          <Icon className="size-5" />
+                        </div>
                         <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
-                          <Link href={card.href} className="hover:underline">
+                          <Link
+                            href={card.href}
+                            onClick={(e) => handleAnchorClick(e, card.href)}
+                            className="hover:underline"
+                          >
                             {t(card.nameKey)}
                           </Link>
                         </h3>
                       </div>
+
+                      {card.isOverviewOnly && (
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full border border-border/80 bg-muted/60 text-muted-foreground select-none shrink-0">
+                          {t("featuresGrid.overviewBadge")}
+                        </span>
+                      )}
                     </div>
 
                     {/* Description */}
@@ -282,7 +324,10 @@ export function FeatureCategoryGrid({ className }: FeatureCategoryGridProps) {
                     {/* Capabilities List */}
                     <ul className="space-y-2 mb-6" role="list">
                       {card.capKeys.map((capKey, cIdx) => (
-                        <li key={cIdx} className="flex items-start gap-2 text-xs text-muted-foreground">
+                        <li
+                          key={cIdx}
+                          className="flex items-start gap-2 text-xs text-muted-foreground"
+                        >
                           <CheckCircle2 className="size-3.5 text-primary shrink-0 mt-0.5" />
                           <span className="leading-snug">{t(capKey)}</span>
                         </li>
@@ -290,14 +335,23 @@ export function FeatureCategoryGrid({ className }: FeatureCategoryGridProps) {
                     </ul>
                   </div>
 
-                  {/* Bottom: Learn More Link */}
+                  {/* Bottom: Intentional Action Link */}
                   <div className="pt-3 border-t border-border/60">
                     <Link
                       href={card.href}
+                      onClick={(e) => handleAnchorClick(e, card.href)}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-hover hover:underline transition-colors"
                     >
-                      <span>{t("featuresGrid.learnMore")}</span>
-                      <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-1" />
+                      <span>
+                        {card.isOverviewOnly
+                          ? t("featuresGrid.viewOverview")
+                          : t("featuresGrid.learnMore")}
+                      </span>
+                      {card.isOverviewOnly ? (
+                        <ArrowDown className="size-3 transition-transform duration-200 group-hover:translate-y-0.5" />
+                      ) : (
+                        <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-1" />
+                      )}
                     </Link>
                   </div>
                 </div>

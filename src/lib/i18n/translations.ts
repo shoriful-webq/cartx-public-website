@@ -471,6 +471,9 @@ export const translations: Record<Locale, Translations> = {
     "featuresGrid.title": "Explore Everything You Need to Run Your Store",
     "featuresGrid.description": "Discover the tools available to manage your storefront, products, orders, customers and day-to-day store operations.",
     "featuresGrid.learnMore": "Learn More",
+    "featuresGrid.viewOverview": "View Overview",
+    "featuresGrid.overviewBadge": "Overview Section",
+    "featuresGrid.comingSoon": "Coming Soon",
 
     // Added Features Page Translations
     "featuresHeroMockup.engineActive": "Core Engine Active",
@@ -1326,6 +1329,9 @@ export const translations: Record<Locale, Translations> = {
     "featuresGrid.title": "স্টোর পরিচালনার সকল প্রয়োজনীয় ফিচার",
     "featuresGrid.description": "স্টোরফ্রন্ট, পণ্য, অর্ডার, কাস্টমার এবং দৈনন্দিন ব্যবসায়িক কার্যক্রম পরিচালনার সমস্ত টুল সম্পর্কে জানুন।",
     "featuresGrid.learnMore": "বিস্তারিত দেখুন",
+    "featuresGrid.viewOverview": "ওভারভিউ দেখুন",
+    "featuresGrid.overviewBadge": "ওভারভিউ বিভাগ",
+    "featuresGrid.comingSoon": "শীঘ্রই আসছে",
 
     // Added Features Page Translations (Bangla)
     "featuresHeroMockup.engineActive": "কোর ইঞ্জিন অ্যাক্টিভ",
