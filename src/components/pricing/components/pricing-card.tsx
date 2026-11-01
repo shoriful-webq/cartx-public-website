@@ -2,17 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import {
-  CheckCircle2,
-  ArrowRight,
-  Package,
-  Users,
-  HardDrive,
-  Globe,
-  Smartphone,
-  Headphones,
-  ShoppingBag,
-} from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { BillingPeriod, PricingPlan } from "../types/pricing.types";
 import { getPlanDisplayPrice, formatLimit } from "../lib/pricing-utils";
@@ -31,69 +21,46 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
   const priceDisplay = getPlanDisplayPrice(plan, billingPeriod, locale);
   const isHighlighted = Boolean(plan.highlighted);
 
-  // Support level descriptions
-  const supportLabels = {
-    standard: isBn ? "স্ট্যান্ডার্ড ইমেইল সাপোর্ট" : "Standard Email & Ticket",
-    priority: isBn ? "অগ্রাধিকার লাইভ চ্যাট ও ইমেইল" : "Priority Chat & Email Support",
-    dedicated_sla: isBn ? "২৪/৭ ডেডিকেটেড এসএলএ টিম" : "24/7 Dedicated SLA Support",
-    community: isBn ? "কমিউনিটি ফোরাম" : "Community Support",
-  };
-
-  // Mobile app status label
-  const mobileAppLabels = {
-    unavailable: isBn ? "প্রযোজ্য নয় (ওয়েব ফ্রন্ট)" : "Web Storefront Only",
-    optional_addon: isBn ? "ঐচ্ছিক অ্যাড-অন" : "Optional Add-on",
-    included: isBn ? "প্যাকেজে অন্তর্ভুক্ত" : "Fully Included",
-    custom: isBn ? "কাস্টম বিল্ড" : "Custom Build",
-  };
-
   return (
     <div
       className={cn(
-        "relative flex flex-col justify-between rounded-3xl border bg-card p-7 sm:p-8 shadow-xs transition-all duration-300 hover:-translate-y-1.5",
+        "group relative flex flex-col justify-between rounded-2xl bg-card p-6 transition-all duration-200",
         isHighlighted
-          ? "border-primary/60 shadow-xl ring-2 ring-primary/20 bg-gradient-to-b from-card via-card to-primary/[0.02]"
-          : "border-border hover:border-primary/40 hover:shadow-md",
+          ? "border-2 border-primary shadow-lg ring-1 ring-primary/20 hover:shadow-xl hover:-translate-y-1"
+          : "border border-border shadow-xs hover:border-primary/40 hover:shadow-md hover:-translate-y-1",
         className
       )}
     >
-      {/* Popular Badge */}
+      {/* Highlight Top Accent Gradient */}
       {isHighlighted && (
-        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-          <span className="inline-flex items-center rounded-full bg-primary px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-primary-foreground shadow-md shadow-primary/25">
-            {plan.badge?.[isBn ? "bn" : "en"] || (isBn ? "সর্বাধিক জনপ্রিয়" : "Most Popular")}
-          </span>
-        </div>
+        <div
+          className="absolute inset-x-0 -top-0.5 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-t-2xl"
+          aria-hidden="true"
+        />
       )}
 
       <div>
-        {/* Header: Plan Name & Target Customer */}
-        <div className="mb-4">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
-              {plan.name[isBn ? "bn" : "en"]}
-            </h3>
-            <span
-              className={cn(
-                "text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border",
-                isHighlighted
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-muted text-muted-foreground border-border"
-              )}
-            >
-              {isBn ? "টিয়ার" : "Tier"}
+        {/* Plan Header: Name & Optional Badge */}
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <h3 className="text-xl font-bold tracking-tight text-foreground">
+            {plan.name[isBn ? "bn" : "en"]}
+          </h3>
+          {isHighlighted && (
+            <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 border border-primary/25 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-primary">
+              ★ {plan.badge?.[isBn ? "bn" : "en"] || (isBn ? "জনপ্রিয়" : "Popular")}
             </span>
-          </div>
-
-          <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 min-h-[2rem]">
-            {plan.targetAudience[isBn ? "bn" : "en"]}
-          </p>
+          )}
         </div>
 
-        {/* Price Box */}
-        <div className="mb-6 rounded-2xl border border-border/80 bg-muted/30 p-5">
-          <div className="flex items-baseline gap-1.5">
-            <span className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+        {/* Target Audience / Tagline */}
+        <p className="text-xs text-muted-foreground leading-relaxed min-h-[2.5rem] line-clamp-2 mb-4">
+          {plan.targetAudience[isBn ? "bn" : "en"]}
+        </p>
+
+        {/* Typographic Price Section */}
+        <div className="mb-5 min-h-[4.25rem] flex flex-col justify-center">
+          <div className="flex items-baseline gap-1.5 flex-wrap">
+            <span className="text-3xl font-extrabold tracking-tight text-foreground">
               {priceDisplay.primaryPriceText}
             </span>
             {!priceDisplay.isSpecialState && (
@@ -103,134 +70,105 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
             )}
           </div>
 
-          {priceDisplay.secondaryPriceText && (
-            <p className="text-xs text-muted-foreground mt-1.5 font-medium">
-              {priceDisplay.secondaryPriceText}
-            </p>
-          )}
-
-          {plan.trialDays && (
-            <div className="mt-3 pt-3 border-t border-border/60 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-              <CheckCircle2 className="h-3.5 w-3.5" />
-              <span>
-                {isBn
-                  ? `${plan.trialDays} দিনের ঝুঁকিহীন ফ্রি ট্রায়াল`
-                  : `${plan.trialDays}-Day Risk-Free Trial Included`}
+          <div className="text-xs text-muted-foreground mt-1 min-h-[1.25rem] flex items-center">
+            {priceDisplay.secondaryPriceText ? (
+              <span className="font-medium text-muted-foreground">
+                {priceDisplay.secondaryPriceText}
               </span>
-            </div>
-          )}
+            ) : plan.trialDays ? (
+              <span className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-semibold text-[11px]">
+                <Check className="h-3 w-3 stroke-[3]" />
+                {isBn
+                  ? `${plan.trialDays} দিনের ফ্রি ট্রায়াল অন্তর্ভুক্ত`
+                  : `${plan.trialDays}-day free trial included`}
+              </span>
+            ) : (
+              <span className="text-[11px] text-muted-foreground">
+                {isBn ? "কাস্টম এন্টারপ্রাইজ চুক্তি" : "Custom agreement terms"}
+              </span>
+            )}
+          </div>
         </div>
 
-        {/* Core Limits Summary Grid */}
-        <div className="mb-6 space-y-2.5 rounded-xl border border-border/50 bg-background/50 p-4 text-xs">
-          {/* Products */}
-          <div className="flex items-center justify-between">
-            <span className="flex items-center gap-2 text-muted-foreground">
-              <Package className="h-3.5 w-3.5 text-primary shrink-0" />
-              <span>{isBn ? "পণ্য সীমা" : "Product Limit"}</span>
+        {/* Primary CTA Button (Positioned at high-conversion upper zone) */}
+        <div className="mb-5">
+          <Link
+            href={plan.cta.href}
+            className={cn(
+              "w-full h-11 inline-flex items-center justify-center gap-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shadow-xs",
+              isHighlighted
+                ? "bg-primary text-primary-foreground shadow-md shadow-primary/20 hover:bg-primary-hover hover:shadow-lg"
+                : "border border-border bg-card text-foreground hover:bg-muted/70 hover:border-border/90"
+            )}
+          >
+            <span>{plan.cta.label[isBn ? "bn" : "en"]}</span>
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+
+          <p className="text-[11px] text-center text-muted-foreground mt-2">
+            {plan.trialDays
+              ? isBn
+                ? "ক্রেডিট কার্ডের প্রয়োজন নেই"
+                : "No credit card required"
+              : isBn
+              ? "ডেডিকেটেড এন্টারপ্রাইজ অনবোর্ডিং"
+              : "Dedicated enterprise onboarding"}
+          </p>
+        </div>
+
+        {/* Clean Divider */}
+        <div className="border-t border-border/60 my-5" />
+
+        {/* Core Limits Summary: 2 Compact Metric Badges */}
+        <div className="grid grid-cols-2 gap-2 mb-5">
+          <div className="rounded-xl bg-muted/40 border border-border/50 px-3 py-2 text-center">
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+              {isBn ? "পণ্য সীমা" : "Products"}
             </span>
-            <span className="font-bold text-foreground">
+            <span className="block text-xs font-bold text-foreground truncate mt-0.5">
               {formatLimit(plan.limits.products, locale)}
             </span>
           </div>
 
-          {/* Staff */}
-          <div className="flex items-center justify-between">
-            <span className="flex items-center gap-2 text-muted-foreground">
-              <Users className="h-3.5 w-3.5 text-primary shrink-0" />
-              <span>{isBn ? "স্টাফ অ্যাকাউন্ট" : "Staff Accounts"}</span>
+          <div className="rounded-xl bg-muted/40 border border-border/50 px-3 py-2 text-center">
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+              {isBn ? "স্টাফ সিট" : "Staff"}
             </span>
-            <span className="font-bold text-foreground">
+            <span className="block text-xs font-bold text-foreground truncate mt-0.5">
               {formatLimit(plan.limits.staffAccounts, locale)}
-            </span>
-          </div>
-
-          {/* Storage */}
-          <div className="flex items-center justify-between">
-            <span className="flex items-center gap-2 text-muted-foreground">
-              <HardDrive className="h-3.5 w-3.5 text-primary shrink-0" />
-              <span>{isBn ? "মিডিয়া স্টোরেজ" : "Media Storage"}</span>
-            </span>
-            <span className="font-bold text-foreground">
-              {formatLimit(plan.limits.storageGB, locale, { en: "GB", bn: "জিবি" })}
-            </span>
-          </div>
-
-          {/* Custom Domain */}
-          <div className="flex items-center justify-between">
-            <span className="flex items-center gap-2 text-muted-foreground">
-              <Globe className="h-3.5 w-3.5 text-primary shrink-0" />
-              <span>{isBn ? "কাস্টম ডোমেইন" : "Custom Domain"}</span>
-            </span>
-            <span className="font-bold text-foreground">
-              {formatLimit(plan.limits.customDomains, locale)}
-            </span>
-          </div>
-
-          {/* Monthly Orders */}
-          <div className="flex items-center justify-between">
-            <span className="flex items-center gap-2 text-muted-foreground">
-              <ShoppingBag className="h-3.5 w-3.5 text-primary shrink-0" />
-              <span>{isBn ? "মাসিক অর্ডার" : "Monthly Orders"}</span>
-            </span>
-            <span className="font-bold text-foreground">
-              {formatLimit(plan.limits.monthlyOrders, locale)}
-            </span>
-          </div>
-
-          {/* Mobile App */}
-          <div className="flex items-center justify-between">
-            <span className="flex items-center gap-2 text-muted-foreground">
-              <Smartphone className="h-3.5 w-3.5 text-primary shrink-0" />
-              <span>{isBn ? "মোবাইল অ্যাপ" : "Mobile Apps"}</span>
-            </span>
-            <span className="font-semibold text-foreground text-[11px]">
-              {mobileAppLabels[plan.features.whiteLabelApps]}
-            </span>
-          </div>
-
-          {/* Support Level */}
-          <div className="flex items-center justify-between">
-            <span className="flex items-center gap-2 text-muted-foreground">
-              <Headphones className="h-3.5 w-3.5 text-primary shrink-0" />
-              <span>{isBn ? "সাপোর্ট লেভেল" : "Support"}</span>
-            </span>
-            <span className="font-semibold text-foreground text-[11px]">
-              {supportLabels[plan.features.supportLevel]}
             </span>
           </div>
         </div>
 
-        {/* Feature Highlights Checklist */}
-        <div className="mb-6 space-y-2.5">
-          <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
-            {isBn ? "প্যাকেজে অন্তর্ভুক্ত সুবিধাসমূহ:" : "What's Included:"}
+        {/* Included Capabilities List */}
+        <div className="space-y-2.5">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-3">
+            {isBn ? "অন্তর্ভুক্ত সুবিধাসমূহ:" : "What's included:"}
           </p>
           {plan.featureHighlights.map((feat, idx) => (
-            <div key={idx} className="flex items-start gap-2.5 text-xs text-muted-foreground">
-              <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-              <span className="leading-relaxed">{feat[isBn ? "bn" : "en"]}</span>
+            <div
+              key={idx}
+              className="flex items-start gap-2.5 text-xs text-muted-foreground leading-relaxed"
+            >
+              <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary mt-0.5">
+                <Check className="h-2.5 w-2.5 stroke-[3]" />
+              </div>
+              <span>{feat[isBn ? "bn" : "en"]}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Primary Card CTA */}
-      <div className="pt-4 border-t border-border/60">
-        <Link
-          href={plan.cta.href}
-          className={cn(
-            "w-full inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer",
-            isHighlighted
-              ? "bg-primary text-primary-foreground shadow-md shadow-primary/20 hover:bg-primary/90 hover:shadow-lg"
-              : "border border-border bg-card text-foreground hover:bg-muted/60 hover:border-border/90"
-          )}
+      {/* Bottom Link to Full Feature Breakdown */}
+      <div className="mt-6 pt-4 border-t border-border/50 text-center">
+        <a
+          href="#plan-comparison"
+          className="text-[11px] font-semibold text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
         >
-          <span>{plan.cta.label[isBn ? "bn" : "en"]}</span>
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </Link>
+          <span>{isBn ? "পূর্ণাঙ্গ ফিচার তালিকা দেখুন" : "See all feature specs"}</span>
+          <ArrowRight className="h-3 w-3" />
+        </a>
       </div>
     </div>
   );
 }
-
