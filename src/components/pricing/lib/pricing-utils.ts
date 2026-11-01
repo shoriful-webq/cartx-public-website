@@ -87,23 +87,23 @@ export function getPlanDisplayPrice(
     return {
       primaryPriceText: isBn ? "কাস্টম কোটেশন" : "Custom Quote",
       secondaryPriceText: isBn ? "ব্যবসায়িক চাহিদা অনুযায়ী" : "Tailored to your scale",
-      billingFrequencyText: isBn ? "চুক্তিভিত্তিক বার্ষিক/ত্রৈমাসিক" : "Custom contract agreement",
+      billingFrequencyText: isBn ? "চুক্তিভিত্তিক" : "Custom terms",
       isSpecialState: true,
     };
   }
 
   if (plan.prices.isPendingLaunch || plan.prices.monthly === null) {
     const defaultPending = isBn
-      ? "সার্ভিস চালুর সময় প্রকাশিত হবে"
-      : "Announced at Launch";
+      ? "শীঘ্রই আসছে"
+      : "Coming Soon";
     const text = plan.prices.pendingNotice
       ? plan.prices.pendingNotice[isBn ? "bn" : "en"]
       : defaultPending;
 
     return {
       primaryPriceText: text,
-      secondaryPriceText: isBn ? "১৪ দিনের ফ্রি ট্রায়াল" : "14-Day Free Trial Included",
-      billingFrequencyText: isBn ? "মাসিক অথবা বার্ষিক বিলিং" : "Monthly or annual billing",
+      secondaryPriceText: isBn ? "১৪ দিনের ফ্রি ট্রায়াল" : "14-Day Free Trial",
+      billingFrequencyText: isBn ? "/মাস" : "/mo",
       isSpecialState: true,
     };
   }
@@ -118,13 +118,13 @@ export function getPlanDisplayPrice(
     const discountPct = savings?.discountPercentage ? `${savings.discountPercentage}%` : "17%";
 
     const secondaryText = isBn
-      ? `বার্ষিক মোট ${annualTotal} (${discountPct} সাশ্রয়)`
-      : `Billed annually at ${annualTotal} (Save ${discountPct})`;
+      ? `বার্ষিক ${annualTotal} (${discountPct} সাশ্রয়)`
+      : `Billed ${annualTotal}/yr (Save ${discountPct})`;
 
     return {
       primaryPriceText: monthlyEq,
       secondaryPriceText: secondaryText,
-      billingFrequencyText: isBn ? "/মাস (বার্ষিক বিলিং)" : "/month (billed annually)",
+      billingFrequencyText: isBn ? "/ মাস" : "/ mo",
       isSpecialState: false,
     };
   }
@@ -134,9 +134,9 @@ export function getPlanDisplayPrice(
   return {
     primaryPriceText: monthlyStr,
     secondaryPriceText: isBn
-      ? "মাসিক ভিত্তিতে বিল্ড • ১৪ দিনের ট্রায়াল"
-      : "Billed monthly • 14-day free trial included",
-    billingFrequencyText: isBn ? "/মাস" : "/month",
+      ? "১৪ দিনের ফ্রি ট্রায়াল অন্তর্ভুক্ত"
+      : "14-day free trial included",
+    billingFrequencyText: isBn ? "/ মাস" : "/ mo",
     isSpecialState: false,
   };
 }
@@ -152,7 +152,7 @@ export function formatLimit(
   const isBn = locale === "bn";
 
   if (limit === "unlimited") {
-    return isBn ? "সীমাহীন (Unlimited)" : "Unlimited";
+    return isBn ? "সীমাহীন" : "Unlimited";
   }
 
   if (limit === "unavailable") {

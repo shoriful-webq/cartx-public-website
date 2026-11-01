@@ -22,12 +22,12 @@ export function BillingToggle({
   const isBn = locale === "bn";
 
   return (
-    <div className={cn("flex flex-col items-center justify-center gap-2.5", className)}>
+    <div className={cn("flex flex-col items-center justify-center gap-2", className)}>
       {/* Consolidated Toggle Pill Box */}
       <div
         role="tablist"
         aria-label="Billing frequency options"
-        className="inline-flex items-center rounded-xl border border-border bg-muted/60 p-1 shadow-xs"
+        className="inline-flex items-center rounded-full border border-[#E2E8F0] dark:border-border bg-white dark:bg-card p-1 shadow-xs"
       >
         {/* Monthly Option */}
         <button
@@ -37,16 +37,16 @@ export function BillingToggle({
           aria-selected={billingPeriod === "monthly"}
           onClick={() => onPeriodChange("monthly")}
           className={cn(
-            "rounded-lg px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer select-none",
+            "rounded-full px-4 py-1.5 text-xs sm:text-sm font-semibold transition-all duration-150 cursor-pointer select-none",
             billingPeriod === "monthly"
-              ? "bg-card text-foreground shadow-sm font-bold ring-1 ring-border/80"
-              : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
+              ? "bg-[#0F172A] text-white dark:bg-primary dark:text-primary-foreground shadow-xs font-bold"
+              : "text-[#475569] dark:text-muted-foreground hover:text-[#0F172A] dark:hover:text-foreground"
           )}
         >
           {isBn ? "মাসিক বিলিং" : "Monthly Billing"}
         </button>
 
-        {/* Consolidated Yearly Option (Consolidating "Yearly Billing" and "Annual" with explicit discount badge) */}
+        {/* Yearly Option with Save 17% */}
         <button
           type="button"
           role="tab"
@@ -54,10 +54,10 @@ export function BillingToggle({
           aria-selected={billingPeriod === "yearly"}
           onClick={() => onPeriodChange("yearly")}
           className={cn(
-            "rounded-lg px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer select-none flex items-center gap-2",
+            "rounded-full px-4 py-1.5 text-xs sm:text-sm font-semibold transition-all duration-150 cursor-pointer select-none flex items-center gap-1.5",
             billingPeriod === "yearly"
-              ? "bg-card text-foreground shadow-sm font-bold ring-1 ring-border/80"
-              : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
+              ? "bg-[#0F172A] text-white dark:bg-primary dark:text-primary-foreground shadow-xs font-bold"
+              : "text-[#475569] dark:text-muted-foreground hover:text-[#0F172A] dark:hover:text-foreground"
           )}
         >
           <span>{isBn ? "বার্ষিক বিলিং" : "Yearly Billing"}</span>
@@ -67,12 +67,12 @@ export function BillingToggle({
               className={cn(
                 "rounded-full px-2 py-0.5 text-[10px] font-bold tracking-tight transition-colors",
                 billingPeriod === "yearly"
-                  ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
-                  : "bg-primary/10 text-primary border border-primary/20"
+                  ? "bg-emerald-500/20 text-emerald-300 dark:text-emerald-300"
+                  : "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800"
               )}
             >
               {isBn
-                ? `${yearlyDiscountPercentage}% ছাড়`
+                ? `${yearlyDiscountPercentage}% সাশ্রয়`
                 : `Save ${yearlyDiscountPercentage}%`}
             </span>
           )}
@@ -80,7 +80,7 @@ export function BillingToggle({
       </div>
 
       {/* Dynamic Caption showing exact billing terms */}
-      <p className="text-xs text-muted-foreground text-center">
+      <p className="text-xs text-[#475569] dark:text-muted-foreground text-center">
         {billingPeriod === "yearly"
           ? isBn
             ? "বার্ষিক বিলিংয়ে পরিশোধ • ২ মাস ফ্রি (১৭% সাশ্রয়)"

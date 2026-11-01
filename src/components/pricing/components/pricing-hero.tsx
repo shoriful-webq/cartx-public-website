@@ -26,45 +26,21 @@ export function PricingHero({
     <section
       aria-label="Pricing Hero"
       className={cn(
-        "hero-bg relative overflow-hidden transition-colors pt-16 sm:pt-20 pb-8 sm:pb-10",
+        "bg-[#F8FAFC]/50 dark:bg-background pt-12 sm:pt-16 pb-4 transition-colors",
         className
       )}
     >
-      {/* Background ambient accents */}
-      <div
-        className="pointer-events-none absolute -right-36 -top-36 h-[28rem] w-[28rem] rounded-full opacity-[0.045]"
-        style={{
-          background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -bottom-20 -left-20 h-60 w-60 rounded-full opacity-[0.035]"
-        style={{
-          background: "radial-gradient(circle, var(--secondary-accent) 0%, transparent 70%)",
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.025]"
-        style={{
-          backgroundImage: "radial-gradient(circle, var(--foreground) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="container relative max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
+      <div className="container max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="text-center flex flex-col items-center">
           <ScrollReveal delay={0}>
             {/* Small Understated Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/50 border border-blue-200/80 dark:border-blue-900 text-[#2563EB] dark:text-blue-400 text-xs font-semibold mb-3">
               <CreditCard className="h-3.5 w-3.5" />
               <span>{isBn ? "স্বচ্ছ মূল্যতালিকা" : "Transparent Pricing"}</span>
             </div>
 
             {/* Main H1 Heading */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.15] mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold tracking-tight text-[#0F172A] dark:text-foreground leading-tight mb-3">
               <span className="brand-gradient-text">
                 {isBn
                   ? "আপনার অনলাইন ব্যবসার জন্য সহজ ও স্বচ্ছ মূল্যতালিকা"
@@ -73,7 +49,7 @@ export function PricingHero({
             </h1>
 
             {/* Concise Supporting Copy */}
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
+            <p className="text-sm sm:text-base text-[#475569] dark:text-muted-foreground leading-relaxed max-w-xl mx-auto mb-6">
               {isBn
                 ? "আপনার স্টোরের প্রয়োজনীয়তা, দলের আকার ও বৈশিষ্ট্যের ওপর ভিত্তি করে সঠিক প্ল্যানটি বেছে নিন।"
                 : "Choose a plan based on your store's needs, team size and required features."}
