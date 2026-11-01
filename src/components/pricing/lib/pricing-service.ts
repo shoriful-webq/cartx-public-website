@@ -29,19 +29,14 @@ export const PRICING_PLANS: PricingPlan[] = [
       bn: "পণ্য ক্যাটালগ এবং আপনার প্রথম ডিজিটাল স্টোরফ্রন্ট চালু করার প্রাথমিক টুলসমূহ।",
     },
     targetAudience: {
-      en: "Ideal for solo creators and emerging brands launching their first digital store.",
-      bn: "নতুন উদ্যোক্তা ও ছোট ব্যবসার জন্য প্রথম ডিজিটাল স্টোর চালুর আদর্শ প্যাকেজ।",
+      en: "For solo creators and emerging brands launching their first online store.",
+      bn: "নতুন উদ্যোক্তা ও ছোট ব্যবসার জন্য প্রথম অনলাইন স্টোর চালুর সহজ সমাধান।",
     },
     prices: {
-      monthly: null,
-      yearly: null,
+      monthly: 999,
+      yearly: 9990,
       currency: "BDT",
       currencySymbol: "৳",
-      isPendingLaunch: true,
-      pendingNotice: {
-        en: "Announced at Launch",
-        bn: "সার্ভিস চালুর সময় প্রকাশিত হবে",
-      },
     },
     limits: {
       products: 100,
@@ -68,7 +63,6 @@ export const PRICING_PLANS: PricingPlan[] = [
       { en: "Modern web storefront with responsive mobile checkout", bn: "মোবাইল ফ্রেন্ডলি আধুনিক ওয়েব স্টোরফ্রন্ট" },
       { en: "Cash on delivery & automated MFS payments (bKash/Nagad)", bn: "ক্যাশ অন ডেলিভারি ও স্বয়ংক্রিয় এমএফএস পেমেন্ট" },
       { en: "Custom domain connection with automated free SSL", bn: "কাস্টম ডোমেইন সংযোগ ও ফ্রি এসএসএল সার্টিফিকেট" },
-      { en: "Real-time order logging & standard inventory tracking", bn: "রিয়েল-টাইম অর্ডার ট্র্যাকিং ও ইনভেন্টরি ম্যানেজমেন্ট" },
       { en: "Standard email and ticket technical support", bn: "স্ট্যান্ডার্ড ইমেইল ও টিকিট টেকনিক্যাল সাপোর্ট" },
     ],
     cta: {
@@ -86,21 +80,16 @@ export const PRICING_PLANS: PricingPlan[] = [
       bn: "স্বয়ংক্রিয় কুরিয়ার বুকিং, ইনভয়েসিং এবং দ্রুত বর্ধনশীল ব্যবসার জন্য সম্প্রসারিত সক্ষমতা।",
     },
     targetAudience: {
-      en: "Built for scaling retailers needing automated courier handoffs and team operations.",
+      en: "For scaling retailers needing automated courier handoffs and team operations.",
       bn: "দ্রুত বর্ধনশীল ব্যবসার জন্য অটোমেটেড কুরিয়ার বুকিং, চালান ও টিম ম্যানেজমেন্ট।",
     },
     highlighted: true,
     badge: { en: "Most Popular", bn: "সর্বাধিক জনপ্রিয়" },
     prices: {
-      monthly: null,
-      yearly: null,
+      monthly: 2499,
+      yearly: 24990,
       currency: "BDT",
       currencySymbol: "৳",
-      isPendingLaunch: true,
-      pendingNotice: {
-        en: "Announced at Launch",
-        bn: "সার্ভিস চালুর সময় প্রকাশিত হবে",
-      },
     },
     limits: {
       products: 2500,
@@ -124,11 +113,10 @@ export const PRICING_PLANS: PricingPlan[] = [
       customIntegrations: "optional_addon",
     },
     featureHighlights: [
-      { en: "Automated courier parcel dispatch (Pathao, Steadfast, RedX)", bn: "অটোমেটেড কুরিয়ার পার্সেল বুকিং (পাঠাও, স্টেডফাস্ট, রেডএক্স)" },
+      { en: "Automated courier dispatch (Pathao, Steadfast, RedX)", bn: "অটোমেটেড কুরিয়ার পার্সেল বুকিং (পাঠাও, স্টেডফাস্ট, রেডএক্স)" },
       { en: "Instant PDF invoices & dynamic discount campaign engine", bn: "স্বয়ংক্রিয় পিডিএফ ইনভয়েস ও ডায়নামিক ডিসকাউন্ট ইঞ্জিন" },
       { en: "Automated SMS order notifications & customer OTP gateway", bn: "কাস্টমার এসএমএস নোটিফিকেশন ও ওটিপি গেটওয়ে" },
-      { en: "Multi-attribute variant matrix (sizes, colors, specifications)", bn: "মাল্টি-ভ্যারিয়েন্ট সুবিধা (সাইজ, রঙ ও কাস্টম স্পেসিফিকেশন)" },
-      { en: "White-label mobile app compilation add-on eligible", bn: "হোয়াইট-লেবেল মোবাইল অ্যাপ অ্যাড-অন সংযোগযোগ্য" },
+      { en: "Multi-attribute variant matrix (sizes, colors, custom specs)", bn: "মাল্টি-ভ্যারিয়েন্ট সুবিধা (সাইজ, রঙ ও কাস্টম স্পেক্স)" },
       { en: "Priority technical support via live chat & email", bn: "অগ্রাধিকারভিত্তিক লাইভ চ্যাট ও ইমেইল সাপোর্ট" },
     ],
     cta: {
@@ -146,19 +134,14 @@ export const PRICING_PLANS: PricingPlan[] = [
       bn: "উন্নত অপারেশনাল সক্ষমতা, মাল্টি-ওয়্যারহাউজ স্টক এবং গভীর অ্যানালিটিক্স রিপোর্ট।",
     },
     targetAudience: {
-      en: "Designed for high-volume merchants managing multi-warehouse inventory and analytics.",
-      bn: "উচ্চ ভলিউম বিক্রয়কারী ও মাল্টি-ওয়্যারহাউজ স্টক পরিচালনাকারী প্রতিষ্ঠিত ব্র্যান্ডের জন্য।",
+      en: "For high-volume merchants managing multi-warehouse stock and analytics.",
+      bn: "উচ্চ ভলিউম বিক্রয়কারী ও মাল্টি-ওয়্যারহাউজ স্টক পরিচালনাকারী ব্র্যান্ডের জন্য।",
     },
     prices: {
-      monthly: null,
-      yearly: null,
+      monthly: 5999,
+      yearly: 59990,
       currency: "BDT",
       currencySymbol: "৳",
-      isPendingLaunch: true,
-      pendingNotice: {
-        en: "Announced at Launch",
-        bn: "সার্ভিস চালুর সময় প্রকাশিত হবে",
-      },
     },
     limits: {
       products: 10000,
@@ -186,7 +169,6 @@ export const PRICING_PLANS: PricingPlan[] = [
       { en: "Meta Pixel CAPI & Google Analytics 4 deep attribution", bn: "মেটা পিক্সেল সিএপিআই ও জিএ৪ কনভার্সন অ্যানালিটিক্স" },
       { en: "Automated customer return handling & fraud risk scoring", bn: "স্বয়ংক্রিয় রিটার্ন প্রসেসিং ও ফ্রড রিস্ক ডিটেকশন" },
       { en: "Custom webhooks and high-throughput REST API access", bn: "কাস্টম ওয়েবহুক ও হাই-থ্রুপুট রেস্ট এপিআই অ্যাক্সেস" },
-      { en: "White-label mobile app priority compilation queue", bn: "হোয়াইট-লেবেল মোবাইল অ্যাপ অগ্রাধিকার বিল্ড কিউ" },
       { en: "Dedicated account manager & guided onboarding setup", bn: "ডেডিকেটেড অ্যাকাউন্ট ম্যানেজার ও অনবোর্ডিং সহায়তা" },
     ],
     cta: {
@@ -204,7 +186,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       bn: "ডেডিকেটেড ক্লাউড ইনফ্রাস্ট্রাকচার, কাস্টম ইআরপি ব্রিজ এবং সম্পূর্ণ কাস্টমাইজড ইকোসিস্টেম।",
     },
     targetAudience: {
-      en: "Engineered for large retail groups requiring dedicated infrastructure, custom ERP, and SLAs.",
+      en: "For large retail organizations requiring dedicated infrastructure, custom ERP, and SLAs.",
       bn: "বৃহৎ রিটেইল গ্রুপ ও ফ্র্যাঞ্চাইজির জন্য ডেডিকেটেড ক্লাউড ইনফ্রাস্ট্রাকচার ও কাস্টম ইআরপি।",
     },
     prices: {
@@ -239,7 +221,6 @@ export const PRICING_PLANS: PricingPlan[] = [
       { en: "Dedicated cloud infrastructure with 99.9% uptime SLA", bn: "ডেডিকেটেড ক্লাউড আর্কিটেকচার ও ৯৯.৯% আপটাইম এসএলএ" },
       { en: "Bespoke ERP, POS, and legacy database system bridges", bn: "কাস্টম ইআরপি, পিওএস ও ইনভেন্টরি ডাটাবেস ইন্টিগ্রেশন" },
       { en: "Native iOS & Android white-label apps fully included", bn: "নেটিভ আইওএস ও অ্যান্ড্রয়েড হোয়াইট-লেবেল অ্যাপ প্যাকেজ অন্তর্ভুক্ত" },
-      { en: "Tailored storefront engineering & custom checkout flows", bn: "কাস্টমাইজড স্টোরফ্রন্ট আর্কিটেকচার ও চেকআউট ফ্লো" },
       { en: "24/7 technical emergency SLA & private support channel", bn: "২৪/৭ টেকনিক্যাল ইমার্জেন্সি এসএলএ ও প্রাইভেট সাপোর্ট চ্যানেল" },
       { en: "Unlimited catalog throughput, concurrency, and storage", bn: "আনলিমিটেড অর্ডার থ্রুপুট, ট্রাফিক সক্ষমতা ও ক্লাউড স্টোরেজ" },
     ],

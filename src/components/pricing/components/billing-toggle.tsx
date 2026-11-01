@@ -15,78 +15,80 @@ interface BillingToggleProps {
 export function BillingToggle({
   billingPeriod,
   onPeriodChange,
-  yearlyDiscountPercentage = null,
+  yearlyDiscountPercentage = 17,
   className,
 }: BillingToggleProps) {
   const { locale } = useLanguage();
   const isBn = locale === "bn";
 
   return (
-    <div className={cn("flex flex-col items-center justify-center gap-3", className)}>
-      {/* Toggle Pill Box */}
+    <div className={cn("flex flex-col items-center justify-center gap-2.5", className)}>
+      {/* Consolidated Toggle Pill Box */}
       <div
         role="tablist"
-        aria-label="Billing frequency selection"
-        className="inline-flex items-center rounded-2xl border border-border bg-muted/60 p-1.5 shadow-xs"
+        aria-label="Billing frequency options"
+        className="inline-flex items-center rounded-xl border border-border bg-muted/60 p-1 shadow-xs"
       >
-        {/* Monthly Button */}
+        {/* Monthly Option */}
         <button
           type="button"
           role="tab"
-          id="billing-monthly"
+          id="billing-tab-monthly"
           aria-selected={billingPeriod === "monthly"}
           onClick={() => onPeriodChange("monthly")}
           className={cn(
-            "rounded-xl px-5 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer",
+            "rounded-lg px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer select-none",
             billingPeriod === "monthly"
-              ? "bg-card text-foreground shadow-sm font-bold"
-              : "text-muted-foreground hover:text-foreground"
+              ? "bg-card text-foreground shadow-sm font-bold ring-1 ring-border/80"
+              : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
           )}
         >
           {isBn ? "মাসিক বিলিং" : "Monthly Billing"}
         </button>
 
-        {/* Yearly Button */}
+        {/* Consolidated Yearly Option (Consolidating "Yearly Billing" and "Annual" with explicit discount badge) */}
         <button
           type="button"
           role="tab"
-          id="billing-yearly"
+          id="billing-tab-yearly"
           aria-selected={billingPeriod === "yearly"}
           onClick={() => onPeriodChange("yearly")}
           className={cn(
-            "relative rounded-xl px-5 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer flex items-center gap-2",
+            "rounded-lg px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer select-none flex items-center gap-2",
             billingPeriod === "yearly"
-              ? "bg-card text-foreground shadow-sm font-bold"
-              : "text-muted-foreground hover:text-foreground"
+              ? "bg-card text-foreground shadow-sm font-bold ring-1 ring-border/80"
+              : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
           )}
         >
           <span>{isBn ? "বার্ষিক বিলিং" : "Yearly Billing"}</span>
 
-          {yearlyDiscountPercentage && yearlyDiscountPercentage > 0 ? (
-            <span className="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
+          {yearlyDiscountPercentage && yearlyDiscountPercentage > 0 && (
+            <span
+              className={cn(
+                "rounded-full px-2 py-0.5 text-[10px] font-bold tracking-tight transition-colors",
+                billingPeriod === "yearly"
+                  ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                  : "bg-primary/10 text-primary border border-primary/20"
+              )}
+            >
               {isBn
                 ? `${yearlyDiscountPercentage}% ছাড়`
                 : `Save ${yearlyDiscountPercentage}%`}
-            </span>
-          ) : (
-            <span className="rounded-full bg-primary/10 border border-primary/20 px-2 py-0.5 text-[10px] font-bold text-primary">
-              {isBn ? "সাশ্রয়ী" : "Annual"}
             </span>
           )}
         </button>
       </div>
 
-      {/* Explanatory Caption */}
+      {/* Dynamic Caption showing exact billing terms */}
       <p className="text-xs text-muted-foreground text-center">
         {billingPeriod === "yearly"
           ? isBn
-            ? "বার্ষিক বিলিংয়ে এককালীন বার্ষিক মোট মূল্য পরিশোধিত হয় এবং দীর্ঘমেয়াদে সর্বোত্তম সুবিধা নিশ্চিত হয়।"
-            : "Annual billing is committed yearly with guaranteed rates and unified accounting."
+            ? "বার্ষিক বিলিংয়ে পরিশোধ • ২ মাস ফ্রি (১৭% সাশ্রয়)"
+            : "Billed annually • 2 months free (Save ~17%) with annual commitment"
           : isBn
-          ? "মাসিক ভিত্তিতে বিলিং করা হয়, আপনি যেকোনো সময় পরিবর্তন বা বাতিল করতে পারেন।"
-          : "Billed on a flexible month-to-month basis with zero lock-in contracts."}
+          ? "মাসিক ভিত্তিতে বিল্ড • যেকোনো সময় পরিবর্তনযোগ্য • ১৪ দিনের ফ্রি ট্রায়াল"
+          : "Billed month-to-month • Cancel anytime • 14-day free trial on retail tiers"}
       </p>
     </div>
   );
 }
-

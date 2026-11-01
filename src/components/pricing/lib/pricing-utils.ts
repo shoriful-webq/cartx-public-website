@@ -115,12 +115,15 @@ export function getPlanDisplayPrice(
       : formatCurrency(plan.prices.yearly / 12, plan.prices.currency, locale);
 
     const annualTotal = formatCurrency(plan.prices.yearly, plan.prices.currency, locale);
+    const discountPct = savings?.discountPercentage ? `${savings.discountPercentage}%` : "17%";
+
+    const secondaryText = isBn
+      ? `বার্ষিক মোট ${annualTotal} (${discountPct} সাশ্রয়)`
+      : `Billed annually at ${annualTotal} (Save ${discountPct})`;
 
     return {
       primaryPriceText: monthlyEq,
-      secondaryPriceText: isBn
-        ? `প্রতি বছর মোট ${annualTotal} বিল্ড`
-        : `Billed annually at ${annualTotal}`,
+      secondaryPriceText: secondaryText,
       billingFrequencyText: isBn ? "/মাস (বার্ষিক বিলিং)" : "/month (billed annually)",
       isSpecialState: false,
     };
@@ -130,7 +133,9 @@ export function getPlanDisplayPrice(
   const monthlyStr = formatCurrency(plan.prices.monthly, plan.prices.currency, locale);
   return {
     primaryPriceText: monthlyStr,
-    secondaryPriceText: isBn ? "প্রতি মাসে স্বয়ংক্রিয় নবায়ন" : "Billed monthly, cancel anytime",
+    secondaryPriceText: isBn
+      ? "মাসিক ভিত্তিতে বিল্ড • ১৪ দিনের ট্রায়াল"
+      : "Billed monthly • 14-day free trial included",
     billingFrequencyText: isBn ? "/মাস" : "/month",
     isSpecialState: false,
   };
