@@ -14,9 +14,5 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage() {
-  return (
-    <main>
-      <PricingView />
-    </main>
-  );
+  return <PricingView />;
 }

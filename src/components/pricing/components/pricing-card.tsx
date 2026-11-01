@@ -54,11 +54,11 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
   return (
     <div
       className={cn(
-        "group relative flex flex-col justify-between rounded-xl transition-all duration-200",
-        "p-5 xl:p-6 bg-white dark:bg-card text-foreground",
+        "group relative flex flex-col justify-between rounded-2xl transition-all duration-200",
+        "p-5 xl:p-6 bg-white dark:bg-slate-900 text-foreground",
         isHighlighted
-          ? "border-2 border-[#2563EB] shadow-md ring-1 ring-[#2563EB]/15 hover:shadow-lg"
-          : "border border-[#E2E8F0] dark:border-border/80 shadow-xs hover:border-[#2563EB]/40 hover:shadow-sm",
+          ? "border-2 border-[#2563EB] shadow-md ring-4 ring-[#2563EB]/10 hover:shadow-xl hover:-translate-y-0.5"
+          : "border border-slate-200/90 dark:border-slate-800 shadow-xs hover:border-[#2563EB]/50 hover:shadow-md hover:-translate-y-0.5",
         className
       )}
     >
@@ -117,10 +117,10 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
           <Link
             href={plan.cta.href}
             className={cn(
-              "w-full h-10 inline-flex items-center justify-center gap-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-150 cursor-pointer shadow-xs",
+              "w-full h-10 inline-flex items-center justify-center gap-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-150 cursor-pointer shadow-xs",
               isHighlighted
                 ? "bg-[#2563EB] text-white hover:bg-[#1D4ED8] shadow-sm"
-                : "border border-[#E2E8F0] dark:border-border bg-white dark:bg-card text-[#0F172A] dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-muted"
+                : "border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700"
             )}
           >
             <span>{plan.cta.label[isBn ? "bn" : "en"]}</span>
@@ -129,7 +129,7 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
         </div>
 
         {/* 6. Subtle Divider */}
-        <div className="border-t border-[#E2E8F0] dark:border-border/60 mb-4" />
+        <div className="border-t border-slate-100 dark:border-slate-800/80 mb-4" />
 
         {/* 7. Key Included Features */}
         <div className="space-y-2.5 flex-1 mb-5">
@@ -153,7 +153,7 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
       </div>
 
       {/* 8. Additional Limits & Key Specifications Displayed Compactly */}
-      <div className="pt-3 border-t border-[#E2E8F0] dark:border-border/60 space-y-2">
+      <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 space-y-2">
         <div className="grid grid-cols-4 gap-1 text-center">
           <div className="rounded bg-slate-50 dark:bg-muted/40 border border-slate-100 dark:border-border/40 py-1 px-1">
             <span className="block font-medium text-[#475569] dark:text-muted-foreground uppercase text-[9px] truncate">

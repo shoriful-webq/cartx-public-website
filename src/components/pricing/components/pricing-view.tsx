@@ -25,14 +25,14 @@ export function PricingView() {
   const faqs = getPricingFaqs();
 
   return (
-    <article className="flex flex-col min-h-screen bg-background text-foreground">
+    <article className="flex flex-col min-h-screen bg-[#F8FAFC] dark:bg-background text-foreground transition-colors">
       {/* Section 01: Hero & Billing Selector */}
       <PricingHero
         billingPeriod={billingPeriod}
         onPeriodChange={setBillingPeriod}
       />
 
-      {/* Section 02 & 03: 2x2 Pricing Cards Grid */}
+      {/* Section 02 & 03: Four Pricing Cards in One Desktop Row */}
       <PricingGrid
         plans={plans}
         billingPeriod={billingPeriod}

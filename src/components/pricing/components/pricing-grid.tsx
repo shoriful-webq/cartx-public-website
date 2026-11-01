@@ -5,7 +5,6 @@ import { CheckCircle2, ShieldCheck, Zap } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { BillingPeriod, PricingPlan } from "../types/pricing.types";
 import { PricingCard } from "./pricing-card";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface PricingGridProps {
@@ -41,28 +40,24 @@ export function PricingGrid({
     <section
       id="plans-grid"
       aria-label="Available Subscription Plans"
-      className={cn("pt-4 pb-16 sm:pb-24 border-b border-[#E2E8F0] dark:border-border bg-[#F8FAFC]/50 dark:bg-background", className)}
+      className={cn("pt-2 pb-16 sm:pb-24 border-b border-slate-200/80 dark:border-slate-800", className)}
     >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* All Four Pricing Cards in One Single Row on Desktop (lg:grid-cols-4) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-5 items-stretch">
-          {plans.map((plan, idx) => (
-            <ScrollReveal
-              key={plan.id}
-              delay={Math.min(idx * 50, 200)}
-              className="h-full flex"
-            >
+          {plans.map((plan) => (
+            <div key={plan.id} className="h-full flex">
               <PricingCard
                 plan={plan}
                 billingPeriod={billingPeriod}
                 className="w-full h-full"
               />
-            </ScrollReveal>
+            </div>
           ))}
         </div>
 
         {/* Micro Trust Strip below cards */}
-        <div className="mt-10 pt-6 border-t border-[#E2E8F0] dark:border-border/60 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs text-[#475569] dark:text-muted-foreground">
+        <div className="mt-10 pt-6 border-t border-slate-200/80 dark:border-slate-800 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs text-slate-500 dark:text-slate-400">
           {trustHighlights.map((item, idx) => {
             const IconComponent = item.icon;
             return (
