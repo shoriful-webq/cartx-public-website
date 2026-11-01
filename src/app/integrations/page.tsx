@@ -1,37 +1,22 @@
-"use client";
+import { Metadata } from "next";
+import { IntegrationsDirectoryView } from "@/components/integrations";
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { useLanguage } from "@/lib/i18n/language-context";
-import { EcosystemIntegrationsMockup } from "@/components/features/deep-dives/mockups/ecosystem-integrations-mockup";
+export const metadata: Metadata = {
+  title: "Integrations & Ecosystem Directory | CartX Platform",
+  description:
+    "Connect CartX with verified MFS payment gateways (bKash, Nagad, SSLCommerz), automated courier logistics (Pathao, Steadfast, RedX), analytics, SMS alerts, and custom domains.",
+  openGraph: {
+    title: "Integrations & Ecosystem Directory | CartX Platform",
+    description:
+      "Connect CartX with verified MFS payment gateways, automated couriers, analytics, and messaging integrations for seamless Bangladeshi e-commerce.",
+    type: "website",
+  },
+};
 
 export default function IntegrationsPage() {
-  const { t } = useLanguage();
-
   return (
-    <div className="section-padding pt-24 sm:pt-28 lg:pt-32">
-      <div className="container max-w-4xl text-center">
-        <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-          {t("nav.integrations")}
-        </span>
-        <h1 className="mt-3 mb-4 tracking-tight">{t("integrations.title")}</h1>
-        <p className="section-description">
-          {t("integrations.desc")}
-        </p>
-
-        <div className="flex justify-center mt-6 mb-12">
-          <Link
-            href="/start"
-            className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-xs font-semibold text-primary-foreground shadow-xs hover:bg-primary-hover transition-colors"
-          >
-            {t("btn.startTrial")} <ArrowRight className="size-3.5" />
-          </Link>
-        </div>
-
-        <div className="text-left mt-8 max-w-2xl mx-auto">
-          <EcosystemIntegrationsMockup t={t} />
-        </div>
-      </div>
-    </div>
+    <main>
+      <IntegrationsDirectoryView />
+    </main>
   );
 }
