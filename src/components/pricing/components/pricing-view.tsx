@@ -26,14 +26,16 @@ export function PricingView() {
 
   return (
     <article className="flex flex-col min-h-screen bg-background text-foreground">
-      {/* Section 01: Hero */}
-      <PricingHero />
+      {/* Section 01: Hero & Billing Selector */}
+      <PricingHero
+        billingPeriod={billingPeriod}
+        onPeriodChange={setBillingPeriod}
+      />
 
-      {/* Section 02 & 03: Billing Toggle & Pricing Cards Grid */}
+      {/* Section 02 & 03: 2x2 Pricing Cards Grid */}
       <PricingGrid
         plans={plans}
         billingPeriod={billingPeriod}
-        onPeriodChange={setBillingPeriod}
       />
 
       {/* Section 04: Plan Comparison Table */}
@@ -56,4 +58,3 @@ export function PricingView() {
     </article>
   );
 }
-

@@ -63,6 +63,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       { en: "Modern web storefront with responsive mobile checkout", bn: "মোবাইল ফ্রেন্ডলি আধুনিক ওয়েব স্টোরফ্রন্ট" },
       { en: "Cash on delivery & automated MFS payments (bKash/Nagad)", bn: "ক্যাশ অন ডেলিভারি ও স্বয়ংক্রিয় এমএফএস পেমেন্ট" },
       { en: "Custom domain connection with automated free SSL", bn: "কাস্টম ডোমেইন সংযোগ ও ফ্রি এসএসএল সার্টিফিকেট" },
+      { en: "Automated inventory tracking & low stock alerts", bn: "স্বয়ংক্রিয় ইনভেন্টরি ট্র্যাকিং ও লো-স্টক সতর্কতা" },
       { en: "Standard email and ticket technical support", bn: "স্ট্যান্ডার্ড ইমেইল ও টিকিট টেকনিক্যাল সাপোর্ট" },
     ],
     cta: {
