@@ -33,7 +33,7 @@ export function PricingHero({ className }: PricingHeroProps) {
     <section
       aria-label="Pricing Hero"
       className={cn(
-        "hero-bg relative overflow-hidden transition-colors border-b border-border py-16 sm:py-20 lg:py-24",
+        "hero-bg relative overflow-hidden transition-colors py-16",
         className
       )}
     >

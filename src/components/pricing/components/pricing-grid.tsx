@@ -31,7 +31,7 @@ export function PricingGrid({
       aria-label="Available Subscription Plans"
       className={cn("py-16 sm:py-24 border-b border-border bg-background", className)}
     >
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="container max-w-5xl mx-auto px-4 sm:px-6">
         {/* Section Header & Billing Toggle */}
         <div className="max-w-3xl mx-auto text-center mb-14">
           <ScrollReveal delay={0}>
@@ -71,18 +71,18 @@ export function PricingGrid({
           </ScrollReveal>
         </div>
 
-        {/* 4 Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        {/* 4 Plans in Exactly 2 Cards Per Row Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {plans.map((plan, idx) => (
             <ScrollReveal
               key={plan.id}
-              delay={Math.min(idx * 60, 300)}
-              className="h-full"
+              delay={Math.min(idx * 80, 300)}
+              className="h-full flex"
             >
               <PricingCard
                 plan={plan}
                 billingPeriod={billingPeriod}
-                className="h-full"
+                className="w-full h-full"
               />
             </ScrollReveal>
           ))}
