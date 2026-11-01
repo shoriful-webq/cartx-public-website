@@ -37,7 +37,7 @@ export function SolutionsHero({ className }: SolutionsHeroProps) {
     <section
       aria-label="Solutions Hero"
       className={cn(
-        "hero-bg relative overflow-hidden transition-colors border-b border-border",
+        "hero-bg relative overflow-hidden transition-colors",
         className
       )}
     >

@@ -21,7 +21,7 @@ export function SolutionHero({ solution, className }: SolutionHeroProps) {
     <section
       aria-label={`${solution.name[locale] || solution.name.en} Hero`}
       className={cn(
-        "hero-bg relative overflow-hidden transition-colors border-b border-border",
+        "hero-bg relative overflow-hidden transition-colors",
         className
       )}
     >

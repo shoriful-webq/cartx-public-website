@@ -30,7 +30,7 @@ export function ThemesHero({ className, onExploreClick }: ThemesHeroProps) {
     <section
       aria-label="Themes Hero"
       className={cn(
-        "hero-bg relative overflow-hidden transition-colors border-b border-border",
+        "hero-bg relative overflow-hidden transition-colors",
         className
       )}
     >

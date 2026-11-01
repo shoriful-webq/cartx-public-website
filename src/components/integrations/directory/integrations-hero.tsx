@@ -53,7 +53,7 @@ export function IntegrationsHero({ className }: IntegrationsHeroProps) {
     <section
       aria-label="Integrations Hero"
       className={cn(
-        "hero-bg relative overflow-hidden transition-colors border-b border-border",
+        "hero-bg relative overflow-hidden transition-colors",
         className
       )}
     >

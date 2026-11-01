@@ -25,7 +25,7 @@ export function PricingHero({
     <section
       aria-label="Pricing Hero"
       className={cn(
-        "hero-bg hero-padding border-b border-border transition-colors",
+        "hero-bg hero-padding transition-colors",
         className
       )}
     >
