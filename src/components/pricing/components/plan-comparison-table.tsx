@@ -25,14 +25,14 @@ export function PlanComparisonTable({
   const renderValue = (val: unknown) => {
     if (val === true) {
       return (
-        <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
+        <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-success/15 text-success">
           <CheckCircle2 className="h-3.5 w-3.5" />
         </span>
       );
     }
     if (val === false) {
       return (
-        <span className="inline-flex items-center justify-center text-slate-300 dark:text-slate-600">
+        <span className="inline-flex items-center justify-center text-muted-foreground/40">
           <Minus className="h-3.5 w-3.5" />
         </span>
       );
@@ -40,13 +40,13 @@ export function PlanComparisonTable({
     if (typeof val === "object" && val !== null && "en" in val && "bn" in val) {
       const locVal = val as { en: string; bn: string };
       return (
-        <span className="text-xs font-semibold text-[#0F172A] dark:text-slate-200">
+        <span className="text-xs font-semibold text-foreground">
           {locVal[isBn ? "bn" : "en"]}
         </span>
       );
     }
     return (
-      <span className="text-xs font-medium text-[#0F172A] dark:text-slate-200">
+      <span className="text-xs font-medium text-foreground">
         {String(val)}
       </span>
     );
@@ -56,23 +56,23 @@ export function PlanComparisonTable({
     <section
       id="plan-comparison"
       aria-label="Detailed Plan Comparison"
-      className={cn("py-16 sm:py-20 border-b border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-950/30", className)}
+      className={cn("py-16 sm:py-20 border-b border-border bg-card/30", className)}
     >
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         {/* Section Heading */}
         <div className="max-w-3xl mx-auto text-center mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200/80 dark:border-blue-900/60 text-[#2563EB] dark:text-blue-400 text-xs font-semibold mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
             <Layers className="h-3.5 w-3.5" />
             <span>{isBn ? "ফিচার তুলনা" : "Plan Comparison"}</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#0F172A] dark:text-white mb-3">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground mb-3">
             <span className="brand-gradient-text">
               {isBn
                 ? "ফিচার ও সক্ষমতার পূর্ণাঙ্গ তুলনা"
                 : "Compare All Features & Plan Entitlements"}
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-[#475569] dark:text-slate-400 leading-relaxed">
+          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
             {isBn
               ? "আপনার ব্যবসার জন্য কোন প্ল্যানটি সবচেয়ে উপযুক্ত তা ফিচারভিত্তিক তুলনা করে নিশ্চিত হন।"
               : "Evaluate exact catalog limits, staff accounts, logistics integrations, and white-label capabilities side-by-side."}
@@ -83,13 +83,13 @@ export function PlanComparisonTable({
         <MobilePlanComparison plans={plans} categories={categories} />
 
         {/* Desktop & Tablet View (Horizontally Scrollable Full Table) */}
-        <div className="hidden lg:block overflow-hidden rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
+        <div className="hidden lg:block overflow-hidden rounded-2xl border border-border bg-card shadow-xs">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               {/* Table Header: Plan Names & CTAs */}
               <thead>
-                <tr className="border-b border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/50">
-                  <th scope="col" className="p-5 w-[28%] text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                <tr className="border-b border-border bg-muted/40">
+                  <th scope="col" className="p-5 w-[28%] text-xs font-bold uppercase tracking-wider text-muted-foreground">
                     {isBn ? "ফিচার ও সক্ষমতা" : "Features & Capabilities"}
                   </th>
                   {plans.map((plan) => (
@@ -98,13 +98,13 @@ export function PlanComparisonTable({
                       scope="col"
                       className={cn(
                         "p-5 text-center w-[18%] transition-colors",
-                        plan.highlighted && "bg-blue-50/50 dark:bg-blue-950/30"
+                        plan.highlighted && "bg-primary/[0.04]"
                       )}
                     >
-                      <div className="font-extrabold text-base text-[#0F172A] dark:text-white mb-1">
+                      <div className="font-extrabold text-base text-foreground mb-1">
                         {plan.name[isBn ? "bn" : "en"]}
                       </div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 font-normal line-clamp-1 mb-3">
+                      <div className="text-[11px] text-muted-foreground font-normal line-clamp-1 mb-3">
                         {plan.targetAudience[isBn ? "bn" : "en"]}
                       </div>
                       <Link
@@ -112,8 +112,8 @@ export function PlanComparisonTable({
                         className={cn(
                           "inline-flex items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-150 w-full shadow-2xs",
                           plan.highlighted
-                            ? "bg-[#2563EB] text-white hover:bg-[#1D4ED8]"
-                            : "border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700"
+                            ? "bg-primary text-primary-foreground hover:bg-[var(--primary-hover)]"
+                            : "border border-border bg-card text-foreground hover:bg-muted/50"
                         )}
                       >
                         <span>{plan.cta.label[isBn ? "bn" : "en"]}</span>
@@ -129,10 +129,10 @@ export function PlanComparisonTable({
                 {categories.map((category) => (
                   <React.Fragment key={category.id}>
                     {/* Category Header Row */}
-                    <tr className="border-b border-slate-200/80 dark:border-slate-800 bg-slate-100/70 dark:bg-slate-800/60">
+                    <tr className="border-b border-border bg-muted/60">
                       <td
                         colSpan={plans.length + 1}
-                        className="py-2.5 px-5 text-[11px] font-extrabold uppercase tracking-wider text-[#2563EB] dark:text-blue-400"
+                        className="py-2.5 px-5 text-[11px] font-extrabold uppercase tracking-wider text-primary"
                       >
                         {category.name[isBn ? "bn" : "en"]}
                       </td>
@@ -142,16 +142,16 @@ export function PlanComparisonTable({
                     {category.features.map((feature) => (
                       <tr
                         key={feature.id}
-                        className="border-b border-slate-100 dark:border-slate-800/60 hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors"
+                        className="border-b border-border/40 hover:bg-muted/20 transition-colors"
                       >
                         {/* Feature Name & Tooltip */}
-                        <td className="py-3.5 px-5 text-xs font-medium text-[#0F172A] dark:text-slate-200">
+                        <td className="py-3.5 px-5 text-xs font-medium text-foreground">
                           <div className="flex items-center gap-1.5">
                             <span>{feature.name[isBn ? "bn" : "en"]}</span>
                             {feature.tooltip && (
                               <span
                                 title={feature.tooltip[isBn ? "bn" : "en"]}
-                                className="cursor-help text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                                className="cursor-help text-muted-foreground/70 hover:text-foreground"
                               >
                                 <HelpCircle className="h-3.5 w-3.5" />
                               </span>
@@ -165,7 +165,7 @@ export function PlanComparisonTable({
                             key={plan.id}
                             className={cn(
                               "py-3.5 px-5 text-center transition-colors",
-                              plan.highlighted && "bg-blue-50/20 dark:bg-blue-950/15"
+                              plan.highlighted && "bg-primary/[0.02]"
                             )}
                           >
                             {renderValue(feature.planValues[plan.id])}

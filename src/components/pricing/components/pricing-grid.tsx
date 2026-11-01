@@ -32,7 +32,7 @@ export function PricingGrid({
     },
     {
       icon: Zap,
-      label: isBn ? "০% লেনদেন কমিশন" : "0% Platform Commission",
+      label: isBn ? "০% প্ল্যাটফর্ম লেনদেন ফি" : "0% Platform Commission",
     },
   ];
 
@@ -40,9 +40,9 @@ export function PricingGrid({
     <section
       id="plans-grid"
       aria-label="Available Subscription Plans"
-      className={cn("pt-2 pb-16 sm:pb-24 border-b border-slate-200/80 dark:border-slate-800", className)}
+      className={cn("pt-4 pb-16 sm:pb-20 border-b border-border bg-background", className)}
     >
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         {/* All Four Pricing Cards in One Single Row on Desktop (lg:grid-cols-4) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-5 items-stretch">
           {plans.map((plan) => (
@@ -57,12 +57,12 @@ export function PricingGrid({
         </div>
 
         {/* Micro Trust Strip below cards */}
-        <div className="mt-10 pt-6 border-t border-slate-200/80 dark:border-slate-800 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs text-slate-500 dark:text-slate-400">
+        <div className="mt-10 pt-6 border-t border-border flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs text-muted-foreground">
           {trustHighlights.map((item, idx) => {
             const IconComponent = item.icon;
             return (
               <div key={idx} className="flex items-center gap-2 font-medium">
-                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-950/60 text-[#2563EB] dark:text-blue-400">
+                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary">
                   <IconComponent className="h-3 w-3" />
                 </div>
                 <span>{item.label}</span>

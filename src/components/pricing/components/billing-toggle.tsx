@@ -21,13 +21,24 @@ export function BillingToggle({
   const { locale } = useLanguage();
   const isBn = locale === "bn";
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      e.preventDefault();
+      onPeriodChange("monthly");
+    } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      e.preventDefault();
+      onPeriodChange("yearly");
+    }
+  };
+
   return (
-    <div className={cn("flex flex-col items-center justify-center gap-2", className)}>
-      {/* Consolidated Toggle Pill Box */}
+    <div className={cn("flex flex-col items-center justify-center gap-2.5", className)}>
+      {/* Consolidated Branded Toggle Pill */}
       <div
         role="tablist"
         aria-label="Billing frequency options"
-        className="inline-flex items-center rounded-full border border-[#E2E8F0] dark:border-border bg-white dark:bg-card p-1 shadow-xs"
+        onKeyDown={handleKeyDown}
+        className="inline-flex items-center rounded-full border border-border bg-card p-1 shadow-xs"
       >
         {/* Monthly Option */}
         <button
@@ -35,29 +46,33 @@ export function BillingToggle({
           role="tab"
           id="billing-tab-monthly"
           aria-selected={billingPeriod === "monthly"}
+          aria-controls="plans-grid"
+          tabIndex={billingPeriod === "monthly" ? 0 : -1}
           onClick={() => onPeriodChange("monthly")}
           className={cn(
             "rounded-full px-4 py-1.5 text-xs sm:text-sm font-semibold transition-all duration-150 cursor-pointer select-none",
             billingPeriod === "monthly"
-              ? "bg-[#0F172A] text-white dark:bg-primary dark:text-primary-foreground shadow-xs font-bold"
-              : "text-[#475569] dark:text-muted-foreground hover:text-[#0F172A] dark:hover:text-foreground"
+              ? "bg-primary text-primary-foreground shadow-xs font-bold"
+              : "text-muted-foreground hover:text-foreground"
           )}
         >
           {isBn ? "মাসিক বিলিং" : "Monthly Billing"}
         </button>
 
-        {/* Yearly Option with Save 17% */}
+        {/* Yearly Option with Save Discount */}
         <button
           type="button"
           role="tab"
           id="billing-tab-yearly"
           aria-selected={billingPeriod === "yearly"}
+          aria-controls="plans-grid"
+          tabIndex={billingPeriod === "yearly" ? 0 : -1}
           onClick={() => onPeriodChange("yearly")}
           className={cn(
             "rounded-full px-4 py-1.5 text-xs sm:text-sm font-semibold transition-all duration-150 cursor-pointer select-none flex items-center gap-1.5",
             billingPeriod === "yearly"
-              ? "bg-[#0F172A] text-white dark:bg-primary dark:text-primary-foreground shadow-xs font-bold"
-              : "text-[#475569] dark:text-muted-foreground hover:text-[#0F172A] dark:hover:text-foreground"
+              ? "bg-primary text-primary-foreground shadow-xs font-bold"
+              : "text-muted-foreground hover:text-foreground"
           )}
         >
           <span>{isBn ? "বার্ষিক বিলিং" : "Yearly Billing"}</span>
@@ -67,8 +82,8 @@ export function BillingToggle({
               className={cn(
                 "rounded-full px-2 py-0.5 text-[10px] font-bold tracking-tight transition-colors",
                 billingPeriod === "yearly"
-                  ? "bg-emerald-500/20 text-emerald-300 dark:text-emerald-300"
-                  : "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800"
+                  ? "bg-white/20 text-white dark:bg-black/20 dark:text-white"
+                  : "bg-success/15 text-success border border-success/30"
               )}
             >
               {isBn
@@ -79,15 +94,15 @@ export function BillingToggle({
         </button>
       </div>
 
-      {/* Dynamic Caption showing exact billing terms */}
-      <p className="text-xs text-[#475569] dark:text-muted-foreground text-center">
+      {/* Dynamic Terms Caption */}
+      <p className="text-xs text-muted-foreground text-center">
         {billingPeriod === "yearly"
           ? isBn
-            ? "বার্ষিক বিলিংয়ে পরিশোধ • ২ মাস ফ্রি (১৭% সাশ্রয়)"
-            : "Billed annually • 2 months free (Save ~17%) with annual commitment"
+            ? "বার্ষিক বিলিংয়ে পরিশোধ • ২ মাস ফ্রি (১৭% সাশ্রয়) • যেকোনো সময় আপগ্রেডযোগ্য"
+            : "Billed annually • 2 months free (~17% savings) • 14-day free trial on all plans"
           : isBn
           ? "মাসিক ভিত্তিতে বিল্ড • যেকোনো সময় পরিবর্তনযোগ্য • ১৪ দিনের ফ্রি ট্রায়াল"
-          : "Billed month-to-month • Cancel anytime • 14-day free trial on retail tiers"}
+          : "Billed month-to-month • Cancel anytime • 14-day free trial on all plans"}
       </p>
     </div>
   );

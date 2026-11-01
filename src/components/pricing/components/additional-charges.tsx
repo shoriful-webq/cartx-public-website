@@ -18,15 +18,15 @@ export function AdditionalCharges({ charges, className }: AdditionalChargesProps
   const chargedByLabels = {
     third_party: {
       text: isBn ? "তৃতীয় পক্ষ কর্তৃক চার্জকৃত" : "Billed by Third-Party Provider",
-      className: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border-slate-200 dark:border-slate-700",
+      className: "bg-muted text-muted-foreground border-border",
     },
     cartx: {
       text: isBn ? "কার্টএক্স কর্তৃক চার্জকৃত" : "Billed by CartX",
-      className: "bg-blue-50 text-[#2563EB] dark:bg-blue-950/60 dark:text-blue-400 border-blue-200 dark:border-blue-800",
+      className: "bg-primary/10 text-primary border-primary/20",
     },
     both: {
       text: isBn ? "যৌথ সমন্বয়" : "CartX & Third-Party",
-      className: "bg-purple-50 text-purple-700 dark:bg-purple-950/40 dark:text-purple-400 border-purple-200 dark:border-purple-800",
+      className: "bg-secondary text-secondary-foreground border-border",
     },
   };
 
@@ -34,65 +34,63 @@ export function AdditionalCharges({ charges, className }: AdditionalChargesProps
     <section
       id="additional-charges"
       aria-label="Additional Charges and Usage Fees"
-      className={cn("py-16 sm:py-20 border-b border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-950/30", className)}
+      className={cn("py-16 sm:py-20 border-b border-border bg-card/30", className)}
     >
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         {/* Eyebrow & Title */}
         <div className="max-w-3xl mx-auto text-center mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200/80 dark:border-blue-900/60 text-[#2563EB] dark:text-blue-400 text-xs font-semibold mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
             <Receipt className="h-3.5 w-3.5" />
             <span>{isBn ? "অতিরিক্ত চার্জ ও ফি" : "Usage & Additional Fees"}</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#0F172A] dark:text-white mb-3">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground mb-3">
             <span className="brand-gradient-text">
               {isBn
-                ? "তৃতীয় পক্ষ ও অতিরিক্ত ব্যবহার সংক্রান্ত স্পষ্ট চার্জ"
-                : "Transparent Usage Fees & Additional Charges"}
+                ? "স্বচ্ছ অতিরিক্ত চার্জ ও তৃতীয় পক্ষের ফি"
+                : "Transparent Additional Charges & Third-Party Fees"}
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-[#475569] dark:text-slate-400 leading-relaxed">
+          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
             {isBn
-              ? "কোনো গোপন খরচ নেই। কার্টএক্স কোনো প্ল্যাটফর্ম লেনদেন কমিশন নেয় না। তৃতীয় পক্ষীয় গেটওয়ে ও টেলিকম খরচের পূর্ণাঙ্গ বিবরণ।"
-              : "CartX proudly maintains a 0% platform commission model. Review verified third-party and optional service charges below."}
+              ? "কোনো গোপন খরচ নেই। পেমেন্ট গেটওয়ে, এসএমএস এবং এক্সট্রা স্টোরেজের সম্ভাব্য খরচসমূহ আগে থেকেই জেনে নিন।"
+              : "Complete clarity on third-party payment gateway fees, carrier SMS tariffs, and scalable infrastructure add-ons."}
           </p>
         </div>
 
-        {/* Charges Grid */}
-        <div className="space-y-3.5">
-          {charges.map((charge) => {
-            const payer = chargedByLabels[charge.chargedBy];
+        {/* List of Charges */}
+        <div className="grid grid-cols-1 gap-4 mb-10 max-w-4xl mx-auto">
+          {charges.map((item) => {
+            const badge = chargedByLabels[item.chargedBy];
             return (
               <div
-                key={charge.id}
-                className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-6 shadow-xs transition-all hover:border-[#2563EB]/40 flex flex-col md:flex-row md:items-center justify-between gap-4"
+                key={item.id}
+                className="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs transition-all hover:border-primary/40 flex flex-col md:flex-row md:items-center justify-between gap-4"
               >
-                <div className="flex-1">
-                  <div className="flex flex-wrap items-center gap-2.5 mb-1.5">
-                    <h3 className="text-base font-bold text-[#0F172A] dark:text-white">
-                      {charge.name[isBn ? "bn" : "en"]}
+                <div className="space-y-1.5 max-w-xl">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="text-base font-bold text-foreground">
+                      {item.name[isBn ? "bn" : "en"]}
                     </h3>
                     <span
                       className={cn(
-                        "text-[10px] font-bold px-2.5 py-0.5 rounded-full border",
-                        payer.className
+                        "text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border",
+                        badge.className
                       )}
                     >
-                      {payer.text}
+                      {badge.text}
                     </span>
                   </div>
-
-                  <p className="text-xs sm:text-sm text-[#475569] dark:text-slate-400 leading-relaxed">
-                    {charge.description[isBn ? "bn" : "en"]}
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {item.description[isBn ? "bn" : "en"]}
                   </p>
                 </div>
 
-                {/* Basis & Cost Badges */}
-                <div className="flex flex-col md:items-end justify-center shrink-0 border-t md:border-t-0 md:border-l border-slate-100 dark:border-slate-800 pt-3 md:pt-0 md:pl-6 text-xs">
-                  <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-0.5">
-                    {charge.basis[isBn ? "bn" : "en"]}
+                <div className="flex flex-col md:items-end justify-center shrink-0 border-t md:border-t-0 pt-3 md:pt-0 border-border/60">
+                  <span className="text-xs text-muted-foreground">
+                    {item.basis[isBn ? "bn" : "en"]}
                   </span>
-                  <span className="font-bold text-[#0F172A] dark:text-white text-sm font-mono">
-                    {charge.cost[isBn ? "bn" : "en"]}
+                  <span className="font-bold text-foreground text-sm font-mono mt-0.5">
+                    {item.cost[isBn ? "bn" : "en"]}
                   </span>
                 </div>
               </div>
@@ -100,26 +98,23 @@ export function AdditionalCharges({ charges, className }: AdditionalChargesProps
           })}
         </div>
 
-        {/* 0% Commission Guarantee Pill */}
-        <div className="mt-8 rounded-2xl border border-emerald-500/30 bg-emerald-50/60 dark:bg-emerald-950/20 p-5 flex items-center justify-between gap-4 flex-wrap">
-          <div className="flex items-center gap-3">
-            <CheckCircle2 className="h-5 w-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-            <div>
-              <h4 className="text-xs sm:text-sm font-bold text-[#0F172A] dark:text-white">
-                {isBn
-                  ? "কার্টএক্স ০% প্ল্যাটফর্ম লেনদেন ফি গ্যারান্টি"
-                  : "CartX 0% Platform Transaction Fee Guarantee"}
-              </h4>
-              <p className="text-xs text-[#475569] dark:text-slate-400">
-                {isBn
-                  ? "আপনি অনলাইন পেমেন্ট বা ক্যাশ অন ডেলিভারি যাই গ্রহণ করুন, কার্টএক্স আপনার বিক্রির ওপর কোনো কমিশন নেয় না।"
-                  : "Keep 100% of your earnings. CartX never takes a cut of your order volume or customer transactions."}
-              </p>
-            </div>
+        {/* 0% CartX Platform Commission Guarantee Box */}
+        <div className="max-w-4xl mx-auto rounded-2xl border border-success/30 bg-success/[0.04] p-5 sm:p-6 flex items-start gap-4">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-success/15 text-success">
+            <CheckCircle2 className="h-5 w-5" />
           </div>
-          <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 shrink-0">
-            {isBn ? "০% কমিশন" : "0% Platform Cut"}
-          </span>
+          <div>
+            <h4 className="text-xs sm:text-sm font-bold text-foreground">
+              {isBn
+                ? "কার্টএক্স ০% প্ল্যাটফর্ম লেনদেন ফি গ্যারান্টি"
+                : "CartX 0% Platform Transaction Fee Guarantee"}
+            </h4>
+            <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+              {isBn
+                ? "আমরা আপনার অর্ডার বিক্রয়ের ওপর কোনো অতিরিক্ত শতাংশ বা লেনদেন ফি গ্রহণ করি না। আপনার অর্জিত সমস্ত মুনাফা সম্পূর্ণ আপনার।"
+                : "CartX does not charge any cut or percentage fee on your store sales. You only pay your flat subscription and direct third-party gateway processing tariffs."}
+            </p>
+          </div>
         </div>
       </div>
     </section>
