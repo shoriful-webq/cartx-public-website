@@ -585,6 +585,42 @@ export const ADDITIONAL_CHARGES_DATA: AdditionalChargeItem[] = [
     },
   },
   {
+    id: "extra_storage",
+    name: {
+      en: "Additional Media Storage Expansion",
+      bn: "অতিরিক্ত মিডিয়া স্টোরেজ সম্প্রসারণ",
+    },
+    category: "custom",
+    basis: { en: "Per 10 GB storage pack / month", bn: "প্রতি ১০ জিবি স্টোরেজ প্যাক / মাস" },
+    cost: {
+      en: "৳300 / 10 GB / month",
+      bn: "৳৩০০ / ১০ জিবি / মাস",
+    },
+    chargedBy: "cartx",
+    description: {
+      en: "Optional storage expansion if high-resolution product photography exceeds your plan's included storage quota.",
+      bn: "ক্যাটালগের উচ্চ রেজোলিউশনের পণ্যের ছবি যদি প্ল্যানের নির্ধারিত স্টোরেজের চেয়ে বেশি হয়, তবে অতিরিক্ত স্টোরেজ প্যাক।",
+    },
+  },
+  {
+    id: "white_label_maintenance",
+    name: {
+      en: "White-Label Native App Build & Maintenance",
+      bn: "হোয়াইট-লেবেল অ্যাপ বিল্ড ও ওএস আপডেট",
+    },
+    category: "mobile",
+    basis: { en: "Annual app pipeline maintenance", bn: "বার্ষিক অ্যাপ পাইপলাইন মেইনটেন্যান্স" },
+    cost: {
+      en: "Optional add-on for Growth/Business • Included in Enterprise",
+      bn: "গ্রোথ ও বিজনেস প্ল্যানে ঐচ্ছিক অ্যাড-অন • এন্টারপ্রাইজে অন্তর্ভুক্ত",
+    },
+    chargedBy: "cartx",
+    description: {
+      en: "Covers automated CI/CD compiling, annual iOS and Android OS SDK version upgrades, and native push notification delivery.",
+      bn: "নিয়মিত অ্যাপল ও গুগল ওএস ভার্সন আপডেট, সিআই/সিডি অটোমেশন ও ব্র্যান্ডেড পুশ নোটিফিকেশন ডেলিভারি অন্তর্ভুক্ত।",
+    },
+  },
+  {
     id: "custom_integration_build",
     name: {
       en: "Bespoke Enterprise ERP Integration",

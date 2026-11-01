@@ -21,6 +21,36 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
   const priceDisplay = getPlanDisplayPrice(plan, billingPeriod, locale);
   const isHighlighted = Boolean(plan.highlighted);
 
+  const mobileAppBadge =
+    plan.features.whiteLabelApps === "included"
+      ? isBn
+        ? "নেটিভ অ্যাপস"
+        : "Native Apps"
+      : plan.features.whiteLabelApps === "optional_addon"
+      ? isBn
+        ? "অ্যাপ অ্যাড-অন"
+        : "App Add-on"
+      : isBn
+      ? "ওয়েব পিডব্লিউএ"
+      : "Web PWA";
+
+  const supportBadge =
+    plan.features.supportLevel === "dedicated_sla"
+      ? isBn
+        ? "২৪/৭ এসএলএ"
+        : "24/7 SLA"
+      : plan.id === "business"
+      ? isBn
+        ? "অ্যাকাউন্ট ম্যানেজার"
+        : "Dedicated Mgr"
+      : plan.features.supportLevel === "priority"
+      ? isBn
+        ? "অগ্রাধিকার সাপোর্ট"
+        : "Priority Support"
+      : isBn
+      ? "স্ট্যান্ডার্ড সাপোর্ট"
+      : "Standard Support";
+
   return (
     <div
       className={cn(
@@ -122,8 +152,8 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
         </div>
       </div>
 
-      {/* 8. Additional Limits Displayed Compactly */}
-      <div className="pt-3 border-t border-[#E2E8F0] dark:border-border/60">
+      {/* 8. Additional Limits & Key Specifications Displayed Compactly */}
+      <div className="pt-3 border-t border-[#E2E8F0] dark:border-border/60 space-y-2">
         <div className="grid grid-cols-4 gap-1 text-center">
           <div className="rounded bg-slate-50 dark:bg-muted/40 border border-slate-100 dark:border-border/40 py-1 px-1">
             <span className="block font-medium text-[#475569] dark:text-muted-foreground uppercase text-[9px] truncate">
@@ -160,6 +190,15 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
               {formatLimit(plan.limits.customDomains, locale)}
             </span>
           </div>
+        </div>
+
+        {/* Plan Entitlements Micro-Row: Order Limits, Mobile App, Support Level */}
+        <div className="flex items-center justify-between text-[10px] text-[#475569] dark:text-muted-foreground px-0.5 pt-0.5 border-t border-slate-100 dark:border-border/40">
+          <span className="truncate">{isBn ? "অর্ডার: সীমাহীন" : "Orders: Unlimited"}</span>
+          <span>•</span>
+          <span className="truncate">{mobileAppBadge}</span>
+          <span>•</span>
+          <span className="truncate">{supportBadge}</span>
         </div>
       </div>
     </div>
