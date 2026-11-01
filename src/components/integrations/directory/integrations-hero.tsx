@@ -53,7 +53,7 @@ export function IntegrationsHero({ className }: IntegrationsHeroProps) {
     <section
       aria-label="Integrations Hero"
       className={cn(
-        "hero-bg relative overflow-hidden transition-colors",
+        "hero-bg relative overflow-hidden transition-colors py-12",
         className
       )}
     >
@@ -81,7 +81,7 @@ export function IntegrationsHero({ className }: IntegrationsHeroProps) {
         aria-hidden="true"
       />
 
-      <div className="container relative hero-padding py-20 lg:py-28">
+      <div className="container relative hero-padding">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
           <ScrollReveal delay={0}>
             {/* Eyebrow badge */}

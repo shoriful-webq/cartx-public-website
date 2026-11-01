@@ -25,11 +25,32 @@ export function PricingHero({
     <section
       aria-label="Pricing Hero"
       className={cn(
-        "hero-bg hero-padding transition-colors",
+        "hero-bg relative overflow-hidden transition-colors py-12",
         className
       )}
     >
-      <div className="container max-w-4xl mx-auto px-4 sm:px-6">
+      {/* ── Decorative background shapes (Matches Home/Features Hero) ── */}
+      <div
+        className="pointer-events-none absolute -right-40 -top-40 h-[32rem] w-[32rem] rounded-full opacity-[0.045]"
+        style={{
+          background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute -bottom-20 -left-20 h-60 w-60 rounded-full opacity-[0.035]"
+        style={{
+          background: "radial-gradient(circle, var(--secondary-accent) 0%, transparent 70%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.025]"
+        style={{
+          backgroundImage: "radial-gradient(circle, var(--foreground) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+
+      <div className="container relative hero-padding max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center flex flex-col items-center">
           {/* Branded Eyebrow Pill Badge */}
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-4 shadow-2xs">

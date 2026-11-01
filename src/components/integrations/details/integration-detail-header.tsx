@@ -32,7 +32,7 @@ export function IntegrationDetailHeader({
     <section
       aria-label="Provider Overview Header"
       className={cn(
-        "hero-bg relative overflow-hidden transition-colors py-12 sm:py-16 lg:py-20",
+        "hero-bg relative overflow-hidden transition-colors py-12",
         className
       )}
     >
@@ -52,7 +52,7 @@ export function IntegrationDetailHeader({
         aria-hidden="true"
       />
 
-      <div className="container max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="container relative hero-padding max-w-6xl mx-auto px-4 sm:px-6">
         {/* Breadcrumb Navigation */}
         <div className="mb-8">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-muted-foreground">
