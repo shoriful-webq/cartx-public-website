@@ -1,32 +1,19 @@
-"use client";
+import { Metadata } from "next";
+import { ContactView } from "@/components/contact/contact-view";
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { useLanguage } from "@/lib/i18n/language-context";
+export const metadata: Metadata = {
+  title: "Contact Us | CartX Support & Sales",
+  description:
+    "Have questions about CartX, pricing, courier integrations or white-label mobile apps? Send us a message and our team in Dhaka will assist you.",
+  keywords: [
+    "Contact CartX",
+    "CartX support",
+    "ecommerce help Bangladesh",
+    "WebQ LTD contact",
+    "CartX sales",
+  ],
+};
 
 export default function ContactPage() {
-  const { t } = useLanguage();
-
-  return (
-    <div className="section-padding">
-      <div className="container max-w-4xl text-center">
-        <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-          {t("nav.contact")}
-        </span>
-        <h1 className="mt-3 mb-4 tracking-tight">{t("contact.title")}</h1>
-        <p className="section-description">
-          {t("contact.desc")}
-        </p>
-
-        <div className="flex justify-center mt-6">
-          <Link
-            href="/start"
-            className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-xs font-semibold text-primary-foreground shadow-xs hover:bg-primary-hover transition-colors"
-          >
-            {t("btn.startTrial")} <ArrowRight className="size-3.5" />
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
+  return <ContactView />;
 }
