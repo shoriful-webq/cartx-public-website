@@ -9,6 +9,7 @@ import {
   Store,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface WhiteLabelPricingProps {
@@ -69,8 +70,8 @@ export function WhiteLabelPricing({ className }: WhiteLabelPricingProps) {
       className={cn("py-16 sm:py-20 border-b border-border bg-background", className)}
     >
       <div className="container mx-auto">
-        {/* Eyebrow & Title */}
-        <div className="max-w-3xl mx-auto text-center mb-14">
+        {/* Eyebrow & Title with ScrollReveal */}
+        <ScrollReveal direction="up" delay={0} className="max-w-3xl mx-auto text-center mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
             <Smartphone className="h-3.5 w-3.5" />
             <span>{isBn ? "মোবাইল অ্যাপ অ্যাড-অন" : "Mobile Apps Add-on"}</span>
@@ -87,46 +88,56 @@ export function WhiteLabelPricing({ className }: WhiteLabelPricingProps) {
               ? "আপনার নিজস্ব ব্র্যান্ড নামে অ্যাপ স্টোর ও গুগল প্লেতে নেটিভ আইওএস এবং অ্যান্ড্রয়েড অ্যাপ প্রকাশের স্বচ্ছ গাইডলাইন।"
               : "Deliver a dedicated branded shopping experience on your customers' home screens with native performance and push notifications."}
           </p>
-        </div>
+        </ScrollReveal>
 
-        {/* 3 Tier Availability Cards */}
+        {/* 3 Tier Availability Cards with Staggered ScrollReveal */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           {tiersAvailability.map((tier, idx) => (
-            <div
+            <ScrollReveal
               key={idx}
-              className={cn(
-                "rounded-2xl border p-6 flex flex-col justify-between shadow-xs transition-all duration-200",
-                tier.isEligible
-                  ? "border-border bg-card hover:border-primary/40 hover:shadow-card"
-                  : "border-border/60 bg-muted/20 opacity-80"
-              )}
+              direction="up"
+              delay={idx * 75}
+              className="h-full flex"
             >
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-base font-bold text-foreground">
-                    {tier.plan}
-                  </h3>
-                  <span
-                    className={cn(
-                      "text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border",
-                      tier.isEligible
-                        ? "bg-primary/10 text-primary border-primary/20"
-                        : "bg-muted text-muted-foreground border-border"
-                    )}
-                  >
-                    {tier.status}
-                  </span>
+              <div
+                className={cn(
+                  "w-full rounded-2xl border p-6 flex flex-col justify-between shadow-xs transition-all duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none",
+                  tier.isEligible
+                    ? "border-border bg-card hover:border-primary/40 hover:shadow-card"
+                    : "border-border/60 bg-muted/20 opacity-80"
+                )}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-base font-bold text-foreground">
+                      {tier.plan}
+                    </h3>
+                    <span
+                      className={cn(
+                        "text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border",
+                        tier.isEligible
+                          ? "bg-primary/10 text-primary border-primary/20"
+                          : "bg-muted text-muted-foreground border-border"
+                      )}
+                    >
+                      {tier.status}
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {tier.desc}
+                  </p>
                 </div>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  {tier.desc}
-                </p>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
-        {/* Official Store Fees Card */}
-        <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-xs">
+        {/* Official Store Fees Card with ScrollReveal */}
+        <ScrollReveal
+          direction="up"
+          delay={150}
+          className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-xs"
+        >
           <div className="flex items-center gap-3 mb-6">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Store className="h-5 w-5" />
@@ -147,7 +158,10 @@ export function WhiteLabelPricing({ className }: WhiteLabelPricingProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-5 border-t border-border mb-6">
             {appStoreRequirements.map((req, idx) => (
-              <div key={idx} className="rounded-xl border border-border/80 bg-muted/30 p-4">
+              <div
+                key={idx}
+                className="rounded-xl border border-border/80 bg-muted/30 p-4 transition-colors hover:bg-muted/50"
+              >
                 <div className="flex items-center justify-between mb-1.5">
                   <h4 className="text-xs sm:text-sm font-bold text-foreground">
                     {req.title}
@@ -175,13 +189,13 @@ export function WhiteLabelPricing({ className }: WhiteLabelPricingProps) {
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-1.5 font-bold text-primary hover:underline transition-colors shrink-0"
+              className="group/link inline-flex items-center gap-1.5 font-bold text-primary hover:underline transition-colors shrink-0"
             >
               <span>{isBn ? "বিস্তারিত জানতে যোগাযোগ করুন" : "Contact Sales"}</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/link:translate-x-0.5 motion-reduce:transform-none" />
             </Link>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -6,6 +6,7 @@ import { CheckCircle2, Minus, Layers, ArrowRight, HelpCircle } from "lucide-reac
 import { useLanguage } from "@/lib/i18n/language-context";
 import { ComparisonCategory, PricingPlan } from "../types/pricing.types";
 import { MobilePlanComparison } from "./mobile-plan-comparison";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface PlanComparisonTableProps {
@@ -59,8 +60,8 @@ export function PlanComparisonTable({
       className={cn("py-16 sm:py-20 border-b border-border bg-card/30", className)}
     >
       <div className="container mx-auto">
-        {/* Section Heading */}
-        <div className="max-w-3xl mx-auto text-center mb-14">
+        {/* Section Heading with ScrollReveal */}
+        <ScrollReveal direction="up" delay={0} className="max-w-3xl mx-auto text-center mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
             <Layers className="h-3.5 w-3.5" />
             <span>{isBn ? "ফিচার তুলনা" : "Plan Comparison"}</span>
@@ -77,13 +78,17 @@ export function PlanComparisonTable({
               ? "আপনার ব্যবসার জন্য কোন প্ল্যানটি সবচেয়ে উপযুক্ত তা ফিচারভিত্তিক তুলনা করে নিশ্চিত হন।"
               : "Evaluate exact catalog limits, staff accounts, logistics integrations, and white-label capabilities side-by-side."}
           </p>
-        </div>
+        </ScrollReveal>
 
-        {/* Mobile View (Tabbed/Grouped Cards) */}
+        {/* Mobile View (Tabbed/Grouped Cards with Motion) */}
         <MobilePlanComparison plans={plans} categories={categories} />
 
-        {/* Desktop & Tablet View (Horizontally Scrollable Full Table) */}
-        <div className="hidden lg:block overflow-hidden rounded-2xl border border-border bg-card shadow-xs">
+        {/* Desktop & Tablet View (Horizontally Scrollable Full Table with Entrance Motion) */}
+        <ScrollReveal
+          direction="up"
+          delay={100}
+          className="hidden lg:block overflow-hidden rounded-2xl border border-border bg-card shadow-xs"
+        >
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               {/* Table Header: Plan Names & CTAs */}
@@ -110,14 +115,14 @@ export function PlanComparisonTable({
                       <Link
                         href={plan.cta.href}
                         className={cn(
-                          "inline-flex items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-150 w-full shadow-2xs",
+                          "group/thbtn inline-flex items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-150 w-full shadow-2xs hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] motion-reduce:transform-none",
                           plan.highlighted
                             ? "bg-primary text-primary-foreground hover:bg-[var(--primary-hover)]"
                             : "border border-border bg-card text-foreground hover:bg-muted/50"
                         )}
                       >
                         <span>{plan.cta.label[isBn ? "bn" : "en"]}</span>
-                        <ArrowRight className="h-3 w-3" />
+                        <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover/thbtn:translate-x-0.5 motion-reduce:transform-none" />
                       </Link>
                     </th>
                   ))}
@@ -142,7 +147,7 @@ export function PlanComparisonTable({
                     {category.features.map((feature) => (
                       <tr
                         key={feature.id}
-                        className="border-b border-border/40 hover:bg-muted/20 transition-colors"
+                        className="border-b border-border/40 hover:bg-muted/20 transition-colors duration-150"
                       >
                         {/* Feature Name & Tooltip */}
                         <td className="py-3.5 px-5 text-xs font-medium text-foreground">
@@ -151,7 +156,7 @@ export function PlanComparisonTable({
                             {feature.tooltip && (
                               <span
                                 title={feature.tooltip[isBn ? "bn" : "en"]}
-                                className="cursor-help text-muted-foreground/70 hover:text-foreground"
+                                className="cursor-help text-muted-foreground/70 hover:text-foreground transition-colors"
                               >
                                 <HelpCircle className="h-3.5 w-3.5" />
                               </span>
@@ -164,7 +169,7 @@ export function PlanComparisonTable({
                           <td
                             key={plan.id}
                             className={cn(
-                              "py-3.5 px-5 text-center transition-colors",
+                              "py-3.5 px-5 text-center transition-colors duration-150",
                               plan.highlighted && "bg-primary/[0.02]"
                             )}
                           >
@@ -178,7 +183,7 @@ export function PlanComparisonTable({
               </tbody>
             </table>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

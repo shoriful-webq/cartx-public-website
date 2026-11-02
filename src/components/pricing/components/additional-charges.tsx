@@ -4,6 +4,7 @@ import React from "react";
 import { Receipt, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { AdditionalChargeItem } from "../types/pricing.types";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface AdditionalChargesProps {
@@ -37,8 +38,8 @@ export function AdditionalCharges({ charges, className }: AdditionalChargesProps
       className={cn("py-16 sm:py-20 border-b border-border bg-card/30", className)}
     >
       <div className="container mx-auto">
-        {/* Eyebrow & Title */}
-        <div className="max-w-3xl mx-auto text-center mb-14">
+        {/* Eyebrow & Title with ScrollReveal */}
+        <ScrollReveal direction="up" delay={0} className="max-w-3xl mx-auto text-center mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
             <Receipt className="h-3.5 w-3.5" />
             <span>{isBn ? "অতিরিক্ত চার্জ ও ফি" : "Usage & Additional Fees"}</span>
@@ -55,51 +56,58 @@ export function AdditionalCharges({ charges, className }: AdditionalChargesProps
               ? "কোনো গোপন খরচ নেই। পেমেন্ট গেটওয়ে, এসএমএস এবং এক্সট্রা স্টোরেজের সম্ভাব্য খরচসমূহ আগে থেকেই জেনে নিন।"
               : "Complete clarity on third-party payment gateway fees, carrier SMS tariffs, and scalable infrastructure add-ons."}
           </p>
-        </div>
+        </ScrollReveal>
 
-        {/* List of Charges */}
+        {/* List of Charges with Staggered ScrollReveal */}
         <div className="grid grid-cols-1 gap-4 mb-10 max-w-4xl mx-auto">
-          {charges.map((item) => {
+          {charges.map((item, idx) => {
             const badge = chargedByLabels[item.chargedBy];
             return (
-              <div
+              <ScrollReveal
                 key={item.id}
-                className="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs transition-all hover:border-primary/40 flex flex-col md:flex-row md:items-center justify-between gap-4"
+                direction="up"
+                delay={idx * 50}
               >
-                <div className="space-y-1.5 max-w-xl">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h3 className="text-base font-bold text-foreground">
-                      {item.name[isBn ? "bn" : "en"]}
-                    </h3>
-                    <span
-                      className={cn(
-                        "text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border",
-                        badge.className
-                      )}
-                    >
-                      {badge.text}
+                <div className="rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-xs transition-all duration-200 hover:border-primary/40 hover:shadow-card flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="space-y-1.5 max-w-xl">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="text-base font-bold text-foreground">
+                        {item.name[isBn ? "bn" : "en"]}
+                      </h3>
+                      <span
+                        className={cn(
+                          "text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border",
+                          badge.className
+                        )}
+                      >
+                        {badge.text}
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      {item.description[isBn ? "bn" : "en"]}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col md:items-end justify-center shrink-0 border-t md:border-t-0 pt-3 md:pt-0 border-border/60">
+                    <span className="text-xs text-muted-foreground">
+                      {item.basis[isBn ? "bn" : "en"]}
+                    </span>
+                    <span className="font-bold text-foreground text-sm font-mono mt-0.5">
+                      {item.cost[isBn ? "bn" : "en"]}
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {item.description[isBn ? "bn" : "en"]}
-                  </p>
                 </div>
-
-                <div className="flex flex-col md:items-end justify-center shrink-0 border-t md:border-t-0 pt-3 md:pt-0 border-border/60">
-                  <span className="text-xs text-muted-foreground">
-                    {item.basis[isBn ? "bn" : "en"]}
-                  </span>
-                  <span className="font-bold text-foreground text-sm font-mono mt-0.5">
-                    {item.cost[isBn ? "bn" : "en"]}
-                  </span>
-                </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
 
-        {/* 0% CartX Platform Commission Guarantee Box */}
-        <div className="max-w-4xl mx-auto rounded-2xl border border-success/30 bg-success/[0.04] p-5 sm:p-6 flex items-start gap-4">
+        {/* 0% CartX Platform Commission Guarantee Box with ScrollReveal */}
+        <ScrollReveal
+          direction="up"
+          delay={150}
+          className="max-w-4xl mx-auto rounded-2xl border border-success/30 bg-success/[0.04] p-5 sm:p-6 flex items-start gap-4 transition-colors"
+        >
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-success/15 text-success">
             <CheckCircle2 className="h-5 w-5" />
           </div>
@@ -115,7 +123,7 @@ export function AdditionalCharges({ charges, className }: AdditionalChargesProps
                 : "CartX does not charge any cut or percentage fee on your store sales. You only pay your flat subscription and direct third-party gateway processing tariffs."}
             </p>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

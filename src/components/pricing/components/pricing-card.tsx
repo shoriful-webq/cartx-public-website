@@ -54,11 +54,11 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
   return (
     <div
       className={cn(
-        "group relative flex flex-col justify-between rounded-2xl transition-all duration-200",
+        "group relative flex flex-col justify-between rounded-2xl transition-all duration-300 ease-out",
         "p-5 xl:p-6 bg-card text-card-foreground",
         isHighlighted
-          ? "border-2 border-primary shadow-md ring-1 ring-primary/20 hover:shadow-dropdown hover:-translate-y-0.5"
-          : "border border-border shadow-xs hover:border-primary/40 hover:shadow-card hover:-translate-y-0.5",
+          ? "border-2 border-primary shadow-md ring-1 ring-primary/20 hover:shadow-dropdown hover:-translate-y-1 motion-reduce:transform-none"
+          : "border border-border shadow-xs hover:border-primary/40 hover:shadow-card hover:-translate-y-1 motion-reduce:transform-none",
         className
       )}
     >
@@ -80,24 +80,24 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
           {plan.targetAudience[isBn ? "bn" : "en"]}
         </p>
 
-        {/* 3. Clearly Displayed Price */}
-        <div className="flex items-baseline gap-1.5 min-h-[34px]">
-          <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+        {/* 3. Clearly Displayed Price with Smooth Transition on Period Switch */}
+        <div className="flex items-baseline gap-1.5 min-h-[34px] transition-all duration-200">
+          <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground transition-colors duration-200">
             {priceDisplay.primaryPriceText}
           </span>
           {!priceDisplay.isSpecialState && (
-            <span className="text-xs font-semibold text-muted-foreground">
+            <span className="text-xs font-semibold text-muted-foreground transition-opacity duration-200">
               {priceDisplay.billingFrequencyText}
             </span>
           )}
         </div>
 
         {/* 4. Billing Period / Discount / Trial Info */}
-        <div className="h-5 flex items-center text-[11px] sm:text-xs truncate mb-4">
+        <div className="h-5 flex items-center text-[11px] sm:text-xs truncate mb-4 transition-all duration-200">
           {priceDisplay.secondaryPriceText ? (
             <span
               className={cn(
-                "font-medium truncate",
+                "font-medium truncate transition-colors duration-200",
                 billingPeriod === "yearly" && !priceDisplay.isSpecialState
                   ? "text-success font-semibold"
                   : "text-muted-foreground"
@@ -117,14 +117,14 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
           <Link
             href={plan.cta.href}
             className={cn(
-              "w-full h-10 inline-flex items-center justify-center gap-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-150 cursor-pointer shadow-xs",
+              "group/btn w-full h-10 inline-flex items-center justify-center gap-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-150 cursor-pointer shadow-xs hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] motion-reduce:transform-none",
               isHighlighted
                 ? "bg-primary text-primary-foreground hover:bg-[var(--primary-hover)] shadow-sm"
                 : "border border-border bg-card text-foreground hover:bg-muted/50"
             )}
           >
             <span>{plan.cta.label[isBn ? "bn" : "en"]}</span>
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-1 motion-reduce:transform-none" />
           </Link>
         </div>
 
@@ -155,7 +155,7 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
       {/* 8. Additional Limits & Key Specifications */}
       <div className="pt-3 border-t border-border/60 space-y-2">
         <div className="grid grid-cols-4 gap-1 text-center">
-          <div className="rounded bg-muted/40 border border-border/50 py-1 px-1">
+          <div className="rounded bg-muted/40 border border-border/50 py-1 px-1 transition-colors hover:bg-muted/60">
             <span className="block font-medium text-muted-foreground uppercase text-[9px] truncate">
               {isBn ? "পণ্য" : "Products"}
             </span>
@@ -164,7 +164,7 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
             </span>
           </div>
 
-          <div className="rounded bg-muted/40 border border-border/50 py-1 px-1">
+          <div className="rounded bg-muted/40 border border-border/50 py-1 px-1 transition-colors hover:bg-muted/60">
             <span className="block font-medium text-muted-foreground uppercase text-[9px] truncate">
               {isBn ? "স্টাফ" : "Staff"}
             </span>
@@ -173,7 +173,7 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
             </span>
           </div>
 
-          <div className="rounded bg-muted/40 border border-border/50 py-1 px-1">
+          <div className="rounded bg-muted/40 border border-border/50 py-1 px-1 transition-colors hover:bg-muted/60">
             <span className="block font-medium text-muted-foreground uppercase text-[9px] truncate">
               {isBn ? "স্টোরেজ" : "Storage"}
             </span>
@@ -182,7 +182,7 @@ export function PricingCard({ plan, billingPeriod, className }: PricingCardProps
             </span>
           </div>
 
-          <div className="rounded bg-muted/40 border border-border/50 py-1 px-1">
+          <div className="rounded bg-muted/40 border border-border/50 py-1 px-1 transition-colors hover:bg-muted/60">
             <span className="block font-medium text-muted-foreground uppercase text-[9px] truncate">
               {isBn ? "ডোমেইন" : "Domains"}
             </span>

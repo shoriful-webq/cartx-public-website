@@ -5,6 +5,7 @@ import { CreditCard } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { BillingPeriod } from "../types/pricing.types";
 import { BillingToggle } from "./billing-toggle";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface PricingHeroProps {
@@ -52,34 +53,39 @@ export function PricingHero({
 
       <div className="container relative hero-padding max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center flex flex-col items-center">
-          {/* Branded Eyebrow Pill Badge */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-4 shadow-2xs">
-            <CreditCard className="h-3.5 w-3.5" />
-            <span>{isBn ? "স্বচ্ছ মূল্যতালিকা" : "Transparent Pricing"}</span>
-          </div>
+          {/* Eyebrow, Heading & Supporting Copy with Entrance Motion */}
+          <ScrollReveal direction="up" delay={0} className="w-full flex flex-col items-center">
+            {/* Branded Eyebrow Pill Badge */}
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-4 shadow-2xs">
+              <CreditCard className="h-3.5 w-3.5" />
+              <span>{isBn ? "স্বচ্ছ মূল্যতালিকা" : "Transparent Pricing"}</span>
+            </div>
 
-          {/* Main H1 Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-[1.15] mb-4">
-            <span className="brand-gradient-text">
+            {/* Main H1 Heading */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-[1.15] mb-4">
+              <span className="brand-gradient-text">
+                {isBn
+                  ? "আপনার অনলাইন ব্যবসার জন্য সহজ, স্বচ্ছ প্রাইসিং"
+                  : "Simple, Transparent Pricing for Your Online Business."}
+              </span>
+            </h1>
+
+            {/* Supporting Copy */}
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
               {isBn
-                ? "আপনার অনলাইন ব্যবসার জন্য সহজ, স্বচ্ছ প্রাইসিং"
-                : "Simple, Transparent Pricing for Your Online Business."}
-            </span>
-          </h1>
+                ? "আপনার স্টোরের চাহিদা, দলের আকার এবং প্রয়োজনীয় ফিচারের উপর ভিত্তি করে সঠিক প্ল্যান বেছে নিন।"
+                : "Choose a plan based on your store's needs, team size and required features."}
+            </p>
+          </ScrollReveal>
 
-          {/* Supporting Copy */}
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
-            {isBn
-              ? "আপনার স্টোরের চাহিদা, দলের আকার এবং প্রয়োজনীয় ফিচারের উপর ভিত্তি করে সঠিক প্ল্যান বেছে নিন।"
-              : "Choose a plan based on your store's needs, team size and required features."}
-          </p>
-
-          {/* Monthly / Yearly Billing Selector */}
-          <BillingToggle
-            billingPeriod={billingPeriod}
-            onPeriodChange={onPeriodChange}
-            yearlyDiscountPercentage={17}
-          />
+          {/* Monthly / Yearly Billing Selector with Staggered Entrance Motion */}
+          <ScrollReveal direction="up" delay={120} className="w-full flex justify-center">
+            <BillingToggle
+              billingPeriod={billingPeriod}
+              onPeriodChange={onPeriodChange}
+              yearlyDiscountPercentage={17}
+            />
+          </ScrollReveal>
         </div>
       </div>
     </section>
