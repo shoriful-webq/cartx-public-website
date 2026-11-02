@@ -12,6 +12,7 @@ import {
 } from "@/lib/blog-data";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { Search, X, Inbox } from "lucide-react";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function BlogView() {
@@ -61,7 +62,7 @@ export function BlogView() {
       >
         <div className="container mx-auto">
           {/* Controls Bar: Search & Categories */}
-          <div className="max-w-6xl mx-auto mb-10 space-y-6">
+          <ScrollReveal className="max-w-6xl mx-auto mb-10 space-y-6">
             {/* Search Input */}
             <div className="relative max-w-xl mx-auto">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -124,7 +125,7 @@ export function BlogView() {
                 );
               })}
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Results Summary if filtering */}
           {(searchQuery || selectedCategory !== "all") && (
@@ -152,8 +153,10 @@ export function BlogView() {
           {/* Articles Grid */}
           {filteredPosts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {filteredPosts.map((post) => (
-                <BlogCard key={post.slug} post={post} />
+              {filteredPosts.map((post, idx) => (
+                <ScrollReveal key={post.slug} delay={(idx % 3) * 70}>
+                  <BlogCard post={post} />
+                </ScrollReveal>
               ))}
             </div>
           ) : (

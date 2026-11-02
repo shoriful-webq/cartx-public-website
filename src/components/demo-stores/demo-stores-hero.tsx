@@ -3,6 +3,7 @@
 import React from "react";
 import { Store, ArrowDown } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface DemoStoresHeroProps {
@@ -22,7 +23,7 @@ export function DemoStoresHero({ className, onExploreClick }: DemoStoresHeroProp
         className
       )}
     >
-      {/* Decorative background shapes (Matches Home Page Hero) */}
+      {/* Decorative background shapes */}
       <div
         className="pointer-events-none absolute -right-40 -top-40 h-[32rem] w-[32rem] rounded-full opacity-[0.045]"
         style={{
@@ -49,41 +50,46 @@ export function DemoStoresHero({ className, onExploreClick }: DemoStoresHeroProp
       <div className="container relative hero-padding">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
           {/* Eyebrow Pill Badge */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-4 shadow-2xs">
-            <Store className="h-3.5 w-3.5 text-primary" />
-            <span>{isBn ? "লাইভ স্টোরফ্রন্ট অভিজ্ঞতা" : "Interactive Storefront Gallery"}</span>
-          </div>
+          <ScrollReveal delay={0}>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-4 shadow-2xs">
+              <Store className="h-3.5 w-3.5 text-primary" />
+              <span>{isBn ? "লাইভ স্টোরফ্রন্ট অভিজ্ঞতা" : "Interactive Storefront Gallery"}</span>
+            </div>
+          </ScrollReveal>
 
           {/* Main H1 Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-[1.18] mb-4">
-            <span className="brand-gradient-text">
+          <ScrollReveal delay={80}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-[1.18] mb-4">
+              <span className="brand-gradient-text">
+                {isBn
+                  ? "আসল কেনাকাটার অনুভূতি নিন ৬টি ডেমো স্টোরে"
+                  : "Experience Real E-Commerce with 6 Interactive Demo Stores"}
+              </span>
+            </h1>
+          </ScrollReveal>
+
+          {/* Subheading / Description */}
+          <ScrollReveal delay={140}>
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed">
               {isBn
-                ? "বিভিন্ন ব্যবসার জন্য নির্মিত এক্সাম্পল স্টোর দেখুন"
-                : "Explore Example Stores Built for Different Businesses."}
-            </span>
-          </h1>
+                ? "ফ্যাশন, গ্যাজেট, কসমেটিকস কিংবা মুদি সামগ্রী—প্রতিটি খাতের জন্য অপ্টিমাইজড থিম এবং সম্পূর্ণ কেনাকাটা প্রক্রিয়া সরাসরি টেস্ট করুন।"
+                : "Explore real e-commerce experiences built with CartX. Browse dynamic storefronts, test product variants, and preview checkout flows across desktop and mobile."}
+            </p>
+          </ScrollReveal>
 
-          {/* Supporting Text */}
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
-            {isBn
-              ? "বিভিন্ন ক্যাটাগরির স্টোরফ্রন্ট অভিজ্ঞতা ব্রাউজ করুন এবং আপনার নিজস্ব ব্র্যান্ডের সম্ভাব্য লেআউট আবিষ্কার করুন।"
-              : "Browse sample storefront experiences and discover possible layouts for your business."}
-          </p>
-
-          {/* Explore Jump Button */}
-          {onExploreClick && (
+          {/* Scroll Action Button */}
+          <ScrollReveal delay={200}>
             <button
               type="button"
               onClick={onExploreClick}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-xs font-semibold text-foreground shadow-xs hover:border-primary/50 hover:bg-muted/40 transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-xs sm:text-sm font-semibold text-primary-foreground shadow-xs hover:opacity-90 transition-opacity cursor-pointer"
             >
-              <span>{isBn ? "সকল স্টোর দেখুন" : "Explore Sample Stores"}</span>
-              <ArrowDown className="h-3.5 w-3.5 text-primary" />
+              <span>{isBn ? "ডেমো স্টোরগুলো দেখুন" : "Explore Demo Stores"}</span>
+              <ArrowDown className="h-4 w-4" />
             </button>
-          )}
+          </ScrollReveal>
         </div>
       </div>
     </section>
   );
 }
-

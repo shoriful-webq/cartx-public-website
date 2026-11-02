@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Store, ArrowRight, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function HowItWorksPreview({ className }: { className?: string }) {
@@ -17,7 +18,7 @@ export function HowItWorksPreview({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-background transition-colors", className)}
     >
       <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <ScrollReveal className="max-w-3xl mx-auto text-center mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
             <Store className="h-3.5 w-3.5" />
             <span>{isBn ? "লাইভ কানেকশন" : "Seamless Store Sync"}</span>
@@ -34,12 +35,12 @@ export function HowItWorksPreview({ className }: { className?: string }) {
               ? "ড্যাশবোর্ডে আপনি যে পরিবর্তনই আনুন—নতুন প্রোডাক্ট, স্টক লেভেল কিংবা অফার—তা তাৎক্ষণিকভাবে কাস্টমার স্টোরে দৃশ্যমান হয়।"
               : "Every update made inside your merchant dashboard immediately reflects in real-time across your desktop and mobile storefront."}
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* 2-Column Split: Merchant Action vs Customer Experience */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
           {/* Left: Merchant Panel */}
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-xs flex flex-col justify-between">
+          <ScrollReveal direction="left" distance={16} className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-xs flex flex-col justify-between">
             <div className="space-y-4">
               <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-0.5 rounded-full inline-block">
                 {isBn ? "১. মার্চেন্ট ড্যাশবোর্ড অ্যাকশন" : "1. Merchant Admin Action"}
@@ -69,10 +70,10 @@ export function HowItWorksPreview({ className }: { className?: string }) {
               <CheckCircle2 className="h-4 w-4" />
               <span>{isBn ? "ক্লাউড ডাটাবেজ সিঙ্ক সম্পন্ন" : "Instantly propagated to cloud CDN"}</span>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right: Live Customer Storefront Result */}
-          <div className="rounded-2xl border border-primary/40 bg-primary/[0.03] p-6 sm:p-8 shadow-xs flex flex-col justify-between">
+          <ScrollReveal direction="right" distance={16} delay={100} className="rounded-2xl border border-primary/40 bg-primary/[0.03] p-6 sm:p-8 shadow-xs flex flex-col justify-between">
             <div className="space-y-4">
               <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/15 px-2.5 py-0.5 rounded-full inline-block">
                 {isBn ? "২. লাইভ কাস্টমার স্টোরফ্রন্ট" : "2. Live Shopper Viewport"}
@@ -107,7 +108,7 @@ export function HowItWorksPreview({ className }: { className?: string }) {
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

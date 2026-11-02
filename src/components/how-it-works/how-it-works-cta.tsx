@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n/language-context";
-import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Target, CheckCircle2 } from "lucide-react";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function HowItWorksCTA() {
   const { locale } = useLanguage();
@@ -18,9 +19,9 @@ export function HowItWorksCTA() {
     <section className="py-20 md:py-28 relative overflow-hidden bg-background">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] to-transparent pointer-events-none" />
       <div className="container relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl p-8 sm:p-12 md:p-16 border border-border bg-card/80 backdrop-blur-sm text-center shadow-lg">
+        <ScrollReveal className="relative rounded-3xl p-8 sm:p-12 md:p-16 border border-border bg-card/80 backdrop-blur-sm text-center shadow-lg">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20 mb-6">
-            <Sparkles className="h-3.5 w-3.5" />
+            <Target className="h-3.5 w-3.5" />
             <span>{isBn ? "সহজেই শুরু করুন" : "Get Started Today"}</span>
           </div>
 
@@ -60,7 +61,7 @@ export function HowItWorksCTA() {
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Smartphone, ArrowRight, Bell, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function WhiteLabelHero({ className }: { className?: string }) {
@@ -45,7 +46,7 @@ export function WhiteLabelHero({ className }: { className?: string }) {
       <div className="container relative hero-padding">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
           {/* Left Column: Text & CTAs */}
-          <div className="flex-1 max-w-xl text-center lg:text-left">
+          <ScrollReveal direction="up" distance={20} className="flex-1 max-w-xl text-center lg:text-left">
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/[0.06] px-3.5 py-1 text-xs font-semibold text-primary mb-4 shadow-2xs">
               <Smartphone className="h-3.5 w-3.5" />
@@ -90,10 +91,10 @@ export function WhiteLabelHero({ className }: { className?: string }) {
               <ShieldCheck className="h-3.5 w-3.5 text-success shrink-0" />
               <span>{isBn ? "নেটিভ আইওএস ও অ্যান্ড্রয়েড কম্পাইলেশন পাইপলাইন" : "Native iOS & Android compilation pipeline"}</span>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Illustrative Mobile App Showcase */}
-          <div className="flex-1 w-full max-w-md lg:max-w-none flex justify-center">
+          <ScrollReveal direction="up" distance={20} delay={150} className="flex-1 w-full max-w-md lg:max-w-none flex justify-center">
             <div className="relative w-full max-w-[340px] rounded-3xl border-4 border-slate-800 bg-background shadow-2xl p-4 overflow-hidden">
               {/* App Status Header */}
               <div className="flex items-center justify-between pb-3 mb-3 border-b border-border text-[11px] text-muted-foreground">
@@ -156,7 +157,7 @@ export function WhiteLabelHero({ className }: { className?: string }) {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

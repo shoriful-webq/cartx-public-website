@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function WhiteLabelProcess({ className }: { className?: string }) {
@@ -74,7 +75,7 @@ export function WhiteLabelProcess({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-background transition-colors", className)}
     >
       <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-14">
+        <ScrollReveal className="max-w-3xl mx-auto text-center mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
             <span>{isBn ? "ধাপে ধাপে যাত্রা" : "8-Step Implementation Journey"}</span>
           </div>
@@ -90,13 +91,14 @@ export function WhiteLabelProcess({ className }: { className?: string }) {
               ? "একটি সুশৃঙ্খল ও স্বচ্ছ প্রক্রিয়ার মাধ্যমে আমরা আপনার ব্র্যান্ডের মোবাইল অ্যাপ প্রস্তুত ও প্রকাশ করি।"
               : "A guided, structured deployment pipeline ensuring high quality and compliance with store policies."}
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* 8-step Responsive Timeline Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {steps.map((st, idx) => (
-            <div
+            <ScrollReveal
               key={st.num}
+              delay={(idx % 4) * 60}
               className="rounded-2xl border border-border bg-card p-5 shadow-xs hover:border-primary/40 hover:shadow-card transition-all flex flex-col justify-between"
             >
               <div>
@@ -115,7 +117,7 @@ export function WhiteLabelProcess({ className }: { className?: string }) {
                   {st.desc}
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

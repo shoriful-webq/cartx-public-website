@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { ContactFormState, ContactFormErrors } from "./types";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface ContactFormProps {
@@ -173,7 +174,7 @@ export function ContactForm({ initialCategory = "General Inquiry", className }: 
       className={cn("py-16 sm:py-24 border-b border-border bg-background transition-colors", className)}
     >
       <div className="container mx-auto max-w-4xl px-4 sm:px-6">
-        <div className="text-center mb-12">
+        <ScrollReveal className="text-center mb-12">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground mb-3">
             <span className="brand-gradient-text">
               {isBn ? "আমাদের একটি বার্তা পাঠান" : "Send Us a Message"}
@@ -184,7 +185,7 @@ export function ContactForm({ initialCategory = "General Inquiry", className }: 
               ? "আপনার ব্যবসার প্রয়োজনীয়তা জানান, এবং আমরা আপনার প্রদত্ত যোগাযোগের মাধ্যমে উত্তর দেব।"
               : "Tell us how we can help, and we'll follow up using the contact details you provide."}
           </p>
-        </div>
+        </ScrollReveal>
 
         {status === "success" ? (
           <div className="rounded-3xl border border-success/30 bg-card p-8 sm:p-12 text-center shadow-card max-w-2xl mx-auto animate-in fade-in zoom-in-95 duration-300">

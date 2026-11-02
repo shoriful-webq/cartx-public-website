@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { ChevronDown, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { HelpArticle } from "./help-data";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface HelpFAQAccordionProps {
@@ -27,11 +28,12 @@ export function HelpFAQAccordion({ articles, className }: HelpFAQAccordionProps)
 
   return (
     <div className={cn("space-y-3", className)}>
-      {articles.map((art) => {
+      {articles.map((art, idx) => {
         const isOpen = openIds.includes(art.id);
         return (
-          <div
+          <ScrollReveal
             key={art.id}
+            delay={idx * 40}
             className={cn(
               "rounded-2xl border transition-all duration-200 overflow-hidden",
               isOpen
@@ -69,7 +71,7 @@ export function HelpFAQAccordion({ articles, className }: HelpFAQAccordionProps)
                 {isBn ? art.answerBn : art.answerEn}
               </div>
             )}
-          </div>
+          </ScrollReveal>
         );
       })}
     </div>

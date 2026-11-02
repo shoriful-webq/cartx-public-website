@@ -9,6 +9,7 @@ import {
   Palette,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function WhyBrandedApp({ className }: { className?: string }) {
@@ -60,7 +61,7 @@ export function WhyBrandedApp({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-card/30 transition-colors", className)}
     >
       <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-14">
+        <ScrollReveal className="max-w-3xl mx-auto text-center mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
             <Smartphone className="h-3.5 w-3.5" />
             <span>{isBn ? "মোবাইল সুবিধার বিশ্লেষণ" : "Strategic Benefits"}</span>
@@ -77,14 +78,15 @@ export function WhyBrandedApp({ className }: { className?: string }) {
               ? "ওয়েবসাইটের পাশাপাশি গ্রাহকদের সাথে আরও দ্রুত ও কার্যকর যোগাযোগের সুবিধা পেতে নেটিভ মোবাইল অ্যাপের ভূমিকা।"
               : "Complement your web storefront with dedicated mobile native tools that give repeat buyers a streamlined shopping channel."}
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {benefits.map((b, idx) => {
             const Icon = b.icon;
             return (
-              <div
+              <ScrollReveal
                 key={idx}
+                delay={(idx % 3) * 70}
                 className="rounded-2xl border border-border bg-card p-6 shadow-xs hover:border-primary/40 hover:shadow-card transition-all"
               >
                 <div className="h-10 w-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
@@ -96,7 +98,7 @@ export function WhyBrandedApp({ className }: { className?: string }) {
                 <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   {b.desc}
                 </p>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

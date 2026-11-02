@@ -12,6 +12,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function HowItWorksSteps({ className }: { className?: string }) {
@@ -195,7 +196,7 @@ export function HowItWorksSteps({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-background transition-colors", className)}
     >
       <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <ScrollReveal className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
             <span>{isBn ? "পর্যায়ক্রমিক প্রক্রিয়া" : "Step-by-Step Flow"}</span>
           </div>
@@ -211,7 +212,7 @@ export function HowItWorksSteps({ className }: { className?: string }) {
               ? "কোনো জটিল কোডিং ছাড়াই একজন সাধারণ উদ্যোক্তা কীভাবে সফলভাবে অনলাইন ব্যবসা শুরু করবেন।"
               : "A clear, guided roadmap from zero to fulfilling customer orders and tracking performance."}
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* 7 Vertical Step Lockups with Alternating/Progressive Layout */}
         <div className="max-w-5xl mx-auto space-y-8 sm:space-y-12">
@@ -220,14 +221,15 @@ export function HowItWorksSteps({ className }: { className?: string }) {
             const isEven = idx % 2 === 1;
 
             return (
-              <div
+              <ScrollReveal
                 key={st.id}
-                id={st.id}
+                delay={(idx % 2) * 80}
                 className={cn(
                   "rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-xs hover:border-primary/40 hover:shadow-card transition-all flex flex-col md:flex-row gap-8 items-center",
                   isEven ? "md:flex-row-reverse" : ""
                 )}
               >
+                <div id={st.id} className="w-full flex flex-col md:flex-row gap-8 items-center">
                 {/* Text Content */}
                 <div className="flex-1 space-y-3">
                   <div className="flex items-center gap-3">
@@ -269,7 +271,8 @@ export function HowItWorksSteps({ className }: { className?: string }) {
                   </div>
                   {st.mockupPreview}
                 </div>
-              </div>
+                </div>
+              </ScrollReveal>
             );
           })}
         </div>

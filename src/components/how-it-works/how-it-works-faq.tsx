@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { ChevronDown, HelpCircle } from "lucide-react";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface FAQItem {
@@ -82,7 +83,7 @@ export function HowItWorksFAQ() {
   return (
     <section className="py-16 md:py-24 bg-card/40 border-t border-border">
       <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <ScrollReveal className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20 mb-4">
             <HelpCircle className="h-3.5 w-3.5" />
             <span>{isBn ? "সাধারণ প্রশ্নোত্তর" : "Frequently Asked Questions"}</span>
@@ -97,14 +98,15 @@ export function HowItWorksFAQ() {
               ? "CartX সেটআপ, পেমেন্ট, কুরিয়ার এবং স্টোর পরিচালনা সম্পর্কিত সাধারণ প্রশ্নের উত্তর।"
               : "Clear answers to common questions about setting up, managing, and scaling your CartX store."}
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="space-y-4">
-          {FAQ_ITEMS.map((item) => {
+          {FAQ_ITEMS.map((item, idx) => {
             const isOpen = openItem === item.id;
             return (
-              <div
+              <ScrollReveal
                 key={item.id}
+                delay={idx * 50}
                 className={cn(
                   "rounded-xl border transition-all duration-200 overflow-hidden",
                   isOpen
@@ -133,7 +135,7 @@ export function HowItWorksFAQ() {
                     {isBn ? item.answerBn : item.answerEn}
                   </div>
                 )}
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

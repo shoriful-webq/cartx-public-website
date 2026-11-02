@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { ChevronDown, HelpCircle, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface DemoFAQItem {
@@ -102,7 +103,7 @@ export function DemoFAQ({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-card/30 transition-colors", className)}
     >
       <div className="container mx-auto max-w-4xl px-4 sm:px-6">
-        <div className="text-center mb-12">
+        <ScrollReveal className="text-center mb-12">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.06] px-3.5 py-1 text-xs font-semibold text-primary transition-colors mb-3">
             <HelpCircle className="h-3.5 w-3.5" />
             <span>{isBn ? "প্রশ্নোত্তর" : "Demo FAQ"}</span>
@@ -117,14 +118,15 @@ export function DemoFAQ({ className }: { className?: string }) {
               ? "ডেমো কীভাবে পরিচালিত হয় এবং কী প্রত্যাশা করবেন সে সম্পর্কিত বিশদ তথ্য।"
               : "Everything you need to know about preparing for and attending your personalized platform demo."}
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="space-y-3.5">
-          {DEMO_FAQS.map((item) => {
+          {DEMO_FAQS.map((item, idx) => {
             const isOpen = openId === item.id;
             return (
-              <div
+              <ScrollReveal
                 key={item.id}
+                delay={idx * 50}
                 className={cn(
                   "rounded-2xl border transition-all duration-200 overflow-hidden",
                   isOpen
@@ -163,7 +165,7 @@ export function DemoFAQ({ className }: { className?: string }) {
                     )}
                   </div>
                 )}
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

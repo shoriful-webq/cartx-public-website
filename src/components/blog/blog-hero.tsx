@@ -3,6 +3,7 @@
 import React from "react";
 import { BookOpen } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function BlogHero({ className }: { className?: string }) {
@@ -15,7 +16,7 @@ export function BlogHero({ className }: { className?: string }) {
       className={cn("hero-bg relative overflow-hidden transition-colors py-12", className)}
     >
       <div className="container relative hero-padding">
-        <div className="mx-auto max-w-4xl text-center">
+        <ScrollReveal direction="up" distance={20} className="mx-auto max-w-4xl text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.06] px-4 py-1.5 text-xs font-semibold text-primary transition-colors mb-6">
             <BookOpen className="h-3.5 w-3.5" />
@@ -39,7 +40,7 @@ export function BlogHero({ className }: { className?: string }) {
               ? "ইকমার্স কৌশল, ডেলিভারি অপারেশন, পেমেন্ট গেটওয়ে এবং বিক্রয় বৃদ্ধির কার্যকর পরামর্শ নিয়ে আমাদের নিয়মিত নিবন্ধ।"
               : "Actionable guides, operational strategies, and industry insights curated to help modern merchants launch and scale."}
           </p>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

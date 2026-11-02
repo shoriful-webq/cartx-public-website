@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, Smartphone, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function WhiteLabelCTA({ className }: { className?: string }) {
@@ -16,7 +17,7 @@ export function WhiteLabelCTA({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 bg-card/30 transition-colors", className)}
     >
       <div className="container max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 sm:p-12 md:p-16 text-center shadow-card">
+        <ScrollReveal className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 sm:p-12 md:p-16 text-center shadow-card">
           <div className="relative z-10 max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-5 shadow-2xs">
               <Smartphone className="h-3.5 w-3.5" />
@@ -68,7 +69,7 @@ export function WhiteLabelCTA({ className }: { className?: string }) {
               </span>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -10,13 +10,14 @@ import {
   Copy,
   Check,
   ArrowRight,
-  Sparkles,
+  Target,
   BookOpen,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { BlogPost, BLOG_CATEGORIES, getRelatedBlogPosts } from "@/lib/blog-data";
 import { BlogCard } from "./blog-card";
 import { BlogNewsletter } from "./blog-newsletter";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 interface BlogDetailViewProps {
   post: BlogPost;
@@ -43,7 +44,7 @@ export function BlogDetailView({ post }: BlogDetailViewProps) {
     <article className="flex flex-col min-h-screen bg-background text-foreground transition-colors">
       {/* Section 1: Article Header */}
       <header className="hero-bg py-10 sm:py-14 transition-colors">
-        <div className="container mx-auto max-w-4xl px-4 sm:px-6">
+        <ScrollReveal direction="up" distance={20} className="container mx-auto max-w-4xl px-4 sm:px-6">
           {/* Breadcrumbs */}
           <nav aria-label="Breadcrumbs" className="flex items-center gap-2 text-xs text-muted-foreground mb-6 flex-wrap">
             <Link href="/" className="hover:text-foreground transition-colors">
@@ -113,7 +114,7 @@ export function BlogDetailView({ post }: BlogDetailViewProps) {
               </button>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </header>
 
       {/* Main Body Layout: Table of Contents + Article Text */}
@@ -236,9 +237,9 @@ export function BlogDetailView({ post }: BlogDetailViewProps) {
               </div>
 
               {/* Contextual Product CTA */}
-              <div className="mt-14 rounded-2xl border border-border bg-gradient-to-br from-card to-card/60 p-8 sm:p-10 shadow-sm relative overflow-hidden">
+              <ScrollReveal className="mt-14 rounded-2xl border border-border bg-gradient-to-br from-card to-card/60 p-8 sm:p-10 shadow-sm relative overflow-hidden">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
-                  <Sparkles className="h-3.5 w-3.5" />
+                  <Target className="h-3.5 w-3.5" />
                   <span>{isBn ? "কার্টএক্স শুরু করুন" : "Power Your Online Store"}</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
@@ -266,7 +267,7 @@ export function BlogDetailView({ post }: BlogDetailViewProps) {
                     <span>{isBn ? "প্ল্যান ও প্রাইসিং দেখুন" : "View Pricing"}</span>
                   </Link>
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* Bottom Social Share */}
               <div className="mt-8 pt-6 border-t border-border flex items-center justify-between flex-wrap gap-4">
@@ -296,17 +297,19 @@ export function BlogDetailView({ post }: BlogDetailViewProps) {
           className="py-14 sm:py-20 border-t border-border bg-card/20 transition-colors"
         >
           <div className="container mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="mb-8">
+            <ScrollReveal className="mb-8">
               <span className="text-xs font-bold uppercase tracking-wider text-primary block mb-1">
                 {isBn ? "আরও পড়ুন" : "Keep Learning"}
               </span>
               <h2 className="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
                 {isBn ? "সম্পর্কিত অন্যান্য নিবন্ধ" : "Related Guides & Insights"}
               </h2>
-            </div>
+            </ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {relatedPosts.map((rPost) => (
-                <BlogCard key={rPost.slug} post={rPost} />
+              {relatedPosts.map((rPost, idx) => (
+                <ScrollReveal key={rPost.slug} delay={(idx % 3) * 70}>
+                  <BlogCard post={rPost} />
+                </ScrollReveal>
               ))}
             </div>
           </div>

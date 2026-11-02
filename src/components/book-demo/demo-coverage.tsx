@@ -10,6 +10,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function DemoCoverage({ className }: { className?: string }) {
@@ -79,7 +80,7 @@ export function DemoCoverage({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-card/30 transition-colors", className)}
     >
       <div className="container mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto text-center mb-14">
+        <ScrollReveal className="max-w-3xl mx-auto text-center mb-14">
           <span className="text-xs font-bold uppercase tracking-wider text-primary block mb-2">
             {isBn ? "ডেমোতে যা যা দেখানো হবে" : "DEMO FOCUS AREAS"}
           </span>
@@ -95,14 +96,15 @@ export function DemoCoverage({ className }: { className?: string }) {
               ? "আমাদের প্রোডাক্ট ডেমো আপনার নির্দিষ্ট রিটেইল মডেল ও অপারেশনাল প্রয়োজনীয়তার ওপর ভিত্তি করে সাজানো হয়।"
               : "Every demonstration is tailored directly around your specific retail model, team size, and workflow requirements."}
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {capabilities.map((cap, idx) => {
             const Icon = cap.icon;
             return (
-              <div
+              <ScrollReveal
                 key={idx}
+                delay={(idx % 3) * 60}
                 className="rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs hover:border-primary/40 hover:shadow-card transition-all flex flex-col justify-between group"
               >
                 <div>
@@ -116,7 +118,7 @@ export function DemoCoverage({ className }: { className?: string }) {
                     {isBn ? cap.descBn : cap.descEn}
                   </p>
                 </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

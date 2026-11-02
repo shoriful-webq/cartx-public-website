@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Send, CheckCircle2, AlertCircle, Loader2, Check } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { DemoFormState, DemoFormErrors } from "./types";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 const BUSINESS_CATEGORIES = [
@@ -242,7 +243,7 @@ export function BookDemoForm({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-background transition-colors", className)}
     >
       <div className="container mx-auto max-w-4xl px-4 sm:px-6">
-        <div className="text-center mb-12">
+        <ScrollReveal className="text-center mb-12">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground mb-3">
             <span className="brand-gradient-text">
               {isBn ? "আপনার ব্যবসা সম্পর্কে জানান" : "Tell Us About Your Business"}
@@ -253,7 +254,7 @@ export function BookDemoForm({ className }: { className?: string }) {
               ? "কয়েকটি বিবরণ শেয়ার করুন যাতে আমরা আপনার নির্দিষ্ট প্রয়োজনীয়তা সঠিকভাবে বুঝতে পারি।"
               : "Share a few details so we can better understand your requirements and prepare a relevant demo."}
           </p>
-        </div>
+        </ScrollReveal>
 
         {status === "success" ? (
           <div className="rounded-3xl border border-success/30 bg-card p-8 sm:p-12 text-center shadow-card max-w-2xl mx-auto animate-in fade-in zoom-in-95 duration-300">

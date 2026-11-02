@@ -10,6 +10,7 @@ import {
   Check,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function StoreSectionsShowcase({ className }: { className?: string }) {
@@ -153,27 +154,30 @@ export function StoreSectionsShowcase({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-background transition-colors", className)}
     >
       <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
-            <Layers className="h-3.5 w-3.5" />
-            <span>{isBn ? "মডুলার সেকশন" : "Modular Sections"}</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground mb-3">
-            <span className="brand-gradient-text">
+        <ScrollReveal delay={0}>
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
+              <Layers className="h-3.5 w-3.5" />
+              <span>{isBn ? "মডুলার সেকশন" : "Modular Sections"}</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground mb-3">
+              <span className="brand-gradient-text">
+                {isBn
+                  ? "আপনার স্টোরফ্রন্টের প্রতিটি গুরুত্বপূর্ণ সেকশন"
+                  : "Essential Building Blocks of Every CartX Store"}
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               {isBn
-                ? "আপনার স্টোরফ্রন্টের প্রতিটি গুরুত্বপূর্ণ সেকশন"
-                : "Essential Building Blocks of Every CartX Store"}
-            </span>
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-            {isBn
-              ? "অ্যানাউন্সমেন্ট বার থেকে শুরু করে ভ্যারিয়েন্ট সিলেক্টর ও চেকআউট—সবকিছুই সহজেই সাজিয়ে নেওয়ার উপযোগী।"
-              : "Explore the modular storefront components that merchants can customize directly to reflect their brand identity."}
-          </p>
-        </div>
+                ? "অ্যানাউন্সমেন্ট বার থেকে শুরু করে ভ্যারিয়েন্ট সিলেক্টর ও চেকআউট—সবকিছুই সহজেই সাজিয়ে নেওয়ার উপযোগী।"
+                : "Explore the modular storefront components that merchants can customize directly to reflect their brand identity."}
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Interactive Tab navigation */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
+        <ScrollReveal delay={80}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
           {/* Left: Tab list */}
           <div className="lg:col-span-5 space-y-2">
             {storefrontSections.map((sec, idx) => {
@@ -239,6 +243,7 @@ export function StoreSectionsShowcase({ className }: { className?: string }) {
             </div>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

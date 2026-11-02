@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { WhiteLabelFAQItem } from "./types";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 const FAQS: WhiteLabelFAQItem[] = [
@@ -85,7 +86,7 @@ export function WhiteLabelFAQ({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-background transition-colors", className)}
     >
       <div className="container max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-14">
+        <ScrollReveal className="text-center mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
             <HelpCircle className="h-3.5 w-3.5" />
             <span>{isBn ? "সাধারণ প্রশ্নোত্তর" : "App FAQ"}</span>
@@ -102,14 +103,15 @@ export function WhiteLabelFAQ({ className }: { className?: string }) {
               ? "মালিকানা, পাবলিশিং পলিসি ও নিয়মিত আপডেট সম্পর্কে যাবতীয় তথ্য।"
               : "Clear answers regarding ownership, publishing processes, maintenance, and platform policies."}
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="space-y-3">
-          {FAQS.map((faq) => {
+          {FAQS.map((faq, idx) => {
             const isOpen = !!openIds[faq.id];
             return (
-              <div
+              <ScrollReveal
                 key={faq.id}
+                delay={idx * 50}
                 className="rounded-2xl border border-border bg-card overflow-hidden shadow-xs transition-all hover:border-border/80"
               >
                 <button
@@ -134,7 +136,7 @@ export function WhiteLabelFAQ({ className }: { className?: string }) {
                     <div className="pt-3.5">{faq.answer[isBn ? "bn" : "en"]}</div>
                   </div>
                 )}
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

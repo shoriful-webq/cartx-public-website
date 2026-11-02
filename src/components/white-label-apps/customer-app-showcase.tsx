@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { CustomerScreenId } from "./types";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function CustomerAppShowcase({ className }: { className?: string }) {
@@ -81,7 +82,7 @@ export function CustomerAppShowcase({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-background transition-colors", className)}
     >
       <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <ScrollReveal className="max-w-3xl mx-auto text-center mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
             <Smartphone className="h-3.5 w-3.5" />
             <span>{isBn ? "কাস্টমার শপিং অভিজ্ঞতা" : "Customer App Showcase"}</span>
@@ -98,12 +99,12 @@ export function CustomerAppShowcase({ className }: { className?: string }) {
               ? "হোম স্ক্রিন থেকে শুরু করে কার্ট ও লাইভ অর্ডার ট্র্যাকিং পর্যন্ত প্রতিটি স্ক্রিনের বাস্তবসম্মত ডেমো দেখুন।"
               : "Experience the six core interfaces shoppers use every day to discover products and complete purchases."}
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Interactive Layout: Left Screen Tabs, Right Device Preview */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
           {/* Left Column: Screen selector tabs */}
-          <div className="lg:col-span-5 space-y-2">
+          <ScrollReveal direction="left" distance={16} className="lg:col-span-5 space-y-2">
             {screens.map((s) => {
               const Icon = s.icon;
               const isActive = activeScreen === s.id;
@@ -141,10 +142,10 @@ export function CustomerAppShowcase({ className }: { className?: string }) {
                 </button>
               );
             })}
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Active Screen Rendering inside Mobile Frame */}
-          <div className="lg:col-span-7 flex justify-center">
+          <ScrollReveal direction="right" distance={16} delay={100} className="lg:col-span-7 flex justify-center">
             <div className="w-full max-w-[340px] rounded-3xl border-4 border-slate-800 bg-background shadow-2xl p-4 min-h-[560px] flex flex-col justify-between">
               <div>
                 {/* Status Header */}
@@ -298,7 +299,7 @@ export function CustomerAppShowcase({ className }: { className?: string }) {
                 <span className="flex flex-col items-center"><User className="h-3.5 w-3.5" />Account</span>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

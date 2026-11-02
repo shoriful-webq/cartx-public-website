@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Play, Pause, Video } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function HowItWorksWalkthrough({ className }: { className?: string }) {
@@ -56,7 +57,7 @@ export function HowItWorksWalkthrough({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-card/30 transition-colors", className)}
     >
       <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <ScrollReveal className="max-w-3xl mx-auto text-center mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
             <Video className="h-3.5 w-3.5" />
             <span>{isBn ? "ভিডিও ও ইন্টারঅ্যাক্টিভ ওয়াকথ্রু" : "Interactive Product Walkthrough"}</span>
@@ -73,10 +74,10 @@ export function HowItWorksWalkthrough({ className }: { className?: string }) {
               ? "ধাপে ধাপে দেখুন কীভাবে সহজে কয়েক ক্লিকে একটি পূর্ণাঙ্গ অনলাইন স্টোর ম্যানেজ করা যায়।"
               : "An interactive simulated walkthrough showcasing the merchant dashboard interface, product creation, and courier handovers."}
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Video / Walkthrough Player Container */}
-        <div className="max-w-4xl mx-auto rounded-3xl border border-border bg-card shadow-card overflow-hidden">
+        <ScrollReveal delay={80} className="max-w-4xl mx-auto rounded-3xl border border-border bg-card shadow-card overflow-hidden">
           {/* Main Visual Player Frame */}
           <div className="relative aspect-video bg-slate-950 flex flex-col justify-between p-6 sm:p-8 text-white select-none">
             {/* Top Bar inside player */}
@@ -137,7 +138,7 @@ export function HowItWorksWalkthrough({ className }: { className?: string }) {
               ))}
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

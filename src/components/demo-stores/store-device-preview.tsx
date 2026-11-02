@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Monitor, Smartphone, ShoppingBag } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { DemoStoreItem } from "./types";
 import { cn } from "@/lib/utils";
 
@@ -25,57 +26,60 @@ export function StoreDevicePreview({ store, className }: StoreDevicePreviewProps
     >
       <div className="container mx-auto">
         {/* Section Heading */}
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
-            <Monitor className="h-3.5 w-3.5" />
-            <span>{isBn ? "রেসপন্সিভ প্রিভিউ" : "Responsive Device Views"}</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground mb-3">
-            <span className="brand-gradient-text">
+        <ScrollReveal delay={0}>
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
+              <Monitor className="h-3.5 w-3.5" />
+              <span>{isBn ? "রেসপন্সিভ প্রিভিউ" : "Responsive Device Views"}</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground mb-3">
+              <span className="brand-gradient-text">
+                {isBn
+                  ? "ডেস্কটপ ও মোবাইলে স্টোরফ্রন্টের বাস্তব দৃশ্য"
+                  : "Desktop and Mobile Storefront Experience"}
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               {isBn
-                ? "ডেস্কটপ ও মোবাইলে স্টোরফ্রন্টের বাস্তব দৃশ্য"
-                : "Desktop and Mobile Storefront Experience"}
-            </span>
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-            {isBn
-              ? "যেকোনো ডিভাইসের স্ক্রিনেই কার্টএক্স স্টোরফ্রন্ট স্বয়ংক্রিয়ভাবে নিখুঁত ও দৃষ্টিনন্দনভাবে মানিয়ে নেয়।"
-              : "CartX storefronts automatically adapt seamlessly across desktop computers, tablets, and mobile handsets."}
-          </p>
+                ? "যেকোনো ডিভাইসের স্ক্রিনেই কার্টএক্স স্টোরফ্রন্ট স্বয়ংক্রিয়ভাবে নিখুঁত ও দৃষ্টিনন্দনভাবে মানিয়ে নেয়।"
+                : "CartX storefronts automatically adapt seamlessly across desktop computers, tablets, and mobile handsets."}
+            </p>
 
-          {/* Working Device Switcher */}
-          <div className="mt-6 inline-flex items-center gap-1 rounded-full border border-border bg-card p-1 shadow-xs">
-            <button
-              type="button"
-              onClick={() => setDevice("desktop")}
-              className={cn(
-                "inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs font-semibold transition-all cursor-pointer",
-                device === "desktop"
-                  ? "bg-primary text-primary-foreground shadow-xs font-bold"
-                  : "text-muted-foreground hover:text-foreground"
-              )}
-            >
-              <Monitor className="h-4 w-4" />
-              <span>{isBn ? "ডেস্কটপ ভিউ" : "Desktop View"}</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setDevice("mobile")}
-              className={cn(
-                "inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs font-semibold transition-all cursor-pointer",
-                device === "mobile"
-                  ? "bg-primary text-primary-foreground shadow-xs font-bold"
-                  : "text-muted-foreground hover:text-foreground"
-              )}
-            >
-              <Smartphone className="h-4 w-4" />
-              <span>{isBn ? "মোবাইল ভিউ" : "Mobile View"}</span>
-            </button>
+            {/* Working Device Switcher */}
+            <div className="mt-6 inline-flex items-center gap-1 rounded-full border border-border bg-card p-1 shadow-xs">
+              <button
+                type="button"
+                onClick={() => setDevice("desktop")}
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs font-semibold transition-all cursor-pointer",
+                  device === "desktop"
+                    ? "bg-primary text-primary-foreground shadow-xs font-bold"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                <Monitor className="h-4 w-4" />
+                <span>{isBn ? "ডেস্কটপ ভিউ" : "Desktop View"}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setDevice("mobile")}
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs font-semibold transition-all cursor-pointer",
+                  device === "mobile"
+                    ? "bg-primary text-primary-foreground shadow-xs font-bold"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                <Smartphone className="h-4 w-4" />
+                <span>{isBn ? "মোবাইল ভিউ" : "Mobile View"}</span>
+              </button>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Device Container Frame */}
-        <div className="flex justify-center">
+        <ScrollReveal delay={100}>
+          <div className="flex justify-center">
           <div
             className={cn(
               "w-full transition-all duration-300",
@@ -163,6 +167,7 @@ export function StoreDevicePreview({ store, className }: StoreDevicePreviewProps
             </div>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

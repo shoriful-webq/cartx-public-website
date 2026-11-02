@@ -2,9 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Clock, Calendar, Sparkles } from "lucide-react";
+import { ArrowRight, Clock, Calendar, BookmarkCheck } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
 import { BlogPost } from "@/lib/blog-data";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface BlogFeaturedProps {
@@ -22,14 +23,14 @@ export function BlogFeatured({ post, className }: BlogFeaturedProps) {
       className={cn("py-8 border-b border-border bg-card/20 transition-colors", className)}
     >
       <div className="container mx-auto">
-        <div className="max-w-5xl mx-auto rounded-3xl border border-border bg-card shadow-sm hover:border-primary/40 transition-all overflow-hidden group">
+        <ScrollReveal className="max-w-5xl mx-auto rounded-3xl border border-border bg-card shadow-sm hover:border-primary/40 transition-all overflow-hidden group">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
             {/* Visual Cover Accent Banner */}
             <div className="lg:col-span-5 bg-gradient-to-br from-primary/20 via-primary/10 to-muted p-8 sm:p-12 flex flex-col justify-between relative overflow-hidden">
               <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
               <div className="relative z-10">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
-                  <Sparkles className="h-3.5 w-3.5" />
+                  <BookmarkCheck className="h-3.5 w-3.5" />
                   <span>{isBn ? "নির্বাচিত গাইড" : "Featured Guide"}</span>
                 </span>
                 <div className="text-xl sm:text-2xl font-mono font-bold text-foreground/80 mt-2">
@@ -91,7 +92,7 @@ export function BlogFeatured({ post, className }: BlogFeaturedProps) {
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

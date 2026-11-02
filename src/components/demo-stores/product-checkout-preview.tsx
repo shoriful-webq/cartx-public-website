@@ -9,6 +9,7 @@ import {
   RefreshCw,
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function ProductCheckoutPreview({ className }: { className?: string }) {
@@ -38,37 +39,42 @@ export function ProductCheckoutPreview({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-card/30 transition-colors", className)}
     >
       <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
-            <ShoppingBag className="h-3.5 w-3.5" />
-            <span>{isBn ? "চেকআউট প্রিভিউ" : "Checkout Flow Preview"}</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground mb-3">
-            <span className="brand-gradient-text">
+        <ScrollReveal delay={0}>
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
+              <ShoppingBag className="h-3.5 w-3.5" />
+              <span>{isBn ? "চেকআউট প্রিভিউ" : "Checkout Flow Preview"}</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground mb-3">
+              <span className="brand-gradient-text">
+                {isBn
+                  ? "পণ্য নির্বাচন থেকে নিরাপদ চেকআউটের সহজ প্রবাহ"
+                  : "Product Detail & Frictionless Checkout Flow"}
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               {isBn
-                ? "পণ্য নির্বাচন থেকে নিরাপদ চেকআউটের সহজ প্রবাহ"
-                : "Product Detail & Frictionless Checkout Flow"}
-            </span>
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-            {isBn
-              ? "গ্রাহকরা কীভাবে পণ্য ভ্যারিয়েন্ট সিলেক্ট করে এক ক্লিকে অর্ডার সম্পন্ন করেন তা সরাসরি পরীক্ষা করুন।"
-              : "Experience how customers browse variants, add items to their shopping bag, and complete orders through CartX."}
-          </p>
-        </div>
+                ? "গ্রাহকরা কীভাবে পণ্য ভ্যারিয়েন্ট সিলেক্ট করে এক ক্লিকে অর্ডার সম্পন্ন করেন তা সরাসরি পরীক্ষা করুন।"
+                : "Experience how customers browse variants, add items to their shopping bag, and complete orders through CartX."}
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Demo Safe Environment Banner */}
-        <div className="max-w-4xl mx-auto rounded-xl border border-primary/20 bg-primary/[0.04] p-3 text-center text-xs text-primary font-medium mb-8 flex items-center justify-center gap-2">
-          <ShieldCheck className="h-4 w-4 shrink-0 text-primary" />
-          <span>
-            {isBn
-              ? "সিমুলেশন টেস্ট মোড: কোনো বাস্তব লেনদেন প্রক্রিয়া করা হয় না এবং কোনো পেমেন্ট তথ্য সংগ্রহ করা হয় না।"
-              : "Safe Simulation Mode: Non-transactional environment. No real payment credentials or bank details are collected."}
-          </span>
-        </div>
+        <ScrollReveal delay={60}>
+          <div className="max-w-4xl mx-auto rounded-xl border border-primary/20 bg-primary/[0.04] p-3 text-center text-xs text-primary font-medium mb-8 flex items-center justify-center gap-2">
+            <ShieldCheck className="h-4 w-4 shrink-0 text-primary" />
+            <span>
+              {isBn
+                ? "সিমুলেশন টেস্ট মোড: কোনো বাস্তব লেনদেন প্রক্রিয়া করা হয় না এবং কোনো পেমেন্ট তথ্য সংগ্রহ করা হয় না।"
+                : "Safe Simulation Mode: Non-transactional environment. No real payment credentials or bank details are collected."}
+            </span>
+          </div>
+        </ScrollReveal>
 
         {/* Interactive Experience Container */}
-        <div className="max-w-4xl mx-auto rounded-2xl border border-border bg-card shadow-xs overflow-hidden">
+        <ScrollReveal delay={120}>
+          <div className="max-w-4xl mx-auto rounded-2xl border border-border bg-card shadow-xs overflow-hidden">
           {/* Step Breadcrumbs */}
           <div className="grid grid-cols-3 border-b border-border text-center text-xs font-semibold select-none bg-muted/20">
             <button
@@ -370,6 +376,7 @@ export function ProductCheckoutPreview({ className }: { className?: string }) {
             )}
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

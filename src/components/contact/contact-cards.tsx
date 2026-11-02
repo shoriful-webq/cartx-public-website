@@ -3,6 +3,7 @@
 import React from "react";
 import { Handshake, LifeBuoy, Smartphone, Mail, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface ContactCardsProps {
@@ -74,11 +75,12 @@ export function ContactCards({ onSelectCategory, className }: ContactCardsProps)
     >
       <div className="container mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {cards.map((card) => {
+          {cards.map((card, idx) => {
             const Icon = card.icon;
             return (
-              <div
+              <ScrollReveal
                 key={card.id}
+                delay={(idx % 4) * 70}
                 className="rounded-2xl border border-border bg-card p-6 shadow-xs hover:border-primary/40 hover:shadow-card transition-all flex flex-col justify-between group"
               >
                 <div>
@@ -103,7 +105,7 @@ export function ContactCards({ onSelectCategory, className }: ContactCardsProps)
                     <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

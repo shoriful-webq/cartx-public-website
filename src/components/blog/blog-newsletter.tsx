@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Mail, CheckCircle2, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function BlogNewsletter({ className }: { className?: string }) {
@@ -26,7 +27,7 @@ export function BlogNewsletter({ className }: { className?: string }) {
       className={cn("py-16 sm:py-20 border-t border-border bg-card/30 transition-colors", className)}
     >
       <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto rounded-3xl border border-border bg-card p-8 sm:p-12 text-center shadow-sm relative overflow-hidden">
+        <ScrollReveal className="max-w-3xl mx-auto rounded-3xl border border-border bg-card p-8 sm:p-12 text-center shadow-sm relative overflow-hidden">
           <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4">
             <Mail className="h-6 w-6" />
           </div>
@@ -77,7 +78,7 @@ export function BlogNewsletter({ className }: { className?: string }) {
               ? "আমরা আপনার তথ্যের গোপনীয়তা রক্ষা করি। যেকোনো সময় আনসাবস্ক্রাইব করতে পারেন।"
               : "We respect your privacy. Unsubscribe anytime with a single click."}
           </p>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

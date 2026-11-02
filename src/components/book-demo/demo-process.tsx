@@ -3,6 +3,7 @@
 import React from "react";
 import { ClipboardList, SearchCheck, MessageSquare, Video } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function DemoProcess({ className }: { className?: string }) {
@@ -58,7 +59,7 @@ export function DemoProcess({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-card/20 transition-colors", className)}
     >
       <div className="container mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto text-center mb-14">
+        <ScrollReveal className="max-w-3xl mx-auto text-center mb-14">
           <span className="text-xs font-bold uppercase tracking-wider text-primary block mb-2">
             {isBn ? "পরবর্তী ধাপসমূহ" : "WHAT HAPPENS NEXT"}
           </span>
@@ -74,14 +75,15 @@ export function DemoProcess({ className }: { className?: string }) {
               ? "কোনো জটিলতা ছাড়া সরাসরি আমাদের প্রযুক্তি ও ব্যবসায়িক বিশেষজ্ঞদের সাথে আলোচনার সুশৃঙ্খল ধাপ।"
               : "We respect your time. Here is exactly what to expect once your demo request is received."}
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((st) => {
+          {steps.map((st, idx) => {
             const Icon = st.icon;
             return (
-              <div
+              <ScrollReveal
                 key={st.num}
+                delay={(idx % 4) * 70}
                 className="rounded-2xl border border-border bg-card p-6 shadow-xs relative flex flex-col justify-between"
               >
                 <div>
@@ -98,7 +100,7 @@ export function DemoProcess({ className }: { className?: string }) {
                     {isBn ? st.descBn : st.descEn}
                   </p>
                 </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

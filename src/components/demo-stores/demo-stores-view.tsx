@@ -11,6 +11,7 @@ import { StoreDevicePreview } from "./store-device-preview";
 import { StoreSectionsShowcase } from "./store-sections-showcase";
 import { ProductCheckoutPreview } from "./product-checkout-preview";
 import { DemoStoresCTA } from "./demo-stores-cta";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 import { Inbox } from "lucide-react";
 
@@ -98,13 +99,14 @@ export function DemoStoresView() {
           {/* Store Gallery Grid */}
           {filteredStores.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {filteredStores.map((store) => (
-                <DemoStoreCard
-                  key={store.id}
-                  store={store}
-                  onViewDemo={handleOpenDemo}
-                  onMobilePreview={handleOpenMobile}
-                />
+              {filteredStores.map((store, idx) => (
+                <ScrollReveal key={store.id} delay={(idx % 3) * 80}>
+                  <DemoStoreCard
+                    store={store}
+                    onViewDemo={handleOpenDemo}
+                    onMobilePreview={handleOpenMobile}
+                  />
+                </ScrollReveal>
               ))}
             </div>
           ) : (

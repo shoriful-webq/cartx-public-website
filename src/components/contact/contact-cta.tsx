@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function ContactCTA({ className }: { className?: string }) {
@@ -22,7 +23,7 @@ export function ContactCTA({ className }: { className?: string }) {
       className={cn("py-20 sm:py-28 bg-background relative overflow-hidden transition-colors", className)}
     >
       <div className="container mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="rounded-3xl border border-border bg-card/60 backdrop-blur-xs p-8 sm:p-14 text-center shadow-card relative overflow-hidden">
+        <ScrollReveal className="rounded-3xl border border-border bg-card/60 backdrop-blur-xs p-8 sm:p-14 text-center shadow-card relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/[0.04] rounded-full blur-3xl pointer-events-none" />
 
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-foreground mb-4">
@@ -61,7 +62,7 @@ export function ContactCTA({ className }: { className?: string }) {
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

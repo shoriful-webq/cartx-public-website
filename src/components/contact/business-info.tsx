@@ -3,6 +3,7 @@
 import React from "react";
 import { Building2, MapPin, Mail, Clock, Headphones } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function BusinessInfo({ className }: { className?: string }) {
@@ -58,7 +59,7 @@ export function BusinessInfo({ className }: { className?: string }) {
       className={cn("py-14 sm:py-20 border-b border-border bg-card/20 transition-colors", className)}
     >
       <div className="container mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="rounded-3xl border border-border bg-card p-8 sm:p-12 shadow-xs">
+        <ScrollReveal className="rounded-3xl border border-border bg-card p-8 sm:p-12 shadow-xs">
           <div className="mb-8 border-b border-border/70 pb-6">
             <span className="text-xs font-bold uppercase tracking-wider text-primary block mb-1">
               {isBn ? "প্রতিষ্ঠানের বিবরণ" : "Corporate Details"}
@@ -103,7 +104,7 @@ export function BusinessInfo({ className }: { className?: string }) {
               );
             })}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

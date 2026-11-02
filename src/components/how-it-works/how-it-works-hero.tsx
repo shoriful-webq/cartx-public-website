@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, Compass } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function HowItWorksHero({ className }: { className?: string }) {
@@ -43,7 +44,7 @@ export function HowItWorksHero({ className }: { className?: string }) {
       />
 
       <div className="container relative hero-padding">
-        <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
+        <ScrollReveal direction="up" distance={20} className="max-w-3xl mx-auto text-center flex flex-col items-center">
           {/* Eyebrow badge */}
           <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/[0.06] px-3.5 py-1 text-xs font-semibold text-primary mb-4 shadow-2xs">
             <Compass className="h-3.5 w-3.5" />
@@ -82,7 +83,7 @@ export function HowItWorksHero({ className }: { className?: string }) {
               <span>{isBn ? "ধাপগুলো দেখুন" : "Explore the 7 Steps"}</span>
             </a>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

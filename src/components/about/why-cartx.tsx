@@ -3,6 +3,7 @@
 import React from "react";
 import { KeyRound, Workflow, Wand2, Landmark, TrendingUp } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 export function WhyCartX({ className }: { className?: string }) {
@@ -59,50 +60,54 @@ export function WhyCartX({ className }: { className?: string }) {
       className={cn("py-16 sm:py-24 border-b border-border bg-background transition-colors", className)}
     >
       <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
-            <span>{isBn ? "কেন CartX আলাদা" : "Built Differently"}</span>
+        <ScrollReveal delay={0}>
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/[0.06] text-primary text-xs font-semibold mb-3">
+              <span>{isBn ? "কেন CartX আলাদা" : "Built Differently"}</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground mb-3">
+              <span className="brand-gradient-text">
+                {isBn ? "কেন ব্যবসায়ীরা CartX বেছে নেন" : "Why Choose CartX"}
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              {isBn
+                ? "৫টি মূল স্তম্ভ যা আমাদের পণ্য উন্নয়ন এবং প্রতিটি ফিচারের নকশাকে পথ প্রদর্শন করে।"
+                : "Five architectural and operational pillars that make CartX the platform of choice for forward-thinking merchants."}
+            </p>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground mb-3">
-            <span className="brand-gradient-text">
-              {isBn ? "কেন ব্যবসায়ীরা CartX বেছে নেন" : "Why Choose CartX"}
-            </span>
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-            {isBn
-              ? "৫টি মূল স্তম্ভ যা আমাদের পণ্য উন্নয়ন এবং প্রতিটি ফিচারের নকশাকে পথ প্রদর্শন করে।"
-              : "Five architectural and operational pillars that make CartX the platform of choice for forward-thinking merchants."}
-          </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {pillars.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div
+              <ScrollReveal
                 key={idx}
-                className={cn(
-                  "rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs hover:border-primary/30 transition-all flex flex-col justify-between",
-                  idx === 0 && "lg:col-span-2"
-                )}
+                delay={idx * 70}
+                className={idx === 0 ? "lg:col-span-2" : undefined}
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="h-11 w-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-                      <Icon className="h-5 w-5" />
+                <div
+                  className="rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs hover:border-primary/30 transition-all flex flex-col justify-between h-full"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="h-11 w-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">
+                        {item.subtitle}
+                      </span>
                     </div>
-                    <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">
-                      {item.subtitle}
-                    </span>
+                    <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {item.desc}
-                  </p>
                 </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
@@ -110,4 +115,3 @@ export function WhyCartX({ className }: { className?: string }) {
     </section>
   );
 }
-

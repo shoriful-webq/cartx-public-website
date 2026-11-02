@@ -3,6 +3,7 @@
 import React from "react";
 import { ArrowDown, MonitorPlay, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/language-context";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 interface BookDemoHeroProps {
@@ -31,7 +32,7 @@ export function BookDemoHero({ onScrollToForm, className }: BookDemoHeroProps) {
       className={cn("hero-bg relative overflow-hidden transition-colors py-12", className)}
     >
       <div className="container relative hero-padding">
-        <div className="mx-auto max-w-4xl text-center">
+        <ScrollReveal direction="up" distance={20} className="mx-auto max-w-4xl text-center">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.06] px-4 py-1.5 text-xs font-semibold text-primary transition-colors mb-6">
             <MonitorPlay className="h-3.5 w-3.5" />
@@ -84,7 +85,7 @@ export function BookDemoHero({ onScrollToForm, className }: BookDemoHeroProps) {
               <ArrowDown className="h-4 w-4" />
             </button>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
