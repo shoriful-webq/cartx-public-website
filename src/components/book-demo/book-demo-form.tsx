@@ -47,6 +47,7 @@ const CAPABILITY_OPTIONS = [
   { id: "Analytics", en: "Business Analytics", bn: "রিপোর্ট ও অ্যানালিটিক্স" },
   { id: "Mobile Apps", en: "White-label Mobile Apps", bn: "মোবাইল শপিং অ্যাপ" },
   { id: "Integrations", en: "Third-party APIs", bn: "এপিআই ও ইন্টিগ্রেশন" },
+  { id: "Other", en: "Other Capabilities", bn: "অন্যান্য প্রয়োজনীয়তা" },
 ];
 
 export function BookDemoForm({ className }: { className?: string }) {
