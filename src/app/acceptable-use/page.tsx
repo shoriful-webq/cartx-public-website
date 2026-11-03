@@ -1,14 +1,21 @@
 import { Metadata } from "next";
 import { LegalPageLayout, LegalSection } from "@/components/legal/legal-page-layout";
+import { getCanonicalUrl } from "@/lib/seo/site-config";
+
+const canonical = getCanonicalUrl("/acceptable-use");
 
 export const metadata: Metadata = {
   title: "Acceptable Use Policy | CartX",
   description:
     "Review prohibited merchandise, unlawful activities, network security protections, and enforcement guidelines for stores operating on CartX.",
+  alternates: {
+    canonical,
+  },
   openGraph: {
     title: "Acceptable Use Policy | CartX",
     description:
       "Review prohibited merchandise, unlawful activities, network security protections, and enforcement guidelines for stores operating on CartX.",
+    url: canonical,
     type: "website",
   },
 };

@@ -1,14 +1,21 @@
 import { Metadata } from "next";
 import { LegalPageLayout, LegalSection } from "@/components/legal/legal-page-layout";
+import { getCanonicalUrl } from "@/lib/seo/site-config";
+
+const canonical = getCanonicalUrl("/terms");
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | CartX Platform Agreement",
   description:
     "Review the Terms and Conditions governing merchant store creation, subscription billing, zero commission commitments, and acceptable use of the CartX platform.",
+  alternates: {
+    canonical,
+  },
   openGraph: {
     title: "Terms & Conditions | CartX Platform Agreement",
     description:
       "Review the Terms and Conditions governing merchant store creation, subscription billing, zero commission commitments, and acceptable use of the CartX platform.",
+    url: canonical,
     type: "website",
   },
 };

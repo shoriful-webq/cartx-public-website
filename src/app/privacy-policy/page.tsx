@@ -1,14 +1,21 @@
 import { Metadata } from "next";
 import { LegalPageLayout, LegalSection } from "@/components/legal/legal-page-layout";
+import { getCanonicalUrl } from "@/lib/seo/site-config";
+
+const canonical = getCanonicalUrl("/privacy-policy");
 
 export const metadata: Metadata = {
   title: "Privacy Policy | CartX E-Commerce Platform",
   description:
     "Learn how CartX handles merchant account information, customer checkout data processed on behalf of stores, payment data flows, and platform security.",
+  alternates: {
+    canonical,
+  },
   openGraph: {
     title: "Privacy Policy | CartX E-Commerce Platform",
     description:
       "Learn how CartX handles merchant account information, customer checkout data processed on behalf of stores, payment data flows, and platform security.",
+    url: canonical,
     type: "website",
   },
 };

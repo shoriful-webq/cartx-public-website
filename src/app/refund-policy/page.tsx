@@ -1,14 +1,21 @@
 import { Metadata } from "next";
 import { LegalPageLayout, LegalSection } from "@/components/legal/legal-page-layout";
+import { getCanonicalUrl } from "@/lib/seo/site-config";
+
+const canonical = getCanonicalUrl("/refund-policy");
 
 export const metadata: Metadata = {
   title: "Refund & Cancellation Policy | CartX",
   description:
     "Review CartX guidelines regarding subscription plan renewals, merchant account cancellations, one-time fees, and refund evaluation procedures.",
+  alternates: {
+    canonical,
+  },
   openGraph: {
     title: "Refund & Cancellation Policy | CartX",
     description:
       "Review CartX guidelines regarding subscription plan renewals, merchant account cancellations, one-time fees, and refund evaluation procedures.",
+    url: canonical,
     type: "website",
   },
 };

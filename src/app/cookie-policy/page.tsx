@@ -1,14 +1,21 @@
 import { Metadata } from "next";
 import { LegalPageLayout, LegalSection } from "@/components/legal/legal-page-layout";
+import { getCanonicalUrl } from "@/lib/seo/site-config";
+
+const canonical = getCanonicalUrl("/cookie-policy");
 
 export const metadata: Metadata = {
   title: "Cookie Policy | CartX",
   description:
     "Learn about how CartX uses essential session cookies, local storage keys, and performance tokens on our public website and merchant platform.",
+  alternates: {
+    canonical,
+  },
   openGraph: {
     title: "Cookie Policy | CartX",
     description:
       "Learn about how CartX uses essential session cookies, local storage keys, and performance tokens on our public website and merchant platform.",
+    url: canonical,
     type: "website",
   },
 };
